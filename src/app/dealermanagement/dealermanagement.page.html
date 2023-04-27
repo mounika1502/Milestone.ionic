@@ -1,0 +1,94 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title style="text-align: center;font-size: xx-large;">dealermanagement</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">dealermanagement</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-searchbar placeholder="Search..." [(ngModel)]="searchtext"></ion-searchbar>
+  <ion-button (click)="data3()" style="margin-left: 50%;">My Dealers</ion-button>    <ion-button  (click)="Get()"  style="    margin-left: -67%;">All Dealers</ion-button>
+  
+<div *ngIf="data4">
+  <div *ngFor="let text of List1 | filter:searchtext">
+  <ion-card>
+    <ion-card-content>
+      <ion-card-header>
+
+        <ion-card-title>{{text.Firstname}}{{text.Lastname}}</ion-card-title>
+   
+        <ion-card-subtitle>{{text.Email}}</ion-card-subtitle>
+        <ion-card-subtitle>{{text.mobile}}</ion-card-subtitle>
+        <ion-card-subtitle>{{text.Street}}</ion-card-subtitle>
+        <ion-card-subtitle>{{text.state}}</ion-card-subtitle>
+        <ion-card-subtitle>{{text.UserType}}</ion-card-subtitle>
+        <ion-card-subtitle>{{text.City}}</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card-content>
+    <i class="fa fa-phone" aria-hidden="true"  style="color:green;text-align: center;margin-left: 26%;" [hidden]="aa === 'Dealer'"  > &nbsp;Contact Dealer</i> 
+    <p>
+      <a href="tel:{{text.mobile}}" style="margin-left: 30%;">{{text.mobile}}</a>
+    </p>
+ 
+
+
+  </ion-card>
+  </div>
+</div>
+<div *ngIf="data">
+  <div *ngFor="let text of array | filter:searchtext">
+  <ion-card>
+    <ion-card-content>
+      <ion-card-header>
+      
+        <ion-card-title>{{text.Firstname}}  {{text.Lastname}}</ion-card-title>
+        <hr>
+        <ion-card-subtitle>{{text.Email}}</ion-card-subtitle>
+        <hr>
+       <ion-card-subtitle>{{text.mobile}}</ion-card-subtitle>
+      <ion-card-subtitle>{{text.Street}}</ion-card-subtitle>
+      <ion-card-subtitle>{{text.state}}</ion-card-subtitle>
+      <ion-card-subtitle>{{text.UserType}}</ion-card-subtitle>
+        <ion-card-subtitle>{{text.City}}</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card-content>
+  
+    <ion-button  (click)="dealer2(text)" (click)="setOpen(true)" style="margin-left: 38%;">Add</ion-button>
+    
+ 
+<ion-alert
+  [isOpen]="isAlertOpen"
+  header="Alert"
+  subHeader="Important message"
+  message="Added Successfully"
+  [buttons]="alertButtons"
+  (didDismiss)="setOpen(false)"
+></ion-alert>
+
+  </ion-card>
+  </div>
+</div>
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

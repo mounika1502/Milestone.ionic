@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>add-shipper</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> 
+  <h1 style="text-align: center;"><b>ADD SHIPPER</b></h1>
+    <form [formGroup]="ShipperForm">
+    <hr>
+      <ion-list style="padding-left: 2.5%;">
+        <ion-label style="margin-top: -30px;" ><b>Name :</b></ion-label><br>
+        <ion-input type="text" style=" width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="Name" placeholder=" Enter your name"></ion-input>
+                     
+        <ion-label ><b>Phone Number :</b></ion-label><br>
+        <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="Mobile" placeholder=" Enter your phone number"> </ion-input>                                             
+                                                
+        <ion-label ><b>Truck Type :</b></ion-label>   <i class="fa fa-question-circle-o" style="font-size:15px; color: rgb(102, 102, 232);" ></i>               
+        <ion-input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="Truck" placeholder=" Enter your truck name" > </ion-input>                                                   
+                    
+        <ion-label ><b>Truck Number :</b></ion-label>   <i class="fa fa-question-circle-o" style="font-size:15px; color: rgb(102, 102, 232);" ></i>               
+        <ion-input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="Trucknumber" placeholder=" Enter your truck number"> </ion-input>     
+                        
+        <ion-label ><b>Truck Image :</b></ion-label>
+        <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="Truckimage" placeholder=" Upload your truck image"></ion-input>                       
+                
+        <ion-label ><b>Driving Licence Image :</b></ion-label>
+        <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height:1em;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="Licence" placeholder=" Upload your driving Licence image"></ion-input>
+                                    
+        <ion-label ><b>Aadhar Card Image :</b></ion-label>
+        <ion-input type="text" style="margin-top: 7px; width: 97%;height:2em;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="Aadhar" placeholder=" Upload your aadhar image">  </ion-input>
+                                 
+        <ion-label ><b>Pan Card Image :</b></ion-label>
+        <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="Pan" placeholder=" Upload your pancard image"></ion-input>
+
+        <ion-label ><b>Address :</b></ion-label>
+        <textarea type="text"  formControlName="Address" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height:10em;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" placeholder=" Enter your address" ></textarea>  
+
+        <div style="text-align: center;margin-bottom: 1em;">
+          <ion-button type="submit" (click)="submitForm()">Submit</ion-button>
+        </div>             
+      </ion-list>           
+   </form> 
+</ion-content>

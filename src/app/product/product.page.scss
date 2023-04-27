@@ -1,0 +1,18 @@
+
+ion-searchbar{
+    
+    --box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    ::ng-deep{
+        .searchbar-input-container{            
+            .searchbar-input{ 
+                border-radius: 20px;
+                border: 1px solid #a0a0a8;
+                //any style that you want to implement on your searchbar
+            }
+        }
+    }   
+}
+ion-toolbar {
+    --color: #ffffff;
+    --background:#697184;
+}

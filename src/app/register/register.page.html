@@ -1,0 +1,148 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title style="text-align: center;font-size: xx-large;font-weight: 700;">Register/Signup</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">register</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+  <!-- <ion-header >
+    <ion-toolbar>
+      <div style="display: flex;">
+        <ion-icon name="arrow-back-sharp" routerLink="/selecttype" style="font-size: 30px;"></ion-icon>
+        <ion-title align="center">Register</ion-title>
+      </div>
+    </ion-toolbar>
+    <ion-icon style="float:right"  name='cart-outline' right></ion-icon>
+  </ion-header> -->
+  <ion-content [fullscreen]="true">
+    <div class="circle-container">
+      <div class="circle circle-1"></div>
+      <div class="circle circle-2"></div>
+    </div>
+  <ion-list lines="none" class="ion-margin">
+    <h1 style="text-align: center;font-size: xx-large;">Milestone</h1>
+    <img src="https://media.istockphoto.com/id/502910284/photo/natural-stone-tiles-marble-granite-samples-stack-clipping-path.jpg?s=612x612&w=0&k=20&c=6-doPB7xCKGqQ6y1EVrJXcrw8ziMw8xmec1GlVxLbUE=">
+  
+    <form #userPost="ngForm" [formGroup]="SignupForm" >
+  
+      <ion-item class="ion-margin">
+    
+        <ion-input appCapitalize placeholder="Enter First Name"  type="text" clearInput="true" formControlName="Firstname"></ion-input>
+      </ion-item>
+     
+      <ion-item class="ion-margin">
+    
+        <ion-input appCapitalize placeholder="Enter Last Name" type="text" clearInput="true" formControlName="Lastname"></ion-input>
+      </ion-item>
+     
+      <ion-item class="ion-margin">
+    
+        <ion-input appCapitalize placeholder="Enter Email Address" type="text" clearInput="true" formControlName="Email"></ion-input>
+      </ion-item>
+     
+    <ion-item class="ion-margin">
+  
+      <ion-input appCapitalize placeholder="Enter Phone Number" type="text" clearInput="true" formControlName="mobile"></ion-input>
+    </ion-item>
+  
+    <ion-item class="ion-margin">
+  
+      <ion-input appCapitalize placeholder="Enter City" type="text" clearInput="true" formControlName="City"></ion-input>
+    </ion-item>
+  
+    <ion-item class="ion-margin">
+  
+      <ion-input appCapitalize placeholder="Enter Address" type="text" clearInput="true" formControlName="Street"></ion-input>
+    </ion-item>
+    <ion-item class="ion-margin">
+  
+      <ion-input appCapitalize placeholder="Enter pincode" type="text" clearInput="true" formControlName="pincode"></ion-input>
+    </ion-item>
+    <ion-item class="ion-margin">
+  
+      <ion-input appCapitalize placeholder="Enter Company Name" type="text" clearInput="true" formControlName="Company"></ion-input>
+    </ion-item>
+  
+    <ion-item class="ion-margin">
+      <ion-input appCapitalize placeholder="Enter Password" type="password" clearInput="true" formControlName="Password"></ion-input>
+    </ion-item>
+   
+    <ion-list>
+      <ion-item>
+        <ion-select aria-label="fruit" formControlName="state" placeholder="Please Select your state" autocomplete="off">
+          <ion-select-option value="">--Select--</ion-select-option>
+          <ion-select-option value="Andhra Pradesh">Andhra Pradesh</ion-select-option>
+          <ion-select-option value="Arunachal Pradesh">Arunachal Pradesh</ion-select-option>
+          <ion-select-option value="Assam">Assam</ion-select-option>
+          <ion-select-option value="Bihar">Bihar</ion-select-option>
+          <ion-select-option value="Chhattisgarh">Chhattisgarh</ion-select-option>
+          <ion-select-option value="Goa">Goa</ion-select-option>
+          <ion-select-option value="Gujarat">Gujarat</ion-select-option>
+          <ion-select-option value="Haryana">Haryana</ion-select-option>
+          <ion-select-option value="Himachal Pradesh">Himachal Pradesh</ion-select-option>
+          <ion-select-option value="Jammu & Kashmir">Jammu & Kashmir</ion-select-option>
+          <ion-select-option value="Jarkhand">Jarkhand</ion-select-option>
+          <ion-select-option value="Karnataka">Karnataka</ion-select-option>
+          <ion-select-option value="Kerala">Kerala</ion-select-option>
+          <ion-select-option value="Madya Pradesh">Madya Pradesh</ion-select-option>
+          <ion-select-option value="Maharastra">Maharastra</ion-select-option>
+          <ion-select-option value="Manipur">Manipur</ion-select-option>
+          <ion-select-option value="Meghalaya">Meghalaya</ion-select-option>
+          <ion-select-option value="Mizoram">Mizoram</ion-select-option>
+          <ion-select-option value="Nagaland">Nagaland</ion-select-option>
+          <ion-select-option value="Odisha">Odisha</ion-select-option>
+          <ion-select-option value="Panjab">Panjab</ion-select-option>
+          <ion-select-option value="Rajastan">Rajastan</ion-select-option>
+          <ion-select-option value="Sikkim">Sikkim</ion-select-option>
+          <ion-select-option value="Tamil Nadu">Tamil Nadu</ion-select-option>
+          <ion-select-option value="Telangana">Telangana</ion-select-option>
+          <ion-select-option value="Tripura">Tripura</ion-select-option>
+          <ion-select-option value="UttarPradesh">Uttar Pradesh</ion-select-option>
+          <ion-select-option value="West Bengal">West Bengal</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+   
+      <ion-list>
+      <ion-item>
+        <ion-select aria-label="fruit" formControlName="UserType" placeholder="Select User Type" autocomplete="off">
+          <ion-select-option value="">--Select--</ion-select-option>
+          <ion-select-option value="Manufacturer">Manufacturer</ion-select-option>
+          <ion-select-option value="Dealer">Dealer</ion-select-option>
+          </ion-select>
+          </ion-item>
+          </ion-list>
+          </form>
+          </ion-list>
+          <ion-button  style="height: 50px;   border-radius: 10px; margin-top:20px;" expand="full" strong="true" type="submit" [disabled]="SignupForm.value.Firstname == '' || SignupForm.value.Lastname == ''|| SignupForm.value.Email == ''|| SignupForm.value.Password == ''||SignupForm.value.UserType==''||SignupForm.value.City == ''|| SignupForm.value.state == '' || SignupForm.value.Password == ''|| SignupForm.value.Street == ''||SignupForm.value.Company=='' || SignupForm.value.pincode==''"    (click)="signupSubmit()" >
+            Register
+       
+           </ion-button>
+          </ion-content>
+          </ion-content>
+          
+      <!-- <span style="color: red;" *ngIf="UserType && UserType.invalid && UserType.touched">Enter a Valid Email</span>  -->
+  
+     
+  
+    
+  
+  <!--showing the list of address-->
+  
+  
+  
+  
+   
+  
+  
+  
+   
+    
+  
+   
+    

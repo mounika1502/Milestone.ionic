@@ -1,0 +1,107 @@
+// app-login {
+	    
+// }
+
+
+$white-color: #fff;
+$height100: 100%;
+
+
+ion-grid {
+    width:100%;
+    height: $height100;
+    background: #dfdfdf;
+}
+
+a{
+    text-decoration: underline;
+}
+ion-row {
+    height: $height100;
+}
+
+
+ion-col {
+    border: 1px solid #488aff;
+    background: $white-color;
+}
+
+
+ion-button {
+    font-weight: 300;
+}
+
+
+@media (min-width: 240px) and (max-width: 768px) {
+    ion-grid {
+        background: $white-color;
+    }
+    ion-col {
+        border: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+#bg {
+    height: 40%;
+    width: auto;
+    background: var(--ion-color-dark) url('https://thumbs.dreamstime.com/b/yellow-fire-truck-208470.jpg') no-repeat center center/cover;
+    border-radius: 0 0 45% 45%;
+    margin-left: -21vw;
+    position: relative;
+}
+
+/* ion-fab {
+
+    ion-icon {
+        font-size: 2.5rem;
+    }
+} */
+
+ion-list {
+    margin-top: 6vh;
+
+    ion-list-header {
+        font-weight: 1000;
+        font-size: 1.5rem;
+    }
+
+    ion-item {
+        border: 1px solid grey;
+        border-radius: 20px;
+        -webkit-box-shadow: 0 6px 4px -4px var(--ion-color-medium);
+        -moz-box-shadow: 0 6px 4px -4px var(--ion-color-medium);
+        box-shadow: 3px 6px 4px -4px var(--ion-color-medium);
+    }
+
+    p {
+        font-size: 0.8rem;
+        padding-left: 5vw;
+    }
+}
+
+h3 {
+    color: #4e5358;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+}
+
+ion-button {
+    --background: #687184;
+    margin-top: 60px;
+    height: 40px;
+}
+ion-toolbar {
+    --color: #ffffff;
+    --background:#697184;
+  }

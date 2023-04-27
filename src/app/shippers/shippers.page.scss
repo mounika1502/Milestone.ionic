@@ -1,0 +1,30 @@
+.addproduct{
+    background: #697184;
+    color: white;
+    border-radius: 5px;
+    border: 0;
+    height: 30px;
+    width: 165px; 
+    float: right;
+    margin-right: 1em;
+    margin-top: 1em; 
+    margin-bottom:0.5em ;
+}
+
+ion-searchbar{
+    
+    --box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    ::ng-deep{
+        .searchbar-input-container{            
+            .searchbar-input{ 
+                border-radius: 20px;
+                border: 1px solid #a0a0a8;
+                //any style that you want to implement on your searchbar
+            }
+        }
+    }   
+}
+.table{
+    align-content: center;
+    text-align: center;
+}

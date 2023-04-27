@@ -1,0 +1,171 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>checkout</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">checkout</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  
+
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title style="text-align: center;font-weight: 700;font-size: xx-large;">Checkout</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Checkout</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="circle-container">
+      <div class="circle circle-1"></div>
+      <div class="circle circle-2"></div>
+    </div>
+  <ion-list lines="none" class="ion-margin">
+    <h1 style="text-align: center;font-size: xx-large;">Milestone</h1>
+    <!-- <img src="https://media.istockphoto.com/id/502910284/photo/natural-stone-tiles-marble-granite-samples-stack-clipping-path.jpg?s=612x612&w=0&k=20&c=6-doPB7xCKGqQ6y1EVrJXcrw8ziMw8xmec1GlVxLbUE="> -->
+  
+    <!-- <form #userPost="ngForm" [formGroup]="chekoutForm" > -->
+  
+      <ion-item class="ion-margin">
+    
+        <ion-input appCapitalize placeholder="Enter First Name"  type="text" clearInput="true" [(ngModel)]="Firstname"></ion-input>
+      </ion-item>
+     
+      <ion-item class="ion-margin">
+    
+        <ion-input appCapitalize placeholder="Enter Last Name" type="text" clearInput="true" [(ngModel)]="Lastname"></ion-input>
+      </ion-item>
+     
+      <ion-item class="ion-margin">
+    
+        <ion-input appCapitalize placeholder="Enter Email Address" type="text" clearInput="true"  [(ngModel)]="Email"></ion-input>
+      </ion-item>
+     
+    <ion-item class="ion-margin">
+  
+      <ion-input appCapitalize placeholder="Enter Phone Number" type="text" clearInput="true"  [(ngModel)]="Phone"></ion-input>
+    </ion-item>
+  
+    <ion-item class="ion-margin">
+  
+      <ion-input appCapitalize placeholder="Enter City" type="text" clearInput="true"  [(ngModel)]="pincode"></ion-input>
+    </ion-item>
+  
+    <ion-item class="ion-margin">
+  
+      <ion-input appCapitalize placeholder="Enter Address" type="text" clearInput="true" [(ngModel)]="Address"></ion-input>
+    </ion-item>
+    <ion-item class="ion-margin">
+  
+      <ion-input appCapitalize placeholder="Enter pincode" type="text" clearInput="true" [(ngModel)]="pincode"></ion-input>
+    </ion-item>
+    <!-- <ion-item class="ion-margin">
+  
+      <ion-input appCapitalize placeholder="Enter Company Name" type="text" clearInput="true" [(ngModel)]="State"></ion-input>
+    </ion-item> -->
+  
+    <!-- <ion-item class="ion-margin">
+      <ion-input appCapitalize placeholder="Enter Password" type="password" clearInput="true" formControlName="Password"></ion-input>
+    </ion-item> -->
+   
+    <ion-list>
+      <ion-item>
+        <ion-select aria-label="fruit" [(ngModel)]="State" placeholder="Please Select your state" autocomplete="off">
+          <ion-select-option value="">--Select--</ion-select-option>
+          <ion-select-option value="Andhra Pradesh">Andhra Pradesh</ion-select-option>
+          <ion-select-option value="Arunachal Pradesh">Arunachal Pradesh</ion-select-option>
+          <ion-select-option value="Assam">Assam</ion-select-option>
+          <ion-select-option value="Bihar">Bihar</ion-select-option>
+          <ion-select-option value="Chhattisgarh">Chhattisgarh</ion-select-option>
+          <ion-select-option value="Goa">Goa</ion-select-option>
+          <ion-select-option value="Gujarat">Gujarat</ion-select-option>
+          <ion-select-option value="Haryana">Haryana</ion-select-option>
+          <ion-select-option value="Himachal Pradesh">Himachal Pradesh</ion-select-option>
+          <ion-select-option value="Jammu & Kashmir">Jammu & Kashmir</ion-select-option>
+          <ion-select-option value="Jarkhand">Jarkhand</ion-select-option>
+          <ion-select-option value="Karnataka">Karnataka</ion-select-option>
+          <ion-select-option value="Kerala">Kerala</ion-select-option>
+          <ion-select-option value="Madya Pradesh">Madya Pradesh</ion-select-option>
+          <ion-select-option value="Maharastra">Maharastra</ion-select-option>
+          <ion-select-option value="Manipur">Manipur</ion-select-option>
+          <ion-select-option value="Meghalaya">Meghalaya</ion-select-option>
+          <ion-select-option value="Mizoram">Mizoram</ion-select-option>
+          <ion-select-option value="Nagaland">Nagaland</ion-select-option>
+          <ion-select-option value="Odisha">Odisha</ion-select-option>
+          <ion-select-option value="Panjab">Panjab</ion-select-option>
+          <ion-select-option value="Rajastan">Rajastan</ion-select-option>
+          <ion-select-option value="Sikkim">Sikkim</ion-select-option>
+          <ion-select-option value="Tamil Nadu">Tamil Nadu</ion-select-option>
+          <ion-select-option value="Telangana">Telangana</ion-select-option>
+          <ion-select-option value="Tripura">Tripura</ion-select-option>
+          <ion-select-option value="UttarPradesh">Uttar Pradesh</ion-select-option>
+          <ion-select-option value="West Bengal">West Bengal</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    </ion-list>
+
+      <ion-button style="margin-left: 120px;" id="present-alert" >Continue to Pay</ion-button>
+<ion-alert
+ trigger="present-alert"
+ header=""
+ [buttons]="alertButtons"
+ 
+ [inputs]="alertInputs" 
+
+></ion-alert>
+    </ion-content>
+    
+     
+          <!-- </form> -->
+              
+           <div class="mt-1  text-center ">
+              <!-- <button class="submit" type="submit"  (click)="popup()">Continue to pay</button>&nbsp; -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <button btn btn-primary class="submit" (click)="cash1()" >Pay by cash</button>
+                      <br>
+                      <br>
+                      <button btn btn-primary class="submit" >Pay 50%</button>
+                      <br>
+                      <br>
+                      <button btn btn-primary class="submit" >Pay 100%</button>          
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+          <!-- <ion-button  style="height: 50px;   border-radius: 10px; margin-top:20px;" expand="full" strong="true" type="submit" [disabled]="Obj.Firstname == '' || Obj.Lastname == ''||Obj.Email == ''|| Obj.Phone == ''||Obj.pincode==''||Obj.Address == ''||Obj.State == ''">
+            Register
+       
+           </ion-button> -->
+        
+            
+           
+            
+
+
+</ion-content>

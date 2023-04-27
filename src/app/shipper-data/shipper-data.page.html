@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>shipper-data</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>   
+  <ion-list>
+    <h3 style="color: brown;">Shipper Details</h3>
+    <hr>
+    <ion-item>
+      <b>Shipper Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</b>
+        {{this.data.Name}}
+      </ion-item>
+      <ion-item>
+      <b>Mobile Number &nbsp;&nbsp;&nbsp;:&nbsp;</b>
+        {{this.data.Mobile}}
+      </ion-item>
+        <ion-item >
+          <b>Truck Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</b>
+          {{this.data.Truck}}
+        </ion-item>
+        <ion-item >
+        <b>Truck Number &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</b>
+          {{this.data.Trucknumber}}
+        </ion-item>
+        
+     <ion-item>
+      <b>Shipper Address :</b><br>
+       <p> {{this.data.Address}}</p>
+     </ion-item>                   
+     <div style="padding-top: 2%;">
+        <b>Truck :</b><br>
+        <img src="{{this.data.Truckimage}}" style="width:15.5em;padding-left: 5.5%;padding-top: 1.5%;">
+     </div> 
+      <div style="padding-top: 2%;">
+      <b>Licence : </b> <br>
+        <img src="{{this.data.Licence}}" style="width:15.5em;padding-left: 5.5%;padding-top: 1%;">                    
+      </div>                 
+      <div style="padding-top: 2%;">                
+      <b>Aadhar Card  &nbsp;:</b> <br>
+        <img src="{{this.data.Aadhar}}" style="width:15.5em;padding-left: 5.5%;padding-top: 1%;">                    
+      </div>            
+      <div style="padding-top: 2%;">
+      <b>Pan Card : </b><br>
+        <img src="{{this.data.Pan}}" style="width:15.5em;padding-left: 5.5%;padding-top: 1%;">                    
+      </div>
+      <div style="text-align: center;">
+        <button type="button" [hidden]="aa === 'Dealer'" (click)="edit(this.data)" class="edit">Edit</button>
+        <button type="button" [hidden]="aa === 'Dealer'" (click)="delete(this.data.Mobile)" class="delete">Delete</button>
+      </div>
+    </ion-list>     
+
+
+</ion-content>
