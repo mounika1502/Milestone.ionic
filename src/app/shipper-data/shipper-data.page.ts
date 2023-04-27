@@ -25,7 +25,7 @@ export class ShipperDataPage implements OnInit {
   
     //this is for edit the product
   edit(shippers:any){ 
-    window.location.href=("./shipper-update")
+    window.location.href=("./shipper-edit")
     localStorage.setItem('Shippers',JSON.stringify(shippers))   
   }
   

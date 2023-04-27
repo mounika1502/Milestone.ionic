@@ -48,7 +48,6 @@ const routes: Routes = [
     loadChildren: () => import('./manufacturers/manufacturers.module').then( m => m.ManufacturersPageModule)
   },
   {
-<<<<<<< HEAD
     path: 'product',
     loadChildren: () => import('./product/product.module').then( m => m.ProductPageModule)
   },
@@ -60,7 +59,8 @@ const routes: Routes = [
   {
     path: 'blackgalaxy',
     loadChildren: () => import('./blackgalaxy/blackgalaxy.module').then( m => m.BlackgalaxyPageModule)
-=======
+  },
+  {
     path: 'shippers',
     loadChildren: () => import('./shippers/shippers.module').then( m => m.ShippersPageModule)
   },
@@ -71,8 +71,11 @@ const routes: Routes = [
   {
     path: 'shipper-edit',
     loadChildren: () => import('./shipper-edit/shipper-edit.module').then( m => m.ShipperEditPageModule)
->>>>>>> 0e45ffa8252effdef1e5626f5d56573dc9923fb6
+  },  {
+    path: 'raw-product',
+    loadChildren: () => import('./raw-product/raw-product.module').then( m => m.RawProductPageModule)
   }
+
 
 ];
 
