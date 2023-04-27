@@ -71,7 +71,8 @@ const routes: Routes = [
   {
     path: 'shipper-edit',
     loadChildren: () => import('./shipper-edit/shipper-edit.module').then( m => m.ShipperEditPageModule)
-  },  {
+  },
+  {
     path: 'raw-product',
     loadChildren: () => import('./raw-product/raw-product.module').then( m => m.RawProductPageModule)
   }
