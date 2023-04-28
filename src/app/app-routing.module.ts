@@ -75,7 +75,15 @@ const routes: Routes = [
   {
     path: 'raw-product',
     loadChildren: () => import('./raw-product/raw-product.module').then( m => m.RawProductPageModule)
+  },  {
+    path: 'raw-data',
+    loadChildren: () => import('./raw-data/raw-data.module').then( m => m.RawDataPageModule)
+  },
+  {
+    path: 'raw-edit',
+    loadChildren: () => import('./raw-edit/raw-edit.module').then( m => m.RawEditPageModule)
   }
+
 
 
 ];

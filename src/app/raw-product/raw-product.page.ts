@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RawProductPage implements OnInit {
  products:any=[];
+  raw: any;
   constructor() { 
     this.get()
   }
@@ -15,7 +16,7 @@ export class RawProductPage implements OnInit {
   }
   get(){
   // if(this.text.UserType=='admin'){
-    fetch("https://happy-erin-leather-jacket.cyclic.app/raw/getrawproduct", {
+    fetch("http://localhost:7500/raw/getrawproduct", {
       method:'get',
       headers:{
         "Access-Control-Allow-Origin": "*",
@@ -55,6 +56,13 @@ export class RawProductPage implements OnInit {
   //      .catch(error => console.log('error',error))
     
   // }
+
+  view(products:any){
+    this.raw = products
+    window.location.href=("./raw-data")
+    localStorage.setItem('Raw',JSON.stringify(products));
+    console.log(products)
+  }
 }
 
 

@@ -11,7 +11,7 @@ export class ShippersPage implements OnInit {
     shippers:any=[]
     text: any;
     aa: any;
-  data: any;
+    data: any;
     constructor() {
       this.getProduct()
      }
