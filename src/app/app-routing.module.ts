@@ -2,12 +2,25 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: 'folder/Inbox',
-  //   pathMatch: 'full'
-  // },
   {
+    path: '',
+    redirectTo: 'folder/Inbox',
+    pathMatch: 'full'
+  },
+  {
+
+    path: 'raw-edit',
+    loadChildren: () => import('./raw-edit/raw-edit.module').then( m => m.RawEditPageModule)
+  },
+  {
+    path: 'inventory-data',
+    loadChildren: () => import('./inventory-data/inventory-data.module').then( m => m.InventoryDataPageModule)
+  },
+  {
+    path: 'inventory-edit',
+    loadChildren: () => import('./inventory-edit/inventory-edit.module').then( m => m.InventoryEditPageModule)
+  },
+{
     path: 'folder/:id',
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
   },
@@ -51,7 +64,6 @@ const routes: Routes = [
     path: 'product',
     loadChildren: () => import('./product/product.module').then( m => m.ProductPageModule)
   },
-
   {
     path: 'galaxyroute',
     loadChildren: () => import('./galaxyroute/galaxyroute.module').then( m => m.GalaxyroutePageModule)
@@ -75,22 +87,16 @@ const routes: Routes = [
   {
     path: 'raw-product',
     loadChildren: () => import('./raw-product/raw-product.module').then( m => m.RawProductPageModule)
-  },  {
-    path: 'raw-data',
-    loadChildren: () => import('./raw-data/raw-data.module').then( m => m.RawDataPageModule)
   },
   {
-    path: 'raw-edit',
-    loadChildren: () => import('./raw-edit/raw-edit.module').then( m => m.RawEditPageModule)
+    path: 'users',
+    loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule)
   },
   {
-    path: 'inventory-data',
-    loadChildren: () => import('./inventory-data/inventory-data.module').then( m => m.InventoryDataPageModule)
+    path: 'cart',
+    loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
   },
-  {
-    path: 'inventory-edit',
-    loadChildren: () => import('./inventory-edit/inventory-edit.module').then( m => m.InventoryEditPageModule)
-  }
+
 
 
 

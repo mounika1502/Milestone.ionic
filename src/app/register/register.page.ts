@@ -2,19 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-
   SignupForm: any;
   loginForm: any;
-
+  isAlertOpen = false;
+public alertButtons = ['OK'];
+setOpen(isOpen: boolean) {
+  this.isAlertOpen = isOpen;
+}
   constructor(private router:Router) { }
-
   ngOnInit() {
     this.SignupForm = new FormGroup({
       Firstname: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
@@ -26,13 +27,12 @@ export class RegisterPage implements OnInit {
       UserType:new FormControl('',[Validators.required]),
       pincode:new FormControl('',[Validators.required,Validators.pattern('[0-9]{6}')]),
       Street:new FormControl('',[Validators.required]),
-      state:new FormControl('',[Validators.required]),
+      State:new FormControl('',[Validators.required]),
       Company:new FormControl('',[Validators.required]),
       // Isadd:new FormControl('1'),
       Message:new FormControl('congratulations your signup successfully!!')
     });
   }
-
   signupSubmit(){       
     if(this.SignupForm.value.Firstname ==''||
      this.SignupForm.value.Lastname ==''||
@@ -53,7 +53,6 @@ export class RegisterPage implements OnInit {
      ) 
   }
   else{
-      
     fetch("http://localhost:7500/signupform/addsignupdetails", {
      method:'post',
      headers:{
@@ -94,6 +93,7 @@ export class RegisterPage implements OnInit {
   }).then(res=> res.json())
   .then(result=>{ 
   console.log(result)  
+  
   }
   )
   .catch(error => console.log('error',error))

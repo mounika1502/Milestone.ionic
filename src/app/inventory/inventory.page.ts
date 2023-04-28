@@ -47,7 +47,7 @@ ngOnInit(): void {
  } 
  //This is for product getting (gett) call 
  getProduct(){
-  if(this.text.UserType=='admin'){
+   if(this.text.UserType=='admin'){
     fetch("http://localhost:7500/products/getproducts", {
       method:'get',
       headers:{

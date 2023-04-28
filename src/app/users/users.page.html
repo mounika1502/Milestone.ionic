@@ -1,0 +1,261 @@
+<ion-header>
+  <ion-toolbar >
+<ion-buttons slot="start" >
+<ion-menu-button  menu="main-menu"></ion-menu-button>
+</ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-searchbar placeholder="Search..." [(ngModel)]="searchtext"></ion-searchbar>
+  <br>
+
+   <span class="button"   (click)="data2()"  > Manufacturers</span><span class="button" (click)="data3()"> Dealers</span> <span class="button" (click)="data5()"> Admins</span> 
+   <br><br>
+  <div *ngIf="data1">
+    <div *ngFor="let text of sign | filter:searchtext">
+    
+    <ion-card>
+      <ion-card-content>
+  <ion-card>
+        <ion-row>
+          <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">First Name</ion-col>
+          <ion-col style="color: black;">:</ion-col>
+          <ion-col>{{text.Firstname}}  </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Last Name</ion-col>
+          <ion-col style="color: black;">:</ion-col>
+          <ion-col>  {{text.Lastname}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Phone</ion-col>
+          <ion-col style="color: black;">:</ion-col>
+          <ion-col>{{text.mobile}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">User Type</ion-col>
+          <ion-col style="color: black;">:</ion-col>
+          <ion-col>{{text.UserType}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">State</ion-col>
+          <ion-col style="color: black;">:</ion-col>
+          <ion-col>{{text.State}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">City</ion-col>
+          <ion-col style="color: black;">:</ion-col>
+          <ion-col>{{text.City}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Address</ion-col>
+          <ion-col style="color: black;">:</ion-col>
+          <ion-col>{{text.Street}}</ion-col>
+        </ion-row>
+        <ion-footer style="text-align: center;text-decoration: underline;color: rgb(62, 108, 194);">
+          {{text.Email}}
+         </ion-footer>
+      </ion-card>
+      </ion-card-content>
+  
+  
+    </ion-card>
+    </div>
+  </div>
+<div *ngIf="data">
+  <div *ngFor="let text of this.Array | filter:searchtext">
+  <ion-card>
+    <ion-card-content>
+
+
+
+<ion-card>
+      <ion-row>
+        <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">First Name</ion-col>
+        <ion-col style="color: black;">:</ion-col>
+        <ion-col>{{text.Firstname}}  </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Last Name</ion-col>
+        <ion-col style="color: black;">:</ion-col>
+        <ion-col>  {{text.Lastname}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Phone</ion-col>
+        <ion-col style="color: black;">:</ion-col>
+        <ion-col>{{text.mobile}}</ion-col>
+      </ion-row>
+   
+      <ion-row>
+        <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">User Type</ion-col>
+        <ion-col style="color: black;">:</ion-col>
+        <ion-col>{{text.UserType}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">State</ion-col>
+        <ion-col style="color: black;">:</ion-col>
+        <ion-col>{{text.State}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">City</ion-col>
+        <ion-col style="color: black;">:</ion-col>
+        <ion-col>{{text.City}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Address</ion-col>
+        <ion-col style="color: black;">:</ion-col>
+        <ion-col>{{text.Street}}</ion-col>
+      </ion-row>
+      <ion-footer style="text-align: center;text-decoration: underline;color: rgb(62, 108, 194);">
+        {{text.Email}}
+       </ion-footer>
+    </ion-card>
+    </ion-card-content>
+<h6 style="text-align: center;color:green">Contact Manufacturer
+  <ion-icon name="call" style="font-size: large;color:#197a19; "></ion-icon></h6>
+    <p>
+      <a href="tel:{{text.mobile}}" style="margin-left: 110px;">{{text.mobile}}</a>
+    </p>
+
+  </ion-card>
+  </div>
+</div>
+<div *ngIf="dataform">
+  <div *ngFor="let text of this.Arrayobj | filter:searchtext">
+  <ion-card>
+    <ion-card-content>
+<ion-card>
+    <ion-row>
+      <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">First Name</ion-col>
+      <ion-col style="color: black;">:</ion-col>
+      <ion-col>{{text.Firstname}} </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Last Name</ion-col>
+      <ion-col style="color: black;">:</ion-col>
+      <ion-col> {{text.Lastname}}</ion-col>
+    </ion-row>
+ 
+    <ion-row>
+      <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Phone</ion-col>
+      <ion-col style="color: black;">:</ion-col>
+      <ion-col>{{text.mobile}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Address</ion-col>
+      <ion-col style="color: black;">:</ion-col>
+      <ion-col>{{text.Street}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">User Type</ion-col>
+      <ion-col style="color: black;">:</ion-col>
+      <ion-col>{{text.UserType}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">State</ion-col>
+      <ion-col style="color: black;">:</ion-col>
+      <ion-col>{{text.State}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">City</ion-col>
+      <ion-col style="color: black;">:</ion-col>
+      <ion-col>{{text.City}}</ion-col>
+    </ion-row>
+    <ion-footer style="text-align: center;text-decoration: underline;color: rgb(70, 70, 212);">
+      {{text.Email}}
+     </ion-footer>
+
+     <br>
+ 
+    </ion-card>
+<h6 style="text-align: center;color:green">Contact Dealer
+    <ion-icon name="call" style="font-size: large;color:#197a19; "></ion-icon></h6>
+      <p>
+        <a href="tel:{{text.mobile}}" style="margin-left: 110px;">{{text.mobile}}</a>
+      </p>
+  
+  
+  </ion-card-content>
+
+
+  </ion-card>
+  </div>
+</div>
+<div *ngIf="datatext">
+  <div *ngFor="let text of this.Arraydata | filter:searchtext">
+  <ion-card>
+    <ion-card-content>
+<ion-card>
+    <ion-row>
+      <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">First Name</ion-col>
+      <ion-col style="color: black;">:</ion-col>
+      <ion-col>{{text.Firstname}} </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Last Name</ion-col>
+      <ion-col style="color: black;">:</ion-col>
+      <ion-col> {{text.Lastname}}</ion-col>
+    </ion-row>
+ 
+    <ion-row>
+      <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Phone</ion-col>
+      <ion-col style="color: black;">:</ion-col>
+      <ion-col>{{text.mobile}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Address</ion-col>
+      <ion-col style="color: black;">:</ion-col>
+      <ion-col>{{text.Street}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">User Type</ion-col>
+      <ion-col style="color: black;">:</ion-col>
+      <ion-col>{{text.UserType}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">State</ion-col>
+      <ion-col style="color: black;">:</ion-col>
+      <ion-col>{{text.State}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">City</ion-col>
+      <ion-col style="color: black;">:</ion-col>
+      <ion-col>{{text.City}}</ion-col>
+    </ion-row>
+    <ion-footer style="text-align: center;text-decoration: underline;color: rgb(70, 70, 212);">
+      {{text.Email}}
+     </ion-footer>
+     <br>
+ 
+    </ion-card>
+
+  
+  </ion-card-content>
+
+
+  </ion-card>
+  </div>
+</div>
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
