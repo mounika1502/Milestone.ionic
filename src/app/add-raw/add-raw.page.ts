@@ -22,7 +22,6 @@ export class AddRawPage implements OnInit {
       stone:new FormControl(""),
       region: new FormControl(""),
       date: new FormControl(""),
-      quality:new FormControl(""),
       mobile:new FormControl(""),
       manufacturername: new FormControl(""),
       PhoneNumber : new FormControl("")

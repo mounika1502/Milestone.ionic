@@ -49,6 +49,8 @@ const routes: Routes = [
   },
   {
 
+
+
     path: 'product',
     loadChildren: () => import('./product/product.module').then( m => m.ProductPageModule)
   },
@@ -73,15 +75,33 @@ const routes: Routes = [
     path: 'shipper-edit',
     loadChildren: () => import('./shipper-edit/shipper-edit.module').then( m => m.ShipperEditPageModule)
 
+
   },
   {
     path: 'cart',
     loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
 
-  },  {
+  },
+  {
     path: 'dealerorders',
     loadChildren: () => import('./dealerorders/dealerorders.module').then( m => m.DealerordersPageModule)
   }
+
+
+,
+  {
+    path: 'raw-product',
+    loadChildren: () => import('./raw-product/raw-product.module').then( m => m.RawProductPageModule)
+  },
+  {
+    path: 'raw-data',
+    loadChildren: () => import('./raw-data/raw-data.module').then( m => m.RawDataPageModule)
+  },
+  {
+    path: 'raw-edit',
+    loadChildren: () => import('./raw-edit/raw-edit.module').then( m => m.RawEditPageModule)
+  }
+
 
 
 ];
