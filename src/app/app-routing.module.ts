@@ -2,11 +2,19 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+<<<<<<< HEAD
   {
     path: '',
     redirectTo: 'folder/Inbox',
     pathMatch: 'full'
   },
+=======
+  // {
+  //   path: '',
+  //   redirectTo: 'folder/Inbox',
+  //   pathMatch: 'full'
+  // },
+>>>>>>> 1c2b80a9bcbd9789dda5f06da978c5ecd7004c0d
   {
     path: 'folder/:id',
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
@@ -76,6 +84,7 @@ const routes: Routes = [
     path: 'raw-product',
     loadChildren: () => import('./raw-product/raw-product.module').then( m => m.RawProductPageModule)
   },  {
+<<<<<<< HEAD
     path: 'users',
     loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule)
   },
@@ -87,6 +96,18 @@ const routes: Routes = [
 
 
 
+=======
+    path: 'raw-data',
+    loadChildren: () => import('./raw-data/raw-data.module').then( m => m.RawDataPageModule)
+  },
+  {
+    path: 'raw-edit',
+    loadChildren: () => import('./raw-edit/raw-edit.module').then( m => m.RawEditPageModule)
+  }
+
+
+
+>>>>>>> 1c2b80a9bcbd9789dda5f06da978c5ecd7004c0d
 ];
 
 @NgModule({

@@ -1,13 +1,13 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>shipper-data</ion-title>
+    <ion-title>Shipper Details</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>   
   <ion-list>
-    <h3 style="color: brown;">Shipper Details</h3>
-    <hr>
+    <!-- <h3 style="color: brown;">Shipper Details</h3>
+    <hr> -->
     <ion-item>
       <b>Shipper Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</b>
         {{this.data.Name}}
@@ -25,11 +25,11 @@
           {{this.data.Trucknumber}}
         </ion-item>
         
-     <ion-item>
-      <b>Shipper Address :</b><br>
-       <p> {{this.data.Address}}</p>
-     </ion-item>                   
-     <div style="padding-top: 2%;">
+     <div style="margin-left:12px ;padding: 2%;">
+      <b>Shipper Address :&nbsp;</b><br>
+        {{this.data.Address}}
+     </div>                   
+     <div style="padding-top: 4%;">
         <b>Truck :</b><br>
         <img src="{{this.data.Truckimage}}" style="width:15.5em;padding-left: 5.5%;padding-top: 1.5%;">
      </div> 

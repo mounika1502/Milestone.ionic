@@ -21,8 +21,23 @@
             <ion-col style="color: black;">:</ion-col>
             <ion-col>{{raw.Number}}</ion-col>
           </ion-row>
+
+    <ion-row *ngFor="let raw of products">
+      <ion-col size="6">
+       <ion-card style="height: 95%;">
+          <img  src= "{{raw.Image}}">
+         <div><b>Id &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b>{{raw.Number}}</div>
+         <div><b>Name : </b>{{raw.Name}}</div>
+         <button class="view" (click)="view(raw)">View</button>
+
         </ion-card>         
-      </ion-col>              
-    </ion-row>      
+      </ion-col> 
+               
+    </ion-row> 
+       </ion-card>
+       </ion-col>
+       </ion-row> 
   </ion-grid>
+
+  
 </ion-content>
