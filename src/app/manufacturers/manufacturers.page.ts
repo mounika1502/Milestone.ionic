@@ -37,6 +37,12 @@ sign: any=[];
   array: any=[]
   docId: any;
   localarray: any=[]
+  isAlertOpen = false;
+public alertButtons = ['OK'];
+
+setOpen(isOpen: boolean) {
+  this.isAlertOpen = isOpen;
+}
   constructor() {
   this.Get()
    }

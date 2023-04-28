@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: 'folder/Inbox',
-  //   pathMatch: 'full'
-  // },
+  {
+    path: '',
+    redirectTo: 'folder/Inbox',
+    pathMatch: 'full'
+  },
   {
     path: 'folder/:id',
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
@@ -75,7 +75,16 @@ const routes: Routes = [
   {
     path: 'raw-product',
     loadChildren: () => import('./raw-product/raw-product.module').then( m => m.RawProductPageModule)
-  }
+  },  {
+    path: 'users',
+    loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule)
+  },
+  {
+    path: 'ordermanage',
+    loadChildren: () => import('./ordermanage/ordermanage.module').then( m => m.OrdermanagePageModule)
+  },
+
+
 
 
 ];

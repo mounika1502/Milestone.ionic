@@ -1,24 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title style="text-align: center;font-size: xx-large;font-weight: 700;">Register/Signup</ion-title>
+    <ion-title style="text-align: center;font-size: xx-large;font-weight: 700;">Register</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <!-- <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">register</ion-title>
-    </ion-toolbar>
-  </ion-header> -->
-  <!-- <ion-header >
-    <ion-toolbar>
-      <div style="display: flex;">
-        <ion-icon name="arrow-back-sharp" routerLink="/selecttype" style="font-size: 30px;"></ion-icon>
-        <ion-title align="center">Register</ion-title>
-      </div>
-    </ion-toolbar>
-    <ion-icon style="float:right"  name='cart-outline' right></ion-icon>
-  </ion-header> -->
+
   <ion-content [fullscreen]="true">
     <div class="circle-container">
       <div class="circle circle-1"></div>
@@ -74,7 +61,7 @@
    
     <ion-list>
       <ion-item>
-        <ion-select aria-label="fruit" formControlName="state" placeholder="Please Select your state" autocomplete="off">
+        <ion-select aria-label="fruit" formControlName="State" placeholder="Please Select your state" autocomplete="off">
           <ion-select-option value="">--Select--</ion-select-option>
           <ion-select-option value="Andhra Pradesh">Andhra Pradesh</ion-select-option>
           <ion-select-option value="Arunachal Pradesh">Arunachal Pradesh</ion-select-option>
@@ -114,15 +101,24 @@
           <ion-select-option value="">--Select--</ion-select-option>
           <ion-select-option value="Manufacturer">Manufacturer</ion-select-option>
           <ion-select-option value="Dealer">Dealer</ion-select-option>
+          <ion-select-option value="admin">Admin</ion-select-option>
           </ion-select>
           </ion-item>
           </ion-list>
           </form>
           </ion-list>
-          <ion-button  style="height: 50px;   border-radius: 10px; margin-top:20px;" expand="full" strong="true" type="submit" [disabled]="SignupForm.value.Firstname == '' || SignupForm.value.Lastname == ''|| SignupForm.value.Email == ''|| SignupForm.value.Password == ''||SignupForm.value.UserType==''||SignupForm.value.City == ''|| SignupForm.value.state == '' || SignupForm.value.Password == ''|| SignupForm.value.Street == ''||SignupForm.value.Company=='' || SignupForm.value.pincode==''"    (click)="signupSubmit()" >
+          <ion-button  style="height: 50px;   border-radius: 10px; margin-top:20px;" expand="full" strong="true" type="submit" (click)="setOpen(true)" [disabled]="SignupForm.value.Firstname == '' || SignupForm.value.Lastname == ''|| SignupForm.value.Email == ''|| SignupForm.value.Password == ''||SignupForm.value.UserType==''||SignupForm.value.City == ''|| SignupForm.value.state == '' || SignupForm.value.Password == ''|| SignupForm.value.Street == ''||SignupForm.value.Company=='' || SignupForm.value.pincode==''"    (click)="signupSubmit()" >
             Register
        
            </ion-button>
+           <ion-alert
+  [isOpen]="isAlertOpen"
+  header="Alert"
+  subHeader="Important message"
+  message="Added Successfully"
+  [buttons]="alertButtons"
+  (didDismiss)="setOpen(false)"
+></ion-alert>
           </ion-content>
           </ion-content>
           

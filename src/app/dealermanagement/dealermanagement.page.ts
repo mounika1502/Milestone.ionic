@@ -57,11 +57,6 @@ setOpen(isOpen: boolean) {
   ngOnInit(): void {
    this.Get()
     this.localid=JSON.parse(localStorage.getItem('docId')|| '{}')
-    // this.send = new FormGroup({
-    //     To: new FormControl(),
-    //     Subject : new FormControl(''),
-    //     Message : new FormControl(''),
-    //   });
       this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
       console.log(this.text)
       this.aa=this.text.UserType
