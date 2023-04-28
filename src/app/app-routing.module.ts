@@ -77,6 +77,10 @@ const routes: Routes = [
     loadChildren: () => import('./raw-product/raw-product.module').then( m => m.RawProductPageModule)
   },
   {
+    path: 'raw-data',
+    loadChildren: () => import('./raw-data/raw-data.module').then( m => m.RawDataPageModule)
+  },
+  {
     path: 'users',
     loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule)
   },
