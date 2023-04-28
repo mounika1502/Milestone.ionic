@@ -26,7 +26,7 @@ ngOnInit(): void {
   this.textaws = JSON.parse(localStorage.getItem('aws')||'{}') 
   console.log(this.textaws) 
   this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
-   console.log(this.text) 
+   console.log(this.text.mobile) 
    this.getProduct(); 
    this.getCartDetails = JSON.parse(localStorage.getItem('anunya') || '{}');
 }
