@@ -12,6 +12,9 @@ export class GalaxyroutePage implements OnInit {
   data: any;
   cartItem:number = 0;
 
+  public alertButtons = ['OK'
+  
+];
 
 
   ngOnInit(): void {
@@ -36,7 +39,9 @@ export class GalaxyroutePage implements OnInit {
       storeDataGet.push(category); // push the category into localstorage
       localStorage.setItem('anunya',JSON.stringify(storeDataGet));
      
-     
+      window.location.reload(
+        
+      )
   //     Swal.fire('Added Successfully!', '', 'success').then(() => {
   //       window.location.reload()
   //    } );
