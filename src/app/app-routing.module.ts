@@ -73,7 +73,16 @@ const routes: Routes = [
     path: 'shipper-edit',
     loadChildren: () => import('./shipper-edit/shipper-edit.module').then( m => m.ShipperEditPageModule)
 
+  },
+  {
+    path: 'cart',
+    loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
+
+  },  {
+    path: 'dealerorders',
+    loadChildren: () => import('./dealerorders/dealerorders.module').then( m => m.DealerordersPageModule)
   }
+
 
 ];
 
