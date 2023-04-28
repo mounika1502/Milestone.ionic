@@ -123,13 +123,10 @@ delete(prodId:any){
    .catch(err =>
     console.log(err))    
 } 
-//this is for edit the product
-edit(products:any){   
- localStorage.setItem('product',JSON.stringify(products))   
-}
+
 description(product:any){
-  window.location.href=("/prod-data")
-    localStorage.setItem('Description',JSON.stringify(product));
+  window.location.href=("/inventory-data")
+    localStorage.setItem('Inventory',JSON.stringify(product));
     console.log(product)
   }
 

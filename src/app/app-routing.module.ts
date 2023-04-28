@@ -82,6 +82,14 @@ const routes: Routes = [
   {
     path: 'raw-edit',
     loadChildren: () => import('./raw-edit/raw-edit.module').then( m => m.RawEditPageModule)
+  },
+  {
+    path: 'inventory-data',
+    loadChildren: () => import('./inventory-data/inventory-data.module').then( m => m.InventoryDataPageModule)
+  },
+  {
+    path: 'inventory-edit',
+    loadChildren: () => import('./inventory-edit/inventory-edit.module').then( m => m.InventoryEditPageModule)
   }
 
 
