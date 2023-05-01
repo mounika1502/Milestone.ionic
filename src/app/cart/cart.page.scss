@@ -2,3 +2,25 @@ ion-toolbar {
     --color: #ffffff;
     --background:#697184;
 }
+.btn{
+    border: 1px solid red;
+    color:red;
+    border-radius: 10px;
+    padding: 2%;
+}
+.btn:hover{
+    background-color: red;
+    color: white;
+ 
+}
+.btn1{
+    border: 1px solid #697184;
+    color:#697184;
+    border-radius: 10px;
+    padding: 2%;
+}
+.btn1:hover{
+    background-color: #697184;
+    color: white;
+ 
+}

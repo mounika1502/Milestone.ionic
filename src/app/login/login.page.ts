@@ -36,19 +36,8 @@ export class LoginPage implements OnInit {
       console.log(this.loginData)      
     localStorage.setItem('Login',JSON.stringify(this.loginData));
     console.log(this.loginData)       
-    Swal.fire( 'Logged in successfully!', '', 'success').then(() =>{         
-
-     window.location.href='/login'
-   })       
-    if(result.status === 'failed'){
-      Swal.fire( 
-        'Cancelled',
-        'Invalid username or password!',
-        'error'
-      )
-     }else{      
-      
-     } 
+alert("Success....")    
+  
     })
     }   
   }

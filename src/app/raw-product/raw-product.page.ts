@@ -8,11 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class RawProductPage implements OnInit {
  products:any=[];
   raw: any;
+  data: any;
   constructor() { 
     this.get()
   }
 
   ngOnInit() {
+    const localdata=localStorage.getItem('mounika')
+    if(localdata!=null){
+      this.data = JSON.parse(localdata)
+    }
   }
   get(){
   // if(this.text.UserType=='admin'){

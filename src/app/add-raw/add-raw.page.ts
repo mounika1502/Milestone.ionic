@@ -9,9 +9,12 @@ import Swal from 'sweetalert2';
 })
 export class AddRawPage implements OnInit {
   productForm:any;
+  text: any;
   constructor() { }
 
   ngOnInit() {
+    this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+    console.log(this.text.mobile) 
     this.productForm = new FormGroup ({
     
       Image :new FormControl(""),

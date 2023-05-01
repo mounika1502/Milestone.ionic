@@ -1,16 +1,9 @@
-
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">checkout</ion-title>
     </ion-toolbar>
   </ion-header>
-
-
-  
-
-
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title style="text-align: center;font-weight: 700;font-size: xx-large;">Checkout</ion-title>
@@ -26,54 +19,52 @@
       <div class="circle circle-1"></div>
       <div class="circle circle-2"></div>
     </div>
-  <ion-list lines="none" class="ion-margin">
-    <h1 style="text-align: center;font-size: xx-large;">Milestone</h1>
+  <ion-list lines="none" class="ion-margin"> 
+    <div class="container" align="center">
+            <h1 class="mt-3 text-blue" style="color:rgb(92, 92, 152)">Welcome</h1>
 
-  
-      <ion-item class="ion-margin">
+            <h4 style="color:rgb(92, 92, 152)" class="blue-text">You are 30 seconds away from completing your order!</h4>
+    </div>
+    <br>
+    <br>
+    <ion-label style="margin-left: 7%;">First Name</ion-label>     
+    <ion-item class="ion-margin">
     
         <ion-input appCapitalize placeholder="Enter First Name"  type="text" clearInput="true" [(ngModel)]="Firstname"></ion-input>
       </ion-item>
-     
+      <ion-label style="margin-left: 7%;">Last Name</ion-label>
       <ion-item class="ion-margin">
     
         <ion-input appCapitalize placeholder="Enter Last Name" type="text" clearInput="true" [(ngModel)]="Lastname"></ion-input>
       </ion-item>
-     
+      <ion-label style="margin-left: 7%;">Email</ion-label>
       <ion-item class="ion-margin">
     
         <ion-input appCapitalize placeholder="Enter Email Address" type="text" clearInput="true"  [(ngModel)]="Email"></ion-input>
       </ion-item>
-     
+      <ion-label style="margin-left: 7%;">Mobile</ion-label>
     <ion-item class="ion-margin">
   
       <ion-input appCapitalize placeholder="Enter Phone Number" type="text" clearInput="true"  [(ngModel)]="Phone"></ion-input>
     </ion-item>
-  
+    <ion-label style="margin-left: 7%;">City</ion-label>
     <ion-item class="ion-margin">
   
-      <ion-input appCapitalize placeholder="Enter City" type="text" clearInput="true"  [(ngModel)]="pincode"></ion-input>
+      <ion-input appCapitalize placeholder="Enter City" type="text" clearInput="true"  [(ngModel)]="City"></ion-input>
     </ion-item>
-  
+    <ion-label style="margin-left: 7%;">Address</ion-label>
     <ion-item class="ion-margin">
   
       <ion-input appCapitalize placeholder="Enter Address" type="text" clearInput="true" [(ngModel)]="Address"></ion-input>
     </ion-item>
+    <ion-label style="margin-left: 7%;">Pincode</ion-label>
     <ion-item class="ion-margin">
   
       <ion-input appCapitalize placeholder="Enter pincode" type="text" clearInput="true" [(ngModel)]="pincode"></ion-input>
     </ion-item>
-    <!-- <ion-item class="ion-margin">
-  
-      <ion-input appCapitalize placeholder="Enter Company Name" type="text" clearInput="true" [(ngModel)]="State"></ion-input>
-    </ion-item> -->
-  
-    <!-- <ion-item class="ion-margin">
-      <ion-input appCapitalize placeholder="Enter Password" type="password" clearInput="true" formControlName="Password"></ion-input>
-    </ion-item> -->
-   
-    <ion-list>
-      <ion-item>
+
+    <ion-label style="margin-left: 7%;">State</ion-label>
+      <ion-item class="ion-margin">
         <ion-select aria-label="fruit" [(ngModel)]="State" placeholder="Please Select your state" autocomplete="off">
           <ion-select-option value="">--Select--</ion-select-option>
           <ion-select-option value="Andhra Pradesh">Andhra Pradesh</ion-select-option>
@@ -106,10 +97,10 @@
           <ion-select-option value="West Bengal">West Bengal</ion-select-option>
         </ion-select>
       </ion-item>
-    </ion-list>
+ 
     </ion-list>
 
-      <ion-button style="margin-left: 120px;" id="present-alert" >Continue to Pay</ion-button>
+      <ion-button style="margin-left: 120px;" (click)="cash1()" id="present-alert" >Continue to Pay</ion-button>
 <ion-alert
  trigger="present-alert"
  header=""
@@ -119,31 +110,4 @@
 
 ></ion-alert>
     </ion-content>
-    
-     
-          <!-- </form> -->
-              
-           <!-- <div class="mt-1  text-center ">
-              <button class="submit" type="submit"  (click)="popup()">Continue to pay</button>&nbsp; -->
-         
-             
-            
-
-            
-           
-
-
-
-
-
-          <!-- <ion-button  style="height: 50px;   border-radius: 10px; margin-top:20px;" expand="full" strong="true" type="submit" [disabled]="Obj.Firstname == '' || Obj.Lastname == ''||Obj.Email == ''|| Obj.Phone == ''||Obj.pincode==''||Obj.Address == ''||Obj.State == ''">
-            Register
-       
-           </ion-button> -->
-        
-            
-           
-            
-
-
 </ion-content>

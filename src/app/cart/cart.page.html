@@ -115,28 +115,29 @@ margin-right: 18px;" slot="end" ></ion-icon>
  
      
      
-        <label style="font-size: 20px; margin-left: 39%; color: blue; font-weight: bold;"> Grand Total: {{grandtotal}}</label>
+        <label style="font-size: 20px; margin-left: 32%; color: rgb(63, 63, 68); font-weight: bold;"> Grand Total: {{grandtotal}}</label>
+        <br>
+        <br>
         <div>
-       <button class="btn btn-primary" routerLink="/checkout" style="float: right;margin-right: 6%;">Check out</button>
+       <button class="btn1" routerLink="/checkout" style="float: right;margin-right: 6%;">Check out</button>
         </div>
        <div>
-        <button class="btn btn-danger" style=    "float: left;
+        <button class="btn " style=    "float: left;
         margin-left: 4%;"
         (click)=" removeall()">Remove all items</button>
         </div>
       </div>
     
-<<<<<<< HEAD
  
      
-=======
+
    
   
 
  
      
 
->>>>>>> 8c8dd3d36f08b524697497b2e1f59f3325b8717c
+
         <div *ngIf="getCartDetails.length ==0" class="noitem">
           <div>
            

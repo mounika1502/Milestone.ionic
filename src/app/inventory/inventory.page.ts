@@ -87,7 +87,7 @@ ngOnInit(): void {
 
 
 description(product:any){
-  window.location.href=("/inventory-data")
+  window.location.href=("./inventory-data")
     localStorage.setItem('Inventory',JSON.stringify(product));
     console.log(product)
   }

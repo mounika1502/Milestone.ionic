@@ -37,7 +37,6 @@ export class InventoryEditPage implements OnInit {
     }
   }
   update(id:any){
-    
       console.log(this.productForm.value) 
       localStorage.setItem('InventoryProduct',JSON.stringify(this.data));
       fetch("http://localhost:7500/products/editProduct/" + id,  {
@@ -53,7 +52,7 @@ export class InventoryEditPage implements OnInit {
         .then(result => {
           console.log(result)
          alert('updated') 
-        //  window.location.href='./raw-product'             
+          window.location.href='./inventory-data'             
         }
         ).catch(err =>
           console.log(err))  
