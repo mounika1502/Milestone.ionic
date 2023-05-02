@@ -1,44 +1,8 @@
-<!-- <ion-app>
-  <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay">
-      <ion-content>
-        <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi@ionicframework.com</ion-note>
-
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-              <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
-
-        <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
-
-          <ion-item *ngFor="let label of labels" lines="none">
-            <ion-icon aria-hidden="true" slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-            <ion-label>{{ label }}</ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-content>
-    </ion-menu>
-    <ion-router-outlet id="main-content"></ion-router-outlet>
-  </ion-split-pane>
-</ion-app> -->
-
-
-
-
 <ion-app>
-  
   <ion-menu menuId="main-menu" content-id="main">
  
     
     <ion-header >
-    
-     
       <ion-toolbar>
         
         <ion-title>Menu</ion-title>
@@ -46,7 +10,6 @@
    
     </ion-header>
     <ion-content>
-        
       <ion-list>
         <ion-item >
           <ion-icon name="home-outline" style="color: rgb(95, 95, 231);"></ion-icon>
@@ -54,20 +17,20 @@
           <ion-label> &nbsp; &nbsp; &nbsp;Home</ion-label>
         </ion-item>
         <ion-item routerLink="/product">
-          <ion-icon name="layers-outline" style="color: rgb(95, 95, 231);"></ion-icon>
-          <ion-label [hidden]="aa === 'Manufacturer'"> &nbsp; &nbsp; &nbsp;Products</ion-label>
+          <ion-icon name="layers-outline" [hidden]="aa === 'Manufacturer'" style="color: rgb(95, 95, 231);"></ion-icon>
+          <ion-label  [hidden]="aa === 'Manufacturer'"> &nbsp; &nbsp; &nbsp;Products</ion-label>
         </ion-item>
-        <ion-item>
+        <ion-item routerLink="/inventory" >
           <ion-icon name="albums-outline"style="color: rgb(95, 95, 231);"></ion-icon>
-          <ion-label> &nbsp; &nbsp; &nbsp;Inventory</ion-label>
+          <ion-label [hidden]="aa === 'Dealer'"> &nbsp; &nbsp; &nbsp;Inventory</ion-label>
         </ion-item>
-        <ion-item>
+        <ion-item routerLink="Raw-Product">
           <ion-icon name="browsers-outline"style="color: rgb(95, 95, 231);"></ion-icon>
-          <ion-label> &nbsp; &nbsp; &nbsp;Raw-Product</ion-label>
+          <ion-label [hidden]="aa === 'Dealer '"> &nbsp; &nbsp; &nbsp;Raw-Product</ion-label>
         </ion-item>
-        <ion-item>
+        <ion-item routerLink="">
           <ion-icon name="browsers-outline"style="color: rgb(95, 95, 231);"></ion-icon>
-          <ion-label>&nbsp; &nbsp; &nbsp;Raw-Inventory</ion-label>
+          <ion-label [hidden]="aa === 'Dealer'">&nbsp; &nbsp; &nbsp;Raw-Inventory</ion-label>
         </ion-item>
         <ion-item>
           <ion-icon name="people-circle-outline"style="color: rgb(95, 95, 231);"></ion-icon>
@@ -75,15 +38,15 @@
         </ion-item>
         <ion-item>
           <ion-icon name="person-outline"style="color: rgb(95, 95, 231);"></ion-icon>
-          <ion-label> &nbsp; &nbsp; &nbsp;Dealers Management</ion-label>
+          <ion-label [hidden]="aa === 'Dealer'"> &nbsp; &nbsp; &nbsp;Dealers Management</ion-label>
         </ion-item>
         <ion-item>
           <ion-icon name="bag-outline"style="color: rgb(95, 95, 231);"></ion-icon>
-          <ion-label> &nbsp; &nbsp; &nbsp;Order MAnagement</ion-label>
+          <ion-label [hidden]="aa === 'Dealer'"> &nbsp; &nbsp; &nbsp;Order Management</ion-label>
         </ion-item>
         <ion-item>
           <ion-icon name="basket-outline"style="color: rgb(95, 95, 231);"></ion-icon>
-          <ion-label> &nbsp; &nbsp; &nbsp;My Orders</ion-label>
+          <ion-label [hidden]="aa === 'Manufacturer'"> &nbsp; &nbsp; &nbsp;My Orders</ion-label>
         </ion-item>
         <ion-item>
           <ion-icon name="bus-outline"style="color: rgb(95, 95, 231);"></ion-icon>
@@ -91,7 +54,7 @@
         </ion-item>
         <ion-item>
           <ion-icon name="people-outline"style="color: rgb(95, 95, 231);"></ion-icon>
-          <ion-label  [hidden]="aa === 'Manufacturer'">&nbsp; &nbsp; &nbsp;User Management</ion-label>
+          <ion-label  [hidden]="aa === 'Manufacturer'" [hidden]="aa === 'Manufacturer'">&nbsp; &nbsp; &nbsp;User Management</ion-label>
         </ion-item>
         <ion-item>
           <ion-icon name="log-out-outline"style="color: rgb(95, 95, 231);"></ion-icon>

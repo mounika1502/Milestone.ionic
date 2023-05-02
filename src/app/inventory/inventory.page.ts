@@ -2,14 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { UploadService } from '../upload.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.page.html',
   styleUrls: ['./inventory.page.scss'],
 })
 export class InventoryPage implements OnInit {       
-
 text: any;
 searchtext:any
 getCartDetails: any = [];
@@ -43,9 +41,7 @@ ngOnInit(): void {
      this.i--;
      this.quantity=this.i;
    }
- } 
-
- //This is for product getting (gett) call 
+ }  
  getProduct(){
    if(this.text.UserType=='admin'){
     fetch("http://localhost:7500/products/getproducts", {
@@ -87,7 +83,7 @@ ngOnInit(): void {
 
 
 description(product:any){
-  window.location.href=("./inventory-data")
+  window.location.href=("/inventory-data")
     localStorage.setItem('Inventory',JSON.stringify(product));
     console.log(product)
   }

@@ -1,13 +1,39 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>shipper-edit</ion-title>
+    <ion-title></ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content> 
+  <h1 style="text-align: center;color:#697184;font-size: xx-large;"><b>Edit Shipper</b></h1>
+    <hr>
+    <ion-list style="padding-left: 2.5%;">                     
+          <ion-label ><b>Shipper Name :</b></ion-label><br>
+          <input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;"  [(ngModel)]="data.Name" name="Number">  
+                
+          <ion-label ><b>Mobile Number :</b></ion-label><br>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">shipper-edit</ion-title>
-    </ion-toolbar>
-  </ion-header>
+          <input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;"  [(ngModel)]="data.Mobile"   name="Name">                  
+          <ion-label ><b>Truck Name :</b></ion-label>
+
+          <input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" [(ngModel)]="data.Truck" name="color">    
+        <ion-label ><b>Truck Number :</b></ion-label>   <i class="fa fa-question-circle-o" style="font-size:15px; color: rgb(102, 102, 232);"></i>    
+
+        <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;"  [(ngModel)]="data.Trucknumber" name="size">                                                       
+        <ion-label ><b>Truck Image :</b></ion-label><br>
+
+        <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" [(ngModel)]="data.Truckimage" name="stone">                                
+        <ion-label ><b>Licence :</b></ion-label><br>
+
+        <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;"  [(ngModel)]="data.Licence" name="Quantity">                                
+        <ion-label ><b>Aadhar:</b></ion-label><br>
+
+        <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;"  [(ngModel)]="data.Aadhar" name="price">                                
+        <ion-label ><b>Pan :</b></ion-label><br>
+
+        <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;"  [(ngModel)]="data.Pan" name="thick">                                 
+      </ion-list>
+
+        <div style="text-align: center;margin-bottom: 1em;">
+          <button type="submit" (click)="update(data._id)">Save</button>
+        </div>    
 </ion-content>

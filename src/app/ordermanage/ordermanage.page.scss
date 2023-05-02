@@ -1,8 +1,5 @@
-ion-toolbar {
-    --color: #ffffff;
-    --background:#697184;
-  }
-  ion-searchbar{
+
+ion-searchbar{
     
     --box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     ::ng-deep{
@@ -14,4 +11,8 @@ ion-toolbar {
             }
         }
     }   
+}
+ion-toolbar {
+    --color: #ffffff;
+    --background:#697184;
 }

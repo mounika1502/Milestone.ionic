@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">profile</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+ 
+ 
+    <section class="main">
+    <div class="profile-card">
+      <div class="image">
+        <img src="https://tinypic.host/images/2022/12/19/img_avatar.png" alt="" class="profile-pic">
+      </div>
+      <button class="button">
+       Edit
+        
+      </button>
+      <div class="data">
+        <h2>{{text.Firstname}} {{text.Lastname}}</h2>
+        <span>{{text.Email}}</span>
+        <hr>
+        <br>
+        <span> Phone:{{text.mobile}}</span>
+        <br>
+        <span>User Type:{{text.UserType}}</span>
+        <br>
+        <span>City:{{text.City}}</span>
+        <br>
+        Address:<br><br>{{text.Street}},{{text.State}},{{text.Pincode}}
+       
+      </div>
+      <button >
+      Add Company Details
+        
+      </button>
+    </div>
+  </section>
+
+ 
+  
+   
+</ion-content>

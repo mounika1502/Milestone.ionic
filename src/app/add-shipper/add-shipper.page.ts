@@ -28,20 +28,16 @@ export class AddShipperPage implements OnInit {
   
     submitForm(){
       console.log(this.ShipperForm.value)
-        // if(this.ShipperForm.value.Image ==''||
-        // this.ShipperForm.value.Number ==''||
-        // this.ShipperForm.value.Name ==''||
-        // this.ShipperForm.value.color ==''||
-        // this.ShipperForm.value.region ==''||
-        // this.ShipperForm.value.color ==''||
-        // this.ShipperForm.value.date =='')
-        // { 
-        //   Swal.fire(  
-        //      'Cancelled',  
-        //      'You Must  Enter All fields !',           //give for condition to take all properties take empty values
-        //      'error'                                  //then take one alert message like not save all data
-        //    ) 
-        // }else{  
+        if(this.ShipperForm.value.Image ==''||
+        this.ShipperForm.value.Number ==''||
+        this.ShipperForm.value.Name ==''||
+        this.ShipperForm.value.color ==''||
+        this.ShipperForm.value.region ==''||
+        this.ShipperForm.value.color ==''||
+        this.ShipperForm.value.date =='')
+        { 
+     alert("Please Fill All Details")
+        }else{  
            fetch("http://localhost:7500/shippers/addshipper", {
            method:'post',
            headers:{
@@ -54,16 +50,12 @@ export class AddShipperPage implements OnInit {
            console.log(result)
            if(result.status === 'failed'){
             alert('vehicle already existed!')
-            // Swal.fire( 
-            //   'Cancelled',
-            //   'vehicle already existed!',
-            //   'error'
-            // )
+      
            }else{
             alert('Shipper added successfully!')      
-          //   Swal.fire( 'Shipper added successfully!', '', 'success').then(() =>{         
-            window.location.href="./shippers"
-          //  } )
+            
+            window.location.href="/shippers"
+      
           }          
        })      
            .catch(error => console.log('error',error))           
@@ -71,3 +63,4 @@ export class AddShipperPage implements OnInit {
   }
 
 
+}
