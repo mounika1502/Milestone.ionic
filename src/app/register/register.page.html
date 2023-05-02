@@ -19,12 +19,12 @@
   
       <ion-item class="ion-margin">
     
-        <ion-input appCapitalize placeholder="Enter First Name"  type="text" clearInput="true" formControlName="Firstname"></ion-input>
+        <ion-input appFirstCap appCapitalize placeholder="Enter First Name"  type="text" clearInput="true" formControlName="Firstname"></ion-input>
       </ion-item>
      
       <ion-item class="ion-margin">
     
-        <ion-input appCapitalize placeholder="Enter Last Name" type="text" clearInput="true" formControlName="Lastname"></ion-input>
+        <ion-input  appFirstCap appCapitalize placeholder="Enter Last Name" type="text" clearInput="true" formControlName="Lastname"></ion-input>
       </ion-item>
      
       <ion-item class="ion-margin">
@@ -34,17 +34,17 @@
      
     <ion-item class="ion-margin">
   
-      <ion-input appCapitalize placeholder="Enter Phone Number" type="text" clearInput="true" formControlName="mobile"></ion-input>
+      <ion-input  appCapitalize placeholder="Enter Phone Number" type="text" clearInput="true" formControlName="mobile"></ion-input>
     </ion-item>
   
     <ion-item class="ion-margin">
   
-      <ion-input appCapitalize placeholder="Enter City" type="text" clearInput="true" formControlName="City"></ion-input>
+      <ion-input appFirstCap appCapitalize placeholder="Enter City" type="text" clearInput="true" formControlName="City"></ion-input>
     </ion-item>
   
     <ion-item class="ion-margin">
   
-      <ion-input appCapitalize placeholder="Enter Address" type="text" clearInput="true" formControlName="Street"></ion-input>
+      <ion-input appFirstCap appCapitalize placeholder="Enter Address" type="text" clearInput="true" formControlName="Street"></ion-input>
     </ion-item>
     <ion-item class="ion-margin">
   
@@ -52,7 +52,7 @@
     </ion-item>
     <ion-item class="ion-margin">
   
-      <ion-input appCapitalize placeholder="Enter Company Name" type="text" clearInput="true" formControlName="Company"></ion-input>
+      <ion-input appFirstCap appCapitalize placeholder="Enter Company Name" type="text" clearInput="true" formControlName="Company"></ion-input>
     </ion-item>
   
     <ion-item class="ion-margin">
@@ -60,7 +60,7 @@
     </ion-item>
    
     <ion-list>
-      <ion-item>
+      <ion-item class="ion-margin">
         <ion-select aria-label="fruit" formControlName="State" placeholder="Please Select your state" autocomplete="off">
           <ion-select-option value="">--Select--</ion-select-option>
           <ion-select-option value="Andhra Pradesh">Andhra Pradesh</ion-select-option>
@@ -96,7 +96,7 @@
     </ion-list>
    
       <ion-list>
-      <ion-item>
+      <ion-item class="ion-margin">
         <ion-select aria-label="fruit" formControlName="UserType" placeholder="Select User Type" autocomplete="off">
           <ion-select-option value="">--Select--</ion-select-option>
           <ion-select-option value="Manufacturer">Manufacturer</ion-select-option>
@@ -122,13 +122,7 @@
           </ion-content>
           </ion-content>
           
-      <!-- <span style="color: red;" *ngIf="UserType && UserType.invalid && UserType.touched">Enter a Valid Email</span>  -->
-  
      
-  
-    
-  
-  <!--showing the list of address-->
   
   
   

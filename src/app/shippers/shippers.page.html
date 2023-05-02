@@ -4,21 +4,21 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content >
       <ion-searchbar  placeholder= "Search...." [(ngModel)]="searchtext" name="array id"></ion-searchbar>
      
     <button class="addproduct" [hidden]="aa === 'Dealer'" routerLink="/add-shipper">Add New Shipper</button>
     
-    <div  class="row justify-content-center align-items-center text-center">
+    <div  class="row justify-content-center align-items-center text-centerpadding:10%">
         <table >
           <thead style="background-color: #697184;color: white;height: 2em;width: auto;" >
-            <tr style="text-align: center;">
+            <tr style="text-align: center;padding:10%">
               <th scope="col">Shipper Name</th>
-              <th scope="col">Phone Number</th>
-              <th scope="col">Shipper Details</th>
+              <th scope="col">Phone</th>
+              <th scope="col"> Details</th>
             </tr>
           </thead>
-          <tbody *ngFor="let data of shippers | filter : searchtext">
+          <tbody *ngFor="let data of shippers | filter : searchtext" >
             <tr>
               <td scope="row">{{data.Name}}</td>
               <td>{{data.Mobile}}</td>
@@ -26,8 +26,10 @@
                 <button style="height: 1.5em;width: 5em;border: 0;border-radius: 5px;color: white;background-color: #848a9a;" (click)="description(data)">
                     View
                 </button>
+
             </td>
-            </tr>     
+            </tr> 
+            <br>    
           </tbody>
         </table>
       </div>

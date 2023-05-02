@@ -8,8 +8,7 @@ import Swal from 'sweetalert2';
   templateUrl: './inventory.page.html',
   styleUrls: ['./inventory.page.scss'],
 })
-export class InventoryPage implements OnInit {
-       
+export class InventoryPage implements OnInit {       
 
 text: any;
 searchtext:any
@@ -26,7 +25,7 @@ ngOnInit(): void {
   this.textaws = JSON.parse(localStorage.getItem('aws')||'{}') 
   console.log(this.textaws) 
   this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
-   console.log(this.text) 
+   console.log(this.text.mobile) 
    this.getProduct(); 
    this.getCartDetails = JSON.parse(localStorage.getItem('anunya') || '{}');
 }
@@ -45,6 +44,7 @@ ngOnInit(): void {
      this.quantity=this.i;
    }
  } 
+
  //This is for product getting (gett) call 
  getProduct(){
    if(this.text.UserType=='admin'){
@@ -83,53 +83,12 @@ ngOnInit(): void {
     )     
     .catch(error => console.log('error',error))
   }
+}
 
-}
-//This is for product delete
-delete(prodId:any){  
 
- console.log(Number)
- Swal.fire({
-  title: 'Are you sure?',
-  text: "You won't be able to revert this!",
-  icon: 'warning',
-  showCancelButton: true,
-  confirmButtonColor: '#3085d6',
-  cancelButtonColor: '#d33',
-  confirmButtonText: 'Yes, delete it!'
-}).then((result) => {
-  if(result.isConfirmed==true)
-  {
-   fetch("http://localhost:7500/products/deleteproduct/" + prodId,{
-    method:'DELETE',
-    headers:{
-      "access-Control-Allow-Origin":"*"
-    },
-   })
-   .then(response => response.json())
-   .then(result=>{
-    console.log(result)
-    this.getProduct()
-    if (result.isConfirmed) {
-      Swal.fire(
-        'Deleted!',
-        'Your file has been deleted.',
-        'success'
-      )
-    }
-  })
-}
-  })     
-   .catch(err =>
-    console.log(err))    
-} 
-//this is for edit the product
-edit(products:any){   
- localStorage.setItem('product',JSON.stringify(products))   
-}
 description(product:any){
-  window.location.href=("/prod-data")
-    localStorage.setItem('Description',JSON.stringify(product));
+  window.location.href=("./inventory-data")
+    localStorage.setItem('Inventory',JSON.stringify(product));
     console.log(product)
   }
 

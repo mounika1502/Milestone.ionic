@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'folder/Inbox',
-    pathMatch: 'full'
-  },
+  // {
+  //   path: '',
+  //   redirectTo: 'folder/Inbox',
+  //   pathMatch: 'full'
+  // },
   {
     path: 'folder/:id',
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
@@ -77,12 +77,33 @@ const routes: Routes = [
     loadChildren: () => import('./raw-product/raw-product.module').then( m => m.RawProductPageModule)
   },
   {
+    path: 'raw-data',
+    loadChildren: () => import('./raw-data/raw-data.module').then( m => m.RawDataPageModule)
+  },
+  {
     path: 'users',
     loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule)
   },
   {
     path: 'cart',
     loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
+  },
+
+  { path: 'raw-edit',
+    loadChildren: () => import('./raw-edit/raw-edit.module').then( m => m.RawEditPageModule)
+  },
+  {
+    path: 'cart',
+    loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
+  },
+  {
+    path: 'inventory-data',
+    loadChildren: () => import('./inventory-data/inventory-data.module').then( m => m.InventoryDataPageModule)
+  },
+
+  {
+    path: 'inventory-edit',
+    loadChildren: () => import('./inventory-edit/inventory-edit.module').then( m => m.InventoryEditPageModule)
   },
 
 

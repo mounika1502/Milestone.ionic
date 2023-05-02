@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>inventory-edit</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> 
+  
+  <h1 style="text-align: center;"><b>EDIT PRODUCT</b></h1>
+         
+  <form [formGroup]="productForm">
+    <hr>
+    <ion-list style="padding-left: 2.5%;">                     
+       
+          <ion-label ><b>S.NO :</b></ion-label><br>
+          <input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" formControlName="Number" readonly [(ngModel)]="data.prodId" name="Number">   
+          
+          <ion-label ><b>Name of Product :</b></ion-label><br>
+          <input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" formControlName="name" [(ngModel)]="data.name"   name="Name">   
+                         
+          <ion-label ><b>Colour :</b></ion-label>
+          <input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" formControlName="color" [(ngModel)]="data.color" name="color">    
+
+        <ion-label ><b>Size :</b></ion-label>   <i class="fa fa-question-circle-o" style="font-size:15px; color: rgb(102, 102, 232);"></i>               
+        <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" formControlName="size" [(ngModel)]="data.size" name="size">                                                       
+
+        <ion-label ><b>Stone Size/Type :</b></ion-label><br>
+        <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" formControlName="stone" [(ngModel)]="data.stone" name="stone">                                
+         
+        <ion-label ><b>Available Quantity :</b></ion-label><br>
+        <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" formControlName="Quantity" [(ngModel)]="data.Quantity" name="Quantity">                                
+        
+        <ion-label ><b>Price/SFT :</b></ion-label><br>
+        <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" formControlName="price" [(ngModel)]="data.price" name="price">                                
+        
+        <ion-label ><b>Thickness :</b></ion-label><br>
+        <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" formControlName="thick" [(ngModel)]="data.thick" name="thick">                                
+        
+        <ion-label ><b>Quality :</b></ion-label><br>
+        <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" formControlName="quality" [(ngModel)]="data.quality" name="quality">                                
+         
+        <ion-label ><b>Location of stone :</b></ion-label>
+        <input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" formControlName="region" [(ngModel)]="data.region" name="region">
+                      
+        <ion-label ><b>Arrival Date :</b></ion-label>
+        <input style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;text-align:start;" formControlName="date" [(ngModel)]="data.date" name="date"> 
+           
+        <ion-label ><b>Manufacturer Name :</b></ion-label>
+        <input style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;text-align:start;" formControlName="manufacturername" [(ngModel)]="data.manufacturername" name="manufacturername"> 
+           
+        <ion-label ><b>Phone Number :</b></ion-label>
+        <input style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;text-align:start;" formControlName="PhoneNumber" [(ngModel)]="data.PhoneNumber" name="PhoneNumber"> 
+           
+      </ion-list>
+        <div style="text-align: center;margin-bottom: 1em;">
+          <ion-button type="submit" (click)="update(data._id)">Save</ion-button>
+        </div>    
+  </form> 
+
+</ion-content>

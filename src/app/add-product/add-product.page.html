@@ -16,7 +16,7 @@
     <ion-label ><b>S.NO :</b></ion-label><br>
     <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);padding: 5%;" formControlName="prodId" placeholder=" Enter your product ID"> </ion-input>                                         
     <ion-label ><b>Name of product :</b></ion-label>
-    <ion-select  formControlName="name" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" class="fa fa-caret-down">
+    <ion-select  appFirstCap formControlName="name" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" class="fa fa-caret-down">
       <ion-select-option value="Absolute Black">Absolute Black</ion-select-option>
       <ion-select-option value="Alaska  White">Alaska White</ion-select-option>
       <ion-select-option value="Amazon White">Amazon White</ion-select-option>
@@ -73,15 +73,15 @@
       <ion-select-option value="VizagBlue">Vizag Blue</ion-select-option>
     </ion-select>               
     <ion-label ><b>Colour :</b></ion-label>
-    <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="color" placeholder=" Enter your product colour"> </ion-input>                   
+    <ion-input type="text" appFirstCap appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="color" placeholder=" Enter your product colour"> </ion-input>                   
 <!-- <div class="form-outline">                    
 <input type="hidden" class="form-control form-control-lg" formControlName="mobile" [(ngModel)]="text.mobile" >                    
 </div> -->
     <ion-label ><b>Size :</b></ion-label>   <i class="fa fa-question-circle-o" style="font-size:15px; color: rgb(102, 102, 232);" ></i>               
-    <ion-input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="size" placeholder=" product size in lxb" > </ion-input>                                                   
+    <ion-input appFirstCap type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="size" placeholder=" product size in lxb" > </ion-input>                                                   
 
     <ion-label ><b>Available Quantity :</b></ion-label>   <i class="fa fa-question-circle-o" style="font-size:15px; color: rgb(102, 102, 232);" ></i>               
-    <ion-input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="Quantity" placeholder=" product quantity" > </ion-input> 
+    <ion-input appFirstCap type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="Quantity" placeholder=" product quantity" > </ion-input> 
    <!-- <div *ngIf ="Size" style="float: left;margin-top: -5px;">
      <div class="form-control" style=" background-color: #9a9fa9; color: white;">
        <p>This field provides value according to <b>length x breadth</b></p>
@@ -89,7 +89,7 @@
    </div> -->
    <ion-label ><b>Thickness :</b></ion-label><br>               
    <ion-select  formControlName="thick" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" >
-      <ion-select-option  value="3C">3Cm</ion-select-option>
+      <ion-select-option  value="3Cm">3Cm</ion-select-option>
       <ion-select-option  value="2Cm">2Cm</ion-select-option>
     </ion-select>
  
@@ -113,7 +113,7 @@
     <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="price" placeholder=" Enter your product price"></ion-input>                       
 
     <ion-label ><b>Location of stone :</b></ion-label>
-    <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="region" placeholder=" Enter your product location"></ion-input>
+    <ion-input appFirstCap type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="region" placeholder=" Enter your product location"></ion-input>
                 
    
     <ion-label ><b>Arrival Date :</b></ion-label>
@@ -121,14 +121,18 @@
              
   
     <ion-label ><b>Manufacturer Name :</b></ion-label>
-    <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="manufacturername" placeholder=" Enter your name"></ion-input>
+    <ion-input appFirstCap type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="manufacturername" placeholder=" Enter your name"></ion-input>
                  
  
     <ion-label ><b>Phone Number :</b></ion-label>
     <ion-input type="text"style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="PhoneNumber" placeholder=" Enter your PhoneNumber"> </ion-input> 
 
     <ion-label ><b>Description :</b></ion-label>
-    <textarea type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height:10em;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="description" placeholder=" Enter your product Description"> </textarea> 
+
+    <textarea appFirstCap type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height:10em;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="description" placeholder=" Enter your PhoneNumber"> </textarea> 
+
+    
+
  
   </ion-list>
 <div style="text-align: center;margin-bottom: 1em;">
