@@ -8,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
 export class RawDataPage implements OnInit {
     
     data: any;
+  text: any;
+  aa: any;
      constructor() { 
      }
    
      ngOnInit() {
+
+      this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+      console.log(this.text)
+      this.aa = this.text.UserType
+      console.log(this.aa)
+
       this.data = JSON.parse(localStorage.getItem('Raw') || '{}') 
       console.log(this.data) 
      }

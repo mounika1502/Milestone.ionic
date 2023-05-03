@@ -17,24 +17,24 @@
           <ion-label> &nbsp; &nbsp; &nbsp;Home</ion-label>
         </ion-item>
         <ion-item routerLink="/product">
-          <ion-icon name="layers-outline" [hidden]="aa === 'Manufacturer'" style="color: rgb(95, 95, 231);"></ion-icon>
-          <ion-label  [hidden]="aa === 'Manufacturer'"> &nbsp; &nbsp; &nbsp;Products</ion-label>
+          <ion-icon name="layers-outline" [hidden]= "aa === 'Manufacturer'" style="color: rgb(95, 95, 231);"></ion-icon>
+          <ion-label  [hidden]= "aa === 'Manufacturer'"> &nbsp; &nbsp; &nbsp;Products</ion-label>
         </ion-item>
         <ion-item routerLink="/inventory" >
           <ion-icon name="albums-outline"style="color: rgb(95, 95, 231);"></ion-icon>
-          <ion-label [hidden]="aa === 'Dealer'"> &nbsp; &nbsp; &nbsp;Inventory</ion-label>
+          <ion-label [hidden]= "aa === 'Dealer'"> &nbsp; &nbsp; &nbsp;Inventory</ion-label>
         </ion-item>
-        <ion-item routerLink="Raw-Product">
+        <ion-item routerLink="raw-product">
           <ion-icon name="browsers-outline"style="color: rgb(95, 95, 231);"></ion-icon>
-          <ion-label [hidden]="aa === 'Dealer '"> &nbsp; &nbsp; &nbsp;Raw-Product</ion-label>
+          <ion-label [hidden]= "aa === 'Dealer '"> &nbsp; &nbsp; &nbsp;Raw-Product</ion-label>
         </ion-item>
-        <ion-item routerLink="">
+        <ion-item routerLink="raw-inventory">
           <ion-icon name="browsers-outline"style="color: rgb(95, 95, 231);"></ion-icon>
-          <ion-label [hidden]="aa === 'Dealer'">&nbsp; &nbsp; &nbsp;Raw-Inventory</ion-label>
+          <ion-label [hidden]= "aa === 'Dealer'">&nbsp; &nbsp; &nbsp;Raw-Inventory</ion-label>
         </ion-item>
         <ion-item>
           <ion-icon name="people-circle-outline"style="color: rgb(95, 95, 231);"></ion-icon>
-          <ion-label [hidden]="aa === 'Manufacturer'"> &nbsp; &nbsp; &nbsp;Manufacturers</ion-label>
+          <ion-label [hidden]= "aa === 'Manufacturer'"> &nbsp; &nbsp; &nbsp;Manufacturers</ion-label>
         </ion-item>
         <ion-item>
           <ion-icon name="person-outline"style="color: rgb(95, 95, 231);"></ion-icon>
@@ -56,9 +56,9 @@
           <ion-icon name="people-outline"style="color: rgb(95, 95, 231);"></ion-icon>
           <ion-label  [hidden]="aa === 'Manufacturer'" [hidden]="aa === 'Manufacturer'">&nbsp; &nbsp; &nbsp;User Management</ion-label>
         </ion-item>
-        <ion-item>
-          <ion-icon name="log-out-outline"style="color: rgb(95, 95, 231);"></ion-icon>
-          <ion-label>&nbsp; &nbsp; &nbsp;Logout</ion-label>
+        <ion-item (click)="logout()">
+          <ion-icon name="log-out-outline"style="color: rgb(95, 95, 231);" ></ion-icon>
+          <ion-label >&nbsp; &nbsp; &nbsp;Logout</ion-label>
         </ion-item>
         
       </ion-list>

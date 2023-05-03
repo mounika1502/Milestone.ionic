@@ -21,9 +21,7 @@ export class AppComponent {
   }  // itemsCart is a global array
 
 logout(){
-  // localStorage.clear();
-
- window.location.href='/login'
-
+   localStorage.clear();
+   window.location.href='./login'
 }
 }

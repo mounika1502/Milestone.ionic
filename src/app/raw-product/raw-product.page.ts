@@ -9,11 +9,19 @@ export class RawProductPage implements OnInit {
  products:any=[];
   raw: any;
   data: any;
+  text: any;
+  aa: any;
   constructor() { 
     this.get()
   }
 
   ngOnInit() {
+
+    this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+      console.log(this.text)
+      this.aa = this.text.UserType
+      console.log(this.aa)
+
     const localdata=localStorage.getItem('mounika')
     if(localdata!=null){
       this.data = JSON.parse(localdata)

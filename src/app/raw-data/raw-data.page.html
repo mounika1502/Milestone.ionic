@@ -56,15 +56,18 @@
       </ion-card>
     </ion-list >
 
-    <h6 style="text-align: center;color:green">Contact Supplier
+    <div [hidden] = "aa == 'Manufacturer'">
+      <h6 style="text-align: center;color:green">Contact Supplier
       <ion-icon name="call" style="font-size: large;color:#197a19; "></ion-icon></h6>
         <p>
           <a href="tel:{{data.mobile}}" style="margin-left: 110px;">{{data.mobile}}</a>
         </p>
-    
+      </div>
+      <div [hidden] = "aa == 'Dealer'">
         <ion-item style="margin-left: 100px;">
           <button class="edit"(click)="edit(data)">Edit</button>&nbsp;
           <button class="delete" (click)="delete(data.Number)">Delete</button>
         </ion-item>
+      </div>
   </ion-card>
 </ion-content>
