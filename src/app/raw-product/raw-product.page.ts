@@ -21,7 +21,7 @@ export class RawProductPage implements OnInit {
   }
   get(){
   // if(this.text.UserType=='admin'){
-    fetch("http://localhost:7500/raw/getrawproduct", {
+    fetch("https://brave-pink-clothes.cyclic.app/raw/getrawproduct", {
       method:'get',
       headers:{
         "Access-Control-Allow-Origin": "*",

@@ -25,7 +25,7 @@ export class RawDataPage implements OnInit {
 
       delete(Number:any){  
       
-        fetch("https://happy-erin-leather-jacket.cyclic.app/raw/delete/" + Number,{
+        fetch("https://brave-pink-clothes.cyclic.app//raw/delete/" + Number,{
          method:'DELETE',
          headers:{
             "access-Control-Allow-Origin":"*"

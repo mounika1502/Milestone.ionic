@@ -127,7 +127,7 @@ export class BlackgalaxyPage implements OnInit {
    
   get() {
     console.log(this.name)
-    fetch("http://localhost:7500/products/getbyName/" + this.name, {
+    fetch("https://brave-pink-clothes.cyclic.app/products/getbyName/" + this.name, {
       method: 'GET',
     headers: {
       "access-Control-Allow-Origin": "*",

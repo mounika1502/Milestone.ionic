@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar>      
-      <ion-title>add-rawproduct</ion-title>
+      <ion-icon name="arrow-back-sharp" routerLink="/raw-product" style="font-size: 30px;"></ion-icon>
     </ion-toolbar>
   </ion-header>
   <ion-content> 
@@ -82,13 +82,11 @@
 
             <ion-label ><b>Size :</b></ion-label>   <i class="fa fa-question-circle-o" style="font-size:15px; color: rgb(102, 102, 232);"></i>               
             <ion-input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;margin-bottom: 1em;" formControlName="size" placeholder=" product size in lxb" > </ion-input>     
-
            <ion-label ><b>Stone Size/Type :</b></ion-label><br>
            <ion-select  formControlName="stone" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;margin-bottom: 1em;" >
               <ion-select-option  value="Gangsaw Size">Gangsaw Size</ion-select-option>
               <ion-select-option  value="Cutter Size">Cutter Size</ion-select-option>
-            </ion-select>    
-                              
+            </ion-select>            
             <ion-label ><b>Location of stone :</b></ion-label>
             <ion-input appFirstCap type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="region" placeholder=" Enter your product location"></ion-input>
 

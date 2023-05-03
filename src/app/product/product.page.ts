@@ -69,7 +69,7 @@ export class ProductPage implements OnInit {
  
     get() {
       console.log('getstoreDealer')
-      fetch("http://localhost:7500/dealerfilterRouter/dealerfilter", {
+      fetch("https://brave-pink-clothes.cyclic.app/dealerfilterRouter/dealerfilter", {
         method: 'GET',
       headers: {
         "access-Control-Allow-Origin": "*",

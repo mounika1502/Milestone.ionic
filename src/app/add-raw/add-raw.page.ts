@@ -51,7 +51,7 @@ export class AddRawPage implements OnInit {
     //    ) 
     // }else{  
       console.log(this.productForm.value)
-       fetch("http://localhost:7500/raw/addraw", {
+       fetch("https://brave-pink-clothes.cyclic.app/raw/addraw", {
        method:'post',
        headers:{
          "Access-Control-Allow-Origin": "*",

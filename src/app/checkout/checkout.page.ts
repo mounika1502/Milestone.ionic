@@ -91,9 +91,9 @@ ngOnInit(): void {
     this.text2 = JSON.parse(localdata1)
     console.log(this.text2)
   }
-  this.dataqnt = JSON.parse(localStorage.getItem('anunya') || '{}')
-  this.qnty = this.dataqnt[0].Quantity
-  console.log(this.qnty)
+  // this.dataqnt = JSON.parse(localStorage.getItem('anunya') || '{}')
+  // this.qnty = this.dataqnt[0].Quantity
+  // console.log(this.qnty)
 }
 popup() {
   this.pop = true;
@@ -128,7 +128,7 @@ cash1() {
   console.log(Obj);
   if (Obj.Phone == this.text.mobile) {
     console.log(JSON.stringify(Obj))   //product details with user details
-    fetch("http://localhost:7500/orderRoute/post", {
+    fetch("https://brave-pink-clothes.cyclic.app/orderRoute/post", {
       method: 'POST',
       headers: {
         "Access-Control-Allow-Origin": "*",
@@ -146,20 +146,17 @@ cash1() {
       })
       .catch(error => console.log('error', error));
 
-    Swal.fire('Order Placed Successfully!', '', 'success').then(() => {
-      window.location.href = ('./view');
+  alert("Added Successfully")
+      window.location.href = ('./success');
       localStorage.removeItem('anunya');
      
-    }
-    );
-  } else {
-    Swal.fire('Please  Enter  Registered Mobile Number!', '', 'error').then(() => {
-      window.location.reload()
-    }
-    );
-}
+    
+    
+
+
+  }
 // debugger
-fetch("http://localhost:7500/orderRoute/orderemail", {
+fetch("https://brave-pink-clothes.cyclic.app/orderRoute/orderemail", {
   method:'post',
   headers: {
     "Access-Control-Allow-Origin": "*",
