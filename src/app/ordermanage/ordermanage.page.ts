@@ -51,6 +51,7 @@ ApproximateTime:any;
   manuemail: any;
   randomNumber: any;
   text2: any;
+  text4: any=[]
   constructor() { 
 
     }
@@ -61,7 +62,11 @@ ApproximateTime:any;
       console.log(test)
   }
   ngOnInit(): void {
-debugger
+    const localdata=localStorage.getItem('uma')
+    if(localdata!=null){                                                    
+      this.text4 = JSON.parse(localdata)
+      
+    }
     const localdata1=localStorage.getItem('orderid')
     if(localdata1!=null){                                                    
       this.text2 = JSON.parse(localdata1)
@@ -116,27 +121,27 @@ fetch("http://localhost:7500/orderRoute/getAllOrders", {
       this.data2.push(this.data1.OrderData.OrderItems)
       console.log(this.data2)
    } 
-   for(let i = 0;i < this.data2.length;i++){
-    this.data1 = this.data2[i]
-   var data =this.data1[0].mobile
-   if(data==this.manumob )
-   {
-    this.data3.push(this.order[i] )
-   }
-  }  if(this.data3.length!=0)
-  {
-  this.order=this.data3
-    console.log(this.order)
+  //  for(let i = 0;i < this.data2.length;i++){
+  //   this.data1 = this.data2[i]
+  //  var data =this.data1[0].mobile
+  //  if(data==this.manumob )
+  //  {
+  //   this.data3.push(this.order[i] )
+  //  }
+  // }  if(this.data3.length!=0)
+  // {
+  // this.order=this.data3
+  //   console.log(this.order)
     
-    console.log(this.order)
-    this.count=this.order.length;
-    localStorage.setItem('Prod',JSON.stringify(this.order));
-     console.log(this.data3)
-  }
-  else{
-    this.order.length=0;
-    this.count=this.order.length;
-  }
+  //   console.log(this.order)
+  //   this.count=this.order.length;
+  //   localStorage.setItem('Prod',JSON.stringify(this.order));
+  //    console.log(this.data3)
+  // }
+  // else{
+  //   this.order.length=0;
+  //   this.count=this.order.length;
+  // }
    
     }
     ).catch(err =>
@@ -148,6 +153,7 @@ fetch("http://localhost:7500/orderRoute/getAllOrders", {
 
   
 }
+
   getAddress(test:any){
     window.location.href=("/address")
     localStorage.setItem('Order',JSON.stringify(test));

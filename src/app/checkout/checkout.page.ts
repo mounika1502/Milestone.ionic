@@ -135,10 +135,12 @@ cash1() {
         "Content-Type": 'application/json'
       },
       body: JSON.stringify(Obj)
+ 
     }).then(response => response.json())
 
       .then(result => {
         console.log(result)
+   
         this.UpdateQnty()
         // localStorage.removeItem('anunya');
       })

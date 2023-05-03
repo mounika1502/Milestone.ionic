@@ -118,6 +118,12 @@ const routes: Routes = [
     path: 'ordermanage',
     loadChildren: () => import('./ordermanage/ordermanage.module').then( m => m.OrdermanagePageModule)
   },
+  {
+    path: 'success',
+    loadChildren: () => import('./success/success.module').then( m => m.SuccessPageModule)
+  },
+
+
 
 
 

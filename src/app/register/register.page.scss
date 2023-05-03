@@ -40,17 +40,6 @@ ion-button {
         border: none;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
 #bg {
     height: 40%;
     width: auto;
@@ -59,22 +48,11 @@ ion-button {
     margin-left: -21vw;
     position: relative;
 }
-
-/* ion-fab {
-
-    ion-icon {
-        font-size: 2.5rem;
-    }
-} */
-
 ion-list {
-    margin-top: 6vh;
-
     ion-list-header {
         font-weight: 1000;
         font-size: 1.5rem;
     }
-
     ion-item {
         border: 1px solid grey;
         border-radius: 20px;
@@ -82,20 +60,17 @@ ion-list {
         -moz-box-shadow: 0 6px 4px -4px var(--ion-color-medium);
         box-shadow: 3px 6px 4px -4px var(--ion-color-medium);
     }
-
     p {
         font-size: 0.8rem;
         padding-left: 5vw;
     }
 }
-
 h3 {
     color: #4e5358;
     font-weight: 600;
     display: flex;
     justify-content: center;
 }
-
 ion-button {
     --background: #687184;
     margin-top: 60px;
