@@ -1,37 +1,32 @@
+
 <ion-header>
-  <ion-toolbar>
-    <ion-menu-button menu="main-menu"></ion-menu-button>
+  <ion-toolbar >
+<ion-buttons slot="start" >
+<ion-menu-button style="color:white" menu="main-menu"></ion-menu-button>
+</ion-buttons>
+
   </ion-toolbar>
 </ion-header>
+<ion-searchbar [(ngModel)]="searchtext"></ion-searchbar>
+<ion-content>
+<div *ngFor="let data of shippers | filter : searchtext">
+  <ion-list>
+    <ion-card style="border-radius: 9px;border: 1px solid #697184;">
+       <ion-row>
+         <ion-col style="color: #697184;font-size: large;font-weight: 700;">Shipper Name</ion-col>
+         <ion-col style="color: black;font-size: large;"> : {{data.Name}}</ion-col>
+       </ion-row>
+      <ion-row>
+        <ion-col style="color: #697184;font-size: large;font-weight: 700;">Mobile</ion-col>
+        <ion-col style="color: black;font-size: large;"> : {{data.Mobile}}</ion-col>
+      </ion-row><br>
+      <button (click)="description(data)" style="margin-left: 33%;">
+        View more details
+       </button>
+   </ion-card>
+    </ion-list>
 
-<ion-content >
-      <ion-searchbar  placeholder= "Search...." [(ngModel)]="searchtext" name="array id"></ion-searchbar>
-     
-    <button class="addproduct" [hidden]="aa === 'Dealer'" routerLink="/add-shipper">Add New Shipper</button>
-    
-    <div  class="row justify-content-center align-items-center text-centerpadding:10%">
-        <table >
-          <thead style="background-color: #697184;color: white;height: 2em;width: auto;" >
-            <tr style="text-align: center;padding:10%">
-              <th scope="col">Shipper Name</th>
-              <th scope="col">Phone</th>
-              <th scope="col"> Details</th>
-            </tr>
-          </thead>
-          <tbody *ngFor="let data of shippers | filter : searchtext" >
-            <tr>
-              <td scope="row">{{data.Name}}</td>
-              <td>{{data.Mobile}}</td>
-              <td style="text-align: center;">
-                <button style="height: 1.5em;width: 5em;border: 0;border-radius: 5px;color: white;background-color: #848a9a;" (click)="description(data)">
-                    View
-                </button>
+<!-- </ion-card> -->
 
-            </td>
-            </tr> 
-            <br>    
-          </tbody>
-        </table>
-      </div>
+</div>
 </ion-content>
-

@@ -53,7 +53,7 @@ export class AddProductPage  {
     console.log(this.textaws)
     this.productForm = new FormGroup({
       sid: new FormControl(0),
-      // imgurl :new FormControl(""),
+      imgurl :new FormControl(""),
       prodId: new FormControl(""),
       name: new FormControl(""),
       color: new FormControl(""),
@@ -70,6 +70,7 @@ export class AddProductPage  {
       PhoneNumber: new FormControl('', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
       description: new FormControl(""),
       manufacturername: new FormControl(""),
+   
       // filePath: new FormControl()
     })
   }
@@ -79,28 +80,30 @@ export class AddProductPage  {
   toggle() {
     this.size = !this.size
   }
-  submitForm(id: any) {
+  submitForm() {
     console.log(this.productForm.value)
-    // if ( this.productForm.value.prodId == '' ||
-    //   this.productForm.value.name == '' ||
-    //   this.productForm.value.color == '' ||
-    //   this.productForm.value.size == '' ||
-    //   this.productForm.value.thick == '' ||
-    //   this.productForm.value.qnt == '' ||
-    //   this.productForm.value.region == '' ||
-    //   this.productForm.value.quality == '' ||
-    //   this.productForm.value.date == '' ||
-    //   this.productForm.value.stone == '' ||
-    //   this.productForm.value.Quantity == '' ||
-    //   this.productForm.value.mobile == '' ||
-    //   this.productForm.value.PhoneNumber == '' ||
-    //   this.productForm.value.description == '' ||
-    //   this.productForm.value.manufacturername == '' ||
-    //   this.productForm.value.price == '') {
+    if ( this.productForm.value.prodId == '' ||
+      this.productForm.value.name == '' ||
+      this.productForm.value.color == '' ||
+      this.productForm.value.size == '' ||
+      this.productForm.value.thick == '' ||
+      this.productForm.value.qnt == '' ||
+      this.productForm.value.region == '' ||
+      this.productForm.value.quality == '' ||
+      this.productForm.value.date == '' ||
+      this.productForm.value.stone == '' ||
+      this.productForm.value.Quantity == '' ||
+      this.productForm.value.mobile == '' ||
+      this.productForm.value.PhoneNumber == '' ||
+      this.productForm.value.description == '' ||
+      this.productForm.value.manufacturername == '' ||
+      this.productForm.value.imgurl == '' ||
+      this.productForm.value.price == '') {
    
-    // } else {
+    } else {
+      alert("Please Fill all Details")
       console.log(this.productForm.value)
-      fetch("http://localhost:7500/products/addproduct/" + id, {
+      fetch("http://localhost:7500/products/addproduct" , {
         method: 'post',
         headers: {
           "Access-Control-Allow-Origin": "*",
@@ -115,7 +118,7 @@ export class AddProductPage  {
         }
         )
         .catch(error => console.log('error', error))
-    // }
+     }
   }
   onClick() {
     console.log(this.data)
@@ -126,7 +129,7 @@ export class AddProductPage  {
    this.apii.postfiletos3(formdata).subscribe(data=>{
     console.log(data)
     var docid=data.imageFile._id
-   this.submitForm(docid) 
+  //  this.submitForm(docid) 
     alert("file uploaded")
    })
     console.log(formdata)

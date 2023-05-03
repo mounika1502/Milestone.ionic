@@ -16,50 +16,52 @@
     <img src="https://media.istockphoto.com/id/502910284/photo/natural-stone-tiles-marble-granite-samples-stack-clipping-path.jpg?s=612x612&w=0&k=20&c=6-doPB7xCKGqQ6y1EVrJXcrw8ziMw8xmec1GlVxLbUE=">
   
     <form #userPost="ngForm" [formGroup]="SignupForm" >
-  
+  <ion-label style="margin-left: 6%;">First Name</ion-label>
       <ion-item class="ion-margin">
     
         <ion-input appFirstCap appCapitalize placeholder="Enter First Name"  type="text" clearInput="true" formControlName="Firstname"></ion-input>
       </ion-item>
-     
+      <ion-label style="margin-left: 6%;">Last Name</ion-label>
       <ion-item class="ion-margin">
     
         <ion-input  appFirstCap appCapitalize placeholder="Enter Last Name" type="text" clearInput="true" formControlName="Lastname"></ion-input>
       </ion-item>
-     
+      <ion-label style="margin-left: 6%;">Email Address</ion-label>
       <ion-item class="ion-margin">
     
         <ion-input appCapitalize placeholder="Enter Email Address" type="text" clearInput="true" formControlName="Email"></ion-input>
       </ion-item>
-     
+      <ion-label style="margin-left: 6%;">Phone Number</ion-label>
     <ion-item class="ion-margin">
   
       <ion-input  appCapitalize placeholder="Enter Phone Number" type="text" clearInput="true" formControlName="mobile"></ion-input>
     </ion-item>
-  
+    <ion-label style="margin-left: 6%;">City</ion-label>
     <ion-item class="ion-margin">
   
       <ion-input appFirstCap appCapitalize placeholder="Enter City" type="text" clearInput="true" formControlName="City"></ion-input>
     </ion-item>
-  
+    <ion-label style="margin-left: 6%;">Street</ion-label>
     <ion-item class="ion-margin">
   
       <ion-input appFirstCap appCapitalize placeholder="Enter Address" type="text" clearInput="true" formControlName="Street"></ion-input>
     </ion-item>
+    <ion-label style="margin-left: 6%;">Pincode</ion-label>
     <ion-item class="ion-margin">
   
       <ion-input appCapitalize placeholder="Enter pincode" type="text" clearInput="true" formControlName="pincode"></ion-input>
     </ion-item>
+    <ion-label style="margin-left: 6%;">Company</ion-label>
     <ion-item class="ion-margin">
   
       <ion-input appFirstCap appCapitalize placeholder="Enter Company Name" type="text" clearInput="true" formControlName="Company"></ion-input>
     </ion-item>
-  
+    <ion-label style="margin-left: 6%;">Password</ion-label>
     <ion-item class="ion-margin">
       <ion-input appCapitalize placeholder="Enter Password" type="password" clearInput="true" formControlName="Password"></ion-input>
     </ion-item>
    
-    <ion-list>
+    <ion-label style="margin-left: 6%;">State</ion-label>
       <ion-item class="ion-margin">
         <ion-select aria-label="fruit" formControlName="State" placeholder="Please Select your state" autocomplete="off">
           <ion-select-option value="">--Select--</ion-select-option>
@@ -93,9 +95,9 @@
           <ion-select-option value="West Bengal">West Bengal</ion-select-option>
         </ion-select>
       </ion-item>
-    </ion-list>
+
    
-      <ion-list>
+      <ion-label style="margin-left: 6%;">User Type</ion-label>
       <ion-item class="ion-margin">
         <ion-select aria-label="fruit" formControlName="UserType" placeholder="Select User Type" autocomplete="off">
           <ion-select-option value="">--Select--</ion-select-option>
@@ -104,7 +106,7 @@
           <ion-select-option value="admin">Admin</ion-select-option>
           </ion-select>
           </ion-item>
-          </ion-list>
+         
           </form>
           </ion-list>
           <ion-button  style="height: 50px;   border-radius: 10px; margin-top:20px;" expand="full" strong="true" type="submit" (click)="setOpen(true)" [disabled]="SignupForm.value.Firstname == '' || SignupForm.value.Lastname == ''|| SignupForm.value.Email == ''|| SignupForm.value.Password == ''||SignupForm.value.UserType==''||SignupForm.value.City == ''|| SignupForm.value.state == '' || SignupForm.value.Password == ''|| SignupForm.value.Street == ''||SignupForm.value.Company=='' || SignupForm.value.pincode==''"    (click)="signupSubmit()" >

@@ -21,4 +21,7 @@ export class UploadService {
     }
     return throwError(errorMessage)
   }
+  updateShipper(data:any,id:any){
+    return this.http.put('http://localhost:7500/shippers/editShipper/' + id ,data)
+   }
 }

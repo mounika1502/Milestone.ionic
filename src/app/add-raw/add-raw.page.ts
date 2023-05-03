@@ -72,7 +72,7 @@ export class AddRawPage implements OnInit {
        }else{ 
         alert('yess')     
       //   Swal.fire( 'Submitted successfully!', '', 'success').then(() =>{         
-      //     window.location.href="./raw"
+          window.location.href="/raw-product"
       //  } )
       }
       

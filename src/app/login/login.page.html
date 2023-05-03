@@ -26,7 +26,7 @@
     </ion-item>
     <label style="margin-left: 8%;">Password</label>
     <ion-item class="ion-margin">
-      <ion-input appCapitalize placeholder="Enter Password" type="text" clearInput="true" formControlName="password"></ion-input>
+      <ion-input appCapitalize placeholder="Enter Password" type="password" clearInput="true" formControlName="password"></ion-input>
     </ion-item>
   </form>
       <ion-button  style="height: 50px;   border-radius: 10px; margin-top:20px;" expand="full" strong="true" type="submit" [disabled]="loginForm.value.email == '' || loginForm.value.password == ''"   (click)="loginSubmit()" >
