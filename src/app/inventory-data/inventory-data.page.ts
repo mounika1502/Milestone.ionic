@@ -18,7 +18,7 @@ export class InventoryDataPage implements OnInit {
   }
 
   edit(products:any){
-    window.location.href='./inventory-edit'
+    window.location.href=("/inventory-edit")
     this.data=products   
     localStorage.setItem('InventoryProduct',JSON.stringify(products))   
     console.log(products)

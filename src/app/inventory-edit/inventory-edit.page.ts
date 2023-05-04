@@ -14,7 +14,7 @@ export class InventoryEditPage implements OnInit {
 
   ngOnInit() {
     this.productForm = new FormGroup({
-     
+     prodId:new FormControl(""),
       name: new FormControl(""),
       color: new FormControl(""),
       size: new FormControl(""),
