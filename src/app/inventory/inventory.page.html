@@ -8,6 +8,11 @@
   <ion-content id="main">
     <ion-grid>
         <ion-searchbar></ion-searchbar>
+
+        <button [hidden]= "aa == 'Dealer'" class="add" routerLink="/add-raw">Add Your Product</button>
+    
+        <br><br>
+
       <ion-row>
         <ion-col  size="6" *ngFor="let product of products"   >
           <ion-card style="height: 100%;" (click)="description(product)">

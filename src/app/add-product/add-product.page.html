@@ -94,21 +94,31 @@
     </ion-select>
     <ion-label ><b>Price/SFT :</b></ion-label>
     <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="price" placeholder=" Enter your product price"></ion-input>                       
+    
     <ion-label ><b>Location of stone :</b></ion-label>
     <ion-input appFirstCap type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="region" placeholder=" Enter your product location"></ion-input>
+    
     <ion-label ><b>Arrival Date :</b></ion-label>
     <ion-input type="date" style="margin-top: 7px; width: 97%;height:2em;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="date" placeholder=" Enter processing date">  </ion-input>
+    
     <ion-label ><b>Manufacturer Name :</b></ion-label>
     <ion-input appFirstCap type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="manufacturername" placeholder=" Enter your name"></ion-input>
+    
     <ion-label ><b>Phone Number :</b></ion-label>
     <ion-input type="text"style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="PhoneNumber" placeholder=" Enter your PhoneNumber"> </ion-input> 
+    
     <ion-label ><b>Description :</b></ion-label>
     <textarea appFirstCap type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height:10em;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="description" placeholder=" Enter your PhoneNumber"> </textarea> 
+    
     <ion-input type="hidden" class="form-control form-control-lg" formControlName="mobile" [(ngModel)]="text.mobile" >  </ion-input> 
+  
   </ion-list>
-<div style="text-align: center;margin-bottom: 1em;">
-<ion-button type="submit" [disabled]="" (click)="submitForm()">Submit</ion-button>
-</div>
+ 
+  <div style="text-align: center;margin-bottom: 1em;">
+    <ion-button type="submit" [disabled]="" (click)="submitForm()">Submit</ion-button>
+  </div>
+
 </form> 
-  </ion-content>
+
+</ion-content>
   <!-- (change)="selectImage($event)" --> 
