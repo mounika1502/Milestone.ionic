@@ -17,9 +17,16 @@ showElement= true;
 product: any;
 textaws: any;
 data: any;
+  aa: any;
 constructor( private router:Router,private service:UploadService) { 
  }
 ngOnInit(): void {
+
+  this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+  console.log(this.text)
+  this.aa = this.text.UserType
+  console.log(this.aa)
+
   this.textaws = JSON.parse(localStorage.getItem('aws')||'{}') 
   console.log(this.textaws) 
   this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
