@@ -90,7 +90,7 @@ setOpen(isOpen: boolean) {
 data3(){
   this.data4=true;
   this.data=false;
-  fetch("http://localhost:7500/dealer/getdealer",{
+  fetch("https://brave-pink-clothes.cyclic.app/dealer/getdealer",{
     method:"GET",
     headers:{
       "access-Control-Allow-Origin":"*",
@@ -115,7 +115,7 @@ Dealer(){
 // if(this.text.Isadd==1){
 //   alert("oijuhygtrf")
 // }else{
-    fetch("http://localhost:7500/dealer/adddealer",{
+    fetch("https://brave-pink-clothes.cyclic.app/dealer/adddealer",{
       method:'POST',
       headers:{
         "Access-Control-Allow-Origin":"*",

@@ -5,12 +5,10 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UploadService {
-
   constructor(private http:HttpClient) { }
   postfiletos3(data:any)  {
-    return this.http.post<any>('http://localhost:7500/upload/upload',data)
+    return this.http.post<any>('https://brave-pink-clothes.cyclic.app/upload/upload',data)
     .pipe(catchError(this.errorHandler))
-    
   }
   errorHandler(error:any){
     let errorMessage='';
@@ -22,6 +20,10 @@ export class UploadService {
     return throwError(errorMessage)
   }
   updateShipper(data:any,id:any){
-    return this.http.put('http://localhost:7500/shippers/editShipper/' + id ,data)
+    return this.http.put('https://brave-pink-clothes.cyclic.app/shippers/editShipper/' + id ,data)
    }
+   postfiletos2(data:any)  {
+    return this.http.post<any>('http://localhost:7500/s3upload/uploads3',data)
+    .pipe(catchError(this.errorHandler))
+  }
 }

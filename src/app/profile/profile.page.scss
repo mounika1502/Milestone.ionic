@@ -9,37 +9,23 @@ ion-toolbar {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
   }
-  .main{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: url(https://img.freepik.com/free-vector/close-up-white-marble-textured-background_53876-58927.jpg);
-    background-position: center;
-    background-size: cover;
-  }
-  .profile-card{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 400px;
-    width: 100%;
-    border-radius: 25px;
-    padding: 30px;
-    border: 1px solid #ffffff40;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
-    height: 90%;
-  }
+  
+  
   .image{
-    position: relative;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    margin-top: 1em;
+    margin-left: 29%;
     height: 150px;
     width: 150px;
   }
   .image .profile-pic{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
     border-radius: 50%;
     box-shadow: 0 5px 20px rgba(0,0,0,0.4);
   }
@@ -47,68 +33,54 @@ ion-toolbar {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 15px;
+    margin-top: 10px;
+  } 
+  .rows{
+    margin-top: 3%;
   }
-  .data h2{
-    font-size: 33px;
-    font-weight: 600;
-  }
-  span{
-    font-size: 18px;
-  }
-  .row{
-    display: flex;
-    align-items: center;
-    margin-top: 30px;
-  }
-  .row .info{
-    text-align: center;
-    padding: 0 20px;
-  }
-  .buttons{
-    display: flex;
-    align-items: center;
-    margin-top: 30px;
-  }
-  .buttons .btn{
-    color: #fff;
-    text-decoration: none;
-    margin: 0 20px;
-    padding: 8px 25px;
-    border-radius: 25px;
-    font-size: 18px;
-    white-space: nowrap;
-    background: linear-gradient(to left, #33ccff 0%, #ff99cc 100%);
-  }
-  .buttons .btn:hover{
-    box-shadow: inset 0 5px 20px rgba(0,0,0,0.4);
-  }
-  button{
-    border: 1px solid #697184;
-    padding: 3%;
-    border-radius: 10px;
-    width: 50%;
-    color:#697184;
-    margin-left: 11%;
-    margin: 3%;
-}
-button:hover{
-    background-color: #697184;
-    color: white;
-}
-.button{
-   
-    border: 1px solid #697184;
-
-    padding: 3%;
-    border-radius: 10px;
-    width: 31%;
-    color:#697184;
-    margin-left: 11%;
-    margin: 3%;
+ .edit{
+  cursor: pointer;
+  margin-top: 1em;
+  float: right;
+  margin-bottom:1em;
   
-}
-.button:hover{
-    background-color: #697184;
+ }
+  .button{
+    background-color: #4f535d;
+    padding: 3%;
+    border-radius: 10px;
+    width: 30%;
+    color:#697184;
+    margin-left: 6em;
+    margin: 3%;
     color: white;
 }
+
+.center{   
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+.company{
+  padding-top: 10px;
+}
+.close{
+  color: red;
+  margin-top: -10px;
+  font-size:x-large;
+  float: right;
+
+}
+.company{
+  padding-top: 10px;
+}
+.save{
+  background-color: #1e45a1;
+  padding: 3%;
+  border-radius: 10px;
+  width: 30%;
+  margin-top: 1em;
+  margin-bottom:1em;
+  color: white;
+ }

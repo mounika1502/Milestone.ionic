@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-icon name="arrow-back-sharp" routerLink="/profile" style="font-size: 30px;"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <div>
+    <h3 style="margin-top: 3em;margin: 10px;" ><b>Add Your Company Details</b> </h3> 
+
+   <div class="form">
+    
+    <form  [formGroup]="Form">
+      <div class="company">
+      
+      <ion-label style="margin:10px;padding-top: 15px;"><b>Company Name :</b> </ion-label>
+      <input  style="margin:10px;width: 95%; margin-top: 7px;  height: 2em;border-radius: 5px;border: 1px solid rgb(87, 84, 84);" formControlName="Company" [(ngModel)]="this.text.Company" readonly><br>                    
+                 
+      <ion-label style="margin:10px; padding-top: 5px;"><b>Company Location/Address :</b> </ion-label><br>
+      <textarea type="text" appFirstCap style="margin-top: 7px; width: 95%;border-radius: 6px;height:5em;margin: 10px;border: 1px solid rgb(87, 84, 84)" formControlName="Location"  placeholder="Add your company location"></textarea><br>                   
+                
+      <ion-label style="margin:10px;padding-top: 5px;"><b>Company Bio :</b></ion-label><br>
+      <textarea type="text" appFirstCap style="margin-top: 7px; width: 95%;border-radius: 6px;height:8em;margin: 10px;border: 1px solid rgb(87, 84, 84)" formControlName="bio"  placeholder="Please write few words about your company history, and bussiness offerings" ></textarea><br>                   
+                  
+      <div class="center">
+        <button class="edit" type="submit" (click)="submit()">Submit</button>
+      </div>
+    </div>
+    </form> 
+  </div>
+  </div> 
+</ion-content>

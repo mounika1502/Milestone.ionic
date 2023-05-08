@@ -1,49 +1,103 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>profile</ion-title>
+<ion-header>
+  <ion-toolbar >
+    <ion-buttons slot="start" >
+      <ion-menu-button style="color:white"  menu="main-menu"></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">profile</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
+<ion-content> 
+  <div *ngIf="profile">
+  <div class="edit" (click)="edit(text)">
+    <button style="border-radius: 50%;border: 1px solid blue; background-color: blue;margin-right: 10px;"><b><ion-icon name="create-outline" style="font-size: x-large;color: white;padding: 5px;"></ion-icon></b><br></button><br>
+   
+    <a style="margin-left: 5px;">Edit</a>
+  </div>
  
- 
-    <section class="main">
-    <div class="profile-card">
       <div class="image">
-        <img src="https://tinypic.host/images/2022/12/19/img_avatar.png" alt="" class="profile-pic">
+        <img src="https://tinypic.host/images/2022/12/19/img_avatar.png" class="profile-pic">
       </div>
-      <button class="button">
-       Edit
-        
-      </button>
-      <div class="data">
-        <h2>{{text.Firstname}} {{text.Lastname}}</h2>
-        <span>{{text.Email}}</span>
-        <hr>
-        <br>
-        <span> Phone:{{text.mobile}}</span>
-        <br>
-        <span>User Type:{{text.UserType}}</span>
-        <br>
-        <span>City:{{text.City}}</span>
-        <br>
-        Address:<br><br>{{text.Street}},{{text.State}},{{text.Pincode}}
-       
+      
+        <div class="data">
+          <h2>{{text.Firstname}} {{text.Lastname}}</h2>
+          <a>{{text.Email}}</a>
+        </div>
+      <div class="rows">
+        <ion-item style="margin-top: 15px;">
+          <div ><b>Phone :</b>
+          <br>
+          <div  style="margin-top: 5px;">{{text.mobile}}</div>
+        </div>
+        </ion-item>
+        <ion-item style="margin-top: 15px;">
+          <div ><b> User Type :</b>  
+          <br>         
+          <div style="margin-top: 5px;"> {{text.UserType}}</div>
+        </div>
+        </ion-item>
+        <ion-item style="margin-top: 15px;">
+          <div>
+            <b >Address :</b>
+         
+         <div style="margin-top: 5px;"> {{text.Street}},{{text.City}},{{text.State}},{{text.Pincode}}</div>
+        </div>  
+        </ion-item> 
+        <div *ngIf="text.Location">
+          <ion-item style="margin-top: 15px;">
+            <div><b >Company Name :</b>
+           <br>
+           <div style="margin-top: 5px;">{{text.Company}}</div>
+               
+            </div>
+          </ion-item>
+          <ion-item style="margin-top: 15px;">
+            <div>
+            <b >Company Location :</b>
+            <br>
+            <div style="margin-top: 5px;margin-bottom: 5px;"> {{text.Location}}</div>
+            </div>
+          </ion-item>
+          <ion-item style="margin-top: 15px;">
+            <div >
+            <b >Company Bio :</b>
+            <br>
+            <div style="margin-top: 5px;margin-bottom: 5px;"> {{text.bio}}</div>
+            </div>
+          </ion-item>
+        </div>
+      </div>  
+      <div class="center" *ngIf= "text.Location == null || text.Location ==''">
+        <button style="width: 70%;margin-top: 1em;" class="button"  (click)="company()"><b>Add your Company Details</b></button>
       </div>
-      <button >
-      Add Company Details
-        
-      </button>
     </div>
-  </section>
 
+      <div *ngIf="companyForm">
+
+        <ion-icon name="arrow-back-sharp" style="font-size: 30px;" (click)="arrow()"></ion-icon>
+
+        <h3 style="margin-top: 3em;margin: 10px;" ><b>Add Your Company Details</b> </h3> 
+    
+       <div class="form">
+        
+        <form  [formGroup]="Form">
+          <div class="company">
+          
+          <ion-label style="margin:10px;padding-top: 15px;"><b>Company Name :</b> </ion-label>
+          <input  style="margin:10px;width: 95%; margin-top: 7px;  height: 2em;border-radius: 5px;border: 1px solid rgb(87, 84, 84);" formControlName="Company" [(ngModel)]="text.Company" name="Company" readonly><br>                    
+                     
+          <ion-label style="margin:10px; padding-top: 5px;"><b>Company Location/Address :</b> </ion-label><br>
+          <textarea type="text" appFirstCap style="margin-top: 7px; width: 95%;border-radius: 6px;height:5em;margin: 10px;border: 1px solid rgb(87, 84, 84)" formControlName="Location"  placeholder="Add your company location"></textarea><br>                   
+                    
+          <ion-label style="margin:10px;padding-top: 5px;"><b>Company Bio :</b></ion-label><br>
+          <textarea type="text" appFirstCap style="margin-top: 7px; width: 95%;border-radius: 6px;height:8em;margin: 10px;border: 1px solid rgb(87, 84, 84)" formControlName="bio"  placeholder="Please write few words about your company history, and bussiness offerings" ></textarea><br>                   
+                      
+          <div class="center">
+            <button class="save" type="submit" (click)="submit()">Submit</button>
+          </div>
+        </div>
+        </form> 
+      </div>
+      </div> 
  
-  
    
 </ion-content>

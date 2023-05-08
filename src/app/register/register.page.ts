@@ -53,7 +53,7 @@ setOpen(isOpen: boolean) {
      ) 
   }
   else{
-    fetch("http://localhost:7500/signupform/addsignupdetails", {
+    fetch("https://brave-pink-clothes.cyclic.app/signupform/addsignupdetails", {
      method:'post',
      headers:{
        "Access-Control-Allow-Origin": "*",
@@ -65,24 +65,17 @@ setOpen(isOpen: boolean) {
    .then(result=>{ 
      console.log(result)
   
-     if(result.status ==='failed'){
-      Swal.fire( 
-        'Cancelled',
-        'User already registered!',
-        'error'
-      )
-      
-     }else{
-     
-    
-     }       
+  
+     alert("Register Successfully")
+    window.location.href="/login"
+            
    })       
      .catch(error => console.log('error',error))     
   }
   var body ={
     Email:this.SignupForm.value.Email
   }
-  fetch("http://localhost:7500/signupform/emailnotification", {
+  fetch("https://brave-pink-clothes.cyclic.app/signupform/emailnotification", {
   method:'post',
   headers:{
   "Access-Control-Allow-Origin": "*",

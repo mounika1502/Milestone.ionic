@@ -37,9 +37,9 @@ export class ShipperEditPage implements OnInit {
     this.service.updateShipper(data,id).subscribe((datas)=>{
       console.log(datas)
       if(datas){
-        // Swal.fire( 'Updated successfully!', '', 'success').then(() =>{ 
-        //   this.router.navigate(['/shippers'])     
-        // }) 
+      alert("Updated...")
+          window.location.href="/shipper-data"    
+       
       }
     })  
   }

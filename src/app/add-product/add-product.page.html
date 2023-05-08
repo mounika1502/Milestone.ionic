@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
     <ion-toolbar>
-      <ion-title></ion-title>
+      <ion-icon name="arrow-back-sharp" routerLink="/inventory" style="font-size: 30px;"></ion-icon>
     </ion-toolbar>
   </ion-header>
   <ion-content [fullscreen]="true">
@@ -11,8 +11,8 @@
    <ion-input type="hidden" style="margin-top: -45px;" formControlName="qnt"></ion-input>
     
     <ion-label style="margin-top: -30px;" ><b>Upload image :</b></ion-label><br>
-    <ion-input type="text" style=" width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);padding: 5%;" formControlName="imgurl" placeholder=" upload your image url"></ion-input>
-    
+    <ion-input type="file" style=" width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);padding: 5%;"  (change)="selectImage($event)"  placeholder=" upload your image url"></ion-input>
+
     <ion-label ><b>S.NO :</b></ion-label><br>
     <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);padding: 5%;" formControlName="prodId" placeholder=" Enter your product ID"> </ion-input>                                         
     
@@ -76,7 +76,7 @@
 
     <ion-label ><b>Colour :</b></ion-label>
     <ion-input type="text" appFirstCap appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="color" placeholder=" Enter your product colour"> </ion-input>                   
-    
+
     <ion-label ><b>Size :</b></ion-label><i class="fa fa-question-circle-o" style="font-size:15px; color: rgb(102, 102, 232);" ></i>               
     <ion-input appFirstCap type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="size" placeholder=" product size in lxb" > </ion-input>                                                   
     
@@ -118,16 +118,17 @@
     <ion-input type="text"style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="PhoneNumber" placeholder=" Enter your PhoneNumber"> </ion-input> 
     
     <ion-label ><b>Description :</b></ion-label>
-    <textarea appFirstCap type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height:10em;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="description" placeholder=" Enter your PhoneNumber"> </textarea> 
+    <textarea appFirstCap type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height:10em;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="description" placeholder=" Enter your PhoneNumber"> </textarea> 
     
     <ion-input type="hidden" class="form-control form-control-lg" formControlName="mobile" [(ngModel)]="text.mobile" >  </ion-input> 
   
   </ion-list>
- 
-  <div style="text-align: center;margin-bottom: 1em;">
-    <ion-button type="submit" [disabled]="" (click)="submitForm()">Submit</ion-button>
-  </div>
-
+<div style="text-align: center;margin-bottom: 1em;">
+<ion-button type="submit" (click)="onClick()">Submit</ion-button>
+</div>
 </form> 
 
 </ion-content>
+
+ 
+

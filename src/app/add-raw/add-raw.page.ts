@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { UploadService } from '../upload.service';
 
 @Component({
   selector: 'app-add-raw',
@@ -10,7 +11,9 @@ import Swal from 'sweetalert2';
 export class AddRawPage implements OnInit {
   productForm:any;
   text: any;
-  constructor() { }
+  images: any;
+  data: any;
+  constructor(private apii:UploadService) { }
 
   ngOnInit() {
     this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
@@ -30,7 +33,7 @@ export class AddRawPage implements OnInit {
       PhoneNumber : new FormControl("")
     })
   }
-  submitForm(){
+  submitForm(id:any){
     // if(this.productForm.value.Image ==''||
     // this.productForm.value.Number ==''||
     // this.productForm.value.Name ==''||
@@ -51,7 +54,7 @@ export class AddRawPage implements OnInit {
     //    ) 
     // }else{  
       console.log(this.productForm.value)
-       fetch("http://localhost:7500/raw/addraw", {
+       fetch("http://localhost:7500/raw/addraw/"+id, {
        method:'post',
        headers:{
          "Access-Control-Allow-Origin": "*",
@@ -82,5 +85,27 @@ export class AddRawPage implements OnInit {
    
 }
 
-
+onClick() {
+  console.log(this.data)
+const formdata = new FormData();
+for(let pdffiles of this.images){
+  formdata.append("file",pdffiles)
+}
+ this.apii.postfiletos2(formdata).subscribe(data=>{
+  console.log(data)
+  var docid=data.imageFile._id
+  this.submitForm(docid) 
+  alert("file uploaded")
+ })
+  console.log(formdata)
+}
+selectImage(event: any) {
+  if (event.target.files.length > 0) {
+    console.log(event.target.files)
+    const file = event.target.files;
+    console.log(file);
+    this.images = file;   
+  }
+  console.log(this.images)
+}
 }

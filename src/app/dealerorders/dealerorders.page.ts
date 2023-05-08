@@ -80,7 +80,7 @@ OrderStatus:any;
     this.manumob=this.text.mobile
     console.log(this.manumob)
     this.getCartDetails = JSON.parse(localStorage.getItem('anunya') || '{}');
-    fetch("http://localhost:7500/orderRoute/getOrders",{
+    fetch("https://brave-pink-clothes.cyclic.app/orderRoute/getOrders",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -91,6 +91,7 @@ OrderStatus:any;
       console.log(result),
       this.order = result.orders
     console.log(this.order)
+    localStorage.setItem('uma',JSON.stringify(this.order))
   //   this.randomNumber = Math.floor(Math.random() * 9000000000) + 1000000000;
   //   console.log(this.randomNumber)
   //   localStorage.setItem('orderid',JSON.stringify(this.randomNumber))
