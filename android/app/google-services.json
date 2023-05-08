@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "243353953987",
+    "project_id": "mile-stone-bfcba",
+    "storage_bucket": "mile-stone-bfcba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:243353953987:android:1839a6f8179f4607342476",
+        "android_client_info": {
+          "package_name": "com.mile.stone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "243353953987-58hsdn5oe7pis27vi1uaqdgsjkpa75lr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxG8vthpj8lWpmC7_kumm_SgMN-MQEFV8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "243353953987-58hsdn5oe7pis27vi1uaqdgsjkpa75lr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

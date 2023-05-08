@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { IonicModule } from '@ionic/angular';
 
 import { DealerordersPageRoutingModule } from './dealerorders-routing.module';
@@ -13,7 +13,7 @@ import { DealerordersPage } from './dealerorders.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    DealerordersPageRoutingModule
+    DealerordersPageRoutingModule,Ng2SearchPipeModule
   ],
   declarations: [DealerordersPage]
 })

@@ -8,7 +8,6 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
   loginForm: any;
   loginData: any;
   constructor() { }
@@ -38,8 +37,7 @@ export class LoginPage implements OnInit {
     console.log(this.loginData)       
 alert("Success....") 
 window.location.href='/home'   
-  
-    })
+   })
     }   
   }
   get email()
@@ -50,7 +48,6 @@ window.location.href='/home'
   {
     return this.loginForm.get('password');
   }
-
 }
 
 
