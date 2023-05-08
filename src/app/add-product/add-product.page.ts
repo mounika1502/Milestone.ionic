@@ -47,12 +47,12 @@ export class AddProductPage  {
     this.date = this.finalday + "-" + this.finalmonth + "-" + this.currentyear
     this.raw = JSON.parse(localStorage.getItem('rawproduct') || '{}')
     console.log(this.raw)
-    this.text = JSON.parse(localStorage.getItem('Login') || '{}')
-    console.log(this.text)
+    this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+    console.log(this.text.mobile) 
     this.textaws = JSON.parse(localStorage.getItem('aws') || '{}')
     console.log(this.textaws)
     this.productForm = new FormGroup({
-     
+
       prodId: new FormControl(""),
       name: new FormControl(""),
       color: new FormControl(""),

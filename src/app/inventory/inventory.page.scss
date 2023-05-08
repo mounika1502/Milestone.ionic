@@ -14,3 +14,19 @@ ion-toolbar {
     --color: #ffffff;
     --background:#697184;
 }
+
+button{
+   
+    border: 1px solid #697184;
+float: right;
+    padding: 3%;
+    border-radius: 10px;
+    width: 31%;
+    color:#697184;
+    margin-left: 11%;
+    margin: 3%;
+}
+button:hover{
+    background-color: #697184;
+    color: white;
+}

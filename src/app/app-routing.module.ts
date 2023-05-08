@@ -5,7 +5,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -53,7 +53,89 @@ const routes: Routes = [
     loadChildren: () => import('./product/product.module').then( m => m.ProductPageModule)
 
   },
+  {
+    path: 'dealerorders',
+    loadChildren: () => import('./dealerorders/dealerorders.module').then( m => m.DealerordersPageModule)
 
+  },
+  {
+    path: 'ordermanage',
+    loadChildren: () => import('./ordermanage/ordermanage.module').then( m => m.OrdermanagePageModule)
+
+  },
+  {
+    path: 'viewdetails',
+    loadChildren: () => import('./viewdetails/viewdetails.module').then( m => m.ViewdetailsPageModule)
+
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+
+  },
+  {
+    path: 'raw-product',
+    loadChildren: () => import('./raw-product/raw-product.module').then( m => m.RawProductPageModule)
+
+  },
+  {
+    path: 'raw-data',
+    loadChildren: () => import('./raw-data/raw-data.module').then( m => m.RawDataPageModule)
+
+  },
+  {
+    path: 'raw-edit',
+    loadChildren: () => import('./raw-edit/raw-edit.module').then( m => m.RawEditPageModule)
+
+  },
+  {
+    path: 'success',
+    loadChildren: () => import('./success/success.module').then( m => m.SuccessPageModule)
+
+  },
+  {
+    path: 'blackgalaxy',
+    loadChildren: () => import('./blackgalaxy/blackgalaxy.module').then( m => m.BlackgalaxyPageModule)
+
+  },
+  {
+    path: 'galaxyroute',
+    loadChildren: () => import('./galaxyroute/galaxyroute.module').then( m => m.GalaxyroutePageModule)
+  },
+  {
+    path: 'inventory-data',
+    loadChildren: () => import('./inventory-data/inventory-data.module').then( m => m.InventoryDataPageModule)
+
+  },
+  {
+    path: 'inventory-edit',
+    loadChildren: () => import('./inventory-edit/inventory-edit.module').then( m => m.InventoryEditPageModule)
+
+  },
+  {
+    path: 'forgotpassword',
+    loadChildren: () => import('./forgotpassword/forgotpassword.module').then( m => m.ForgotpasswordPageModule)
+  },
+  {
+    path: 'cart',
+    loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'shippers',
+    loadChildren: () => import('./shippers/shippers.module').then( m => m.ShippersPageModule)
+  },
+  {
+    path: 'shipper-data',
+    loadChildren: () => import('./shipper-data/shipper-data.module').then( m => m.ShipperDataPageModule)
+  },
+  {
+    path: 'inventory',
+    loadChildren: () => import('./inventory/inventory.module').then( m => m.InventoryPageModule)
+  },
 ];
 
 @NgModule({

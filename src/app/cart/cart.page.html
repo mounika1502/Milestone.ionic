@@ -46,9 +46,9 @@ margin-right: 18px;" slot="end" ></ion-icon>
           <ion-col>
                    
             <span >
-              <input type="button" value="-"  [disabled]="cart.qnt == 0" (click)="decQnt(cart.prodId, cart.qnt,cart.Quantity)" class="button-minus border rounded-circle  icon-shape icon-sm mx-2 " data-field="quantity">
+              <input type="button" value="-"  [disabled]="cart.qnt == 0" (click)="decQnt(cart.prodId, cart.qnt,cart.Quantity)" style="margin-right: 9%;" class="button-minus border rounded-circle  icon-shape icon-sm mx-2 " data-field="quantity">
     <span  type="text" style="font-weight: bold; ">{{cart.qnt}}</span>
-    <input type="button" [disabled]="cart.Quantity == 0"  (click)="incQnt(cart.prodId, cart.qnt,cart.Quantity)"  value="+" class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity"> 
+    <input type="button" [disabled]="cart.Quantity == 0"  (click)="incQnt(cart.prodId, cart.qnt,cart.Quantity)" style="margin-left: 9%;"  value="+" class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity"> 
     </span>
           </ion-col>
         </ion-row>
