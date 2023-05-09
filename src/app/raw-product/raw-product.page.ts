@@ -25,7 +25,7 @@ export class RawProductPage implements OnInit {
       this.aa = this.text.UserType
       console.log(this.aa)
 
-    if(this.aa==='admin'){
+    if(this.aa==='Dealer'){
       fetch("https://brave-pink-clothes.cyclic.app/raw/getrawproduct", {
         method:'get',
         headers:{
@@ -48,7 +48,7 @@ export class RawProductPage implements OnInit {
           var data = {
             mobile :this.text.mobile
           }   
-          fetch("https://brave-pink-clothes.cyclic.app/raw/getraw", {
+          fetch("http://localhost:7500/raw/getraw", {
          method:'post',
          headers:{
            "Access-Control-Allow-Origin": "*",

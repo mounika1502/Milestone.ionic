@@ -1,10 +1,9 @@
-<ion-content [fullscreen]="true">
- 
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-icon name="arrow-back-sharp" routerLink="/cart" style="font-size: 30px;"></ion-icon>
   </ion-toolbar>
 </ion-header>
+
 <ion-content [fullscreen]="true">
 
   <div class="circle-container">
@@ -89,17 +88,7 @@
           <ion-select-option value="West Bengal">West Bengal</ion-select-option>
         </ion-select>
       </ion-item>
- 
+      <ion-button style="margin-left: 60px;" (click)="cash1()" >Continue to Pay</ion-button>
     </ion-list>
 
-      <ion-button style="margin-left: 110px;" (click)="cash1()" id="present-alert" >Continue to Pay</ion-button>
-<ion-alert
- trigger="present-alert"
- header=""
- [buttons]="alertButtons"
- 
- [inputs]="alertInputs" 
-
-></ion-alert>
-    </ion-content>
 </ion-content>

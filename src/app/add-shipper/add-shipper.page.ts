@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { UploadService } from '../upload.service';
 
 @Component({
   selector: 'app-add-shipper',
@@ -9,8 +10,10 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class AddShipperPage implements OnInit {
 
     ShipperForm: any;
+  images: any;
+  data: any;
   
-    constructor() { }
+    constructor(private apii:UploadService) { }
   
     ngOnInit() {
       this.ShipperForm = new FormGroup({
@@ -26,7 +29,7 @@ export class AddShipperPage implements OnInit {
       })
     }
   
-    submitForm(){
+    submitForm(id:any){
       console.log(this.ShipperForm.value)
         if(this.ShipperForm.value.Image ==''||
         this.ShipperForm.value.Number ==''||
@@ -38,7 +41,7 @@ export class AddShipperPage implements OnInit {
         { 
      alert("Please Fill All Details")
         }else{  
-           fetch("https://brave-pink-clothes.cyclic.app/shippers/addshipper", {
+           fetch("https://brave-pink-clothes.cyclic.app/shippers/addshipper" +id,{
            method:'post',
            headers:{
              "Access-Control-Allow-Origin": "*",
@@ -62,5 +65,27 @@ export class AddShipperPage implements OnInit {
     }       
   }
 
-
+  onClick() {
+    console.log(this.data)
+  const formdata = new FormData();
+  for(let pdffiles of this.images){
+    formdata.append("file",pdffiles)
+  }
+   this.apii.postfiletos4(formdata).subscribe(data=>{
+    console.log(data)
+    var docid=data.imageFile._id
+    this.submitForm(docid) 
+    alert("file uploaded")
+   })
+    console.log(formdata)
+  }
+  selectImage(event: any) {
+    if (event.target.files.length > 0) {
+      console.log(event.target.files)
+      const file = event.target.files;
+      console.log(file);
+      this.images = file;   
+    }
+    console.log(this.images)
+  }
 }

@@ -659,7 +659,7 @@
             Build your brand’s recognition and get detailed insights on how your
             links are performing.
           </p>
-          <div [hidden]= "aa == 'Manufacturer'">
+          <div [hidden]= "aa == 'Manufacturer'|| 'Dealer'|| 'admin'">
             <div routerLink="/login" class="btn btn-lg">Get Started</div>
           </div>
         </div>
@@ -734,7 +734,9 @@
         <div class="container">
           <div class="section-header">
             <h2>Boost your links today</h2>
+            <div [hidden]= "aa == 'Manufacturer'|| 'Dealer'|| 'admin'">
             <a href="./login" class="btn btn-lg" [hidden]="aa">Get Started</a>
+            </div>
           </div>
         </div>
       </section>

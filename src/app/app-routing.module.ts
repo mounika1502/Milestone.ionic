@@ -63,11 +63,7 @@ const routes: Routes = [
     loadChildren: () => import('./ordermanage/ordermanage.module').then( m => m.OrdermanagePageModule)
 
   },
-  {
-    path: 'viewdetails',
-    loadChildren: () => import('./viewdetails/viewdetails.module').then( m => m.ViewdetailsPageModule)
 
-  },
   {
     path: 'profile',
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
@@ -135,6 +131,10 @@ const routes: Routes = [
   {
     path: 'inventory',
     loadChildren: () => import('./inventory/inventory.module').then( m => m.InventoryPageModule)
+  },
+  {
+    path: 'users',
+    loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule)
   },
 ];
 

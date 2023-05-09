@@ -128,7 +128,7 @@ cash1() {
   console.log(Obj);
   if (Obj.Phone == this.text.mobile) {
     console.log(JSON.stringify(Obj))   //product details with user details
-    fetch("https://brave-pink-clothes.cyclic.app/orderRoute/post", {
+    fetch("http://localhost:7500/orderRoute/post", {
       method: 'POST',
       headers: {
         "Access-Control-Allow-Origin": "*",
