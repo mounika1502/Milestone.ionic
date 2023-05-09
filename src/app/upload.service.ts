@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class UploadService {
   constructor(private http:HttpClient) { }
   postfiletos3(data:any)  {
-    return this.http.post<any>('https://brave-pink-clothes.cyclic.app/upload/upload',data)
+    return this.http.post<any>('http://localhost:7500/upload/upload',data)
     .pipe(catchError(this.errorHandler))
   }
   errorHandler(error:any){

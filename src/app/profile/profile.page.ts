@@ -82,9 +82,8 @@ export class ProfilePage implements OnInit {
 
   edit(text:any){
     window.location.href = ("/profile-edit")
-    //  this.profileForm = loginData
-     localStorage.setItem('Login',JSON.stringify(text))
-     console.log(text)  
+    localStorage.setItem('Login',JSON.stringify(text))
+    console.log(text)  
   } 
 
   submit(){

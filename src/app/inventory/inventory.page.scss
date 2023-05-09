@@ -16,7 +16,7 @@ ion-toolbar {
 }
 
 .add{
-    height: 2em;
+    height: 2.3em;
     width: 10em;
     float: right;
     color: white;
@@ -24,6 +24,21 @@ ion-toolbar {
     margin-top: 5px;
     margin-left: 30px;
     margin-bottom: 5px;
+    text-align: center;
     background-color: rgb(78, 74, 74);
-
+}
+button{
+   
+    border: 1px solid #697184;
+    float: right;
+    padding: 3%;
+    border-radius: 10px;
+    width: 31%;
+    color:#697184;
+    margin-left: 11%;
+    margin: 3%;
+}
+button:hover{
+    background-color: #697184;
+    color: white;
 }

@@ -95,7 +95,7 @@ ApproximateTime:any;
     console.log(this.data)
 
 
-fetch("https://brave-pink-clothes.cyclic.app/orderRoute/getAllOrders", {
+fetch("https://brave-pink-clothes.cyclic.app/orderRoute/getOrders", {
       method:"get",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -121,28 +121,15 @@ fetch("https://brave-pink-clothes.cyclic.app/orderRoute/getAllOrders", {
       this.data2.push(this.data1.OrderData.OrderItems)
       console.log(this.data2)
    } 
-  //  for(let i = 0;i < this.data2.length;i++){
-  //   this.data1 = this.data2[i]
-  //  var data =this.data1[0].mobile
-  //  if(data==this.manumob )
-  //  {
-  //   this.data3.push(this.order[i] )
-  //  }
-  // }  if(this.data3.length!=0)
-  // {
-  // this.order=this.data3
-  //   console.log(this.order)
-    
-  //   console.log(this.order)
-  //   this.count=this.order.length;
-  //   localStorage.setItem('Prod',JSON.stringify(this.order));
-  //    console.log(this.data3)
-  // }
-  // else{
-  //   this.order.length=0;
-  //   this.count=this.order.length;
-  // }
-   
+   for(let i = 0;i < this.data2.length;i++){
+    this.data1 = this.data2[i]
+   var data =this.data1[0].mobile
+   if(data==this.manumob )
+   {
+    this.data3.push(this.order[i] )
+   }
+  } 
+  
     }
     ).catch(err =>
       console.log('error',err))

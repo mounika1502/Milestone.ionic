@@ -10,7 +10,30 @@ ion-toolbar {
     font-family: 'Poppins', sans-serif;
   }
   
+
+  .main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
+  }
   
+  .profile-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 25px;
+    padding: 30px;
+    border: 1px solid #ffffff40;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+    height: 90%;
+  }
+
   .image{
     align-items: center;
     text-align: center;

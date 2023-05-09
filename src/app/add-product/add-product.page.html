@@ -3,11 +3,12 @@
       <ion-icon name="arrow-back-sharp" routerLink="/inventory" style="font-size: 30px;"></ion-icon>
     </ion-toolbar>
   </ion-header>
+
   <ion-content [fullscreen]="true">
     <h1 style="text-align: center;"><b>ADD PRODUCT</b></h1>
-<form [formGroup]="productForm">
-<hr>                                                                                                      
-<ion-list style="padding-left: 2.5%;">    
+    <form [formGroup]="productForm">
+    <hr>                                                                                                      
+  <ion-list style="padding-left: 2.5%;">    
    <ion-input type="hidden" style="margin-top: -45px;" formControlName="qnt"></ion-input>
     
     <ion-label style="margin-top: -30px;" ><b>Upload image :</b></ion-label><br>
@@ -96,6 +97,7 @@
     </ion-select>
     
     <ion-label ><b>Quality :</b></ion-label><br>
+
     <ion-select  formControlName="quality" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" >
       <ion-select-option  value="Premiun">Premiun</ion-select-option>
       <ion-select-option  value="Commercial">Commercial</ion-select-option>
@@ -118,17 +120,19 @@
     <ion-input type="text"style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="PhoneNumber" placeholder=" Enter your PhoneNumber"> </ion-input> 
     
     <ion-label ><b>Description :</b></ion-label>
-    <textarea appFirstCap type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height:10em;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="description" placeholder=" Enter your PhoneNumber"> </textarea> 
+    <textarea appFirstCap type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height:10em;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="description" placeholder="Write few lines about your product"> </textarea> 
     
     <ion-input type="hidden" class="form-control form-control-lg" formControlName="mobile" [(ngModel)]="text.mobile" >  </ion-input> 
-  
+    
+    <div style="text-align: center;margin-bottom: 1em;margin-top: -2em;">
+      <ion-button type="submit" (click)="onClick()">Submit</ion-button>
+   </div>
   </ion-list>
-<div style="text-align: center;margin-bottom: 1em;">
-<ion-button type="submit" (click)="onClick()">Submit</ion-button>
-</div>
+  
 </form> 
-
 </ion-content>
 
  
+
+
 

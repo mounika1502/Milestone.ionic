@@ -8,39 +8,36 @@
 
 <ion-content> 
   <div *ngIf="profile">
-  <div class="edit" (click)="edit(text)">
-    <button style="border-radius: 50%;border: 1px solid blue; background-color: blue;margin-right: 10px;"><b><ion-icon name="create-outline" style="font-size: x-large;color: white;padding: 5px;"></ion-icon></b><br></button><br>
-   
-    <a style="margin-left: 5px;">Edit</a>
-  </div>
- 
+      <div class="edit" (click)="edit(text)">
+        <button style="border-radius: 50%;border: 1px solid blue; background-color: blue;margin-right: 10px;"><b><ion-icon name="create-outline" style="font-size: x-large;color: white;padding: 5px;"></ion-icon></b><br></button><br>
+        <a style="margin-left: 5px;">Edit</a>
+      </div>
+
       <div class="image">
         <img src="https://tinypic.host/images/2022/12/19/img_avatar.png" class="profile-pic">
       </div>
       
-        <div class="data">
+      <div class="data">
           <h2>{{text.Firstname}} {{text.Lastname}}</h2>
           <a>{{text.Email}}</a>
-        </div>
-      <div class="rows">
+      
+        <div class="rows">
         <ion-item style="margin-top: 15px;">
           <div ><b>Phone :</b>
-          <br>
-          <div  style="margin-top: 5px;">{{text.mobile}}</div>
-        </div>
+            <br>
+            <div  style="margin-top: 5px;">{{text.mobile}}</div>
+          </div>
         </ion-item>
         <ion-item style="margin-top: 15px;">
           <div ><b> User Type :</b>  
-          <br>         
-          <div style="margin-top: 5px;"> {{text.UserType}}</div>
-        </div>
+            <br>         
+            <div style="margin-top: 5px;"> {{text.UserType}}</div>
+          </div>
         </ion-item>
         <ion-item style="margin-top: 15px;">
-          <div>
-            <b >Address :</b>
-         
-         <div style="margin-top: 5px;"> {{text.Street}},{{text.City}},{{text.State}},{{text.Pincode}}</div>
-        </div>  
+          <div><b>Address :</b>
+            <div style="margin-top: 5px;"> {{text.Street}},{{text.City}},{{text.State}},{{text.Pincode}}</div>
+          </div>  
         </ion-item> 
         <div *ngIf="text.Location">
           <ion-item style="margin-top: 15px;">
@@ -70,7 +67,7 @@
         <button style="width: 70%;margin-top: 1em;" class="button"  (click)="company()"><b>Add your Company Details</b></button>
       </div>
     </div>
-
+   </div>
       <div *ngIf="companyForm">
 
         <ion-icon name="arrow-back-sharp" style="font-size: 30px;" (click)="arrow()"></ion-icon>
@@ -97,7 +94,6 @@
         </div>
         </form> 
       </div>
-      </div> 
- 
+    </div>  
    
 </ion-content>

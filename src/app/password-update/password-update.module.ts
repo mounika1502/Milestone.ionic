@@ -4,18 +4,18 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AddCompanyPageRoutingModule } from './add-company-routing.module';
+import { PasswordUpdatePageRoutingModule } from './password-update-routing.module';
 
-import { AddCompanyPage } from './add-company.page';
+import { PasswordUpdatePage } from './password-update.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
     IonicModule,
-    AddCompanyPageRoutingModule
+    ReactiveFormsModule,
+    PasswordUpdatePageRoutingModule
   ],
-  declarations: [AddCompanyPage]
+  declarations: [PasswordUpdatePage]
 })
-export class AddCompanyPageModule {}
+export class PasswordUpdatePageModule {}

@@ -151,8 +151,8 @@ OrderStatus:any;
     console.log(test)  
   }
   orders(test:any){
-    this.data = test
     localStorage.setItem('orderitems',JSON.stringify(test))
+    window.location.href="/viewdetails"
   }
 //  placed(){
 //   debugger
