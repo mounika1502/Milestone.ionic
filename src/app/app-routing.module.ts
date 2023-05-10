@@ -139,6 +139,14 @@ const routes: Routes = [
     path: 'password-update',
     loadChildren: () => import('./password-update/password-update.module').then( m => m.PasswordUpdatePageModule)
   },
+  {
+    path: 'mobile-login',
+    loadChildren: () => import('./mobile-login/mobile-login.module').then( m => m.MobileLoginPageModule)
+  },
+  {
+    path: 'otp',
+    loadChildren: () => import('./otp/otp.module').then( m => m.OtpPageModule)
+  },
 ];
 
 @NgModule({

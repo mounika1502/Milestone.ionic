@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>otp</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container-fluid">
+    <form  [formGroup]="form">
+    <h3><b>Enter your OTP </b></h3>
+    <div class="row">
+    
+    <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" [config]="config"></ng-otp-input>
+    </div>    
+    </form>
+    <button type="submit" class="btn btn-primary" style="margin-top: 1em;" (click)="onSubmit()">Submit</button>
+    </div>
+</ion-content>
