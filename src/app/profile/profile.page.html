@@ -19,10 +19,10 @@
       <br>
       <div class="edit" >
    
-        <button style="margin-left: -8px;border:1px solid #697184;padding: 2%;border-radius: 10px;" (click)="edit(text)">Edit</button>
+        <button style="margin-left: -8px;border:1px solid #697184;padding: 2%;border-radius: 10px;background-color:#697184;color:white" (click)="edit(text)">Edit</button>
       </div>
       <h3 id="profile-name">{{text.Firstname}}{{text.Lastname}}</h3>
-      <span id="profile-description">{{text.Email}}
+      <span id="profile-description"><a>{{text.Email}}</a>
       </span>
     </div>
     <ion-list>
@@ -56,7 +56,7 @@
     </ion-item>
     <p style="margin-left: 15%;"> {{text.Street}},{{text.City}},{{text.State}},{{text.Pincode}}</p>
       <div class="center" *ngIf="text.Location == null || text.Location ==''">
-        <button style="width: 70%;margin-top: 1em;padding:2%;border:1px solid #697184;border-radius: 10px;margin-left: 15%;" class="button"  routerLink="/companydetails"><b>Add your Company Details</b></button>
+        <button style="width: 70%;margin-top: 1em;padding:2%;border:1px solid #697184;border-radius: 10px;margin-left: 15%;background-color:#697184;color:white" class="button"  routerLink="/companydetails"><b>Add your Company Details</b></button>
       </div>
    
         <div *ngIf="text.Location">

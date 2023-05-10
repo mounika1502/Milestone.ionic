@@ -96,7 +96,7 @@ this.registerForm = dealer
 data3(){
   this.data4=true;
   this.data=false
-  fetch("https://brave-pink-clothes.cyclic.app/manufacturer/getdata",{
+  fetch("https://tiny-ruby-centipede-hat.cyclic.app/manufacturer/getdata",{
     method:"GET",
     headers:{
       "access-Control-Allow-Origin":"*",
@@ -120,7 +120,7 @@ Dealer(){
  
 
     dealer2(data:any){  
-      fetch("https://brave-pink-clothes.cyclic.app/manufacturer/adddata",{
+      fetch("https://tiny-ruby-centipede-hat.cyclic.app/manufacturer/adddata",{
         method:'POST',
         headers:{
           "Access-Control-Allow-Origin":"*",

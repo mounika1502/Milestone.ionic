@@ -1,3 +1,21 @@
+.form-gap {
+    padding-top: 70px;
+}
+
+ion-toolbar {
+    --color: #ffffff;
+    --background:#697184;
+  }
+
+.submit{
+    height: 2.5em;
+    width: 100%;
+    color: white;
+    border-radius: 5px;
+    background-color: #697184;
+    margin-top: 5%;    
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -12,37 +30,32 @@
   }
   
   h3 {
-    color: #939fab;
     font-weight: 600;
+    color:#754141;
+    font-size: 20px;
   }
   
   form {
     margin-top: 6rem;
-  
-    ion-button {
-      display: block;
-      margin-top: 3rem;
-    }
   }
   .btn{
     background: #697184;
     height:50px ;
+    width: 98%;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
   }
-  .genotp{
-    
-    margin-top: 110px;
-    
+  .center{   
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding-top: 5%; 
   }
 .header{
     background: #697184;
 }
-img{
- 
-    width: 250px;
-    height: 130px;
-  
 
-}
 
 ion-item {
   border: 1px solid var(--ion-color-light);

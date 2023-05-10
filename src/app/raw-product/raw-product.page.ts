@@ -26,7 +26,7 @@ export class RawProductPage implements OnInit {
       console.log(this.aa)
 
     if(this.aa==='Dealer'){
-      fetch("https://brave-pink-clothes.cyclic.app/raw/getrawproduct", {
+      fetch("https://tiny-ruby-centipede-hat.cyclic.app/raw/getrawproduct", {
         method:'get',
         headers:{
           "Access-Control-Allow-Origin": "*",
@@ -48,7 +48,7 @@ export class RawProductPage implements OnInit {
           var data = {
             mobile :this.text.mobile
           }   
-          fetch("https://brave-pink-clothes.cyclic.app/raw/getraw", {
+          fetch("https://tiny-ruby-centipede-hat.cyclic.app/raw/getraw", {
          method:'post',
          headers:{
            "Access-Control-Allow-Origin": "*",

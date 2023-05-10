@@ -1,8 +1,18 @@
-<ion-header>
-    <ion-toolbar>      
-      <ion-icon name="arrow-back-sharp" routerLink="/raw-product" style="font-size: 30px;"></ion-icon>
-    </ion-toolbar>
-  </ion-header>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-row>
+      <ion-col>
+    <ion-icon name="arrow-back-sharp" routerLink="/inventory" style="font-size: 30px;"></ion-icon>
+  </ion-col>
+  <ion-col>
+    
+
+    <img style="width:43%;margin-left: -27%;" src="/assets/mistlogo.png">
+ 
+  </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
   <ion-content> 
     <h1 style="text-align: center;"><b>ADD RAW-PRODUCT</b></h1>
     <form [formGroup]="productForm">

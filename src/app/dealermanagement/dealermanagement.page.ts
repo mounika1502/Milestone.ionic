@@ -63,7 +63,7 @@ setOpen(isOpen: boolean) {
       console.log(this.aa) 
   }
   Get(){
-    fetch("https://brave-pink-clothes.cyclic.app/signupform/getsignupdetails",{
+    fetch("https://tiny-ruby-centipede-hat.cyclic.app/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -90,7 +90,7 @@ setOpen(isOpen: boolean) {
 data3(){
   this.data4=true;
   this.data=false;
-  fetch("https://brave-pink-clothes.cyclic.app/dealer/getdealer",{
+  fetch("https://tiny-ruby-centipede-hat.cyclic.app/dealer/getdealer",{
     method:"GET",
     headers:{
       "access-Control-Allow-Origin":"*",
@@ -115,7 +115,7 @@ Dealer(){
 // if(this.text.Isadd==1){
 //   alert("oijuhygtrf")
 // }else{
-    fetch("https://brave-pink-clothes.cyclic.app/dealer/adddealer",{
+    fetch("https://tiny-ruby-centipede-hat.cyclic.app/dealer/adddealer",{
       method:'POST',
       headers:{
         "Access-Control-Allow-Origin":"*",

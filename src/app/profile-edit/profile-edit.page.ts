@@ -36,7 +36,7 @@ export class ProfileEditPage implements OnInit {
   update(Authentication:any){  
     console.log(this.ProfileForm.value) 
     localStorage.setItem('Login',JSON.stringify(this.text));
-    fetch("https://brave-pink-clothes.cyclic.app/signupform/editProfile/" + Authentication,  {
+    fetch("https://tiny-ruby-centipede-hat.cyclic.app/signupform/editProfile/" + Authentication,  {
       method: 'PUT',
       headers: {
         "access-Control-Allow-Origin": "*",        

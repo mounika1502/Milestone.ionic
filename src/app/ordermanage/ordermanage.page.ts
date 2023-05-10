@@ -95,7 +95,7 @@ ApproximateTime:any;
     console.log(this.data)
 
 
-fetch("https://brave-pink-clothes.cyclic.app/orderRoute/getOrders", {
+fetch("https://tiny-ruby-centipede-hat.cyclic.app/orderRoute/getOrders", {
       method:"get",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -238,7 +238,7 @@ this.count=this.order.length;
   this.count=this.order.length;
    console.log(this.data3)
   }  
-  fetch("https://brave-pink-clothes.cyclic.app/orderRoute/orderupdate", {
+  fetch("https://tiny-ruby-centipede-hat.cyclic.app/orderRoute/orderupdate", {
     method:'post',
     headers:{
     "Access-Control-Allow-Origin": "*",
@@ -272,7 +272,7 @@ Update(){
     Message:this.data.Message,
     Email:this.text.Email
   }
-  fetch("https://brave-pink-clothes.cyclic.app/orderRoute/orderStatus",{
+  fetch("https://tiny-ruby-centipede-hat.cyclic.app/orderRoute/orderStatus",{
     method:"POST",
     headers:{
       "access-Control-Allow-Origin":"*",

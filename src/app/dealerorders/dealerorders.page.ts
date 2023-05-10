@@ -79,7 +79,7 @@ OrderStatus:any;
     this.manumob=this.text.mobile
     console.log(this.manumob)
     this.getCartDetails = JSON.parse(localStorage.getItem('anunya') || '{}');
-    fetch("https://brave-pink-clothes.cyclic.app/orderRoute/getOrders",{
+    fetch("https://tiny-ruby-centipede-hat.cyclic.app/orderRoute/getOrders",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -102,44 +102,44 @@ OrderStatus:any;
       this.data2.push(this.data1.OrderData.OrderItems)
       console.log(this.data2)
    } 
-   for(let i = 0;i < this.data2.length;i++){
-    this.data1 = this.data2[i]
-    var data =this.order[i].OrderData.Phone
+  //  for(let i = 0;i < this.data2.length;i++){
+  //   this.data1 = this.data2[i]
+  //   var data =this.order[i].OrderData.Phone
    
 
-   if(data==this.manumob )
+  //  if(data==this.manumob )
    
-   {
+  //  {
     
-    this.data3.push(this.order[i] )
+  //   this.data3.push(this.order[i] )
     
     
-   }
-  //  else{
-  //   this.order.length=0;
+  //  }
+  // //  else{
+  // //   this.order.length=0;
+  // //   this.count=this.order.length;
+   
+  // //  }
+ 
+  // }  if(this.data3.length!=0)
+  // {
+  // this.order=this.data3
+  //   console.log(this.order)
+  //   localStorage.setItem('prodstatus',JSON.stringify(this.order));
+  //   console.log(this.order)
   //   this.count=this.order.length;
    
-  //  }
- 
-  }  if(this.data3.length!=0)
-  {
-  this.order=this.data3
-    console.log(this.order)
-    localStorage.setItem('prodstatus',JSON.stringify(this.order));
-    console.log(this.order)
-    this.count=this.order.length;
-   
   
-     console.log(this.data3)
-  }
-  else{
-    this.order.length=0;
-    this.count=this.order.length;
-  }
-    for(let i = 0;i < this.order.length;i++){
-       this.data = this.order[i]      
-    }  
-    }
+  //    console.log(this.data3)
+  // }
+  // else{
+  //   this.order.length=0;
+  //   this.count=this.order.length;
+  // }
+  //   for(let i = 0;i < this.order.length;i++){
+  //      this.data = this.order[i]      
+  //   }  
+   }
     ).catch(err =>
       console.log('error',err))
   }

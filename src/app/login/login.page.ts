@@ -22,7 +22,7 @@ export class LoginPage implements OnInit {
     this.loginForm.value.password =='')
     {
   }else{
-     fetch("https://brave-pink-clothes.cyclic.app/loginform/addlogin", {
+     fetch("https://tiny-ruby-centipede-hat.cyclic.app/loginform/addlogin", {
       method:'post',
       headers:{
         "Access-Control-Allow-Origin": "*",

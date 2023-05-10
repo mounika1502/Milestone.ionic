@@ -40,10 +40,7 @@ const routes: Routes = [
     path: 'checkout',
     loadChildren: () => import('./checkout/checkout.module').then( m => m.CheckoutPageModule)
   },
-  {
-    path: 'profilelogin',
-    loadChildren: () => import('./profilelogin/profilelogin.module').then( m => m.ProfileloginPageModule)
-  },
+
   
   {
     path: 'dealermanagement',
@@ -144,11 +141,19 @@ const routes: Routes = [
   {
     path: 'profile-edit',
     loadChildren: () => import('./profile-edit/profile-edit.module').then( m => m.ProfileEditPageModule)
-  },  {
+  },
+  {
     path: 'companydetails',
     loadChildren: () => import('./companydetails/companydetails.module').then( m => m.CompanydetailsPageModule)
   },
-
+  {
+    path: 'otp',
+    loadChildren: () => import('./otp/otp.module').then( m => m.OtpPageModule)
+  },
+  {
+    path: 'mobile-login',
+    loadChildren: () => import('./mobile-login/mobile-login.module').then( m => m.MobileLoginPageModule)
+  },
 ];
 
 @NgModule({

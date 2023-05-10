@@ -37,7 +37,7 @@ export class PasswordUpdatePage implements OnInit {
   
     submit(){    
   
-      fetch("https://brave-pink-clothes.cyclic.app/signupform/updatePassword/" + this.Form.value.Email, {
+      fetch("https://tiny-ruby-centipede-hat.cyclic.app/signupform/updatePassword/" + this.Form.value.Email, {
         method: 'PUT',
         headers: {
           "Access-Control-Allow-Origin": "*",        

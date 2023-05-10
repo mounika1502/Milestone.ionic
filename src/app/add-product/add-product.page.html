@@ -1,6 +1,16 @@
 <ion-header [translucent]="true">
     <ion-toolbar>
+      <ion-row>
+        <ion-col>
       <ion-icon name="arrow-back-sharp" routerLink="/inventory" style="font-size: 30px;"></ion-icon>
+    </ion-col>
+    <ion-col>
+      
+
+      <img style="width:43%;margin-left: -27%;" src="/assets/mistlogo.png">
+   
+    </ion-col>
+      </ion-row>
     </ion-toolbar>
   </ion-header>
 
@@ -89,7 +99,6 @@
       <ion-select-option  value="3Cm">3Cm</ion-select-option>
       <ion-select-option  value="2Cm">2Cm</ion-select-option>
     </ion-select>
-   
     <ion-label ><b>Stone Size/Type :</b></ion-label><br>
     <ion-select  formControlName="stone" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" >
       <ion-select-option  value="Gangsaw Size">Gangsaw Size</ion-select-option>
@@ -111,7 +120,7 @@
     <ion-input appFirstCap type="text"  style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="region" placeholder=" Enter your product location"></ion-input>
     
     <ion-label ><b>Arrival Date :</b></ion-label>
-    <ion-input type="date" style="margin-top: 7px; width: 97%;height:2em;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="date" placeholder=" Enter processing date">  </ion-input>
+    <ion-input type="date" min="{{this.TodayDate}}" style="margin-top: 7px; width: 97%;height:2em;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="date" placeholder=" Enter processing date">  </ion-input>
     
     <ion-label ><b>Manufacturer Name :</b></ion-label>
     <ion-input appFirstCap type="text"  style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="manufacturername" placeholder=" Enter your name"></ion-input>
@@ -124,11 +133,11 @@
     
     <ion-input type="hidden" class="form-control form-control-lg" formControlName="mobile" [(ngModel)]="text.mobile" >  </ion-input> 
     
-    <div style="text-align: center;margin-bottom: 1em;margin-top: -2em;">
-      <ion-button type="submit" [disabled]="productForm.value.name==''|| productForm.value.color==''|| productForm.value.price==''|| productForm.value.mobile==''||productForm.value.description==''||productForm.value.quality==''||productForm.value.stone==''||productForm.value.PhoneNumber==''||productForm.value.manufacturername==''|| productForm.value.region==''||productForm.value.size==''||productForm.value.date==''||productForm.value.prodId==''" (click)="onClick()">Submit</ion-button>
-   </div>
+
   </ion-list>
-  
+  <div style="text-align: center;margin-bottom: 1em;margin-top: -2em;">
+    <ion-button type="submit" [disabled]="productForm.value.name==''|| productForm.value.color==''|| productForm.value.price==''|| productForm.value.mobile==''||productForm.value.description==''||productForm.value.quality==''||productForm.value.stone==''||productForm.value.PhoneNumber==''||productForm.value.manufacturername==''|| productForm.value.region==''||productForm.value.size==''||productForm.value.date==''||productForm.value.prodId==''" (click)="onClick()">Submit</ion-button>
+ </div>
 </form> 
 </ion-content>
 
