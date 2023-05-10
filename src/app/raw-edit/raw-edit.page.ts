@@ -29,6 +29,7 @@ export class RawEditPage implements OnInit {
     this.data = JSON.parse(localStorage.getItem('RawUpdate') || '{}') 
     console.log(this.data)
   }
+  
   update(id:any){  
     console.log(this.rawForm.value) 
     localStorage.setItem('RawUpdate',JSON.stringify(this.data));

@@ -1,6 +1,7 @@
 <ion-app>
   <ion-menu menuId="main-menu" content-id="main"> 
     <ion-header >
+
       <ion-toolbar>   
         <div class="header-content" routerLink="/profile" style="display: flex;" >
           <img src="https://pixlok.com/wp-content/uploads/2021/03/default-user-profile-picture.jpg" style="width:20%;border-radius: 80%;height: 15%;margin-top: 20px;padding: 1%;" routerLink="/profile">
@@ -10,22 +11,24 @@
         </div>      
     </ion-toolbar>   
 </ion-header>
-<i class="fa fa-user" style="font-size:24px"></i>
+
+
 <ion-content>
     <ion-list>
       <div>
     
         <ion-menu-toggle>
-          <ion-item routerLink="/home" >
+          <ion-item routerLink="/profile" >
             <ion-icon name="person-outline" style="color: rgb(95, 95, 231);"></ion-icon>
             <ion-label> &nbsp; &nbsp; &nbsp;Profile</ion-label>
           </ion-item>
         </ion-menu-toggle>
       </div>
+
       <div>
-    
         <ion-menu-toggle>
           <ion-item routerLink="/home" >
+
             <ion-icon name="home-outline" style="color: rgb(95, 95, 231);"></ion-icon>
             <ion-label> &nbsp; &nbsp; &nbsp;Home</ion-label>
           </ion-item>
@@ -104,7 +107,11 @@
       </ion-menu-toggle>
     </div>
 
-    <div [hidden]="aa ==='Manufacturer'" [hidden]="aa === 'Dealer'">
+
+   
+
+    <div [hidden]= "aa === 'Manufacturer'" [hidden]= "aa === 'Dealer'">
+
       <ion-menu-toggle>
         <ion-item routerLink="/users">
           <ion-icon name="people-outline" style="color: rgb(95, 95, 231);"></ion-icon>
@@ -112,7 +119,6 @@
         </ion-item>
       </ion-menu-toggle>
     </div>
-
     <div>
       <ion-menu-toggle>
         <ion-item (click)="logout()">
@@ -121,7 +127,8 @@
         </ion-item>
       </ion-menu-toggle>
     </div>
-    </ion-list>
+ 
+  </ion-list>
   </ion-content>
 </ion-menu>
 

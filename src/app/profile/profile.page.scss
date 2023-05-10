@@ -1,114 +1,87 @@
+.profile-bg {
+  position: fixed;
+  left: 0;
+  top: -150px;
+  width: 100%;
+  height: 150px;
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXLq1rqR_lncIcWgMLHFLIHxUzXYzxRywRwM1x34tF1GGBvF2smyzRDkQcaj08G4qGIg8&usqp=CAU');
+  background-size: 100%;
+  background-position: 50% 20%;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+#content {
+  position: relative;
+  margin-top: 150px;
+  background-color: white;
+  box-shadow: 0px -1px 10px rgba(0,0,0,0.4);
+  padding-top: 200px;
+}
+
+#profile-info {
+  position: absolute;
+  top: -95px;
+  width: 100%;
+  z-index: 2;
+  text-align: center;
+}
+#profile-name {
+  color: #444;
+  font-size: 26px;
+}
+#profile-description {
+  font-size: 15px;
+  color: rgb(233, 117, 117);
+}
+#profile-description a {
+  color: #888;
+}
+
+#profile-image {
+  display: block;
+  border-radius: 100px;
+  border: 1px solid #fff;
+  width: 128px;
+  height: 128px;
+  margin: 30px auto 0;
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
+}
+
+.list-item-content {
+  padding: 5px;
+}
+
+.list-item {
+  color: #666666;
+}
+
+.post {
+  color: #444;
+}
+
+.post-time {
+  position: absolute;
+text-align: center;
+  font-size: 13px;
+  color:black;
+}
 ion-toolbar {
-    --color: #ffffff;
-    --background:#697184;
-  }
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-  }
-  .main{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  --color: #ffffff;
+  --background:#697184;
+}
 
-    background-position: center;
-    background-size: cover;
-  }
-  .profile-card{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 400px;
-    width: 100%;
-    border-radius: 25px;
-    padding: 30px;
-    border: 1px solid #ffffff40;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
-    height: 90%;
-  }
-  .image{
-    position: relative;
-    height: 150px;
-    width: 150px;
-  }
-  .image .profile-pic{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
-  }
-  .data{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 15px;
-  }
-  .data h2{
-    font-size: 33px;
-    font-weight: 600;
-  }
-  span{
-    font-size: 18px;
-  }
-  .row{
-    display: flex;
-    align-items: center;
-    margin-top: 30px;
-  }
-  .row .info{
-    text-align: center;
-    padding: 0 20px;
-  }
-  .buttons{
-    display: flex;
-    align-items: center;
-    margin-top: 30px;
-  }
-  .buttons .btn{
-    color: #fff;
-    text-decoration: none;
-    margin: 0 20px;
-    padding: 8px 25px;
-    border-radius: 25px;
-    font-size: 18px;
-    white-space: nowrap;
-    background: linear-gradient(to left, #33ccff 0%, #ff99cc 100%);
-  }
-  .buttons .btn:hover{
-    box-shadow: inset 0 5px 20px rgba(0,0,0,0.4);
-  }
-  button{
-    border: 1px solid #697184;
-    padding: 3%;
-    border-radius: 10px;
-    width: 50%;
-    color:#697184;
-    margin-left: 11%;
-    margin: 3%;
+.post-profile-image {
+  display: inline-block;
+  vertical-align: top;
+  width: 48px;
+  height: 48px;
+  margin-right: 10px;
 }
-button:hover{
-    background-color: #697184;
-    color: white;
-}
-.button{
-   
-    border: 1px solid #697184;
-
-    padding: 3%;
-    border-radius: 10px;
-    width: 31%;
-    color:#697184;
-    margin-left: 11%;
-    margin: 3%;
-  
-}
-.button:hover{
-    background-color: #697184;
-    color: white;
+.post-options {
+  position: absolute;
+  font-size: 16px;
+  right: 5px;
+  bottom: 5px;
+  color: #888;
 }

@@ -63,7 +63,7 @@ setOpen(isOpen: boolean) {
       console.log(this.aa) 
   }
   Get(){
-    fetch("http://localhost:7500/signupform/getsignupdetails",{
+    fetch("https://brave-pink-clothes.cyclic.app/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",

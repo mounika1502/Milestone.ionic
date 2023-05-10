@@ -41,6 +41,11 @@ const routes: Routes = [
     loadChildren: () => import('./checkout/checkout.module').then( m => m.CheckoutPageModule)
   },
   {
+    path: 'profilelogin',
+    loadChildren: () => import('./profilelogin/profilelogin.module').then( m => m.ProfileloginPageModule)
+  },
+  
+  {
     path: 'dealermanagement',
     loadChildren: () => import('./dealermanagement/dealermanagement.module').then( m => m.DealermanagementPageModule)
   },
@@ -136,6 +141,14 @@ const routes: Routes = [
     path: 'users',
     loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule)
   },
+  {
+    path: 'profile-edit',
+    loadChildren: () => import('./profile-edit/profile-edit.module').then( m => m.ProfileEditPageModule)
+  },  {
+    path: 'companydetails',
+    loadChildren: () => import('./companydetails/companydetails.module').then( m => m.CompanydetailsPageModule)
+  },
+
 ];
 
 @NgModule({

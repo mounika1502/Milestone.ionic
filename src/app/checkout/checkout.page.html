@@ -36,7 +36,7 @@
       <ion-label style="margin-left: 7%;">Mobile</ion-label>
     <ion-item class="ion-margin">
   
-      <ion-input appCapitalize placeholder="Enter Phone Number" type="text" clearInput="true"  [(ngModel)]="Phone"></ion-input>
+      <ion-input appCapitalize placeholder="Enter Phone Number" type="text" clearInput="true" [(ngModel)]="this.text.mobile"  [(ngModel)]="Phone"></ion-input>
     </ion-item>
     <ion-label style="margin-left: 7%;">City</ion-label>
     <ion-item class="ion-margin">
@@ -88,7 +88,14 @@
           <ion-select-option value="West Bengal">West Bengal</ion-select-option>
         </ion-select>
       </ion-item>
-      <ion-button style="margin-left: 60px;" (click)="cash1()" >Continue to Pay</ion-button>
+
+      <ion-button style="margin-left: 86px;" (click)="cash1()" >Continue to Pay</ion-button>
+   
+
+      
+      
+
     </ion-list>
 
 </ion-content>
+

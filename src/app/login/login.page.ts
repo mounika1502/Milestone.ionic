@@ -34,9 +34,14 @@ export class LoginPage implements OnInit {
       this.loginData = result
       console.log(this.loginData)      
     localStorage.setItem('Login',JSON.stringify(this.loginData));
-    console.log(this.loginData)       
-alert("Success....") 
-window.location.href='/home'   
+    console.log(this.loginData)  
+    if(result.status == 'failed'){
+      alert('Login failed')
+    }  else{
+      alert("Login success....") 
+      window.location.href='/home' 
+    }   
+      
    })
     }   
   }

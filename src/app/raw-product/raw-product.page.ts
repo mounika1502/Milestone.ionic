@@ -48,7 +48,7 @@ export class RawProductPage implements OnInit {
           var data = {
             mobile :this.text.mobile
           }   
-          fetch("http://localhost:7500/raw/getraw", {
+          fetch("https://brave-pink-clothes.cyclic.app/raw/getraw", {
          method:'post',
          headers:{
            "Access-Control-Allow-Origin": "*",
