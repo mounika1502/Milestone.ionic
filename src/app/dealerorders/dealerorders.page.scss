@@ -1,8 +1,11 @@
+
+
 ion-toolbar {
     --color: #ffffff;
     --background:#697184;
-}
-ion-searchbar{
+  }
+  ion-searchbar{
+    
     --box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     ::ng-deep{
         .searchbar-input-container{            
@@ -14,18 +17,21 @@ ion-searchbar{
         }
     }   
 }
-.button{
-   
-    border: 1px solid #697184;
-margin:2%;
-margin-left: 5%;
-    padding: 3%;
-    border-radius: 10px;
-    width: 33%;
-    color:#697184;
 
-}
-.button:hover{
-    background-color: #697184;
-    color: white;
-}
+
+
+
+
+
+
+
+
+    
+    
+  
+  
+
+  
+
+   
+    

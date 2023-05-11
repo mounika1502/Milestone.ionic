@@ -92,7 +92,7 @@ export class AddProductPage  {
       }).then(res => res.json())
         .then(result => {
           console.log(result)
-          window.location.href="/inventory"
+           window.location.href="/inventory"
          
         }
         )

@@ -7,7 +7,27 @@
 </ion-header>
 <ion-content [fullscreen]="true">
   <ion-searchbar placeholder="Search..." [(ngModel)]="searchtext"></ion-searchbar>
-<button class="button"   (click)="Get()"  >All Dealers</button><button class="button" (click)="data3()">My Dealers</button>  
+  <div class="container">
+    <ion-row>
+      <ion-segment [scrollable]="true" value="home" >
+  
+      
+        <ion-col>
+          <ion-segment-button value="home" (click)="Get()">
+            <ion-label>All Dealers</ion-label>
+          </ion-segment-button>
+        </ion-col>
+        <ion-col>
+          <ion-segment-button value="star" (click)="data3()">
+            <ion-label>My Dealers</ion-label>
+          </ion-segment-button>
+        </ion-col>
+     
+       
+      </ion-segment>
+    </ion-row>
+  </div> 
+
 <div *ngIf="data4">
   <div *ngFor="let text of List1 | filter:searchtext">
   <ion-card>

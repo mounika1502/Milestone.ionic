@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./manufacturers.page.scss'],
 })
 export class ManufacturersPage implements OnInit {
-
+cartItem:number=0
   Array:any=[];
   dealer:any;
   popupform=false;
@@ -63,7 +63,7 @@ setOpen(isOpen: boolean) {
   }
 
   Get(){
-    fetch("https://brave-pink-clothes.cyclic.app/signupform/getsignupdetails",{
+    fetch("http://localhost:7500/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -144,9 +144,7 @@ var id=data._id
       localStorage.setItem('docId',JSON.stringify(this.docId))
      
       console.log(this.docId)
-        Swal.fire('Added to My Manufacturers!', '', 'success').then(() => {
-        
-        });
+    
       }
         )
       .catch(error => console.log('error',error)); 

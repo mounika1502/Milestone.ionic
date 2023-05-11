@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { UniqueDeviceID } from '@ionic-native/unique-device-id/ngx';
+// import { UniqueDeviceID } from '@ionic-native/unique-device-id/ngx';
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
@@ -14,11 +14,13 @@ export class RegisterPage implements OnInit {
   loginForm: any;
   isAlertOpen = false;
 public alertButtons = ['OK'];
+isSubmitted=false;
 setOpen(isOpen: boolean) {
   this.isAlertOpen = isOpen;
 }
-  constructor(private router:Router,private uniqueDeviceID: UniqueDeviceID) { }
+  constructor(private router:Router) { }
   ngOnInit() {
+    
     this.SignupForm = new FormGroup({
       Firstname: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
       Lastname : new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
@@ -35,21 +37,21 @@ setOpen(isOpen: boolean) {
       // Isadd:new FormControl('1'),
       Message:new FormControl('congratulations your signup successfully!!')
     });
-    this.getUniqueDeviceID();
+    // this.getUniqueDeviceID();
   }
-  getUniqueDeviceID() {
-    this.uniqueDeviceID.get()
-      .then((uuid: any) => {
-        console.log(uuid);
-        this.UniqueDeviceID = uuid;
+  // getUniqueDeviceID() {
+  //   this.uniqueDeviceID.get()
+  //     .then((uuid: any) => {
+  //       console.log(uuid);
+  //       this.UniqueDeviceID = uuid;
 
-        //alert(this.UniqueDeviceID)
-      })
-      .catch((error: any) => {
-        console.log(error);
-        this.UniqueDeviceID = "Error! ${error}";
-      });
-  }
+  //       //alert(this.UniqueDeviceID)
+  //     })
+  //     .catch((error: any) => {
+  //       console.log(error);
+  //       this.UniqueDeviceID = "Error! ${error}";
+  //     });
+  // }
   signupSubmit(){       
     if(this.SignupForm.value.Firstname ==''||
      this.SignupForm.value.Lastname ==''||

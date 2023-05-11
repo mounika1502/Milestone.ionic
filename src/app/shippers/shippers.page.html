@@ -8,6 +8,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-searchbar [(ngModel)]="searchtext"></ion-searchbar>
+<button [hidden]= "aa == 'Dealer'" routerLink="/add-shipper" style="margin-left:60%;background-color: #697184;color: white;" class="add">Add Shipper</button>
 <ion-content>
 <div *ngFor="let data of shippers | filter : searchtext">
   <ion-list>
@@ -20,7 +21,7 @@
         <ion-col style="color: #697184;font-size: large;font-weight: 700;">Mobile</ion-col>
         <ion-col style="color: black;font-size: large;"> : {{data.Mobile}}</ion-col>
       </ion-row><br>
-      <button (click)="description(data)" style="margin-left: 33%;">
+      <button (click)="description(data)" style="margin-left: 33%;background-color: #697184;color: white;">
         View more details
        </button>
    </ion-card>

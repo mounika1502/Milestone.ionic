@@ -51,7 +51,6 @@ ApproximateTime:any;
   manuemail: any;
   randomNumber: any;
   text2: any;
-  text4: any=[]
   constructor() { 
 
     }
@@ -62,11 +61,7 @@ ApproximateTime:any;
       console.log(test)
   }
   ngOnInit(): void {
-    const localdata=localStorage.getItem('uma')
-    if(localdata!=null){                                                    
-      this.text4 = JSON.parse(localdata)
-      
-    }
+debugger
     const localdata1=localStorage.getItem('orderid')
     if(localdata1!=null){                                                    
       this.text2 = JSON.parse(localdata1)
@@ -128,8 +123,21 @@ fetch("https://tiny-ruby-centipede-hat.cyclic.app/orderRoute/getOrders", {
    {
     this.data3.push(this.order[i] )
    }
-  } 
-  
+  }  if(this.data3.length!=0)
+  {
+  this.order=this.data3
+    console.log(this.order)
+    
+    console.log(this.order)
+    this.count=this.order.length;
+    localStorage.setItem('Prod',JSON.stringify(this.order));
+     console.log(this.data3)
+  }
+  else{
+    this.order.length=0;
+    this.count=this.order.length;
+  }
+   
     }
     ).catch(err =>
       console.log('error',err))
@@ -140,7 +148,6 @@ fetch("https://tiny-ruby-centipede-hat.cyclic.app/orderRoute/getOrders", {
 
   
 }
-
   getAddress(test:any){
     window.location.href=("/address")
     localStorage.setItem('Order',JSON.stringify(test));

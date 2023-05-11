@@ -90,20 +90,23 @@ setOpen(isOpen: boolean) {
 data3(){
   this.data4=true;
   this.data=false;
-  fetch("https://tiny-ruby-centipede-hat.cyclic.app/dealer/getdealer",{
-    method:"GET",
-    headers:{
-      "access-Control-Allow-Origin":"*",
-    },
-  })
-  .then(response => response.json())
-  .then(result =>{
-    console.log(result),
-    this.List1 = result.dealerInfo
-  console.log(this.List1)
-  }
-  ).catch(err =>
-    console.log('error',err))
+ 
+    fetch("https://tiny-ruby-centipede-hat.cyclic.app/dealer/getdealer",{
+      method:"GET",
+      headers:{
+        "access-Control-Allow-Origin":"*",
+      },
+    })
+    .then(response => response.json())
+    .then(result =>{
+      console.log(result),
+      this.List1 = result.dealerInfo
+    console.log(this.List1)
+    }
+    ).catch(err =>
+      console.log('error',err))
+ 
+
 }
 Dealer(){
   this.dealers=true;

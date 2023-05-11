@@ -12,6 +12,7 @@ export class RawProductPage implements OnInit {
   text: any;
   aa: any;
   mobile: any;
+  cartItem:number=0
   constructor() { 
     this.get()
   }

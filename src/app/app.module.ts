@@ -8,13 +8,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FirstCapDirective } from './first-cap.directive';
-import { UniqueDeviceID } from '@ionic-native/unique-device-id/ngx';
+// import { UniqueDeviceID } from '@ionic-native/unique-device-id/ngx';
 
 
 @NgModule({
   declarations: [AppComponent, FirstCapDirective],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,ReactiveFormsModule,FormsModule,HttpClientModule,Ng2SearchPipeModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy ,}, UniqueDeviceID],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy ,}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

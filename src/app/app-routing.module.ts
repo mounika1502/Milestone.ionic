@@ -138,13 +138,7 @@ const routes: Routes = [
     path: 'inventory',
     loadChildren: () => import('./inventory/inventory.module').then( m => m.InventoryPageModule)
   },
-<<<<<<< HEAD
 
-
-
-
-
-=======
   {
     path: 'users',
     loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule)
@@ -165,7 +159,10 @@ const routes: Routes = [
     path: 'mobile-login',
     loadChildren: () => import('./mobile-login/mobile-login.module').then( m => m.MobileLoginPageModule)
   },
->>>>>>> 03be4b2d93acfd03f20b9abdb826ee19ef92c086
+  {
+    path: 'shipper-edit',
+    loadChildren: () => import('./shipper-edit/shipper-edit.module').then( m => m.ShipperEditPageModule)
+  },
 ];
 
 @NgModule({

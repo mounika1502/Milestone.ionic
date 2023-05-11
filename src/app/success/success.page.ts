@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-success',
@@ -6,18 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./success.page.scss'],
 })
 export class SuccessPage implements OnInit {
-
-  details:any=[];
-  getProduct: any;
   text: any;
-  ngOnInit(): void {
+  
 
+
+  constructor() {
+  
+   }
+
+
+  ngOnInit(): void {
     this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
     console.log(this.text)
-
-    //This is for product getting (gett) call 
-     
-      
-
-}
+  }
 }

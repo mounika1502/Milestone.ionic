@@ -1,9 +1,16 @@
-<ion-header>
-  <ion-toolbar >
-<ion-buttons slot="start" >
-<ion-menu-button style="color:white"  menu="main-menu"></ion-menu-button>
-</ion-buttons>
+<ion-header [translucent]="true">
+  <ion-toolbar>   
+      <ion-buttons slot="start" >
+      <ion-menu-button  menu="main-menu"></ion-menu-button>
+      </ion-buttons>
 
+      <ion-icon name="cart" style=" margin-top: 7px;font-size: 30px;margin-left: -17px;margin-right: 18px;" slot="end" ></ion-icon>
+<span class="number" style="    font-size: 15px;
+font-weight: 700;
+margin-right: 6px;
+margin-left: -21px;
+margin-top: -12px;
+color: #ecdd28;" slot="end" routerLink="/cart" >{{cartItem}} </span>
   </ion-toolbar>
 </ion-header>
 
@@ -14,7 +21,27 @@
     </ion-toolbar>
   </ion-header> -->
   <ion-searchbar placeholder="Search..." [(ngModel)]="searchtext"></ion-searchbar><br>
-  <span class="button"   (click)="Get()"  >All Manufacturers</span><span class="button" (click)="data3()">My Manufacturers</span>  
+  <div class="container">
+    <ion-row>
+      <ion-segment [scrollable]="true" value="home" >
+  
+      
+        <ion-col>
+          <ion-segment-button value="home" (click)="Get()">
+            <ion-label>All Manufacturers</ion-label>
+          </ion-segment-button>
+        </ion-col>
+        <ion-col>
+          <ion-segment-button value="star" (click)="data3()">
+            <ion-label>My Manufacturers</ion-label>
+          </ion-segment-button>
+        </ion-col>
+     
+       
+      </ion-segment>
+    </ion-row>
+  </div>
+ 
   <br>
   <br>
 <div *ngIf="data4">
@@ -69,7 +96,7 @@
 <h6 style="text-align: center;color:green">Contact Dealer
   <ion-icon name="call" style="font-size: large;color:#197a19; "></ion-icon></h6>
     <p>
-      <a href="tel:{{text.mobile}}" style="margin-left: 110px;">{{text.mobile}}</a>
+      <a href="tel:{{text.mobile}}" style="margin-left: 38%;">{{text.mobile}}</a>
     </p>
 
   </ion-card>
