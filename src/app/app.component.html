@@ -1,80 +1,136 @@
 <ion-app>
   <ion-menu menuId="main-menu" content-id="main"> 
     <ion-header >
-      <ion-toolbar>         
-      </ion-toolbar>   
-    </ion-header>
-    <ion-content>
-      <ion-list>
+
+      <ion-toolbar>   
+        <div class="header-content" routerLink="/profile" style="display: flex;" >
+          <img src="https://pixlok.com/wp-content/uploads/2021/03/default-user-profile-picture.jpg" style="width:20%;border-radius: 80%;height: 15%;margin-top: 20px;padding: 1%;" routerLink="/profile">
+          <span> <h2 style="margin-left: 15px;font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;font-size: 19px;">{{text.Firstname}} {{text.Lastname}}</h2>
+            <p style="margin-left: 15px;font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">{{text.UserType}}</p>
+           </span>
+        </div>      
+    </ion-toolbar>   
+</ion-header>
+
+
+<ion-content>
+    <ion-list>
+      <div>
+    
         <ion-menu-toggle>
-        <ion-item routerLink="/home">
-          <ion-icon name="home-outline" style="color: rgb(95, 95, 231);"></ion-icon>          
-          <ion-label  menuId="main-menu" content-id="main"> &nbsp; &nbsp; &nbsp;Home</ion-label>
-        </ion-item>
-      </ion-menu-toggle>
+          <ion-item routerLink="/profile" >
+            <ion-icon name="person-outline" style="color: rgb(95, 95, 231);"></ion-icon>
+            <ion-label> &nbsp; &nbsp; &nbsp;Profile</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </div>
+
+      <div>
+        <ion-menu-toggle>
+          <ion-item routerLink="/home" >
+
+            <ion-icon name="home-outline" style="color: rgb(95, 95, 231);"></ion-icon>
+            <ion-label> &nbsp; &nbsp; &nbsp;Home</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </div>
+
+      <div [hidden]= "aa === 'Manufacturer'">
       <ion-menu-toggle>
         <ion-item routerLink="/product">
-          <ion-icon name="layers-outline" [hidden]="aa === 'Manufacturer'" style="color: rgb(95, 95, 231);"></ion-icon>
-          <ion-label  [hidden]="aa === 'Manufacturer'"> &nbsp; &nbsp; &nbsp;Products</ion-label>
+          <ion-icon name="layers-outline" style="color: rgb(95, 95, 231);"></ion-icon>
+          <ion-label> &nbsp; &nbsp; &nbsp;Products</ion-label>
         </ion-item>
       </ion-menu-toggle>
-          <ion-menu-toggle>
+    </div>
+
+    <div  [hidden]= "aa === 'Dealer'">  
+      <ion-menu-toggle>
         <ion-item routerLink="/inventory">
-          <ion-icon  name="albums-outline"style="color: rgb(95, 95, 231);"></ion-icon>
-          <ion-label  [hidden]="aa === 'Dealer'"> &nbsp; &nbsp; &nbsp;Inventory</ion-label>
+          <ion-icon name="albums-outline"style="color: rgb(95, 95, 231);"></ion-icon>
+          <ion-label> &nbsp; &nbsp; &nbsp;Inventory</ion-label>
         </ion-item>
       </ion-menu-toggle>
-          <ion-menu-toggle>
+    </div>
+
+    <div>
+      <ion-menu-toggle>  
         <ion-item routerLink="/raw-product">
           <ion-icon name="browsers-outline"style="color: rgb(95, 95, 231);"></ion-icon>
-          <ion-label  [hidden]="aa === 'Dealer '"> &nbsp; &nbsp; &nbsp;Raw-Product</ion-label>
-        </ion-item>
-        </ion-menu-toggle>
-        <ion-menu-toggle>
-        <ion-item routerLink="/manufacturers">
+          <ion-label> &nbsp; &nbsp; &nbsp;Raw-Product</ion-label>
+        </ion-item>      
+      </ion-menu-toggle>
+    </div>
+
+    <div  [hidden]= "aa === 'Manufacturer'">
+      <ion-menu-toggle>
+        <ion-item routerLink="manufacturers">
           <ion-icon name="people-circle-outline"style="color: rgb(95, 95, 231);"></ion-icon>
-          <ion-label routerLink="manufacturers" [hidden]="aa === 'Manufacturer'"> &nbsp; &nbsp; &nbsp;Manufacturers</ion-label>
+          <ion-label routerLink="manufacturers"> &nbsp; &nbsp; &nbsp;Manufacturers</ion-label>
         </ion-item>
-        </ion-menu-toggle>
-        <ion-menu-toggle>
+      </ion-menu-toggle>
+    </div>
+
+    <div [hidden]= "aa === 'Dealer'">
+      <ion-menu-toggle>
         <ion-item routerLink="/dealermanagement">
           <ion-icon name="person-outline"style="color: rgb(95, 95, 231);"></ion-icon>
-          <ion-label  [hidden]="aa === 'Dealer'" menuId="main-menu" content-id="main"> &nbsp; &nbsp; &nbsp;Dealers Management</ion-label>
+          <ion-label  menuId="main-menu" content-id="main"> &nbsp; &nbsp; &nbsp;Dealers Management</ion-label>
         </ion-item>
-        </ion-menu-toggle>
-        <ion-menu-toggle>
+      </ion-menu-toggle>
+    </div>
+
+    <div [hidden]= "aa === 'Dealer'">
+      <ion-menu-toggle>
         <ion-item routerLink="/ordermanage">
           <ion-icon name="bag-outline"style="color: rgb(95, 95, 231);"></ion-icon>
-          <ion-label   [hidden]="aa === 'Dealer'" menuId="main-menu" content-id="main"> &nbsp; &nbsp; &nbsp;Order Management</ion-label>
-        </ion-item>
-        </ion-menu-toggle>
-        <ion-menu-toggle>
+          <ion-label menuId="main-menu" content-id="main"> &nbsp; &nbsp; &nbsp;Order Management</ion-label>
+        </ion-item>  
+      </ion-menu-toggle>
+    </div>
+
+    <div [hidden]= "aa === 'Manufacturer'">
+      <ion-menu-toggle>
         <ion-item routerLink="/dealerorders">
           <ion-icon name="basket-outline"style="color: rgb(95, 95, 231);"></ion-icon>
-          <ion-label [hidden]="aa === 'Manufacturer'" menuId="main-menu" content-id="main"> &nbsp; &nbsp; &nbsp;My Orders</ion-label>
+          <ion-label menuId="main-menu" content-id="main"> &nbsp; &nbsp; &nbsp;My Orders</ion-label>
         </ion-item>
-        </ion-menu-toggle>
-        <ion-menu-toggle>
+      </ion-menu-toggle>
+    </div>
+
+    <div>
+      <ion-menu-toggle>
         <ion-item  routerLink="/shippers">
           <ion-icon name="bus-outline" menuId="main-menu" content-id="main" style="color: rgb(95, 95, 231);"></ion-icon>
           <ion-label > &nbsp; &nbsp; &nbsp;Shippers</ion-label>
         </ion-item>
-        </ion-menu-toggle>
-        <ion-menu-toggle>
+      </ion-menu-toggle>
+    </div>
+
+
+   
+
+    <div [hidden]= "aa === 'Manufacturer'" [hidden]= "aa === 'Dealer'">
+
+      <ion-menu-toggle>
         <ion-item routerLink="/users">
           <ion-icon name="people-outline" style="color: rgb(95, 95, 231);"></ion-icon>
-          <ion-label   [hidden]="aa === 'Manufacturer'" menuId="main-menu" content-id="main" [hidden]="aa === 'Manufacturer'">&nbsp; &nbsp; &nbsp;User Management</ion-label>
+          <ion-label menuId="main-menu" content-id="main">&nbsp; &nbsp; &nbsp;User Management</ion-label>
         </ion-item>
-        </ion-menu-toggle>
-        <ion-menu-toggle>
+      </ion-menu-toggle>
+    </div>
+    <div>
+      <ion-menu-toggle>
         <ion-item (click)="logout()">
           <ion-icon name="log-out-outline"style="color: rgb(95, 95, 231);" ></ion-icon>
           <ion-label >&nbsp; &nbsp; &nbsp;Logout</ion-label>
         </ion-item>
       </ion-menu-toggle>
-      </ion-list>
-    </ion-content>
-  </ion-menu>
+    </div>
+ 
+  </ion-list>
+  </ion-content>
+</ion-menu>
 
  <ion-router-outlet id="main"></ion-router-outlet>
  

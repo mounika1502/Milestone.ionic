@@ -1,6 +1,16 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-icon name="arrow-back-sharp" routerLink="/shippers" style="font-size: 30px;"></ion-icon>
+    <ion-row>
+      <ion-col>
+    <ion-icon name="arrow-back-sharp" routerLink="/inventory" style="font-size: 30px;"></ion-icon>
+  </ion-col>
+  <ion-col>
+    
+
+    <img style="width:43%;margin-left: -27%;" src="/assets/mistlogo.png">
+ 
+  </ion-col>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
@@ -22,16 +32,16 @@
         <ion-input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="Trucknumber" placeholder=" Enter your truck number"> </ion-input>     
                         
         <ion-label ><b>Truck Image :</b></ion-label>
-        <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="Truckimage" placeholder=" Upload your truck image"></ion-input>                       
+        <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="TruckImage" placeholder=" Upload your truck image"></ion-input>                       
                 
         <ion-label ><b>Driving Licence Image :</b></ion-label>
-        <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height:1em;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="Licence" placeholder=" Upload your driving Licence image"></ion-input>
+        <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height:1em;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="Licence"  placeholder=" Upload your driving Licence image"></ion-input>
                                     
         <ion-label ><b>Aadhar Card Image :</b></ion-label>
-        <ion-input type="text" style="margin-top: 7px; width: 97%;height:2em;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="Aadhar" placeholder=" Upload your aadhar image">  </ion-input>
+        <ion-input type="text" style="margin-top: 7px; width: 97%;height:2em;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="Adhar"  placeholder=" Upload your aadhar image">  </ion-input>
                                  
         <ion-label ><b>Pan Card Image :</b></ion-label>
-        <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="Pan" placeholder=" Upload your pancard image"></ion-input>
+        <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="Pan"  placeholder=" Upload your pancard image"></ion-input>
 
         <ion-label ><b>Address :</b></ion-label>
         <textarea appFirstCap type="text"  formControlName="Address" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height:10em;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" placeholder=" Enter your address" ></textarea>  

@@ -82,7 +82,7 @@ export class AddProductPage  {
     console.log(this.productForm.value)
 
       console.log(this.productForm.value)
-      fetch("https://brave-pink-clothes.cyclic.app/products/addproduct/" +id, {
+      fetch("https://tiny-ruby-centipede-hat.cyclic.app/products/addproduct/" +id, {
         method: 'post',
         headers: {
           "Access-Control-Allow-Origin": "*",

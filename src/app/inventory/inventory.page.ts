@@ -51,7 +51,7 @@ ngOnInit(): void {
  }  
  getProduct(){
    if(this.text.UserType=='admin'){
-    fetch("https://brave-pink-clothes.cyclic.app/products/getproducts", {
+    fetch("https://tiny-ruby-centipede-hat.cyclic.app/products/getproducts", {
       method:'get',
       headers:{
         "Access-Control-Allow-Origin": "*",
@@ -70,7 +70,7 @@ ngOnInit(): void {
     var data={
       mobile:this.text.mobile
     }    
-     fetch("https://brave-pink-clothes.cyclic.app/products/getproduct", {
+     fetch("https://tiny-ruby-centipede-hat.cyclic.app/products/getproduct", {
     method:'post',
     headers:{
       "Access-Control-Allow-Origin": "*",

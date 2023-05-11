@@ -16,23 +16,19 @@ export class ForgotpasswordPage implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit(): void {
+
     this.Form = new FormGroup({
       Email : new FormControl("")
     })
+    console.log(this.Form)
   }
 
-  login(){
-    this.router.navigate(["./login"])
-  } 
-  
+ 
+ 
   //login form submit function
   submit(){
-    if( this.Form.value.Email ==''
-    ){
-
- }
- else{
-     fetch("http://localhost:7500/auth/getsignupdetail", {
+    console.log(this.Form.value) 
+     fetch("https://tiny-ruby-centipede-hat.cyclic.app/auth/getsignupdetail", {
       method:'post',
       headers:{
         "Access-Control-Allow-Origin": "*",
@@ -44,16 +40,13 @@ export class ForgotpasswordPage implements OnInit {
       console.log(result)           
     console.log(this.Form) 
     
-  //  if(result.status == 'failed'){
-  //   Swal.fire( 'cancelled', 'Email does not exist', 'error')
-  //  }else{
-  //   Swal.fire( 'Link sended successfully!', '', 'success').then(() =>{   
-  //     window .location.reload()      
-  //   }) 
-  //  }   
+   if(result.status == 'failed'){
+   alert('Email does not exist')
+   }else{
+    alert('Link sended successfully!')   
+      // window .location.reload()      
+   }   
         
     })  
   }
   }
-
-}

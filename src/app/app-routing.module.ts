@@ -40,6 +40,8 @@ const routes: Routes = [
     path: 'checkout',
     loadChildren: () => import('./checkout/checkout.module').then( m => m.CheckoutPageModule)
   },
+
+  
   {
     path: 'dealermanagement',
     loadChildren: () => import('./dealermanagement/dealermanagement.module').then( m => m.DealermanagementPageModule)
@@ -63,11 +65,7 @@ const routes: Routes = [
     loadChildren: () => import('./ordermanage/ordermanage.module').then( m => m.OrdermanagePageModule)
 
   },
-  {
-    path: 'viewdetails',
-    loadChildren: () => import('./viewdetails/viewdetails.module').then( m => m.ViewdetailsPageModule)
 
-  },
   {
     path: 'profile',
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
@@ -140,11 +138,34 @@ const routes: Routes = [
     path: 'inventory',
     loadChildren: () => import('./inventory/inventory.module').then( m => m.InventoryPageModule)
   },
+<<<<<<< HEAD
 
 
 
 
 
+=======
+  {
+    path: 'users',
+    loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule)
+  },
+  {
+    path: 'profile-edit',
+    loadChildren: () => import('./profile-edit/profile-edit.module').then( m => m.ProfileEditPageModule)
+  },
+  {
+    path: 'companydetails',
+    loadChildren: () => import('./companydetails/companydetails.module').then( m => m.CompanydetailsPageModule)
+  },
+  {
+    path: 'otp',
+    loadChildren: () => import('./otp/otp.module').then( m => m.OtpPageModule)
+  },
+  {
+    path: 'mobile-login',
+    loadChildren: () => import('./mobile-login/mobile-login.module').then( m => m.MobileLoginPageModule)
+  },
+>>>>>>> 03be4b2d93acfd03f20b9abdb826ee19ef92c086
 ];
 
 @NgModule({

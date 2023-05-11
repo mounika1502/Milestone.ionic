@@ -7,8 +7,6 @@
   </ion-toolbar>
 </ion-header>
 
-
-
   <ion-content [fullscreen]="true">
     <div class="circle-container">
       <div class="circle circle-1"></div>
@@ -29,16 +27,20 @@
     
         <ion-input  appFirstCap  placeholder="Enter Last Name" type="text" clearInput="true" formControlName="Lastname"></ion-input>
       </ion-item>
-      <ion-label style="margin-left: 6%;">Email Address</ion-label>
-      <ion-item class="ion-margin">
-    
-        <ion-input appFirstCap placeholder="Enter Email Address" type="text" clearInput="true" formControlName="Email"></ion-input>
-      </ion-item>
       <ion-label style="margin-left: 6%;">Phone Number</ion-label>
     <ion-item class="ion-margin">
   
       <ion-input  appFirstCap placeholder="Enter Phone Number" type="text" clearInput="true" formControlName="mobile"></ion-input>
     </ion-item>
+      <ion-label style="margin-left: 6%;">Email Address</ion-label>
+      <ion-item class="ion-margin">
+    
+        <ion-input appFirstCap placeholder="Enter Email Address" type="text" clearInput="true" formControlName="Email"></ion-input>
+      </ion-item>
+      <ion-label style="margin-left: 6%;">Password</ion-label>
+      <ion-item class="ion-margin">
+        <ion-input appCapitalize placeholder="Enter Password" type="password" clearInput="true" formControlName="Password"></ion-input>
+      </ion-item>
     <ion-label style="margin-left: 6%;">City</ion-label>
     <ion-item class="ion-margin">
   
@@ -59,10 +61,7 @@
   
       <ion-input appFirstCap  placeholder="Enter Company Name" type="text" clearInput="true" formControlName="Company"></ion-input>
     </ion-item>
-    <ion-label style="margin-left: 6%;">Password</ion-label>
-    <ion-item class="ion-margin">
-      <ion-input appCapitalize placeholder="Enter Password" type="password" clearInput="true" formControlName="Password"></ion-input>
-    </ion-item>
+   
    
     <ion-label style="margin-left: 6%;">State</ion-label>
       <ion-item class="ion-margin">
@@ -112,18 +111,11 @@
          
           </form>
           </ion-list>
-          <ion-button  style="height: 50px;   border-radius: 10px; margin-top:20px;" expand="full" strong="true" type="submit" (click)="setOpen(true)" [disabled]="SignupForm.value.Firstname == '' || SignupForm.value.Lastname == ''|| SignupForm.value.Email == ''|| SignupForm.value.Password == ''||SignupForm.value.UserType==''||SignupForm.value.City == ''|| SignupForm.value.state == '' || SignupForm.value.Password == ''|| SignupForm.value.Street == ''||SignupForm.value.Company=='' || SignupForm.value.pincode==''"    (click)="signupSubmit()" >
+          <ion-button  style="height: 50px;   border-radius: 10px; margin-top:20px;" expand="full" strong="true" type="submit"  [disabled]="SignupForm.value.Firstname == '' || SignupForm.value.Lastname == ''|| SignupForm.value.Email == ''|| SignupForm.value.Password == ''||SignupForm.value.UserType==''||SignupForm.value.City == ''|| SignupForm.value.state == '' || SignupForm.value.Password == ''|| SignupForm.value.Street == ''||SignupForm.value.Company=='' || SignupForm.value.pincode==''"    (click)="signupSubmit()" >
             Register
        
            </ion-button>
-           <ion-alert
-  [isOpen]="isAlertOpen"
-  header="Alert"
-  subHeader="Important message"
-  message="Added Successfully"
-  [buttons]="alertButtons"
-  (didDismiss)="setOpen(false)"
-></ion-alert>
+
           </ion-content>
          
           

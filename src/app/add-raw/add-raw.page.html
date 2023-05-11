@@ -1,8 +1,18 @@
-<ion-header>
-    <ion-toolbar>      
-      <ion-icon name="arrow-back-sharp" routerLink="/raw-product" style="font-size: 30px;"></ion-icon>
-    </ion-toolbar>
-  </ion-header>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-row>
+      <ion-col>
+    <ion-icon name="arrow-back-sharp" routerLink="/inventory" style="font-size: 30px;"></ion-icon>
+  </ion-col>
+  <ion-col>
+    
+
+    <img style="width:43%;margin-left: -27%;" src="/assets/mistlogo.png">
+ 
+  </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
   <ion-content> 
     <h1 style="text-align: center;"><b>ADD RAW-PRODUCT</b></h1>
     <form [formGroup]="productForm">
@@ -83,15 +93,17 @@
             </ion-select>            
             <ion-label ><b>Location of stone :</b></ion-label>
             <ion-input appFirstCap type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="region" placeholder=" Enter your product location"></ion-input>
+            
             <ion-label ><b>Arrival Date :</b></ion-label>
             <ion-input type="date" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;margin-bottom: 1em;" formControlName="date" placeholder=" Enter processing date">  </ion-input>
+            
             <ion-label ><b>Manufacturer Name :</b></ion-label>
             <ion-input appFirstCap type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;margin-bottom: 1em;" formControlName="manufacturername" placeholder=" Enter your name"></ion-input>
             <ion-label ><b>Phone Number :</b></ion-label>
             <ion-input type="text"style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;margin-bottom: 1em;" formControlName="PhoneNumber" placeholder=" Enter your PhoneNumber"> </ion-input> 
           </ion-list>
       <div style="text-align: center;margin-bottom: 1em;">
-        <ion-button type="submit" (click)="onClick()">Submit</ion-button>
+        <ion-button type="submit" [disabled]="productForm.value.Name==''|| productForm.value.color==''||productForm.value.mobile==''||productForm.value.PhoneNumber==''||productForm.value.manufacturername==''|| productForm.value.region==''||productForm.value.size==''||productForm.value.date==''||productForm.value.Number==''" (click)="onClick()">Submit</ion-button>
       </div>  
     </form> 
 </ion-content>

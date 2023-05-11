@@ -15,10 +15,20 @@ ion-toolbar {
     --background:#697184;
 }
 
+.add{
+    height: 2.3em;
+    width: 10em;
+    float: right;
+    color: white;
+    border-radius: 5px;
+ padding: 2%;
+    text-align: center;
+    background-color: #697184;
+}
 button{
    
     border: 1px solid #697184;
-float: right;
+    float: right;
     padding: 3%;
     border-radius: 10px;
     width: 31%;

@@ -70,7 +70,7 @@ setOpen(isOpen: boolean) {
      ) 
   }
   else{
-    fetch("https://brave-pink-clothes.cyclic.app/signupform/addsignupdetails", {
+    fetch("https://tiny-ruby-centipede-hat.cyclic.app/signupform/addsignupdetails", {
      method:'post',
      headers:{
        "Access-Control-Allow-Origin": "*",
@@ -92,7 +92,7 @@ setOpen(isOpen: boolean) {
   var body ={
     Email:this.SignupForm.value.Email
   }
-  fetch("https://brave-pink-clothes.cyclic.app/signupform/emailnotification", {
+  fetch("https://tiny-ruby-centipede-hat.cyclic.app/signupform/emailnotification", {
   method:'post',
   headers:{
   "Access-Control-Allow-Origin": "*",

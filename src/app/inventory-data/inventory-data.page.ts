@@ -25,7 +25,7 @@ export class InventoryDataPage implements OnInit {
   }
 
   delete(prodId:any){ 
-      fetch("https://brave-pink-clothes.cyclic.app/products/deleteproduct/" + prodId,{
+      fetch("https://tiny-ruby-centipede-hat.cyclic.app/products/deleteproduct/" + prodId,{
        method:'DELETE',
        headers:{
          "access-Control-Allow-Origin":"*"
