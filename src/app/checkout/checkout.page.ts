@@ -60,27 +60,7 @@ test: any;
 data: any=[]
 alertCtrl: any;
 public alertButtons = ['OK'];
-public alertInputs = [
-{
-  placeholder: 'Name',
-},
-{
-  placeholder: 'Nickname (max 8 characters)',
-  attributes: {
-    maxlength: 8,
-  },
-},
-{
-  type: 'number',
-  placeholder: 'Age',
-  min: 1,
-  max: 100,
-},
-{
-  type: 'textarea',
-  placeholder: 'A little about yourself',
-},
-];
+
 
 constructor() { }
 ngOnInit(): void {
@@ -119,8 +99,10 @@ cash1() {
     "State": this.State,
     "date": new Date().toLocaleString(),
     "OrderId": this.randomNumber,
-    "OrderItems": JSON.parse(this.finalcartItem)
-  }
+    "OrderItems": JSON.parse(this.finalcartItem),
+    "mess":"Order Placed Successfully",
+    "Name":this.Firstname+this.Lastname
+    }
   var requestOptions = {
     method: 'POST',
     body: Obj

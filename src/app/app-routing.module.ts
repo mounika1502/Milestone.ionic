@@ -82,7 +82,11 @@ const routes: Routes = [
 
   },
   {
-    path: 'raw-edit',
+    path: 'cart',
+    loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
+  },
+
+  { path: 'raw-edit',
     loadChildren: () => import('./raw-edit/raw-edit.module').then( m => m.RawEditPageModule)
 
   },
@@ -154,10 +158,12 @@ const routes: Routes = [
     path: 'mobile-login',
     loadChildren: () => import('./mobile-login/mobile-login.module').then( m => m.MobileLoginPageModule)
   },
+
   {
     path: 'password-update',
     loadChildren: () => import('./password-update/password-update.module').then( m => m.PasswordUpdatePageModule)
   },
+
 ];
 
 @NgModule({

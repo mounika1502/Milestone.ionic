@@ -52,9 +52,22 @@ margin-right: 18px;" slot="end" ></ion-icon>
     </span>
           </ion-col>
         </ion-row>
-      </ion-card>      
+      </ion-card>
+        
+       
+        
+    
+       
+    
+    
+        
       </ion-list>
-      <div class="qty-selector">  
+
+      
+      
+      
+      
+       <div class="qty-selector">  
         <label class="label-info" style="font-weight: bold; font-size: 18px;color: rgb(51, 49, 49);" >Totalprice :</label><span style="font-size: 18px ;color:green;" > ₹ {{cart.price *
           cart.qnt}} </span>
           <ion-icon name="trash-outline"(click)="singleDelete(cart.prodId)"
@@ -65,7 +78,7 @@ margin-right: 18px;" slot="end" ></ion-icon>
  
      
      
-        <label style="font-size: 20px; margin-left: 32%; color: rgb(63, 63, 68); font-weight: bold;"> Grand Total: ₹ {{grandtotal}}</label>
+        <label style="font-size: 20px; margin-left: 32%; color: rgb(63, 63, 68); font-weight: bold;"> Grand Total: {{grandtotal}}</label>
         <br>
         <br>
         <div>
@@ -78,15 +91,6 @@ margin-right: 18px;" slot="end" ></ion-icon>
         </div>
       </div>
     
- 
-     
-
-   
-  
-
- 
-     
-
 
         <div *ngIf="getCartDetails.length ==0" class="noitem">
           <div>
@@ -94,9 +98,11 @@ margin-right: 18px;" slot="end" ></ion-icon>
             <h1 style="margin-left: 642px; margin-top: -64px;" style="font-weight: bolder; text-align: center;">Your Cart is
               Empty </h1>
             <p style="font-weight: bold; text-align: center; "> Dude!!! Add some Products </p>
-          <p style=" font-weight: bolder; text-align: center ; color: blue;" routerLink="/blackgalaxy"> Shop More
+          <p style=" font-weight: bolder; text-align: center ; color: blue;" routerLink="/product"> Shop More
           </p>
           </div>
         </div> 
       </ion-content>
+   
+    
    

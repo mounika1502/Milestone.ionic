@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
+  UniqueDeviceID!:string;
   SignupForm: any;
   loginForm: any;
   isAlertOpen = false;
@@ -29,10 +31,25 @@ setOpen(isOpen: boolean) {
       Street:new FormControl('',[Validators.required]),
       State:new FormControl('',[Validators.required]),
       Company:new FormControl('',[Validators.required]),
+      uniqueDeviceID:new FormControl(''),
       // Isadd:new FormControl('1'),
       Message:new FormControl('congratulations your signup successfully!!')
     });
+    // this.getUniqueDeviceID();
   }
+  // getUniqueDeviceID() {
+  //   this.uniqueDeviceID.get()
+  //     .then((uuid: any) => {
+  //       console.log(uuid);
+  //       this.UniqueDeviceID = uuid;
+
+  //       //alert(this.UniqueDeviceID)
+  //     })
+  //     .catch((error: any) => {
+  //       console.log(error);
+  //       this.UniqueDeviceID = "Error! ${error}";
+  //     });
+  // }
   signupSubmit(){       
     if(this.SignupForm.value.Firstname ==''||
      this.SignupForm.value.Lastname ==''||
