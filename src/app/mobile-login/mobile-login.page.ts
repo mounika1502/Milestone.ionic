@@ -83,16 +83,14 @@ export class MobileLoginPage implements OnInit {
       return item.mobile == this.mobile1});
       console.log(this.List)
      
-      // for(let i = 0;i < this.List.length;i++){
-        
-        // localStorage.setItem('Login',JSON.stringify(this.List[0]));
-        
-      // if(this.List){
         if(this.List == null || this.List == undefined || this.List == ''){
           alert('Mobile not exist')
         }else{
           alert('OTP Gerneratred')
       console.log(this.List)
+
+      localStorage.setItem('Login',JSON.stringify(this.List[0]));
+
   this.reCaptchaVerifier = new firebase.auth.RecaptchaVerifier(
     'sign-in-button',
     {
