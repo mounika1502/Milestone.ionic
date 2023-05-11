@@ -38,7 +38,7 @@ export class AddShipperPage implements OnInit {
         { 
      alert("Please Fill All Details")
         }else{  
-           fetch("http://localhost:7500/shippers/addshipper", {
+           fetch("https://brave-pink-clothes.cyclic.app/shippers/addshipper", {
            method:'post',
            headers:{
              "Access-Control-Allow-Origin": "*",

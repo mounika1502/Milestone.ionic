@@ -14,7 +14,7 @@ export class InventoryEditPage implements OnInit {
 
   ngOnInit() {
     this.productForm = new FormGroup({
-     
+     prodId:new FormControl(""),
       name: new FormControl(""),
       color: new FormControl(""),
       size: new FormControl(""),
@@ -39,7 +39,7 @@ export class InventoryEditPage implements OnInit {
   update(id:any){
       console.log(this.productForm.value) 
       localStorage.setItem('InventoryProduct',JSON.stringify(this.data));
-      fetch("http://localhost:7500/products/editProduct/" + id,  {
+      fetch("https://brave-pink-clothes.cyclic.app/products/editProduct/" + id,  {
         method: 'PUT',
         headers: {
           "access-Control-Allow-Origin": "*",        

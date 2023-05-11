@@ -28,9 +28,8 @@ export class ShipperDataPage implements OnInit {
     window.location.href=("./shipper-edit")
     localStorage.setItem('Shippers',JSON.stringify(shippers))   
   }
-  
   delete(Mobile:any){    
-    fetch("https://happy-erin-leather-jacket.cyclic.app/shippers/delete/" + Mobile,{
+    fetch("https://brave-pink-clothes.cyclic.app/shippers/delete/" + Mobile,{
      method:'DELETE',
      headers:{
         "access-Control-Allow-Origin":"*"
@@ -39,8 +38,8 @@ export class ShipperDataPage implements OnInit {
     .then(response => response.json())
     .then(result=>{
       console.log(result)
-    
-      alert('ok')
+      alert('Deleted Successfully')
+      window.location.href="/shippers"
     }
     ).catch(err =>
        console.log(err))    

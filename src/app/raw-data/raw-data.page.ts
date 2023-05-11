@@ -8,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
 export class RawDataPage implements OnInit {
     
     data: any;
+  text: any;
+  aa: any;
      constructor() { 
      }
    
      ngOnInit() {
+
+      this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+      console.log(this.text)
+      this.aa = this.text.UserType
+      console.log(this.aa)
+
       this.data = JSON.parse(localStorage.getItem('Raw') || '{}') 
       console.log(this.data) 
      }
@@ -25,7 +33,7 @@ export class RawDataPage implements OnInit {
 
       delete(Number:any){  
       
-        fetch("https://happy-erin-leather-jacket.cyclic.app/raw/delete/" + Number,{
+        fetch("https://brave-pink-clothes.cyclic.app//raw/delete/" + Number,{
          method:'DELETE',
          headers:{
             "access-Control-Allow-Origin":"*"

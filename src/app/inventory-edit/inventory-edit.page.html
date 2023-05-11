@@ -1,19 +1,19 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>inventory-edit</ion-title>
+    <ion-icon name="arrow-back-sharp" routerLink="/inventory" style="font-size: 30px;"></ion-icon>
+    
   </ion-toolbar>
 </ion-header>
 
 <ion-content> 
   
-  <h1 style="text-align: center;"><b>EDIT PRODUCT</b></h1>
-         
+  <h1 style="text-align: center;"><b>EDIT PRODUCT</b></h1>     
   <form [formGroup]="productForm">
     <hr>
     <ion-list style="padding-left: 2.5%;">                     
        
           <ion-label ><b>S.NO :</b></ion-label><br>
-          <input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;"  readonly [(ngModel)]="data.prodId" name="Number">   
+          <input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;"  readonly formControlName="prodId" [(ngModel)]="data.prodId" name="Number">   
           
           <ion-label ><b>Name of Product :</b></ion-label><br>
           <input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" formControlName="name" [(ngModel)]="data.name"   name="Name">   

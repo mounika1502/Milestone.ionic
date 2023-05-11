@@ -1,19 +1,17 @@
 
 <ion-header [translucent]="true">
   <ion-toolbar>
-
     <ion-title style="text-align: center;font-size: xx-large;font-weight: 700;">Milestone</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
     <div class="circle-container">
     <div class="circle circle-1"></div>
     <div class="circle circle-2"></div>
   </div>
-  
-  <h1 style="text-align: center;font-size: xx-large;">Login</h1>
-  <img    style="max-width: 65%;  margin-left: 20%;" 
+
+  <h1 style="text-align: center;font-size: xx-large; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Login</h1>
+  <img    stylehjmny="max-width: 65%;  margin-left: 20%;" 
  src="https://media.istockphoto.com/id/502910284/photo/natural-stone-tiles-marble-granite-samples-stack-clipping-path.jpg?s=612x612&w=0&k=20&c=6-doPB7xCKGqQ6y1EVrJXcrw8ziMw8xmec1GlVxLbUE=">
 
   <ion-list lines="none" class="ion-margin">
@@ -28,46 +26,15 @@
     <ion-item class="ion-margin">
       <ion-input appCapitalize placeholder="Enter Password" type="password" clearInput="true" formControlName="password"></ion-input>
     </ion-item>
-  </form>
+
+    </form>
       <ion-button  style="height: 50px;   border-radius: 10px; margin-top:20px;" expand="full" strong="true" type="submit" [disabled]="loginForm.value.email == '' || loginForm.value.password == ''"   (click)="loginSubmit()" >
-       Login
-  
+        Login
       </ion-button>
-      <a style="float:right">forgot password?</a><br>
-      <h5 style="text-align: center;">Don't have an account&nbsp;<a href="register">register</a></h5>
-
-    
-  
-
-  
-  
- 
+      <a style="float:right" routerLink="/forgotpassword">forgot password?</a><br>
+      <h5 style="text-align: center;">Don't have an account?&nbsp;<a href="register">register</a></h5>  
    
-  
-
-  
-   
-    
-  
-   
-    
-    
-  
-    
-        <!--<ion-icon name="log-in" slot="end"></ion-icon>-->
-   
-     <!--<ion-button  *ngIf="role == 'Transporter'" style="height: 50px;   border-radius: 10px; margin-top:20px;" expand="full" strong="true" type="submit" [disabled]="userPost.value.firstName == '' || userPost.value.lastName == '' || !userPost.value.mobileNo || userPost.value.city == '' || userPost.value.companyName == '' || userPost.value.routes == ''"   (click)="onSubmit(userPost.value)" >
-        SIGN UP
-  
-      </ion-button>
-
-      <ion-button  *ngIf="role == 'Agent/Broker'" style="height: 50px;   border-radius: 10px; margin-top:20px;" expand="full" strong="true" type="submit" [disabled]="userPost.value.firstName == '' || userPost.value.lastName == '' || !userPost.value.mobileNo || userPost.value.city == '' || userPost.value.companyName == '' || userPost.value.routes == ''"   (click)="onSubmit(userPost.value)" >
-        SIGN UP
-  
-      </ion-button>-->
-  
-   
-  </ion-list>
+    </ion-list>
 </ion-content>
 
 

@@ -74,7 +74,7 @@ searchtext:any;
       console.log(this.aa) 
   }
   Get(){
-    fetch("http://localhost:7500/signupform/getsignupdetails",{
+    fetch("https://brave-pink-clothes.cyclic.app/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -110,7 +110,7 @@ searchtext:any;
     // this.data4=false;
   }
   data5(){
-    fetch("http://localhost:7500/signupform/getsignupdetails",{
+    fetch("https://brave-pink-clothes.cyclic.app/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",

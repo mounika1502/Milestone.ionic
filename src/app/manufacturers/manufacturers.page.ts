@@ -63,7 +63,7 @@ setOpen(isOpen: boolean) {
   }
 
   Get(){
-    fetch("http://localhost:7500/signupform/getsignupdetails",{
+    fetch("https://brave-pink-clothes.cyclic.app/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -96,7 +96,7 @@ this.registerForm = dealer
 data3(){
   this.data4=true;
   this.data=false
-  fetch("http://localhost:7500/manufacturer/getdata",{
+  fetch("https://brave-pink-clothes.cyclic.app/manufacturer/getdata",{
     method:"GET",
     headers:{
       "access-Control-Allow-Origin":"*",
@@ -120,7 +120,7 @@ Dealer(){
  
 
     dealer2(data:any){  
-      fetch("http://localhost:7500/manufacturer/adddata",{
+      fetch("https://brave-pink-clothes.cyclic.app/manufacturer/adddata",{
         method:'POST',
         headers:{
           "Access-Control-Allow-Origin":"*",

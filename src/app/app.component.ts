@@ -17,15 +17,11 @@ export class AppComponent {
   cartItem: number = 0;
 
   AllNotifications: any[] = [];
-  constructor(private platform: Platform,private uniqueDeviceID: UniqueDeviceID,  ) {
+  constructor(private platform: Platform,private uniqueDeviceID: UniqueDeviceID, ) {
 
     platform.ready().then(() => {
       this.OneSignalInit();
     })
-    this. getUniqueDeviceID()
-    platform.ready().then(() => {
-      this.OneSignalInit();
-    });
     const storedItems = localStorage.getItem('InappNotifictions');
     if (storedItems) {
       this.AllNotifications = JSON.parse(storedItems);
@@ -33,13 +29,20 @@ export class AppComponent {
     };
   }
 
-
   ngOnInit(): void {
     this.text = JSON.parse(localStorage.getItem('Login') || '{}')
     console.log(this.text)
     this.aa = this.text.UserType
     console.log(this.aa)
-  } 
+    this.getUniqueDeviceID();
+  }  // itemsCart is a global array
+
+  logout() {
+    // localStorage.clear();
+
+    window.location.href = '/login'
+
+  }
   getUniqueDeviceID() {
     this.uniqueDeviceID.get()
       .then((uuid: any) => {
@@ -53,14 +56,7 @@ export class AppComponent {
         this.UniqueDeviceID = "Error! ${error}";
       });
   }
- // itemsCart is a global array
 
-  logout() {
-    // localStorage.clear();
-
-    window.location.href = '/login'
-
-  }
 
   // Call this function when your app starts
   OneSignalInit(): void {
@@ -124,6 +120,9 @@ export class AppComponent {
     //    * Since this shows a generic native prompt, we recommend instead using an In-App Message to prompt for notification permission (See step 7) to better communicate to your users what notifications they will get.
     OneSignal.promptForPushNotificationsWithUserResponse(function (accepted) {
       console.log("User accepted notifications: " + accepted);
+    });
+    OneSignal.setExternalUserId(this.UniqueDeviceID,(result)=>{
+
     });
   }
 

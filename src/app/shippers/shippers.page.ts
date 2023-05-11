@@ -24,7 +24,7 @@ export class ShippersPage implements OnInit {
     }
   
     getProduct(){    
-      fetch("http://localhost:7500/shippers/getshipper", {
+      fetch("https://brave-pink-clothes.cyclic.app/shippers/getshipper", {
      method:'get',
      headers:{
        "Access-Control-Allow-Origin": "*",

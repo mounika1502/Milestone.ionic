@@ -1,10 +1,13 @@
+
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title style="text-align: center;font-size: xx-large;font-weight: 700;">Milestone</ion-title>
+    <!-- <ion-title style="text-align: center;font-size: xx-large;font-weight: 700;">Milestone</ion-title> -->
+    
+    <ion-icon name="arrow-back-sharp" routerLink="/login" style="font-size: 30px;"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+
 
   <ion-content [fullscreen]="true">
     <div class="circle-container">
@@ -12,49 +15,49 @@
       <div class="circle circle-2"></div>
     </div>
   <ion-list lines="none" class="ion-margin">
-    <h1 style="text-align: center;font-size: xx-large;">Register</h1>
+    <h1 style="text-align: center;font-size: xx-large;font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Register</h1>
     <img src="https://media.istockphoto.com/id/502910284/photo/natural-stone-tiles-marble-granite-samples-stack-clipping-path.jpg?s=612x612&w=0&k=20&c=6-doPB7xCKGqQ6y1EVrJXcrw8ziMw8xmec1GlVxLbUE=">
   
     <form #userPost="ngForm" [formGroup]="SignupForm" >
   <ion-label style="margin-left: 6%;">First Name</ion-label>
       <ion-item class="ion-margin">
     
-        <ion-input appFirstCap appCapitalize placeholder="Enter First Name"  type="text" clearInput="true" formControlName="Firstname"></ion-input>
+        <ion-input appFirstCap  placeholder="Enter First Name"  type="text" clearInput="true" formControlName="Firstname"></ion-input>
       </ion-item>
       <ion-label style="margin-left: 6%;">Last Name</ion-label>
       <ion-item class="ion-margin">
     
-        <ion-input  appFirstCap appCapitalize placeholder="Enter Last Name" type="text" clearInput="true" formControlName="Lastname"></ion-input>
+        <ion-input  appFirstCap  placeholder="Enter Last Name" type="text" clearInput="true" formControlName="Lastname"></ion-input>
       </ion-item>
       <ion-label style="margin-left: 6%;">Email Address</ion-label>
       <ion-item class="ion-margin">
     
-        <ion-input appCapitalize placeholder="Enter Email Address" type="text" clearInput="true" formControlName="Email"></ion-input>
+        <ion-input appFirstCap placeholder="Enter Email Address" type="text" clearInput="true" formControlName="Email"></ion-input>
       </ion-item>
       <ion-label style="margin-left: 6%;">Phone Number</ion-label>
     <ion-item class="ion-margin">
   
-      <ion-input  appCapitalize placeholder="Enter Phone Number" type="text" clearInput="true" formControlName="mobile"></ion-input>
+      <ion-input  appFirstCap placeholder="Enter Phone Number" type="text" clearInput="true" formControlName="mobile"></ion-input>
     </ion-item>
     <ion-label style="margin-left: 6%;">City</ion-label>
     <ion-item class="ion-margin">
   
-      <ion-input appFirstCap appCapitalize placeholder="Enter City" type="text" clearInput="true" formControlName="City"></ion-input>
+      <ion-input appFirstCap  placeholder="Enter City" type="text" clearInput="true" formControlName="City"></ion-input>
     </ion-item>
     <ion-label style="margin-left: 6%;">Street</ion-label>
     <ion-item class="ion-margin">
   
-      <ion-input appFirstCap appCapitalize placeholder="Enter Address" type="text" clearInput="true" formControlName="Street"></ion-input>
+      <ion-input appFirstCap  placeholder="Enter Address" type="text" clearInput="true" formControlName="Street"></ion-input>
     </ion-item>
     <ion-label style="margin-left: 6%;">Pincode</ion-label>
     <ion-item class="ion-margin">
   
-      <ion-input appCapitalize placeholder="Enter pincode" type="text" clearInput="true" formControlName="pincode"></ion-input>
+      <ion-input appFirstCap placeholder="Enter pincode" type="text" clearInput="true" formControlName="pincode"></ion-input>
     </ion-item>
     <ion-label style="margin-left: 6%;">Company</ion-label>
     <ion-item class="ion-margin">
   
-      <ion-input appFirstCap appCapitalize placeholder="Enter Company Name" type="text" clearInput="true" formControlName="Company"></ion-input>
+      <ion-input appFirstCap  placeholder="Enter Company Name" type="text" clearInput="true" formControlName="Company"></ion-input>
     </ion-item>
     <ion-label style="margin-left: 6%;">Password</ion-label>
     <ion-item class="ion-margin">
@@ -122,7 +125,7 @@
   (didDismiss)="setOpen(false)"
 ></ion-alert>
           </ion-content>
-          </ion-content>
+         
           
      
   

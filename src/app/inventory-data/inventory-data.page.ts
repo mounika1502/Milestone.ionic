@@ -18,14 +18,14 @@ export class InventoryDataPage implements OnInit {
   }
 
   edit(products:any){
-    window.location.href='./inventory-edit'
+    window.location.href=("/inventory-edit")
     this.data=products   
     localStorage.setItem('InventoryProduct',JSON.stringify(products))   
     console.log(products)
   }
 
   delete(prodId:any){ 
-      fetch("http://localhost:7500/products/deleteproduct/" + prodId,{
+      fetch("https://brave-pink-clothes.cyclic.app/products/deleteproduct/" + prodId,{
        method:'DELETE',
        headers:{
          "access-Control-Allow-Origin":"*"

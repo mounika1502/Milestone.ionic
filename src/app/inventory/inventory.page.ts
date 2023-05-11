@@ -17,9 +17,16 @@ showElement= true;
 product: any;
 textaws: any;
 data: any;
+  aa: any;
 constructor( private router:Router,private service:UploadService) { 
  }
 ngOnInit(): void {
+
+  this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+  console.log(this.text)
+  this.aa = this.text.UserType
+  console.log(this.aa)
+
   this.textaws = JSON.parse(localStorage.getItem('aws')||'{}') 
   console.log(this.textaws) 
   this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
@@ -44,7 +51,7 @@ ngOnInit(): void {
  }  
  getProduct(){
    if(this.text.UserType=='admin'){
-    fetch("http://localhost:7500/products/getproducts", {
+    fetch("https://brave-pink-clothes.cyclic.app/products/getproducts", {
       method:'get',
       headers:{
         "Access-Control-Allow-Origin": "*",
@@ -63,7 +70,7 @@ ngOnInit(): void {
     var data={
       mobile:this.text.mobile
     }    
-     fetch("http://localhost:7500/products/getproduct", {
+     fetch("https://brave-pink-clothes.cyclic.app/products/getproduct", {
     method:'post',
     headers:{
       "Access-Control-Allow-Origin": "*",
