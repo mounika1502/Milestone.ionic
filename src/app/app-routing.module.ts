@@ -1,10 +1,11 @@
+
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -32,9 +33,15 @@ const routes: Routes = [
     loadChildren: () => import('./add-raw/add-raw.module').then( m => m.AddRawPageModule)
   },
   {
+    path: 'inventory',
+    loadChildren: () => import('./inventory/inventory.module').then( m => m.InventoryPageModule)
+  },
+  {
     path: 'checkout',
     loadChildren: () => import('./checkout/checkout.module').then( m => m.CheckoutPageModule)
   },
+
+  
   {
     path: 'dealermanagement',
     loadChildren: () => import('./dealermanagement/dealermanagement.module').then( m => m.DealermanagementPageModule)
@@ -46,22 +53,7 @@ const routes: Routes = [
   {
     path: 'product',
     loadChildren: () => import('./product/product.module').then( m => m.ProductPageModule)
-  },
-  {
-    path: 'raw-product',
-    loadChildren: () => import('./raw-product/raw-product.module').then( m => m.RawProductPageModule)
-  },
-  {
-    path: 'raw-edit',
-    loadChildren: () => import('./raw-edit/raw-edit.module').then( m => m.RawEditPageModule)
-  },
-  {
-    path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
-  },
-  {
-    path: 'profile-edit',
-    loadChildren: () => import('./profile-edit/profile-edit.module').then( m => m.ProfileEditPageModule)
+
   },
   {
     path: 'dealerorders',
@@ -73,9 +65,15 @@ const routes: Routes = [
     loadChildren: () => import('./ordermanage/ordermanage.module').then( m => m.OrdermanagePageModule)
 
   },
+
   {
-    path: 'viewdetails',
-    loadChildren: () => import('./viewdetails/viewdetails.module').then( m => m.ViewdetailsPageModule)
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+
+  },
+  {
+    path: 'raw-product',
+    loadChildren: () => import('./raw-product/raw-product.module').then( m => m.RawProductPageModule)
 
   },
   {
@@ -83,7 +81,12 @@ const routes: Routes = [
     loadChildren: () => import('./raw-data/raw-data.module').then( m => m.RawDataPageModule)
 
   },
-    {
+  {
+    path: 'raw-edit',
+    loadChildren: () => import('./raw-edit/raw-edit.module').then( m => m.RawEditPageModule)
+
+  },
+  {
     path: 'success',
     loadChildren: () => import('./success/success.module').then( m => m.SuccessPageModule)
 
@@ -128,24 +131,32 @@ const routes: Routes = [
     loadChildren: () => import('./shipper-data/shipper-data.module').then( m => m.ShipperDataPageModule)
   },
   {
-    path: 'shipper-edit',
-    loadChildren: () => import('./shipper-edit/shipper-edit.module').then( m => m.ShipperEditPageModule)
-  },
-  {
     path: 'inventory',
     loadChildren: () => import('./inventory/inventory.module').then( m => m.InventoryPageModule)
   },
   {
-    path: 'password-update',
-    loadChildren: () => import('./password-update/password-update.module').then( m => m.PasswordUpdatePageModule)
+    path: 'users',
+    loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule)
+  },
+  {
+    path: 'profile-edit',
+    loadChildren: () => import('./profile-edit/profile-edit.module').then( m => m.ProfileEditPageModule)
+  },
+  {
+    path: 'companydetails',
+    loadChildren: () => import('./companydetails/companydetails.module').then( m => m.CompanydetailsPageModule)
+  },
+  {
+    path: 'otp',
+    loadChildren: () => import('./otp/otp.module').then( m => m.OtpPageModule)
   },
   {
     path: 'mobile-login',
     loadChildren: () => import('./mobile-login/mobile-login.module').then( m => m.MobileLoginPageModule)
   },
   {
-    path: 'otp',
-    loadChildren: () => import('./otp/otp.module').then( m => m.OtpPageModule)
+    path: 'password-update',
+    loadChildren: () => import('./password-update/password-update.module').then( m => m.PasswordUpdatePageModule)
   },
 ];
 
@@ -156,4 +167,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
-

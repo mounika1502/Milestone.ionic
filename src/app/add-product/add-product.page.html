@@ -1,6 +1,16 @@
 <ion-header [translucent]="true">
     <ion-toolbar>
+      <ion-row>
+        <ion-col>
       <ion-icon name="arrow-back-sharp" routerLink="/inventory" style="font-size: 30px;"></ion-icon>
+    </ion-col>
+    <ion-col>
+      
+
+      <img style="width:43%;margin-left: -27%;" src="/assets/mistlogo.png">
+   
+    </ion-col>
+      </ion-row>
     </ion-toolbar>
   </ion-header>
 
@@ -18,7 +28,7 @@
     <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);padding: 5%;" formControlName="prodId" placeholder=" Enter your product ID"> </ion-input>                                         
     
     <ion-label ><b>Name of product :</b></ion-label>
-     <ion-select  appFirstCap formControlName="name" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" class="fa fa-caret-down">
+      <ion-select  appFirstCap formControlName="name" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" class="fa fa-caret-down" placeholder="Select name of product &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
       <ion-select-option value="Absolute Black">Absolute Black</ion-select-option>
       <ion-select-option value="Alaska  White">Alaska White</ion-select-option>
       <ion-select-option value="Amazon White">Amazon White</ion-select-option>
@@ -82,23 +92,22 @@
     <ion-input appFirstCap type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="size" placeholder=" product size in lxb" > </ion-input>                                                   
     
     <ion-label ><b>Available Quantity :</b></ion-label><i class="fa fa-question-circle-o" style="font-size:15px; color: rgb(102, 102, 232);" ></i>               
-    <ion-input appFirstCap type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="Quantity" placeholder=" product quantity" > </ion-input> 
+    <ion-input appFirstCap type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="Quantity" placeholder=" product quantity"> </ion-input> 
    
     <ion-label ><b>Thickness :</b></ion-label><br>               
-    <ion-select  formControlName="thick" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" >
+    <ion-select  formControlName="thick" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" placeholder="select product thickness &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
       <ion-select-option  value="3Cm">3Cm</ion-select-option>
       <ion-select-option  value="2Cm">2Cm</ion-select-option>
     </ion-select>
-   
     <ion-label ><b>Stone Size/Type :</b></ion-label><br>
-    <ion-select  formControlName="stone" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" >
+    <ion-select  formControlName="stone" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" placeholder="select product type &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
       <ion-select-option  value="Gangsaw Size">Gangsaw Size</ion-select-option>
       <ion-select-option  value="Cutter Size">Cutter Size</ion-select-option>
     </ion-select>
     
     <ion-label ><b>Quality :</b></ion-label><br>
 
-    <ion-select  formControlName="quality" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" >
+    <ion-select  formControlName="quality" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" placeholder="select product quality &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
       <ion-select-option  value="Premiun">Premiun</ion-select-option>
       <ion-select-option  value="Commercial">Commercial</ion-select-option>
       <ion-select-option  value="Standerd">Standard</ion-select-option>
@@ -108,27 +117,27 @@
     <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="price" placeholder=" Enter your product price"></ion-input>                       
     
     <ion-label ><b>Location of stone :</b></ion-label>
-    <ion-input appFirstCap type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="region" placeholder=" Enter your product location"></ion-input>
+    <ion-input appFirstCap type="text"  style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="region" placeholder=" Enter your product location"></ion-input>
     
     <ion-label ><b>Arrival Date :</b></ion-label>
-    <ion-input type="date" style="margin-top: 7px; width: 97%;height:2em;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="date" placeholder=" Enter processing date">  </ion-input>
+    <ion-input type="date" min="{{this.TodayDate}}" style="margin-top: 7px; width: 97%;height:2em;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="date" placeholder=" Enter processing date">  </ion-input>
     
     <ion-label ><b>Manufacturer Name :</b></ion-label>
-    <ion-input appFirstCap type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="manufacturername" placeholder=" Enter your name"></ion-input>
+    <ion-input appFirstCap type="text"  style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="manufacturername" placeholder=" Enter your name"></ion-input>
     
     <ion-label ><b>Phone Number :</b></ion-label>
-    <ion-input type="text"style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="PhoneNumber" placeholder=" Enter your PhoneNumber"> </ion-input> 
+    <ion-input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="PhoneNumber" placeholder=" Enter your PhoneNumber"> </ion-input> 
     
     <ion-label ><b>Description :</b></ion-label>
     <textarea appFirstCap type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height:10em;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="description" placeholder="Write few lines about your product"> </textarea> 
     
     <ion-input type="hidden" class="form-control form-control-lg" formControlName="mobile" [(ngModel)]="text.mobile" >  </ion-input> 
     
-    <div style="text-align: center;margin-bottom: 1em;margin-top: -2em;">
-      <ion-button type="submit" (click)="onClick()">Submit</ion-button>
-   </div>
+
   </ion-list>
-  
+  <div style="text-align: center;margin-bottom: 1em;margin-top: -2em;">
+    <ion-button type="submit" [disabled]="productForm.value.name==''|| productForm.value.color==''|| productForm.value.price==''|| productForm.value.mobile==''||productForm.value.description==''||productForm.value.quality==''||productForm.value.stone==''||productForm.value.PhoneNumber==''||productForm.value.manufacturername==''|| productForm.value.region==''||productForm.value.size==''||productForm.value.date==''||productForm.value.prodId==''" (click)="onClick()">Submit</ion-button>
+ </div>
 </form> 
 </ion-content>
 

@@ -22,7 +22,7 @@ export class LoginPage implements OnInit {
     this.loginForm.value.password =='')
     {
   }else{
-     fetch("https://brave-pink-clothes.cyclic.app/loginform/addlogin", {
+     fetch("https://tiny-ruby-centipede-hat.cyclic.app/loginform/addlogin", {
       method:'post',
       headers:{
         "Access-Control-Allow-Origin": "*",
@@ -36,9 +36,9 @@ export class LoginPage implements OnInit {
     localStorage.setItem('Login',JSON.stringify(this.loginData));
     console.log(this.loginData)  
     if(result.status == 'failed'){
-      alert('not success')
+      alert('Login failed')
     }  else{
-      alert("Success....") 
+      alert("Login success....") 
       window.location.href='/home' 
     }   
       

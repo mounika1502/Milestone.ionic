@@ -1,19 +1,39 @@
-<ion-header>
-    <ion-toolbar>      
-      <ion-icon name="arrow-back-sharp" routerLink="/raw-product" style="font-size: 30px;"></ion-icon>
-    </ion-toolbar>
-  </ion-header>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-row>
+      <ion-col>
+    <ion-icon name="arrow-back-sharp" routerLink="/inventory" style="font-size: 30px;"></ion-icon>
+  </ion-col>
+  <ion-col>
+    
+
+    <img style="width:43%;margin-left: -27%;" src="/assets/mistlogo.png">
+ 
+  </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
   <ion-content> 
     <h1 style="text-align: center;"><b>ADD RAW-PRODUCT</b></h1>
     <form [formGroup]="productForm">
       <hr>
       <ion-list style="padding-left: 2.5%;">                      
             <ion-label ><b>Upload image :</b></ion-label><br>
-            <ion-input appFirstCap type="file" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2em;border:1px solid #c2c5ca;margin-bottom: 1em;"  (change)="selectImage($event)" placeholder=" upload your image url"></ion-input>  
+            <ion-input appFirstCap type="file" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2em;border:1px solid #c2c5ca;"  (change)="selectImage($event)" placeholder=" upload your image url"></ion-input>
+            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Image.errors?.required" style="color: red;">
+              Image is required.
+            </span>
+            <br>
+
             <ion-label ><b>S.NO :</b></ion-label><br>
-            <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;margin-bottom: 1em;" formControlName="Number" placeholder=" Enter your product ID"> </ion-input>   
+            <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;" formControlName="Number" placeholder=" Enter your product ID"> </ion-input>   
+            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Number.errors?.required" style="color: red;">
+              S.no is required.
+            </span>
+            <br>
+    
             <ion-label ><b>Name of product :</b></ion-label>
-            <ion-select appFirstCap  formControlName="Name" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;margin-bottom: 1em;" class="fa fa-caret-down">
+            <ion-select appFirstCap  formControlName="Name" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;" class="fa fa-caret-down" placeholder="select name of product &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
               <ion-select-option value="Absolute Black">Absolute Black</ion-select-option>
               <ion-select-option value="Alaska  White">Alaska White</ion-select-option>
               <ion-select-option value="Amazon White">Amazon White</ion-select-option>
@@ -69,28 +89,85 @@
               <ion-select-option value="Viscount White">Viscount White</ion-select-option>
               <ion-select-option value="VizagBlue">Vizag Blue</ion-select-option>
             </ion-select>               
+            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Name.errors?.required" style="color: red;">
+              Product name is required.
+            </span>           
+            <br>
+    
             <ion-label ><b>Colour :</b></ion-label>
-            <ion-input appFirstCap type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;margin-bottom: 1em;" formControlName="color" placeholder=" Enter your product colour"> </ion-input>                               
-      <div class="form-outline">                    
-        <input type="hidden" class="form-control form-control-lg" formControlName="mobile" [(ngModel)]="text.mobile" >                    
-      </div>
+            <ion-input appFirstCap type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;" formControlName="color" placeholder=" Enter your product colour"> </ion-input>                               
+            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.color.errors?.required" style="color: red;">
+              Product colour is required.
+            </span>
+            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.color.errors?.pattern" style="color: red;">
+              Only numerical alphabets allowed.
+            </span>           
+            <br>
+    
+            <div class="form-outline">                    
+              <input type="hidden" class="form-control form-control-lg" formControlName="mobile" [(ngModel)]="text.mobile" >                    
+            </div>
+            
             <ion-label ><b>Size :</b></ion-label>   <i class="fa fa-question-circle-o" style="font-size:15px; color: rgb(102, 102, 232);"></i>               
-            <ion-input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;margin-bottom: 1em;" formControlName="size" placeholder=" product size in lxb" > </ion-input>     
-           <ion-label ><b>Stone Size/Type :</b></ion-label><br>
-           <ion-select  formControlName="stone" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;margin-bottom: 1em;" >
-              <ion-select-option  value="Gangsaw Size">Gangsaw Size</ion-select-option>
-              <ion-select-option  value="Cutter Size">Cutter Size</ion-select-option>
-            </ion-select>            
+            <ion-input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;" formControlName="size" placeholder=" product size in lxb" > </ion-input>     
+            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.size.errors?.required" style="color: red;">
+              Product size is required.
+            </span>
+            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.size.errors?.pattern" style="color: red;">
+              Product size should be in l*b format
+            </span>
+            <br>
+    
+            <ion-label ><b>Stone Size/Type :</b></ion-label><br>
+              <ion-select  formControlName="stone" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;" placeholder="select product type &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+                <ion-select-option  value="Gangsaw Size">Gangsaw Size</ion-select-option>
+                <ion-select-option  value="Cutter Size">Cutter Size</ion-select-option>
+              </ion-select>            
+              <span class="error ion-padding" *ngIf="isSubmitted && errorControl.stone.errors?.required" style="color: red;">
+               Stone type is required.
+              </span>
+              <br>
+      
             <ion-label ><b>Location of stone :</b></ion-label>
-            <ion-input appFirstCap type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="region" placeholder=" Enter your product location"></ion-input>
-            
+            <ion-input appFirstCap type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="region" placeholder=" Enter your product location"></ion-input>
+            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.region.errors?.required" style="color: red;">
+              Location of stone is required.
+            </span>
+            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.region.errors?.pattern" style="color: red;">
+              Only alphabets allowed.
+            </span>
+            <br>
+    
             <ion-label ><b>Arrival Date :</b></ion-label>
-            <ion-input type="date" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;margin-bottom: 1em;" formControlName="date" placeholder=" Enter processing date">  </ion-input>
-            
+            <ion-input type="date" min="{{this.TodayDate}}" style="margin-top: 7px; width: 97%;height:2em;border-radius: 6px;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="date" placeholder=" Enter processing date">  </ion-input>
+            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.date.errors?.required" style="color: red;">
+              Date is required.
+            </span>
+            <br>
+    
             <ion-label ><b>Manufacturer Name :</b></ion-label>
-            <ion-input appFirstCap type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;margin-bottom: 1em;" formControlName="manufacturername" placeholder=" Enter your name"></ion-input>
+            <ion-input appFirstCap type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;" formControlName="manufacturername" placeholder=" Enter your name"></ion-input>
+            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.manufacturername.errors?.required" style="color: red;">
+              Manufacturer name is required.
+            </span>
+            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.manufacturername.errors?.pattern" style="color: red;">
+              Only alphabets allowed.
+            </span>
+             <br>
+    
             <ion-label ><b>Phone Number :</b></ion-label>
-            <ion-input type="text"style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;margin-bottom: 1em;" formControlName="PhoneNumber" placeholder=" Enter your PhoneNumber"> </ion-input> 
+            <ion-input type="text"style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;" formControlName="PhoneNumber" placeholder=" Enter your PhoneNumber"> </ion-input> 
+            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.PhoneNumber.errors?.required" style="color: red;">
+              Mobile number is required.
+            </span>
+            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.PhoneNumber.errors?.pattern" style="color: red;">
+              Only numerical values allowed.
+            </span>
+            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.PhoneNumber.errors?.minLength" style="color: red;">
+              Mobilenumber should be min 10 digits long.
+            </span>
+            <br>
+    
           </ion-list>
       <div style="text-align: center;margin-bottom: 1em;">
         <ion-button type="submit" (click)="onClick()">Submit</ion-button>

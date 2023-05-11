@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UploadService } from '../upload.service';
 
 @Component({
   selector: 'app-add-shipper',
@@ -8,37 +9,40 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class AddShipperPage implements OnInit {
 
-    ShipperForm: any;
+  ShipperForm: any;
+  images: any;
+  data: any;
+  isSubmitted = false;
   
-    constructor() { }
+    constructor(private apii:UploadService, public formBuilder: FormBuilder) { }
   
     ngOnInit() {
-      this.ShipperForm = new FormGroup({
-        Name:new FormControl(""),
-        Mobile:new FormControl(""),
-        Address:new FormControl(""),
-        Truck:new FormControl(""),
-        Trucknumber:new FormControl(""),
-        Truckimage:new FormControl(""),
-        Licence:new FormControl(""),
-        Aadhar:new FormControl(""),
-        Pan:new FormControl(""),
+      this.ShipperForm = this.formBuilder.group({
+        Name: ['', [Validators.required, Validators.minLength(2), Validators.pattern('[a-zA-Z]+$')]],
+        Address: ['', [Validators.required, Validators.minLength(2),]],
+        Truck: ['', [Validators.required, Validators.minLength(2)]],
+        Trucknumber: ['', [Validators.required,  Validators.minLength(6), Validators.maxLength(8), Validators.pattern('[A-Z]{2}\s[0-9]{2}\s[A-Z]{2}\s[0-9]{4}$')]],
+        TruckImage: ['', [Validators.required]],
+        Licence: ['', [Validators.required]],
+        Adhar: ['', [Validators.required]],
+        Mobile: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$"),Validators.minLength(9), Validators.maxLength(10)]],
+        Pan: ['', [Validators.required]]
       })
     }
+
+    
+    get errorControl() {
+      return this.ShipperForm.controls;
+    } 
   
     submitForm(){
-      console.log(this.ShipperForm.value)
-        if(this.ShipperForm.value.Image ==''||
-        this.ShipperForm.value.Number ==''||
-        this.ShipperForm.value.Name ==''||
-        this.ShipperForm.value.color ==''||
-        this.ShipperForm.value.region ==''||
-        this.ShipperForm.value.color ==''||
-        this.ShipperForm.value.date =='')
-        { 
-     alert("Please Fill All Details")
-        }else{  
-           fetch("https://brave-pink-clothes.cyclic.app/shippers/addshipper", {
+      this.isSubmitted = true;
+      if (!this.ShipperForm.valid) {
+       alert('Please provide all the required values!')
+      
+      } else {
+       
+           fetch("https://tiny-ruby-centipede-hat.cyclic.app/shippers/addshipper" ,{
            method:'post',
            headers:{
              "Access-Control-Allow-Origin": "*",
@@ -59,8 +63,30 @@ export class AddShipperPage implements OnInit {
           }          
        })      
            .catch(error => console.log('error',error))           
-    }       
+    } 
+  }      
   }
 
-
-}
+  // onClick() {
+  //   console.log(this.data)
+  // const formdata = new FormData();
+  // for(let pdffiles of this.images){
+  //   formdata.append("file",pdffiles)
+  // }
+  //  this.apii.postfiletos4(formdata).subscribe(data=>{
+  //   console.log(data)
+  //   var docid=data.imageFile._id
+  //   this.submitForm(docid) 
+  //   alert("file uploaded")
+  //  })
+  //   console.log(formdata)
+  // }
+  // selectImage(event: any) {
+  //   if (event.target.files.length > 0) {
+  //     console.log(event.target.files)
+  //     const file = event.target.files;
+  //     console.log(file);
+  //     this.images = file;   
+  //   }
+  //   console.log(this.images)
+  // }

@@ -3,13 +3,13 @@ import { UploadService } from '../upload.service';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
-
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.page.html',
-  styleUrls: ['./profile.page.scss'],
+  selector: 'app-companydetails',
+  templateUrl: './companydetails.page.html',
+  styleUrls: ['./companydetails.page.scss'],
 })
-export class ProfilePage implements OnInit {
+export class CompanydetailsPage implements OnInit {
+
 
 
   text:any=[]  
@@ -38,7 +38,10 @@ export class ProfilePage implements OnInit {
      }) 
   }
 
-
+  company(){
+    this.companyForm = true;
+    this.profile = false;
+  }
   arrow(){
     this.companyForm = false;
     this.profile = true;
@@ -100,7 +103,7 @@ export class ProfilePage implements OnInit {
           .then(response => response.json())
           .then(result => {
             console.log(result),
-
+window.location.href='/profile'
          this.text['Location']=this.Form.value.Location
          this.text['bio']=this.Form.value.bio
 
@@ -115,5 +118,6 @@ export class ProfilePage implements OnInit {
           ).catch(err =>
             console.log(err))
       }
+
 
 }

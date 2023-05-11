@@ -29,7 +29,7 @@ export class ShipperDataPage implements OnInit {
     localStorage.setItem('Shippers',JSON.stringify(shippers))   
   }
   delete(Mobile:any){    
-    fetch("https://brave-pink-clothes.cyclic.app/shippers/delete/" + Mobile,{
+    fetch("https://tiny-ruby-centipede-hat.cyclic.app/shippers/delete/" + Mobile,{
      method:'DELETE',
      headers:{
         "access-Control-Allow-Origin":"*"

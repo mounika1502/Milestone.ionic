@@ -128,7 +128,7 @@ cash1() {
   console.log(Obj);
   if (Obj.Phone == this.text.mobile) {
     console.log(JSON.stringify(Obj))   //product details with user details
-    fetch("https://brave-pink-clothes.cyclic.app/orderRoute/post", {
+    fetch("https://tiny-ruby-centipede-hat.cyclic.app/orderRoute/post", {
       method: 'POST',
       headers: {
         "Access-Control-Allow-Origin": "*",
@@ -149,14 +149,9 @@ cash1() {
   alert("Added Successfully")
       window.location.href = ('./success');
       localStorage.removeItem('anunya');
-     
-    
-    
-
-
   }
-// debugger
-fetch("https://brave-pink-clothes.cyclic.app/orderRoute/orderemail", {
+
+fetch("https://tiny-ruby-centipede-hat.cyclic.app/orderRoute/orderemail", {
   method:'post',
   headers: {
     "Access-Control-Allow-Origin": "*",
@@ -214,7 +209,7 @@ var Obj = {
 }
 console.log(this.dataqnt[0]._prodId)
 console.log(this.dataqnt[0].Quantity)
-fetch("http://localhost:7500/products/editqnt/" + this.dataqnt[0].prodId, {
+fetch("https://tiny-ruby-centipede-hat.cyclic.app/products/editqnt/" + this.dataqnt[0].prodId, {
   method: 'POST',
   headers: {
     "access-Control-Allow-Origin": "*",

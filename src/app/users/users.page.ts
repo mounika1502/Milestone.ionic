@@ -110,7 +110,7 @@ searchtext:any;
     // this.data4=false;
   }
   data5(){
-    fetch("https://brave-pink-clothes.cyclic.app/signupform/getsignupdetails",{
+    fetch("https://tiny-ruby-centipede-hat.cyclic.app/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { UploadService } from '../upload.service';
 
@@ -13,48 +13,68 @@ export class AddRawPage implements OnInit {
   text: any;
   images: any;
   data: any;
-  constructor(private apii:UploadService) { }
+  date = "12-04-2023"
+  imgurl: any
+  textaws: any;
+  isSubmitted = false;
+
+  constructor(private apii:UploadService,public formBuilder: FormBuilder) { }
+
+  TodayDate = "2023-04-12"
+  date1 = new Date()
+  currentyear = this.date1.getUTCFullYear();
+  currentMonth = this.date1.getUTCMonth() + 1;
+  currentday = this.date1.getUTCDate()
+  finalmonth: any;
+  finalday: any;
+  filePath: any;
 
   ngOnInit() {
     this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
     console.log(this.text.mobile) 
-    this.productForm = new FormGroup ({
-    
-      Image :new FormControl(""),
-      Number: new FormControl(""),
-      Name: new FormControl(""),
-      color: new FormControl(""),
-      size: new FormControl(""),
-      stone:new FormControl(""),
-      region: new FormControl(""),
-      date: new FormControl(""),
-      mobile:new FormControl(""),
-      manufacturername: new FormControl(""),
-      PhoneNumber : new FormControl("")
+
+    this.productForm = this.formBuilder.group({  
+      Image : ['', [Validators.required]],
+      Number: ['', [Validators.required]],
+      Name: ['', [Validators.required]],
+      color: ['', [Validators.required,Validators.pattern('[a-zA-Z]+$')]],
+      size:  ['', [Validators.required]],
+      stone: ['', [Validators.required]],
+      region: ['', [Validators.required]],
+      date: ['', [Validators.required]],
+      mobile: [''],
+      manufacturername:  ['', [Validators.required,Validators.pattern('[a-zA-Z]+$')]],
+      PhoneNumber : ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$"),Validators.minLength(9), Validators.maxLength(10)]],
     })
+
+    if (this.currentMonth < 10) {
+      this.finalmonth = "0" + this.currentMonth
+    } else {
+      this.finalmonth = this.currentMonth
+    }
+    if (this.currentday < 10) {
+      this.finalday = "0" + this.currentday
+    } else {
+      this.finalday = this.currentday
+    }
+    this.TodayDate = this.currentyear + "-" + this.finalmonth + "-" + this.finalday;
+    this.date = this.finalday + "-" + this.finalmonth + "-" + this.currentyear
+
+    this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+    console.log(this.text.mobile)
+
+    this.textaws = JSON.parse(localStorage.getItem('aws') || '{}')
+    console.log(this.textaws)
   }
+
+  get errorControl() {
+    return this.productForm.controls;
+  } 
+
   submitForm(id:any){
-    // if(this.productForm.value.Image ==''||
-    // this.productForm.value.Number ==''||
-    // this.productForm.value.Name ==''||
-    // this.productForm.value.color ==''||
-    // this.productForm.value.region ==''||
-    // this.productForm.value.PhoneNumber ==''||
-    // this.productForm.value.manufacturername ==''||
-    // this.productForm.value.color ==''||
-    // this.productForm.value.stone ==''||
-    // this.productForm.value.size ==''||
-    // this.productForm.value.mobile ==''||
-    // this.productForm.value.date =='')
-    // { 
-    //   Swal.fire(  
-    //      'Cancelled',  
-    //      'You Must  Enter All fields !',           //give for condition to take all properties take empty values
-    //      'error'                                  //then take one alert message like not save all data
-    //    ) 
-    // }else{  
+      
       console.log(this.productForm.value)
-       fetch("http://localhost:7500/raw/addraw/"+id, {
+       fetch("https://tiny-ruby-centipede-hat.cyclic.app/raw/addraw/"+id, {
        method:'post',
        headers:{
          "Access-Control-Allow-Origin": "*",
@@ -66,29 +86,26 @@ export class AddRawPage implements OnInit {
      .then(result=>{ 
        console.log(result)
        if(result.status === 'failed'){
-        alert('noo')
-        // Swal.fire( 
-        //   'Cancelled',
-        //   'Product already existed!',
-        //   'error'
-        // )
+        alert('noo')       
        }else{ 
-        alert('yess')     
-      //   Swal.fire( 'Submitted successfully!', '', 'success').then(() =>{         
-          window.location.href="/raw-product"
-      //  } )
-      }
-      
+        alert('yess')                
+          window.location.href="/raw-product"     
+      }      
    }
   )      
-       .catch(error => console.log('error',error)) 
-   
+       .catch(error => console.log('error',error))    
 }
 
+
 onClick() {
+  this.isSubmitted = true;
+  if (!this.productForm.valid) {
+   alert('Please provide all the required values!')  
+  } else {
+
   console.log(this.data)
-const formdata = new FormData();
-for(let pdffiles of this.images){
+  const formdata = new FormData();
+  for(let pdffiles of this.images){
   formdata.append("file",pdffiles)
 }
  this.apii.postfiletos2(formdata).subscribe(data=>{
@@ -99,6 +116,8 @@ for(let pdffiles of this.images){
  })
   console.log(formdata)
 }
+}
+
 selectImage(event: any) {
   if (event.target.files.length > 0) {
     console.log(event.target.files)
@@ -109,3 +128,4 @@ selectImage(event: any) {
   console.log(this.images)
 }
 }
+
