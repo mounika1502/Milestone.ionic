@@ -159,10 +159,37 @@ const routes: Routes = [
     path: 'mobile-login',
     loadChildren: () => import('./mobile-login/mobile-login.module').then( m => m.MobileLoginPageModule)
   },
+
   {
     path: 'shipper-edit',
     loadChildren: () => import('./shipper-edit/shipper-edit.module').then( m => m.ShipperEditPageModule)
   },
+
+
+  {
+    path: 'password-update',
+    loadChildren: () => import('./password-update/password-update.module').then( m => m.PasswordUpdatePageModule)
+  },  {
+    path: 'homepage',
+    loadChildren: () => import('./homepage/homepage.module').then( m => m.HomepagePageModule)
+  },
+  {
+    path: 'homescreen',
+    loadChildren: () => import('./homescreen/homescreen.module').then( m => m.HomescreenPageModule)
+  },
+  {
+    path: 'products',
+    loadChildren: () => import('./products/products.module').then( m => m.ProductsPageModule)
+  },
+
+  
+ 
+
+
+ 
+
+
+
 ];
 
 @NgModule({

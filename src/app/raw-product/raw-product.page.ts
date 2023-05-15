@@ -12,7 +12,11 @@ export class RawProductPage implements OnInit {
   text: any;
   aa: any;
   mobile: any;
+
   cartItem:number=0
+
+  searchtext:any
+
   constructor() { 
     this.get()
   }

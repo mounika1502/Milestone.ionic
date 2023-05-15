@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-password-update',
@@ -8,58 +8,42 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class PasswordUpdatePage implements OnInit {
 
+  isSubmitted = false;
+  
+  ionicForm: any;
 
-    Form: any;
-    products: any;
-    details: any=[];
-    text: any;
-    sign: any;
-    Email:any;
-    constructor() {
-     }
+ 
+ 
+  constructor(public formBuilder: FormBuilder) { 
+   
+  }
   
     ngOnInit(): void {
-      this.Form = new FormGroup({
-        Email:new FormControl(""),
-        Password: new FormControl("")     
+      this.ionicForm = this.formBuilder.group({
+        name: ['', [Validators.required, Validators.minLength(2)]],
+        email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+        dob: ['',[Validators.required]],
+        mobile: ['', [Validators.required, Validators.pattern('^[0-9]+$')]]
       })
-  
-      this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
-       console.log(this.text)
-    }
-  
-    // login(){
-    //   this.router.navigate(["/login"])
-    // }
-  
       
-    
-  
-    submit(){    
-  
-      fetch("https://tiny-ruby-centipede-hat.cyclic.app/signupform/updatePassword/" + this.Form.value.Email, {
-        method: 'PUT',
-        headers: {
-          "Access-Control-Allow-Origin": "*",        
-          "Content-Type": 'application/json'
-        },
-        body: JSON.stringify(this.Form.value),       // JSON Means An intrinsic object that provides functions to convert JavaScript values to and from the JavaScript Object Notation (JSON) format.
-      })
-        .then(response => response.json())
-        .then(result => {
-          console.log(result),
-          console.log(this.Form.value.Email)
-  
-            this.products = result  //it  runs $parse automatically when it runs the $digest loop, basically $parse is the way angular evaluates expressions
-          console.log(this.products)
-  
-          alert( 'Updated successfully!')         
-
-        //  window.location.reload()
-                  
-        }
-        ).catch(err =>
-          console.log(err))
     }
-  }
 
+    get errorControl() {
+      return this.ionicForm.controls;
+    } 
+
+    submitForm () {
+      this.isSubmitted = true;
+      if (!this.ionicForm.valid) {
+        console.log('Please provide all the required values!')
+      
+      } else {
+        console.log(this.ionicForm.value)
+      }
+    }
+
+   
+    
+
+  
+  }

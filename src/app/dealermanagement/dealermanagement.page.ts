@@ -129,6 +129,8 @@ Dealer(){
     })  .then(response => response.json())
    
     .then(result =>{
+      alert("Added...")
+      
     
       data.Isadd=0;
 var id=data._id

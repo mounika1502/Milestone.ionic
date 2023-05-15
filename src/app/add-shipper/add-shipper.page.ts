@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UploadService } from '../upload.service';
 
 @Component({
@@ -9,38 +9,39 @@ import { UploadService } from '../upload.service';
 })
 export class AddShipperPage implements OnInit {
 
-    ShipperForm: any;
+  ShipperForm: any;
   images: any;
   data: any;
+  isSubmitted = false;
   
-    constructor(private apii:UploadService) { }
+    constructor(private apii:UploadService, public formBuilder: FormBuilder) { }
   
     ngOnInit() {
-      this.ShipperForm = new FormGroup({
-        Name:new FormControl(""),
-        Mobile:new FormControl(""),
-        Address:new FormControl(""),
-        Truck:new FormControl(""),
-        Trucknumber:new FormControl(""),
-        TruckImage:new FormControl(""),
-        Licence:new FormControl(""),
-        Adhar:new FormControl(""),
-        Pan:new FormControl(""),
+      this.ShipperForm = this.formBuilder.group({
+        Name: ['', [Validators.required, Validators.minLength(2), Validators.pattern('[a-zA-Z]+$')]],
+        Address: ['', [Validators.required, Validators.minLength(2),]],
+        Truck: ['', [Validators.required, Validators.minLength(2)]],
+        Trucknumber: ['', [Validators.required,  Validators.minLength(6), Validators.maxLength(8), Validators.pattern('[A-Z]{2}\s[0-9]{2}\s[A-Z]{2}\s[0-9]{4}$')]],
+        TruckImage: ['', [Validators.required]],
+        Licence: ['', [Validators.required]],
+        Adhar: ['', [Validators.required]],
+        Mobile: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$"),Validators.minLength(9), Validators.maxLength(10)]],
+        Pan: ['', [Validators.required]]
       })
     }
+
+    
+    get errorControl() {
+      return this.ShipperForm.controls;
+    } 
   
     submitForm(){
-      console.log(this.ShipperForm.value)
-        if(this.ShipperForm.value.Image ==''||
-        this.ShipperForm.value.Number ==''||
-        this.ShipperForm.value.Name ==''||
-        this.ShipperForm.value.color ==''||
-        this.ShipperForm.value.region ==''||
-        this.ShipperForm.value.color ==''||
-        this.ShipperForm.value.date =='')
-        { 
-     alert("Please Fill All Details")
-        }else{  
+      this.isSubmitted = true;
+      if (!this.ShipperForm.valid) {
+       alert('Please provide all the required values!')
+      
+      } else {
+       
            fetch("https://tiny-ruby-centipede-hat.cyclic.app/shippers/addshipper" ,{
            method:'post',
            headers:{
@@ -62,7 +63,8 @@ export class AddShipperPage implements OnInit {
           }          
        })      
            .catch(error => console.log('error',error))           
-    }       
+    } 
+  }      
   }
 
   // onClick() {
@@ -88,4 +90,3 @@ export class AddShipperPage implements OnInit {
   //   }
   //   console.log(this.images)
   // }
-}

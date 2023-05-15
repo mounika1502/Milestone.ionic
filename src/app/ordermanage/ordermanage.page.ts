@@ -61,7 +61,7 @@ ApproximateTime:any;
       console.log(test)
   }
   ngOnInit(): void {
-debugger
+
     const localdata1=localStorage.getItem('orderid')
     if(localdata1!=null){                                                    
       this.text2 = JSON.parse(localdata1)

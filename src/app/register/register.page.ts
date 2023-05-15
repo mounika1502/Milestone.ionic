@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+
 // import { UniqueDeviceID } from '@ionic-native/unique-device-id/ngx';
+
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',

@@ -63,7 +63,7 @@ setOpen(isOpen: boolean) {
   }
 
   Get(){
-    fetch("http://localhost:7500/signupform/getsignupdetails",{
+    fetch("https://tiny-ruby-centipede-hat.cyclic.app/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -130,6 +130,8 @@ Dealer(){
       
       })  .then(response => response.json())
       .then(result =>{
+        alert("Added...")
+        
         this.docid=result.SignData._id
         data.Isadd=0;
 var id=data._id

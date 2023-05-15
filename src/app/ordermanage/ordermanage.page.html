@@ -88,33 +88,12 @@
     </ion-card-header>
   
     <ion-card-content>
-      <button data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="orders(data,test._id,data._id)"  class="button" [hidden]="data.OrderStatus == 'Delivered'" style="margin-left: 30%;">Update Status</button>
+      <button data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="orders(data,test._id,data._id)"      aria-label="fruit"  [(ngModel)]="data.OrderStatus" class="form-label button" for="lastName" [hidden]="data.OrderStatus == 'Delivered'" style="margin-left: 30%;">Update Status</button>
+     
     </ion-card-content>
 
   </ion-card>
-  </ion-card>
-</ion-col>
-</ion-col>
-<div *ngIf="popuporder">
-
-
-
-
-  <h1 style="text-align: center;font-size: x-large;font-weight: 900;">Update Status</h1> 
-  <ion-list>
-    <ion-item>
-      <label class="form-label" for="lastName" style="color:rgb(36, 36, 36);font-size: larger;margin-left: 18%;">Order Status:</label>
-      <ion-select aria-label="fruit"  [(ngModel)]="data.OrderStatus">
-        <ion-select-option value="apples">Placed</ion-select-option>
-        <ion-select-option value="oranges">Shipped</ion-select-option>
-        <ion-select-option value="bananas">Delivered</ion-select-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
-
-
-
-  <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -152,7 +131,19 @@
       
       </div>
     </div>
-  </div> -->
   </div>
+  </ion-card>
+  
+</ion-col>
+
+</ion-col>
+
+ 
+ 
+
+
+
+
+
  
 </ion-content>

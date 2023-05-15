@@ -23,18 +23,21 @@
     <label style="margin-left: 8%;">Password</label>
     <ion-item class="ion-margin">
       <ion-input appCapitalize placeholder="Enter Password" type="password" clearInput="true" formControlName="password"></ion-input>
+     
     </ion-item>
 
     </form>
       <ion-button  style="height: 50px;   border-radius: 10px; margin-top:20px;" expand="full" strong="true" type="submit" [disabled]="loginForm.value.email == '' || loginForm.value.password == ''"   (click)="loginSubmit()" >
         Login
       </ion-button>
+      
       <a style="float:right;margin-top: 5px;" routerLink="/forgotpassword">forgot password?</a><br><br>
       <h5 style="text-align: center;">Login with mobile?&nbsp;<a href="/mobile-login">Login </a></h5> 
-      <h5 style="text-align: center;">Don't have an account?&nbsp;<a href="/register">register</a></h5>  
+      <h5 style="text-align: center;">Don't have an account?&nbsp;<a href="/register">Register Now</a></h5>  
   
    
     </ion-list>
+    
 </ion-content>
 
 

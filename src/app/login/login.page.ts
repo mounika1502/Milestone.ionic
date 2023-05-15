@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ContentChild, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { IonInput } from '@ionic/angular';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,13 +11,18 @@ import Swal from 'sweetalert2';
 export class LoginPage implements OnInit {
   loginForm: any;
   loginData: any;
+ 
+ 
   constructor() { }
+
   ngOnInit() {
+
     this.loginForm = new FormGroup({
       email : new FormControl('',[Validators.required,Validators.email]),
       password : new FormControl('',[Validators.required,Validators.minLength(5)]),
     })
   }
+
   loginSubmit(){
     if(this.loginForm.value.email ==''||
     this.loginForm.value.password =='')

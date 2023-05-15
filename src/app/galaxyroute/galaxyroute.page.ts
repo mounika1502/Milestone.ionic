@@ -38,14 +38,9 @@ export class GalaxyroutePage implements OnInit {
       let storeDataGet: any = []; // storeDataGet is a array
       storeDataGet.push(category); // push the category into localstorage
       localStorage.setItem('anunya',JSON.stringify(storeDataGet));
-     
-      window.location.reload(
-        
-      )
-  //     Swal.fire('Added Successfully!', '', 'success').then(() => {
-  //       window.location.reload()
-  //    } );
-     //localCart is key ,storeDataGet is To convert the stringify
+      alert("Added to Cart...")
+      window.location.reload()
+
     }
     
     else {
@@ -71,11 +66,7 @@ export class GalaxyroutePage implements OnInit {
 
   
     }
-    // Swal.fire('Added to Cart!', '', 'success').then(() =>
-    //  {
-    //   window .location.reload()
-    // });
-    // window .location.reload()
+ 
    
       
 }

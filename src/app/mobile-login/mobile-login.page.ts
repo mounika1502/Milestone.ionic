@@ -35,35 +35,13 @@ export class MobileLoginPage implements OnInit {
     private ngZone:NgZone,
     private router: Router,
     private _http:HttpClient
-    ) { 
-      this.getProduct()     
-     }
+    ) { }
 
   ngOnInit() {
     firebase.initializeApp(config)
   }
 
-  getProduct(){    
-    fetch("https://tiny-ruby-centipede-hat.cyclic.app/signupform/getsignupdetails", {
-   method:'get',
-   headers:{
-     "Access-Control-Allow-Origin": "*",
-     "Content-Type":'application/json'
-   },
-   body:JSON.stringify(this.getProduct)
- }).then(res=> res.json())
- .then(result=>{ 
-   console.log(result)
-    this.details = result.SignupInfo
-    console.log(this.details)
- }
-   )     
-   .catch(error => console.log('error',error))
-}
-
-
-  async mobileOtp(){ 
-
+  async mobileOtp(){
 
     fetch("https://tiny-ruby-centipede-hat.cyclic.app/signupform/getsignupdetails", {
       method:'get',
@@ -71,7 +49,7 @@ export class MobileLoginPage implements OnInit {
         "Access-Control-Allow-Origin": "*",
         "Content-Type":'application/json'
       },
-      body:JSON.stringify(this.getProduct)
+
     }).then(res=> res.json())
     .then(result=>{ 
       console.log(result)
@@ -83,17 +61,16 @@ export class MobileLoginPage implements OnInit {
       return item.mobile == this.mobile1});
       console.log(this.List)
      
-      // for(let i = 0;i < this.List.length;i++){
-        
-        // localStorage.setItem('Login',JSON.stringify(this.List[0]));
-        
-      // if(this.List){
         if(this.List == null || this.List == undefined || this.List == ''){
           alert('Mobile not exist')
         }else{
           alert('OTP Gerneratred')
       console.log(this.List)
+
+      localStorage.setItem('Login',JSON.stringify(this.List[0]));
+
         localStorage.setItem('Login',JSON.stringify(this.List[0]));
+
   this.reCaptchaVerifier = new firebase.auth.RecaptchaVerifier(
     'sign-in-button',
     {
@@ -113,21 +90,15 @@ export class MobileLoginPage implements OnInit {
 
       this.ngZone.run(() => {
         window.location.href='./otp'
-      });
-     
-  
+      }); 
    
     })   
     .catch((error:any) => {
       console.log(error.message);
       alert(error.message);
-      setTimeout(() => {
-        // window.location.reload();       
+      setTimeout(() => {     
       }, 5000);
-    });
-  // }else{
-  //   alert('error.message');
-  // }
+    }); 
   }
 }
 

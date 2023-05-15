@@ -23,7 +23,7 @@ export class AddProductPage  {
   imgurl: any
   textaws: any;
   images: any;
-  constructor(private router: Router, private apii: UploadService, private http: HttpClient) { }
+  constructor(private router: Router, private apii: UploadService, private http: HttpClient,) { }
   TodayDate = "2023-04-12"
   date1 = new Date()
   currentyear = this.date1.getUTCFullYear();
@@ -51,9 +51,9 @@ export class AddProductPage  {
     console.log(this.text.mobile) 
     this.textaws = JSON.parse(localStorage.getItem('aws') || '{}')
     console.log(this.textaws)
-    this.productForm = new FormGroup({
 
-      prodId: new FormControl(""),
+    this.productForm = new FormGroup({
+      prodId: new FormControl("",[Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
       name: new FormControl(""),
       color: new FormControl(""),
       size: new FormControl(""),
@@ -68,8 +68,7 @@ export class AddProductPage  {
       mobile: new FormControl(""),
       PhoneNumber: new FormControl('', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
       description: new FormControl(""),
-      manufacturername: new FormControl(""),
-      
+      manufacturername: new FormControl("")      
     })
   }
   cancel() {
@@ -92,6 +91,7 @@ export class AddProductPage  {
       }).then(res => res.json())
         .then(result => {
           console.log(result)
+          alert("Added...")
            window.location.href="/inventory"
          
         }
@@ -109,7 +109,7 @@ export class AddProductPage  {
     console.log(data)
     var docid=data.imageFile._id
     this.submitForm(docid) 
-    alert("file uploaded")
+   
    })
     console.log(formdata)
   }
@@ -122,63 +122,5 @@ export class AddProductPage  {
     }
     console.log(this.images)
   }
-  get sid(): FormControl {
 
-    return this.productForm.get("sid") as FormControl;
-  }
-  get name(): FormControl {
-
-    return this.productForm.get("name") as FormControl;
-  }
-  get stone(): FormControl {
-
-    return this.productForm.get("stone") as FormControl;
-  }
-
-  get prodId(): FormControl {
-
-    return this.productForm.get("prodId") as FormControl;         //In this method to get all details
-  }
-  get color(): FormControl {
-
-    return this.productForm.get("color") as FormControl;
-  }
-  get thick(): FormControl {
-
-    return this.productForm.get("thick") as FormControl;
-  }
-
-  get manufacturername(): FormControl {
-
-    return this.productForm.get("manufacturername") as FormControl;
-  }
-  get qnt(): FormControl {
-
-    return this.productForm.get("qnt") as FormControl;
-  }
-  // get filePath():FormControl{
-  //   return this.productForm.get("filePath") as FormControl;
-  // }
-  get Quantity(): FormControl {
-    return this.productForm.get("Quantity") as FormControl;
-  }
-
-  get price(): FormControl {
-    return this.productForm.get("price") as FormControl;
-  }
-  get quality(): FormControl {
-    return this.productForm.get("quality") as FormControl;
-  }
-  // get date():FormControl{
-  //   return this.productForm.get("date") as FormControl;
-  // }
-  get description(): FormControl {
-    return this.productForm.get("description") as FormControl;
-  }
-  get region(): FormControl {
-    return this.productForm.get("region") as FormControl;
-  }
-  get PhoneNumber(): FormControl {
-    return this.productForm.get("PhoneNumber") as FormControl;
-  }
 }

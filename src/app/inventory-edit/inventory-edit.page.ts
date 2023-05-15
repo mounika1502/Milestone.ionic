@@ -51,7 +51,7 @@ export class InventoryEditPage implements OnInit {
         .then(response => response.json())
         .then(result => {
           console.log(result)
-         alert('updated') 
+         alert('updated...') 
           window.location.href='./inventory-data'             
         }
         ).catch(err =>
