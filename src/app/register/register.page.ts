@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
@@ -13,27 +13,28 @@ export class RegisterPage implements OnInit {
   SignupForm: any;
   loginForm: any;
   isAlertOpen = false;
+  isSubmitted = false;
 public alertButtons = ['OK'];
 setOpen(isOpen: boolean) {
   this.isAlertOpen = isOpen;
 }
-  constructor(private router:Router) { }
+  constructor(private router:Router,public formBuilder: FormBuilder) { }
   ngOnInit() {
-    this.SignupForm = new FormGroup({
-      Firstname: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
-      Lastname : new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
-      mobile : new FormControl('',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-      Email : new FormControl('',[Validators.required,Validators.email]),
-      Password : new FormControl('',[Validators.required,Validators.minLength(5)]),
-      City:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
-      UserType:new FormControl('',[Validators.required]),
-      pincode:new FormControl('',[Validators.required,Validators.pattern('[0-9]{6}')]),
-      Street:new FormControl('',[Validators.required]),
-      State:new FormControl('',[Validators.required]),
-      Company:new FormControl('',[Validators.required]),
-      uniqueDeviceID:new FormControl(''),
-      // Isadd:new FormControl('1'),
-      Message:new FormControl('congratulations your signup successfully!!')
+    this.SignupForm = this.formBuilder.group({  
+      Firstname: ['',[Validators.required,Validators.pattern('[a-zA-Z]+$')]],
+      Lastname : ['',[Validators.required,Validators.pattern('[a-zA-Z]+$')]],
+      mobile : ['',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+      Email : ['',[Validators.required,Validators.email]],
+      Password : ['',[Validators.required,Validators.minLength(5)]],
+      City:['',[Validators.required,Validators.pattern('[a-zA-Z]+$')]],
+      UserType:['',[Validators.required]],
+      pincode:['',[Validators.required,Validators.pattern('[0-9]{6}')]],
+      Street:['',[Validators.required]],
+      State:['',[Validators.required]],
+      Company:['',[Validators.required]],
+      // uniqueDeviceID:[''),
+      // Isadd:['1'),
+     
     });
     // this.getUniqueDeviceID();
   }
@@ -50,26 +51,18 @@ setOpen(isOpen: boolean) {
   //       this.UniqueDeviceID = "Error! ${error}";
   //     });
   // }
+
+  
+  get errorControl() {
+    return this.SignupForm.controls;
+  } 
+
   signupSubmit(){       
-    if(this.SignupForm.value.Firstname ==''||
-     this.SignupForm.value.Lastname ==''||
-     this.SignupForm.value.mobile ==''||
-     this.SignupForm.value.Email ==''||
-     this.SignupForm.value.Password ==''||
-     this.SignupForm.value.UserType ==''||
-     this.SignupForm.value.City ==''||
-     this.SignupForm.value.Pincode ==''||
-     this.SignupForm.value.Street ==''||
-     this.SignupForm.value.Company ==''||
-     this.SignupForm.value.State ==''
-     ){
-     Swal.fire(  
-       'Cancelled',  
-       'You Must  Enter All fields !',           //give for condition to take all properties take empty values
-       'error'                                  //then take one alert message like not save all data
-     ) 
-  }
-  else{
+    this.isSubmitted = true;
+    if (!this.SignupForm.valid) {
+     alert('Please provide all the required values!')  
+    } else {
+
     fetch("https://tiny-ruby-centipede-hat.cyclic.app/signupform/addsignupdetails", {
      method:'post',
      headers:{
@@ -81,14 +74,15 @@ setOpen(isOpen: boolean) {
    }).then(res=> res.json())
    .then(result=>{ 
      console.log(result)
-  
-  
+    if(result.status == 'failed'){
+      alert('User already existed')
+    }  else{
      alert("Register Successfully")
     window.location.href="/login"
-            
+    }         
    })       
      .catch(error => console.log('error',error))     
-  }
+  
   var body ={
     Email:this.SignupForm.value.Email
   }
@@ -103,11 +97,11 @@ setOpen(isOpen: boolean) {
   }).then(res=> res.json())
   .then(result=>{ 
   console.log(result)  
-  
-  }
-  )
+  })
   .catch(error => console.log('error',error))
   }
+}
+
     get Firstname()
   {
    return this.SignupForm.get('Firstname');
