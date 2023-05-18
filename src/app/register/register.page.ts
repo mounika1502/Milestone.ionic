@@ -52,6 +52,13 @@ setOpen(isOpen: boolean) {
   //     });
   // }
 
+  passwordType: string = 'password';
+  passwordIcon: string = 'eye-off';
+ 
+  hideShowPassword() {
+      this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
+      this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
+  }
   
   get errorControl() {
     return this.SignupForm.controls;
@@ -101,58 +108,5 @@ setOpen(isOpen: boolean) {
   .catch(error => console.log('error',error))
   }
 }
-
-    get Firstname()
-  {
-   return this.SignupForm.get('Firstname');
-  }
-  get pincode()
-  {
-   return this.SignupForm.get('pincode');
-  }
-  get Lastname()
-  {
-   return this.SignupForm.get('Lastname');
-  }
-  get mobile()
-  {
-   return this.SignupForm.get('mobile');
-  }
-  get Email()
-  {
-   return this.SignupForm.get('Email');
-  }
-  get Password()
-  {
-   return this.SignupForm.get('Password');
-  }
-  get UserType()
-  {
-   return this.SignupForm.get('UserType');
-  }
-  get City()
-  {
-   return this.SignupForm.get('City');
-  }
-  get Pincode()
-  {
-   return this.SignupForm.get('Pincode');
-  }
-  get Street()
-  {
-   return this.SignupForm.get('Street');
-  }
-  get Company()
-  {
-   return this.SignupForm.get('Company');
-  }
-  get State()
-  {
-   return this.SignupForm.get('State');
-  }
-  get Isadd()
-  {
-   return this.SignupForm.get('Isadd');
-  }
 
 }

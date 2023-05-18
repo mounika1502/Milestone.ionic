@@ -44,7 +44,7 @@ export class AddRawPage implements OnInit {
       date: ['', [Validators.required]],
       mobile: [''],
       manufacturername:  ['', [Validators.required,Validators.pattern('[a-zA-Z]+$')]],
-      PhoneNumber : ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$"),Validators.minLength(9), Validators.maxLength(10)]],
+      PhoneNumber : ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
     })
 
     if (this.currentMonth < 10) {

@@ -14,7 +14,7 @@ export class RawProductPage implements OnInit {
   mobile: any;
   searchtext:any
   constructor() { 
-    this.get()
+    
   }
 
   ngOnInit() {
@@ -75,9 +75,9 @@ export class RawProductPage implements OnInit {
     }
   }
   
-  get(){
- 
-}
+  move(){
+    window.location.href="/add-product"
+  }
 
   view(products:any){
     this.raw = products

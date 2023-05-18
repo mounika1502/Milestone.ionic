@@ -10,6 +10,8 @@ import Swal from 'sweetalert2';
 export class LoginPage implements OnInit {
   loginForm: any;
   loginData: any;
+  visible= true;
+  changetype= true;
   constructor() { }
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -17,6 +19,15 @@ export class LoginPage implements OnInit {
       password : new FormControl('',[Validators.required,Validators.minLength(5)]),
     })
   }
+
+  passwordType: string = 'password';
+ passwordIcon: string = 'eye-off';
+
+ hideShowPassword() {
+     this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
+     this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
+ }
+  
   loginSubmit(){
     if(this.loginForm.value.email ==''||
     this.loginForm.value.password =='')

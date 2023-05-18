@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 // import Swal from 'sweetalert2';
 import { UploadService } from '../upload.service';
@@ -23,7 +23,7 @@ export class AddProductPage  {
   imgurl: any
   textaws: any;
   images: any;
-  constructor(private router: Router, private apii: UploadService, private http: HttpClient,) { }
+  constructor(private router: Router, private apii: UploadService, private http: HttpClient,public formBuilder:FormBuilder) { }
   TodayDate = "2023-04-12"
   date1 = new Date()
   currentyear = this.date1.getUTCFullYear();
@@ -32,6 +32,8 @@ export class AddProductPage  {
   finalmonth: any;
   finalday: any;
   filePath: any;
+  isSubmitted=false;
+
   ngOnInit(): void {
     if (this.currentMonth < 10) {
       this.finalmonth = "0" + this.currentMonth
@@ -52,34 +54,34 @@ export class AddProductPage  {
     this.textaws = JSON.parse(localStorage.getItem('aws') || '{}')
     console.log(this.textaws)
 
-    this.productForm = new FormGroup({
-      prodId: new FormControl(""),
-      name: new FormControl(""),
-      color: new FormControl(""),
-      size: new FormControl(""),
-      stone: new FormControl(""),
-      thick: new FormControl(""),
+    this.productForm = this.formBuilder.group({ 
+      prodId: ['', [Validators.required]],
+      name:  ['', [Validators.required]],
+      color: ['', [Validators.required,Validators.pattern('[a-zA-Z]+$')]],
+      size:  ['', [Validators.required,Validators.pattern('^[0-9]{3}[*][0-9]{3}')]],
+      stone: ['', [Validators.required]],
+      thick: ['', [Validators.required]],
       qnt: new FormControl("0"),
-      Quantity: new FormControl(""),
-      price: new FormControl(""),
-      region: new FormControl(""),
-      quality: new FormControl(""),
-      date: new FormControl(""),
+      Quantity: ['', [Validators.required,Validators.pattern('[0-9]+$')]],
+      price: ['', [Validators.required,Validators.pattern('[0-9]+$')]],
+      region: ['', [Validators.required,Validators.pattern('[a-zA-Z]+$')]],
+      quality: ['', [Validators.required]],
+      date: ['', [Validators.required]],
       mobile: new FormControl(""),
-      PhoneNumber: new FormControl('', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-      description: new FormControl(""),
-      manufacturername: new FormControl("")      
+      PhoneNumber:['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+      description: ['', [Validators.required]],
+      manufacturername: ['', [Validators.required,Validators.pattern('[a-zA-Z]+$')]],     
     })
   }
+
   cancel() {
     this.addProduct = false
   }
   toggle() {
     this.size = !this.size
   }
-  submitForm(id:any) {
-    console.log(this.productForm.value)
 
+  submitForm(id:any) {
       console.log(this.productForm.value)
       fetch("https://tiny-ruby-centipede-hat.cyclic.app/products/addproduct/" +id, {
         method: 'post',
@@ -91,14 +93,23 @@ export class AddProductPage  {
       }).then(res => res.json())
         .then(result => {
           console.log(result)
-          window.location.href="/inventory"
-         
+          window.location.href="/inventory"         
         }
         )
         .catch(error => console.log('error', error))
-     
-  }
+      }
+
+      
+  get errorControl() {
+    return this.productForm.controls;
+  } 
+
   onClick() {
+    this.isSubmitted = true;
+    if (!this.productForm.valid) {
+     alert('Please provide all the required values!')  
+    } else {
+
     console.log(this.data)
   const formdata = new FormData();
   for(let pdffiles of this.images){
@@ -112,6 +123,7 @@ export class AddProductPage  {
    })
     console.log(formdata)
   }
+}
   selectImage(event: any) {
     if (event.target.files.length > 0) {
       console.log(event.target.files)

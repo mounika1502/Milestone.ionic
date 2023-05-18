@@ -18,19 +18,18 @@ export class AddShipperPage implements OnInit {
   
     ngOnInit() {
       this.ShipperForm = this.formBuilder.group({
-        Name: ['', [Validators.required, Validators.minLength(2), Validators.pattern('[a-zA-Z]+$')]],
+        Name: ['', [Validators.required,Validators.pattern('[a-zA-Z]+$')]],
         Address: ['', [Validators.required, Validators.minLength(2),]],
         Truck: ['', [Validators.required, Validators.minLength(2)]],
-        Trucknumber: ['', [Validators.required,  Validators.minLength(6), Validators.maxLength(8), Validators.pattern('[A-Z]{2}\s[0-9]{2}\s[A-Z]{2}\s[0-9]{4}$')]],
+        Trucknumber: ['', [Validators.required,Validators.pattern('^[A-Za-z]{2}\\s[0-9]{2}\\s[A-Za-z]{2}\\s[0-9]{4}$')]],
         TruckImage: ['', [Validators.required]],
         Licence: ['', [Validators.required]],
         Adhar: ['', [Validators.required]],
-        Mobile: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$"),Validators.minLength(9), Validators.maxLength(10)]],
+        Mobile: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
         Pan: ['', [Validators.required]]
       })
     }
-
-    
+        
     get errorControl() {
       return this.ShipperForm.controls;
     } 
@@ -38,8 +37,7 @@ export class AddShipperPage implements OnInit {
     submitForm(){
       this.isSubmitted = true;
       if (!this.ShipperForm.valid) {
-       alert('Please provide all the required values!')
-      
+       alert('Please provide all the required values!')      
       } else {
        
            fetch("https://tiny-ruby-centipede-hat.cyclic.app/shippers/addshipper" ,{
@@ -56,10 +54,8 @@ export class AddShipperPage implements OnInit {
             alert('vehicle already existed!')
       
            }else{
-            alert('Shipper added successfully!')      
-            
-            window.location.href="/shippers"
-      
+            alert('Shipper added successfully!') 
+            window.location.href="/shippers"      
           }          
        })      
            .catch(error => console.log('error',error))           

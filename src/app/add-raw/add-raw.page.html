@@ -157,14 +157,11 @@
     
             <ion-label ><b>Phone Number :</b></ion-label>
             <ion-input type="text"style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.8em;border:1px solid #c2c5ca;" formControlName="PhoneNumber" placeholder=" Enter your PhoneNumber"> </ion-input> 
-            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.PhoneNumber.errors?.required" style="color: red;">
+            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Mobile.errors?.required" style="color: red;">
               Mobile number is required.
             </span>
-            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.PhoneNumber.errors?.pattern" style="color: red;">
-              Only numerical values allowed.
-            </span>
-            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.PhoneNumber.errors?.minLength" style="color: red;">
-              Mobilenumber should be min 10 digits long.
+            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Mobile.errors?.pattern" style="color: red;">
+              Please, Enter 10 digit mobilenumber.
             </span>
             <br>
     

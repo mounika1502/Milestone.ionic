@@ -23,12 +23,13 @@
         <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Name.errors?.required" style="color: red;margin-top:-15px;margin-bottom: 5px;">
           Name is required.
         </span>
-        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Name.errors?.minlength" style="color: red;margin-top:-15px;margin-bottom: 5px;">
+         <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Name.errors?.minLength" style="color: red;margin-top:-15px;margin-bottom: 5px;">
           Name should be min 2 chars long.
-        </span>
+        </span> 
         <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Name.errors?.pattern" style="color: red;margin-top:-15px;margin-bottom: 5px;">
-          Name should be in alphabets.
+          Alphabets only allowed.
         </span>
+        <br>
         <br>
 
         <ion-label ><b>Phone Number :</b></ion-label><br>
@@ -37,11 +38,12 @@
           Mobile number is required.
         </span>
         <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Mobile.errors?.pattern" style="color: red;">
-          Only numerical values allowed.
+          Please, Enter 10 digit mobilenumber.
         </span>
-        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Mobile.errors?.minLength" style="color: red;">
+        <!-- <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Mobile.errors?.minLength" style="color: red;">
           Mobilenumber should be min 10 digits long.
-        </span>
+        </span> -->
+        <br>
         <br>
 
         <ion-label ><b>Truck Type :</b></ion-label>   <i class="fa fa-question-circle-o" style="font-size:15px; color: rgb(102, 102, 232);" ></i>               
@@ -50,18 +52,17 @@
           Truck type is required.
         </span>
         <br>
+        <br>
 
         <ion-label ><b>Truck Number :</b></ion-label>   <i class="fa fa-question-circle-o" style="font-size:15px; color: rgb(102, 102, 232);" ></i>               
         <ion-input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="Trucknumber" placeholder=" Enter your truck number"> </ion-input>     
         <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Trucknumber.errors?.required" style="color: red;">
           Trucknumber is required.
         </span>
-        <!-- <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Trucknumber.errors?.minlength" style="color: red;">
-          Trucknumber should be min 6 chars long.
-        </span> -->
         <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Trucknumber.errors?.pattern" style="color: red;">
-          Trucknumber shoul be in AB1263.
+          Trucknumber shoul be like AB 12 AB 2663.
         </span>
+        <br>
         <br>
 
         <ion-label ><b>Truck Image :</b></ion-label>
@@ -70,12 +71,14 @@
           Truck image is required.
         </span>
         <br>
+        <br>
         
         <ion-label ><b>Driving Licence Image :</b></ion-label>
         <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height:1em;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="Licence"  placeholder=" Upload your driving Licence image"></ion-input>
         <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Licence.errors?.required" style="color: red;">
           Driving licence is required.
         </span>
+        <br>
         <br>
 
         <ion-label ><b>Aadhar Card Image :</b></ion-label>
@@ -84,6 +87,7 @@
           Aadhar is required.
         </span>
         <br>
+        <br>
 
         <ion-label ><b>Pan Card Image :</b></ion-label>
         <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="Pan"  placeholder=" Upload your pancard image"></ion-input>
@@ -91,13 +95,15 @@
           Pan card is required.
         </span>
         <br>
+        <br>
 
         <ion-label ><b>Address :</b></ion-label>
         <textarea appFirstCap type="text"  formControlName="Address" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height:10em;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" placeholder=" Enter your address" ></textarea>  
         <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Address.errors?.required" style="color: red;">
           Address is required.
         </span>
-        
+        <br>
+        <br>        
 
         <div style="text-align: center;margin-bottom: 1em;">
           <ion-button type="submit" (click)="submitForm()">Submit</ion-button>
