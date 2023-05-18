@@ -1,9 +1,6 @@
 <ion-header>
   <ion-toolbar >
-
-<ion-buttons slot="start" >
-<ion-menu-button  menu="main-menu"></ion-menu-button>
-</ion-buttons>
+    <ion-icon name="arrow-back-sharp" routerLink="/product" style="font-size: 30px;"></ion-icon>
 <ion-icon name="cart" style=" margin-top: 7px;
 font-size: 30px;
 margin-left: -17px;
@@ -23,7 +20,7 @@ margin-right: 18px;" slot="end" routerLink="/cart"  ></ion-icon>
  
   <ion-grid>
     <ion-row>
-      <ion-col    size="6" *ngFor="let cart of products|filter:searchtext" >
+      <ion-col    size="6" *ngFor="let cart of products|filter:searchtext" [hidden]="cart.Quantity== 0" >
        
                   <ion-card style="height: 100%;">
           <img  src="{{cart.filePath}}"  class="card-img-top" style="height:11rem;"  (click)="anu(cart)"/>
@@ -49,4 +46,5 @@ margin-right: 18px;" slot="end" routerLink="/cart"  ></ion-icon>
     </ion-row>
     
   </ion-grid>
+  
 </ion-content>

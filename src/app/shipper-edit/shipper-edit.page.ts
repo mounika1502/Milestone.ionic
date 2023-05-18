@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 export class ShipperEditPage implements OnInit {
 
   data: any;
+  text: any;
+  aa: any;
 
   constructor(private service:UploadService,private router:Router) { }
 
@@ -18,6 +20,10 @@ export class ShipperEditPage implements OnInit {
     if(localdata!=null){
       this.data=JSON.parse(localdata)
     } 
+    this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+    console.log(this.text)
+    this.aa=this.text.UserType
+    console.log(this.aa)
   }
 
   update(id:any){

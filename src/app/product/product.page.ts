@@ -34,6 +34,8 @@ export class ProductPage implements OnInit {
   dealer:any;
   data: any;
   cartItem: number=0;
+  aa: any;
+  text: any;
   
   constructor(){
     this.get();
@@ -47,7 +49,10 @@ export class ProductPage implements OnInit {
         this.data = JSON.parse(localdata)
       }
       this.cartItemFunc();
-        
+      this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+      console.log(this.text)
+      this.aa=this.text.UserType
+      console.log(this.aa)
     }
 
     

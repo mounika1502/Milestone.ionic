@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dealerorders.page.scss'],
 })
 export class DealerordersPage implements OnInit {
-  searchtext:any
-  cartItem:number = 0;
+  searchtext:any;
+  cartItem:number=0;
   manufacturername:any;
   PhoneNumber:any;
   Quantity:any;
@@ -80,7 +80,7 @@ OrderStatus:any;
     this.manumob=this.text.mobile
     console.log(this.manumob)
     this.getCartDetails = JSON.parse(localStorage.getItem('anunya') || '{}');
-    fetch("https://tiny-ruby-centipede-hat.cyclic.app/orderRoute/getOrders",{
+    fetch("http://localhost:7500/orderRoute/getOrders",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -167,9 +167,8 @@ OrderStatus:any;
 Orderid(){
 
 } 
- placed(){
- 
-  const localdata = localStorage.getItem('prodstatus')  
+placed(){
+  const localdata = localStorage.getItem('Prod')  
   if(localdata!=null){                                                                                 
     this.order1 =JSON.parse(localdata) 
     console.log( this.order1);
@@ -197,7 +196,7 @@ this.count=this.order.length;
 }  
  }   
  Shipped(){   
-    const localdata = localStorage.getItem('prodstatus')  
+    const localdata = localStorage.getItem('Prod')  
     if(localdata!=null){                                                                                 
       this.order1 =JSON.parse(localdata) 
       console.log( this.order1);    
@@ -225,7 +224,11 @@ this.count=this.order.length;
   }  
    }   
    inprogress(){
-    const localdata = localStorage.getItem('prodstatus')  
+  
+    var body ={
+      Email:this.text.Email
+    }
+    const localdata = localStorage.getItem('Prod')  
     if(localdata!=null){                                                                                 
       this.order1 =JSON.parse(localdata) 
       console.log( this.order1);
@@ -250,10 +253,23 @@ this.count=this.order.length;
   this.count=this.order.length;
    console.log(this.data3)
   }  
-   }  
+  fetch("http://localhost:7500/orderRoute/orderupdate", {
+    method:'post',
+    headers:{
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type":'application/json'
+    },  
+     body:JSON.stringify(body)
+    
+    }).then(res=> res.json())
+    .then(result=>{ 
+    console.log(result)  
+    }
+    )
+    .catch(error => console.log('error',error))
+   }   
   
 all(){
   window.location.reload();
 }
 }
-

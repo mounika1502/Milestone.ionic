@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { UniqueDeviceID } from '@ionic-native/unique-device-id/ngx';
+
 
 // import { UniqueDeviceID } from '@ionic-native/unique-device-id/ngx';
 
@@ -16,14 +18,16 @@ export class RegisterPage implements OnInit {
   SignupForm: any;
   loginForm: any;
   isAlertOpen = false;
+  isSubmitted = false;
 public alertButtons = ['OK'];
-isSubmitted=false;
+
 setOpen(isOpen: boolean) {
   this.isAlertOpen = isOpen;
 }
-  constructor(private router:Router) { }
+  constructor(private router:Router,public formBuilder: FormBuilder, private uniqueDeviceID:UniqueDeviceID) { }
   ngOnInit() {
-    
+    this.getUniqueDeviceID();
+
     this.SignupForm = new FormGroup({
       Firstname: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
       Lastname : new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
@@ -35,65 +39,78 @@ setOpen(isOpen: boolean) {
       pincode:new FormControl('',[Validators.required,Validators.pattern('[0-9]{6}')]),
       Street:new FormControl('',[Validators.required]),
       State:new FormControl('',[Validators.required]),
-      Company:new FormControl('',[Validators.required]),
-      uniqueDeviceID:new FormControl(''),
+      uniqueDeviceID:new FormControl( this.UniqueDeviceID),
       // Isadd:new FormControl('1'),
       Message:new FormControl('congratulations your signup successfully!!')
     });
     // this.getUniqueDeviceID();
   }
-  // getUniqueDeviceID() {
-  //   this.uniqueDeviceID.get()
-  //     .then((uuid: any) => {
-  //       console.log(uuid);
-  //       this.UniqueDeviceID = uuid;
+ 
+ 
+  getUniqueDeviceID() {
+    this.uniqueDeviceID.get()
+      .then((uuid: any) => {
+        console.log(uuid);
+        this.UniqueDeviceID = uuid;
 
-  //       //alert(this.UniqueDeviceID)
-  //     })
-  //     .catch((error: any) => {
-  //       console.log(error);
-  //       this.UniqueDeviceID = "Error! ${error}";
-  //     });
-  // }
-  signupSubmit(){       
-    if(this.SignupForm.value.Firstname ==''||
-     this.SignupForm.value.Lastname ==''||
-     this.SignupForm.value.mobile ==''||
-     this.SignupForm.value.Email ==''||
-     this.SignupForm.value.Password ==''||
-     this.SignupForm.value.UserType ==''||
-     this.SignupForm.value.City ==''||
-     this.SignupForm.value.Pincode ==''||
-     this.SignupForm.value.Street ==''||
-     this.SignupForm.value.Company ==''||
-     this.SignupForm.value.State ==''
-     ){
-     Swal.fire(  
-       'Cancelled',  
-       'You Must  Enter All fields !',           //give for condition to take all properties take empty values
-       'error'                                  //then take one alert message like not save all data
-     ) 
+        
+      })
+      .catch((error: any) => {
+        console.log(error);
+        this.UniqueDeviceID = "Error! ${error}";
+        alert(this.UniqueDeviceID)
+      });
   }
-  else{
+
+  signupSubmit(){ 
+     console.log(this.SignupForm.value)
+     
+     var signupdata ={
+      Firstname:this.SignupForm.value.Firstname,
+      Lastname:this.SignupForm.value.Lastname,
+      mobile:this.SignupForm.value.mobile,
+      Email:this.SignupForm.value.Email,
+      Password:this.SignupForm.value.Password,
+      UserType:this.SignupForm.value.UserType,
+      City:this.SignupForm.value.City,
+      Pincode:this.SignupForm.value.Pincode,
+      Street:this.SignupForm.value.Street,
+      Company:this.SignupForm.value.Company,
+      State:this.SignupForm.value.State,
+      uniqueDeviceID:this.UniqueDeviceID,
+      Message:'congratulations your signup successfully!!'
+     }
+     console.log(signupdata)
+
+  
+
+
+      
+    this.isSubmitted = true;
+    if (!this.SignupForm.valid) {
+     alert('Please provide all the required values!')  
+    } else {
+
     fetch("https://tiny-ruby-centipede-hat.cyclic.app/signupform/addsignupdetails", {
      method:'post',
      headers:{
        "Access-Control-Allow-Origin": "*",
        "Content-Type":'application/json'
      },
-     body:JSON.stringify(this.SignupForm.value)
+     body:JSON.stringify(signupdata)
   
    }).then(res=> res.json())
    .then(result=>{ 
      console.log(result)
-  
-  
+    if(result.status == 'failed'){
+      alert('User already existed')
+    }  else{
      alert("Register Successfully")
     window.location.href="/login"
-            
+    }         
    })       
      .catch(error => console.log('error',error))     
-  }
+  
   var body ={
     Email:this.SignupForm.value.Email
   }
@@ -108,11 +125,13 @@ setOpen(isOpen: boolean) {
   }).then(res=> res.json())
   .then(result=>{ 
   console.log(result)  
-  
-  }
-  )
+  })
   .catch(error => console.log('error',error))
   }
+}
+get errorControl() {
+  return this.SignupForm.controls;
+} 
     get Firstname()
   {
    return this.SignupForm.get('Firstname');
@@ -167,3 +186,4 @@ setOpen(isOpen: boolean) {
   }
 
 }
+

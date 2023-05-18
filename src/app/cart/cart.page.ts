@@ -16,9 +16,15 @@ qnt:any;
 cart:any;
   getCartd: any=[]
   data: any;
+  text: any;
+  aa: any;
   constructor() { }
 
   ngOnInit() {
+    this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+    console.log(this.text)
+    this.aa=this.text.UserType
+    console.log(this.aa)
         this.CartDetails() // get the data
     this.loadCart() // total product amount
     this.cartItemFunc()

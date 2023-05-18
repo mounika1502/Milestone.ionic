@@ -9,12 +9,15 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class ProfileEditPage implements OnInit {
   text: any;
   ProfileForm: any;
+  aa: any;
 
   constructor() { }
 
   ngOnInit() {
     this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
-     console.log(this.text)
+    console.log(this.text)
+    this.aa=this.text.UserType
+    console.log(this.aa)
 
      
     this.ProfileForm = new FormGroup({

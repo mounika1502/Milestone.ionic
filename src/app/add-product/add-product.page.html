@@ -10,20 +10,16 @@
       </ion-row>
     </ion-toolbar>
   </ion-header>
-
   <ion-content [fullscreen]="true">
     <h1 style="text-align: center;"><b>ADD PRODUCT</b></h1>
     <form [formGroup]="productForm">
     <hr>                                                                                                      
   <ion-list style="padding-left: 2.5%;">    
    <ion-input type="hidden" style="margin-top: -45px;" formControlName="qnt"></ion-input>
-    
     <ion-label style="margin-top: -30px;" ><b>Upload image :</b></ion-label><br>
     <ion-input type="file" style=" width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);padding: 5%;"  (change)="selectImage($event)"  placeholder=" upload your image url"></ion-input>
-
     <ion-label ><b>S.NO :</b></ion-label><br>
     <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);padding: 5%;" formControlName="prodId" placeholder=" Enter your product ID"> </ion-input>                                         
-    
     <ion-label ><b>Name of product :</b></ion-label>
       <ion-select  appFirstCap formControlName="name" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" class="fa fa-caret-down" placeholder="Select name of product &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
       <ion-select-option value="Absolute Black">Absolute Black</ion-select-option>
@@ -80,8 +76,7 @@
       <ion-select-option value="Thunder White">Thunder White</ion-select-option>
       <ion-select-option value="Viscount White">Viscount White</ion-select-option>
       <ion-select-option value="VizagBlue">Vizag Blue</ion-select-option>
-    </ion-select> 
-
+    </ion-select>
     <ion-label ><b>Colour :</b></ion-label>
     <ion-input type="text" appFirstCap appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="color" placeholder=" Enter your product colour"> </ion-input>                   
 
@@ -136,6 +131,7 @@
     <ion-button type="submit" [disabled]="productForm.value.name==''|| productForm.value.color==''|| productForm.value.price==''|| productForm.value.mobile==''||productForm.value.description==''||productForm.value.quality==''||productForm.value.stone==''||productForm.value.PhoneNumber==''||productForm.value.manufacturername==''|| productForm.value.region==''||productForm.value.size==''||productForm.value.date==''||productForm.value.prodId==''" (click)="onClick()">Submit</ion-button>
  </div>
 </form> 
+
 </ion-content>
 
  

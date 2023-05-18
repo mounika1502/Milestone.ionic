@@ -11,18 +11,24 @@ import Swal from 'sweetalert2';
 export class LoginPage implements OnInit {
   loginForm: any;
   loginData: any;
- 
- 
-  constructor() { }
+  showPwd:any;
+  user: any;
+  passwordType:any
 
   ngOnInit() {
-
     this.loginForm = new FormGroup({
       email : new FormControl('',[Validators.required,Validators.email]),
       password : new FormControl('',[Validators.required,Validators.minLength(5)]),
     })
   }
-
+  showPwds() {
+    this.passwordType = !this.passwordType;
+    if (this.passwordType) {
+      this.user = 'text';
+    } else {
+      this.user = 'password';
+    }
+  }
   loginSubmit(){
     if(this.loginForm.value.email ==''||
     this.loginForm.value.password =='')
@@ -59,6 +65,7 @@ export class LoginPage implements OnInit {
   {
     return this.loginForm.get('password');
   }
+  
 }
 
 

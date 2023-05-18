@@ -9,6 +9,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class RawEditPage implements OnInit {
   data: any;
   rawForm:any;
+  text: any;
+  aa: any;
 
   constructor() { }
 
@@ -28,6 +30,10 @@ export class RawEditPage implements OnInit {
 
     this.data = JSON.parse(localStorage.getItem('RawUpdate') || '{}') 
     console.log(this.data)
+    this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+    console.log(this.text)
+    this.aa=this.text.UserType
+    console.log(this.aa)
   }
   
   update(id:any){  

@@ -17,6 +17,7 @@ export class AddRawPage implements OnInit {
   imgurl: any
   textaws: any;
   isSubmitted = false;
+  aa: any;
 
   constructor(private apii:UploadService,public formBuilder: FormBuilder) { }
 
@@ -31,7 +32,9 @@ export class AddRawPage implements OnInit {
 
   ngOnInit() {
     this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
-    console.log(this.text.mobile) 
+    console.log(this.text)
+    this.aa=this.text.UserType
+    console.log(this.aa)
 
     this.productForm = this.formBuilder.group({  
    

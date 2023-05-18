@@ -32,7 +32,12 @@ export class AddProductPage  {
   finalmonth: any;
   finalday: any;
   filePath: any;
+  aa:any;
   ngOnInit(): void {
+    this.text = JSON.parse(localStorage.getItem('Login') || '{}')
+    console.log(this.text)
+    this.aa = this.text.UserType
+    console.log(this.aa)
     if (this.currentMonth < 10) {
       this.finalmonth = "0" + this.currentMonth
     } else {

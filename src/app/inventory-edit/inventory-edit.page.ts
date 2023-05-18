@@ -9,10 +9,16 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class InventoryEditPage implements OnInit {
   data: any;
   productForm: any;
+  aa: any;
+  text: any;
 
   constructor() { }
 
   ngOnInit() {
+    this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+    console.log(this.text)
+    this.aa=this.text.UserType
+    console.log(this.aa)
     this.productForm = new FormGroup({
      prodId:new FormControl(""),
       name: new FormControl(""),

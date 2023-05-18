@@ -9,6 +9,7 @@ import { LoadingController } from '@ionic/angular';
 })
 export class SuccessPage implements OnInit {
   text: any;
+  aa: any;
   
 
 
@@ -20,5 +21,7 @@ export class SuccessPage implements OnInit {
   ngOnInit(): void {
     this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
     console.log(this.text)
+    this.aa=this.text.UserType
+    console.log(this.aa)
   }
 }

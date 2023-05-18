@@ -30,4 +30,8 @@ export class UploadService {
     return this.http.post<any>('https://tiny-ruby-centipede-hat.cyclic.app/Uploadshipper/uploadshipper',data)
     .pipe(catchError(this.errorHandler))
   }
+  postfiletos5(data:any)  {
+    return this.http.post<any>('http://localhost:7500/profiles3/uploadprofile',data)
+    .pipe(catchError(this.errorHandler))
+  }
 }

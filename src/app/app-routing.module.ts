@@ -5,7 +5,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
@@ -169,18 +169,36 @@ const routes: Routes = [
   {
     path: 'password-update',
     loadChildren: () => import('./password-update/password-update.module').then( m => m.PasswordUpdatePageModule)
-  },  {
-    path: 'homepage',
-    loadChildren: () => import('./homepage/homepage.module').then( m => m.HomepagePageModule)
+  },
+
+  {
+    path: 'dealers',
+    loadChildren: () => import('./dealers/dealers.module').then( m => m.DealersPageModule)
   },
   {
-    path: 'homescreen',
-    loadChildren: () => import('./homescreen/homescreen.module').then( m => m.HomescreenPageModule)
+    path: 'tabs',
+    loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
   },
   {
-    path: 'products',
-    loadChildren: () => import('./products/products.module').then( m => m.ProductsPageModule)
+    path: 'tab1',
+    loadChildren: () => import('./tab1/tab1.module').then( m => m.Tab1PageModule)
   },
+  {
+    path: 'tab2',
+    loadChildren: () => import('./tab2/tab2.module').then( m => m.Tab2PageModule)
+  },
+  {
+    path: 'tab3',
+    loadChildren: () => import('./tab3/tab3.module').then( m => m.Tab3PageModule)
+  },
+  {
+    path: 'tab4',
+    loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)
+  },
+
+
+ 
+
 
   
  

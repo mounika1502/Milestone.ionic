@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-row>
       <ion-col>
-    <ion-icon name="arrow-back-sharp" routerLink="/add-shipper" style="font-size: 30px;"></ion-icon>
+    <ion-icon name="arrow-back-sharp" routerLink="/shippers" style="font-size: 30px;"></ion-icon>
   </ion-col>
   <ion-col>  
 
@@ -60,7 +60,7 @@
           Trucknumber should be min 6 chars long.
         </span> -->
         <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Trucknumber.errors?.pattern" style="color: red;">
-          Trucknumber should be in AB12HGH6399.
+          Trucknumber should be in AB 12 HG 6399.
         </span>
         
         <br>
@@ -104,5 +104,6 @@
           <ion-button type="submit" (click)="submitForm()">Submit</ion-button>
         </div>             
       </ion-list>           
-   </form> 
+   </form>
+   
 </ion-content>
