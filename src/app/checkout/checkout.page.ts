@@ -89,7 +89,6 @@ export class CheckoutPage implements OnInit {
       "Phone": this.Phone,
       "Email": this.Email,
       "Address": this.Address,
-      //  "City":this.City,
       "State": this.State,
       "date": new Date().toLocaleString(),
       "OrderId": this.randomNumber,
@@ -102,7 +101,7 @@ export class CheckoutPage implements OnInit {
     console.log(Obj);
     if (Obj.Phone == this.text.mobile) {
       console.log(JSON.stringify(Obj))   //product details with user details
-      fetch("http://localhost:7500/orderRoute/post", {
+      fetch("https://tiny-ruby-centipede-hat.cyclic.app/orderRoute/post", {
         method: 'POST',
         headers: {
           "Access-Control-Allow-Origin": "*",
@@ -114,12 +113,12 @@ export class CheckoutPage implements OnInit {
         .then(result => {
           console.log(result)
           this.UpdateQnty()
-          // localStorage.removeItem('anunya');
+     
         })
         .catch(error => console.log('error', error));
 
-     
-        // window.location.href = ('./success');
+     alert("Order Placed Successfully")
+         window.location.href = ('./success');
         localStorage.removeItem('anunya');
        
      
@@ -129,7 +128,7 @@ export class CheckoutPage implements OnInit {
     
   }
   // debugger
-  fetch("http://localhost:7500/orderRoute/orderemail", {
+  fetch("https://tiny-ruby-centipede-hat.cyclic.app/orderRoute/orderemail", {
     method:'post',
     headers: {
       "Access-Control-Allow-Origin": "*",
@@ -164,7 +163,7 @@ getProduct(){
   var data={
     mobile:this.text.mobile
   }    
-   fetch("http://localhost:7500/products/getproduct", {
+   fetch("https://tiny-ruby-centipede-hat.cyclic.app/products/getproduct", {
   method:'post',
   headers:{
     "Access-Control-Allow-Origin": "*",
@@ -187,7 +186,7 @@ UpdateQnty() {
   }
   console.log(this.dataqnt[0]._prodId)
   console.log(this.dataqnt[0].Quantity)
-  fetch("http://localhost:7500/products/editqnt/" + this.dataqnt[0].prodId, {
+  fetch("https://tiny-ruby-centipede-hat.cyclic.app/products/editqnt/" + this.dataqnt[0].prodId, {
     method: 'POST',
     headers: {
       "access-Control-Allow-Origin": "*",

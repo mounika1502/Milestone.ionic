@@ -138,7 +138,7 @@ var datasss ={
 
 }
   console.log(datasss)
-    fetch("http://localhost:7500/dealer/adddealer",{
+    fetch("https://tiny-ruby-centipede-hat.cyclic.app/dealer/adddealer",{
       method:'POST',
       headers:{
         "Access-Control-Allow-Origin":"*",

@@ -66,12 +66,13 @@
        Please, provide a valid email address.
       </span>
      <br>
-
+   
       <ion-label style="margin-left: 6%;">Password</ion-label>
       <ion-item class="ion-margin">
-        <ion-input appCapitalize placeholder="Enter Password" type="password" clearInput="true" formControlName="Password"></ion-input>
-        <i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
-      </ion-item>
+        <ion-input appCapitalize placeholder="Enter Password" [type]="passwordType"  formControlName="Password"></ion-input>
+        <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+     
+    </ion-item>
       <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Password.errors?.required" style="color: red;">
         Password is required.
        </span>
@@ -101,7 +102,7 @@
     <ion-label style="margin-left: 6%;">Pincode</ion-label>
     <ion-item class="ion-margin">
   
-      <ion-input appFirstCap placeholder="Enter pincode" type="text" clearInput="true"   formControlName="pincode"></ion-input>
+      <ion-input appFirstCap placeholder="Enter pincode"   type="text" clearInput="true"   formControlName="pincode"></ion-input>
     </ion-item>
     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.pincode.errors?.required" style="color: red;">
       Pincode is required.

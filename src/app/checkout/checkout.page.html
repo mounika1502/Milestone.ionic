@@ -60,13 +60,18 @@
     <ion-label style="margin-left: 7%;">Pincode</ion-label>
     <ion-item class="ion-margin">
   
-      <ion-input appCapitalize placeholder="Enter pincode" type="text" clearInput="true" [(ngModel)]="pincode"></ion-input>
+      <ion-input appCapitalize placeholder="Enter pincode" type="text" clearInput="true" [(ngModel)]="pincode" (ngModelChange)="getCityState()" ></ion-input>
+    </ion-item>
+    <ion-label style="margin-left: 7%;">District</ion-label>
+        <ion-item class="ion-margin">
+  
+      <ion-input appCapitalize placeholder="Enter pincode" type="text" clearInput="true" [(ngModel)]="State"   ></ion-input>
     </ion-item>
 
     <ion-label style="margin-left: 7%;">State</ion-label>
       <ion-item class="ion-margin">
-        <ion-select aria-label="fruit" [(ngModel)]="State" placeholder="Please Select your state" autocomplete="off">
-          <ion-select-option value="">--Select--</ion-select-option>
+        <ion-input aria-label="fruit"  [(ngModel)]="cityState"  placeholder="Please Select your state" autocomplete="off"></ion-input>
+          <!-- <ion-select-option value="">--Select--</ion-select-option>
           <ion-select-option value="Andhra Pradesh">Andhra Pradesh</ion-select-option>
           <ion-select-option value="Arunachal Pradesh">Arunachal Pradesh</ion-select-option>
           <ion-select-option value="Assam">Assam</ion-select-option>
@@ -95,7 +100,7 @@
           <ion-select-option value="Tripura">Tripura</ion-select-option>
           <ion-select-option value="UttarPradesh">Uttar Pradesh</ion-select-option>
           <ion-select-option value="West Bengal">West Bengal</ion-select-option>
-        </ion-select>
+        </ion-select> -->
         
       </ion-item>
    

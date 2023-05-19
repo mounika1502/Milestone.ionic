@@ -34,19 +34,17 @@ setOpen(isOpen: boolean) {
       mobile : new FormControl('',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
       Email : new FormControl('',[Validators.required,Validators.email]),
       Password : new FormControl('',[Validators.required,Validators.minLength(5)]),
-      City:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
+      City:new FormControl('',[Validators.required]),
       UserType:new FormControl('',[Validators.required]),
       pincode:new FormControl('',[Validators.required,Validators.pattern('[0-9]{6}')]),
       Street:new FormControl('',[Validators.required]),
       State:new FormControl('',[Validators.required]),
-      uniqueDeviceID:new FormControl( this.UniqueDeviceID),
+      // uniqueDeviceID:new FormControl( this.UniqueDeviceID),
       // Isadd:new FormControl('1'),
       Message:new FormControl('congratulations your signup successfully!!')
     });
     // this.getUniqueDeviceID();
   }
- 
- 
   getUniqueDeviceID() {
     this.uniqueDeviceID.get()
       .then((uuid: any) => {
@@ -61,7 +59,13 @@ setOpen(isOpen: boolean) {
         alert(this.UniqueDeviceID)
       });
   }
-
+  passwordType: string = 'password';
+  passwordIcon: string = 'eye-off';
+ 
+  hideShowPassword() {
+      this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
+      this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
+  }
   signupSubmit(){ 
      console.log(this.SignupForm.value)
      
@@ -97,7 +101,7 @@ setOpen(isOpen: boolean) {
        "Access-Control-Allow-Origin": "*",
        "Content-Type":'application/json'
      },
-     body:JSON.stringify(signupdata)
+     body:JSON.stringify(  this.SignupForm.value)
   
    }).then(res=> res.json())
    .then(result=>{ 
@@ -129,6 +133,7 @@ setOpen(isOpen: boolean) {
   .catch(error => console.log('error',error))
   }
 }
+
 get errorControl() {
   return this.SignupForm.controls;
 } 

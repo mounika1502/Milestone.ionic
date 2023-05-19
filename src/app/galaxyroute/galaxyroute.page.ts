@@ -56,7 +56,7 @@ export class GalaxyroutePage implements OnInit {
       }
     }
    
-     
+     alert("Added to Cart...")
       window .location.reload()
    
     // window .location.reload()     

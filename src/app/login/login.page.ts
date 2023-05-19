@@ -13,7 +13,7 @@ export class LoginPage implements OnInit {
   loginData: any;
   showPwd:any;
   user: any;
-  passwordType:any
+
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -21,13 +21,13 @@ export class LoginPage implements OnInit {
       password : new FormControl('',[Validators.required,Validators.minLength(5)]),
     })
   }
-  showPwds() {
-    this.passwordType = !this.passwordType;
-    if (this.passwordType) {
-      this.user = 'text';
-    } else {
-      this.user = 'password';
-    }
+  passwordType: string = 'password';
+  passwordIcon: string = 'eye-off';
+ 
+
+  hideShowPassword() {
+      this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
+      this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
   }
   loginSubmit(){
     if(this.loginForm.value.email ==''||
@@ -57,6 +57,7 @@ export class LoginPage implements OnInit {
    })
     }   
   }
+
   get email()
   {
    return this.loginForm.get('email');

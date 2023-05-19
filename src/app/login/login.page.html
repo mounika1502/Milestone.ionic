@@ -18,12 +18,16 @@
       <label style="margin-left: 8%;">Email Address</label>
     <ion-item class="ion-margin">
 
-      <ion-input  appCapitalize placeholder="Enter Email Address" type="text" clearInput="true" formControlName="email"></ion-input>
+      <ion-input  appCapitalize placeholder="Enter Email Address" type="text"  formControlName="email"></ion-input>
     </ion-item>
     <label style="margin-left: 8%;">Password</label>
     <ion-item class="ion-margin">
-      <ion-input appCapitalize placeholder="Enter Password" type="password" clearInput="true" formControlName="password"></ion-input>
-
+      <ion-input appCapitalize placeholder="Enter Password"  [type]="passwordType" clearInput="true" formControlName="password"></ion-input>
+      
+   
+        <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+     
+ 
     </ion-item>
 
     </form>
