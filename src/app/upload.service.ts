@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class UploadService {
   constructor(private http:HttpClient) { }
   postfiletos3(data:any)  {
-    return this.http.post<any>('hhttps://tiny-ruby-centipede-hat.cyclic.app/upload/upload',data)
+    return this.http.post<any>('https://tiny-ruby-centipede-hat.cyclic.app/upload/upload',data)
     .pipe(catchError(this.errorHandler))
   }
   errorHandler(error:any){
@@ -28,6 +28,10 @@ export class UploadService {
   }
   postfiletos4(data:any)  {
     return this.http.post<any>('https://tiny-ruby-centipede-hat.cyclic.app/Uploadshipper/uploadshipper',data)
+    .pipe(catchError(this.errorHandler))
+  }
+  postfiletos5(data:any)  {
+    return this.http.post<any>('http://localhost:7500/profiles3/uploadprofile',data)
     .pipe(catchError(this.errorHandler))
   }
 }

@@ -8,7 +8,6 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
   styleUrls: ['./ordermanage.page.scss'],
 })
 export class OrdermanagePage implements OnInit {
-
   searchtext:any
   order:any=[] 
   OrderData: any;
@@ -33,7 +32,7 @@ export class OrdermanagePage implements OnInit {
   data2:any=[];
   data3:any=[];
   data4:any=[];
-OrderStatus: any;
+
 ApproximateTime:any;
   testi: any;
   Listdata:any=[]
@@ -51,7 +50,6 @@ ApproximateTime:any;
   manuemail: any;
   randomNumber: any;
   text2: any;
-  text4: any=[]
   constructor() { 
 
     }
@@ -62,11 +60,7 @@ ApproximateTime:any;
       console.log(test)
   }
   ngOnInit(): void {
-    const localdata=localStorage.getItem('uma')
-    if(localdata!=null){                                                    
-      this.text4 = JSON.parse(localdata)
-      
-    }
+
     const localdata1=localStorage.getItem('orderid')
     if(localdata1!=null){                                                    
       this.text2 = JSON.parse(localdata1)
@@ -95,7 +89,7 @@ ApproximateTime:any;
     console.log(this.data)
 
 
-fetch("https://tiny-ruby-centipede-hat.cyclic.app/orderRoute/getOrders", {
+fetch("http://localhost:7500/orderRoute/getAllOrders", {
       method:"get",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -128,8 +122,21 @@ fetch("https://tiny-ruby-centipede-hat.cyclic.app/orderRoute/getOrders", {
    {
     this.data3.push(this.order[i] )
    }
-  } 
-  
+  }  if(this.data3.length!=0)
+  {
+  this.order=this.data3
+    console.log(this.order)
+    
+    console.log(this.order)
+    this.count=this.order.length;
+    localStorage.setItem('Prod',JSON.stringify(this.order));
+     console.log(this.data3)
+  }
+  else{
+    this.order.length=0;
+    this.count=this.order.length;
+  }
+   
     }
     ).catch(err =>
       console.log('error',err))
@@ -140,7 +147,6 @@ fetch("https://tiny-ruby-centipede-hat.cyclic.app/orderRoute/getOrders", {
 
   
 }
-
   getAddress(test:any){
     window.location.href=("/address")
     localStorage.setItem('Order',JSON.stringify(test));
@@ -238,7 +244,7 @@ this.count=this.order.length;
   this.count=this.order.length;
    console.log(this.data3)
   }  
-  fetch("https://tiny-ruby-centipede-hat.cyclic.app/orderRoute/orderupdate", {
+  fetch("http://localhost:7500/orderRoute/orderupdate", {
     method:'post',
     headers:{
     "Access-Control-Allow-Origin": "*",
@@ -272,7 +278,7 @@ Update(){
     Message:this.data.Message,
     Email:this.text.Email
   }
-  fetch("https://tiny-ruby-centipede-hat.cyclic.app/orderRoute/orderStatus",{
+  fetch("http://localhost:7500/orderRoute/orderStatus",{
     method:"POST",
     headers:{
       "access-Control-Allow-Origin":"*",
@@ -294,7 +300,5 @@ Update(){
     console.log('error',err))  
 }
   
-
-
 
 }

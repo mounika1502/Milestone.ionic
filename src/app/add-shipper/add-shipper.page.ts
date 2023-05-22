@@ -13,23 +13,29 @@ export class AddShipperPage implements OnInit {
   images: any;
   data: any;
   isSubmitted = false;
+  text: any;
+  aa: any;
   
     constructor(private apii:UploadService, public formBuilder: FormBuilder) { }
   
     ngOnInit() {
+      this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+      console.log(this.text)
+      this.aa=this.text.UserType
+      console.log(this.aa)
       this.ShipperForm = this.formBuilder.group({
         Name: ['', [Validators.required,Validators.pattern('[a-zA-Z]+$')]],
         Address: ['', [Validators.required, Validators.minLength(2),]],
         Truck: ['', [Validators.required, Validators.minLength(2)]],
-        Trucknumber: ['', [Validators.required,Validators.pattern('^[A-Za-z]{2}\\s[0-9]{2}\\s[A-Za-z]{2}\\s[0-9]{4}$')]],
-        TruckImage: ['', [Validators.required]],
+        Trucknumber: ['', [Validators.required,Validators.pattern('^[A-Za-z]{2}\\s[0-9]{2}\\s[A-Za-z]{2}\\s[0-9]{4}$')]],    
+       TruckImage: ['', [Validators.required]],
         Licence: ['', [Validators.required]],
         Adhar: ['', [Validators.required]],
         Mobile: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
         Pan: ['', [Validators.required]]
       })
     }
-        
+
     get errorControl() {
       return this.ShipperForm.controls;
     } 

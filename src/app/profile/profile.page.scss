@@ -85,3 +85,15 @@ ion-toolbar {
   bottom: 5px;
   color: #888;
 }
+
+.input--file {
+  position: relative;
+  color: #7f7f7f;
+}
+
+.input--file input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}

@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-row>
       <ion-col>
-    <ion-icon name="arrow-back-sharp" routerLink="/inventory" style="font-size: 30px;"></ion-icon>
+    <ion-icon name="arrow-back-sharp" routerLink="/shippers" style="font-size: 30px;"></ion-icon>
   </ion-col>
   <ion-col>  
 
@@ -55,13 +55,18 @@
         <br>
 
         <ion-label ><b>Truck Number :</b></ion-label>   <i class="fa fa-question-circle-o" style="font-size:15px; color: rgb(102, 102, 232);" ></i>               
-        <ion-input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="Trucknumber" placeholder=" Enter your truck number"> </ion-input>     
+        <ion-input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="Trucknumber" placeholder=" Enter your truck number" > </ion-input>     
         <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Trucknumber.errors?.required" style="color: red;">
           Trucknumber is required.
         </span>
         <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Trucknumber.errors?.pattern" style="color: red;">
+<<<<<<< HEAD
           Trucknumber shoul be like AB 12 AB 2663.
+=======
+          Trucknumber should be in AB 12 HG 6399.
+>>>>>>> af77e98477c3a8eea233dbad5f6d847a3be0d16d
         </span>
+        
         <br>
         <br>
 
@@ -109,5 +114,6 @@
           <ion-button type="submit" (click)="submitForm()">Submit</ion-button>
         </div>             
       </ion-list>           
-   </form> 
+   </form>
+   
 </ion-content>

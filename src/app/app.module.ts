@@ -9,6 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FirstCapDirective } from './first-cap.directive';
 
+// import { UniqueDeviceID } from '@ionic-native/unique-device-id/ngx';
+
+
 
 
 @NgModule({

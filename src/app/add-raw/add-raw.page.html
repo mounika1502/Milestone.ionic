@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-row>
       <ion-col>
-    <ion-icon name="arrow-back-sharp" routerLink="/inventory" style="font-size: 30px;"></ion-icon>
+    <ion-icon name="arrow-back-sharp" routerLink="/raw-product" style="font-size: 30px;"></ion-icon>
   </ion-col>
   <ion-col>
     
@@ -20,9 +20,7 @@
       <ion-list style="padding-left: 2.5%;">                      
             <ion-label ><b>Upload image :</b></ion-label><br>
             <ion-input appFirstCap type="file" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2em;border:1px solid #c2c5ca;"  (change)="selectImage($event)" placeholder=" upload your image url"></ion-input>
-            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Image.errors?.required" style="color: red;">
-              Image is required.
-            </span>
+     
             <br>
 
             <ion-label ><b>S.NO :</b></ion-label><br>
@@ -170,6 +168,7 @@
         <ion-button type="submit" (click)="onClick()">Submit</ion-button>
       </div>  
     </form> 
+    
 </ion-content>
 
   

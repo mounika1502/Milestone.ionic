@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
-import { Platform } from '@ionic/angular';
 
+// import OneSignal from 'onesignal-cordova-plugin';
+
+import { Platform } from '@ionic/angular';
+// import { UniqueDeviceID } from '@ionic-native/unique-device-id/ngx';
+// import OneSignal from 'onesignal-cordova-plugin';
 
 @Component({
   selector: 'app-root',
@@ -16,8 +20,19 @@ export class AppComponent {
   cartItem: number = 0;
 
   AllNotifications: any[] = [];
-  constructor(private platform: Platform ) {
+  public alertButtons = [
+    {
+      text: 'No',
+      cssClass: 'alert-button-cancel',
+    },
+    {
+      text: 'Yes',
+      cssClass: 'alert-button-confirm',
 
+    },
+   
+  ];
+  constructor(private platform: Platform ) {
     platform.ready().then(() => {
       this.OneSignalInit();
     })
@@ -27,19 +42,28 @@ export class AppComponent {
 
     };
   }
+ 
 
   ngOnInit(): void {
     this.text = JSON.parse(localStorage.getItem('Login') || '{}')
     console.log(this.text)
     this.aa = this.text.UserType
     console.log(this.aa)
-   
+
+
+    
+    // this.getUniqueDeviceID();
+
   }  // itemsCart is a global array
 
-  logout() {
-    // localStorage.clear();
 
-    window.location.href = '/login'
+  logout() {
+  
+if(confirm("Are you sure do you want to logout")){
+  window.location.href = '/login'
+}
+    
+   
 
   }
   // getUniqueDeviceID() {
@@ -55,9 +79,6 @@ export class AppComponent {
   //       this.UniqueDeviceID = "Error! ${error}";
   //     });
   // }
-
-
-  // Call this function when your app starts
   OneSignalInit(): void {
     // Uncomment to set OneSignal device logging to VERBOSE  
     // OneSignal.setLogLevel(6, 0);
@@ -124,6 +145,10 @@ export class AppComponent {
 
     // });
   }
+
+
+  // Call this function when your app starts
+
 
 
 }

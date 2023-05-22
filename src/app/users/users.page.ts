@@ -110,6 +110,7 @@ searchtext:any;
     // this.data4=false;
   }
   data5(){
+    
     fetch("https://tiny-ruby-centipede-hat.cyclic.app/signupform/getsignupdetails",{
       method:"GET",
       headers:{

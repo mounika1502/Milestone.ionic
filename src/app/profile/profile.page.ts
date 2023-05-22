@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class ProfilePage implements OnInit {
 
-
+  imageFile:any
   text:any=[]  
   profile = true;
   companyForm= false;
@@ -21,11 +21,18 @@ export class ProfilePage implements OnInit {
   filePath: any;
   images: any;
   data: any;
+  aa: any;
+  signupSubmit: any;
 
   constructor( private apii: UploadService, private fb: FormBuilder,private router:Router) {
   }
 
   ngOnInit(): void {
+
+    
+    
+      //formdata.append('file',this.images);
+    
     this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
      console.log(this.text)
      console.log(this.text.Company)
@@ -36,6 +43,10 @@ export class ProfilePage implements OnInit {
       bio:new FormControl("")
 
      }) 
+     this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+     console.log(this.text)
+     this.aa=this.text.UserType
+     console.log(this.aa)
   }
 
 
@@ -45,37 +56,38 @@ export class ProfilePage implements OnInit {
   }
 
  
-      selectImage(event: any) {
-        if (event.target.files.length > 0) {
-          console.log(event.target.files)
+      // selectImage(event: any) {
+      //   if (event.target.files.length > 0) {
+      //     console.log(event.target.files)
     
-          const file = event.target.files;
-          //const file:File = event.target.files[0];
-          console.log(file);
-          this.images = file;
-          // const formdata = new FormData();
-          // formdata.append('file', this.images);
-          // console.log(formdata)
+      //     // const file = event.target.files;
+      //     const file:File = event.target.files[0];
+      //     console.log(file);
+      //     this.images = file;
+          
+      //     // const formdata = new FormData();
+      //     // formdata.append('file', this.images);
+      //     // console.log(formdata)
            
-        }
-        console.log(this.images)
-      }
-      // onClick() {
-  
-      //   console.log(this.data)
-      // const formdata = new FormData();
-      // for(let pdffiles of this.images){
-      //   formdata.append("file",pdffiles)
+      //   }
+      //   console.log(this.images)
       // }
-      //  this.apii.postfiletos3(formdata).subscribe(data=>{
-      //   console.log(data)
-      //   var docid=data.imageFile._id
-       
-      //   alert("file uploaded")
-      //  })
-    
-      //   //formdata.append('file',this.images);
-      //   console.log(formdata)
+      // onClick() {
+      //   console.log(this.data)
+      //   const formdata = new FormData();
+      
+      //     formdata.append("file",this.images)
+        
+      //    this.apii.postfiletos5(formdata).subscribe(data=>{
+      //     console.log(data)
+      //     console.log(formdata)
+      //     var docid=data.imageFile.filePath
+      //     console.log(docid)
+      //     var docid=data.imageFile._id
+      //     this.signupSubmit(docid) 
+      //     alert("file uploaded")
+      //    })
+      
       // }    
 
   edit(text:any){

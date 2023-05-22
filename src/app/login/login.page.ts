@@ -65,19 +65,3 @@ export class LoginPage implements OnInit {
     return this.loginForm.get('password');
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InventoryDataPage implements OnInit {
   data: any;
+  text: any;
+  aa: any;
 
   constructor() { }
 
@@ -15,6 +17,10 @@ export class InventoryDataPage implements OnInit {
     if(localdata!=null){
       this.data = JSON.parse(localdata)
     }
+    this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+    console.log(this.text)
+    this.aa=this.text.UserType
+    console.log(this.aa)
   }
 
   edit(products:any){

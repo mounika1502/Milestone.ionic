@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-icon name="arrow-back-sharp" routerLink="/shippers" style="font-size: 30px;"></ion-icon>
+    <div style="text-align: center;">
+      <img style="width:25%;margin-left: -18%;" src="/assets/mistlogo.png">
+    </div>
   </ion-toolbar>
 </ion-header>
 <ion-content>   
@@ -51,5 +54,6 @@
         <button type="button" [hidden]="aa === 'Dealer'" (click)="edit(this.data)" class="edit">Edit</button>
         <button type="button" [hidden]="aa === 'Dealer'" (click)="delete(this.data.Mobile)" class="delete">Delete</button>
       </div>
-    </ion-list>     
+    </ion-list>  
+       
 </ion-content>

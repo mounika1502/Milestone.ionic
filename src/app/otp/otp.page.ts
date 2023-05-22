@@ -46,6 +46,7 @@ export class OtpPage implements OnInit {
       height: '45px',
     },
   };
+  text: any;
 
   keyUpEvent(event:any, index:any) {
     let pos = index;
@@ -81,6 +82,8 @@ export class OtpPage implements OnInit {
 
    this.verified = JSON.parse(localStorage.getItem('regdata') || '{}')
    console.log(this.verified.role)
+   this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+   console.log(this.text)
 
  }
 

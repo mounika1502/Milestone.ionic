@@ -33,6 +33,8 @@ export class BlackgalaxyPage implements OnInit {
   itemsCart: any;
   cartItem:number = 0;
   data: any;
+  text: any;
+  aa: any;
   
   constructor(){
     this.get();
@@ -40,6 +42,10 @@ export class BlackgalaxyPage implements OnInit {
   
   
     ngOnInit(): void {
+      this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+      console.log(this.text)
+      this.aa=this.text.UserType
+      console.log(this.aa)
      
       this.type=JSON.parse(localStorage.getItem('rahul')||'{}') ;
       

@@ -2,12 +2,14 @@
   <ion-menu menuId="main-menu" content-id="main"> 
     <ion-header >
       <ion-toolbar>   
-        <div class="header-content" routerLink="/profile" style="display: flex;" >
+        <ion-menu-toggle>
+        <div class="header-content" routerLink="/profile" style="display: flex;background-color: #697184;" >
           <img src="https://pixlok.com/wp-content/uploads/2021/03/default-user-profile-picture.jpg" style="width:20%;border-radius: 80%;height: 15%;margin-top: 10px;padding: 1%;" routerLink="/profile">
           <span> <h2 style="margin-left: 15px;font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;font-size: 19px;">{{text.Firstname}} {{text.Lastname}}</h2>
             <p style="margin-left: 15px;margin-top:-10px;font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">{{text.UserType}}</p>
            </span>
-        </div>      
+        </div>  
+        </ion-menu-toggle>    
     </ion-toolbar>   
 </ion-header>
 
@@ -69,7 +71,7 @@
 
     <div [hidden]= "aa === 'Dealer'">
       <ion-menu-toggle>
-        <ion-item routerLink="/dealermanagement">
+        <ion-item routerLink="/dealers">
           <ion-icon name="person-outline"style="color: rgb(95, 95, 231);"></ion-icon>
           <ion-label  menuId="main-menu" content-id="main"> &nbsp; &nbsp; &nbsp;Dealers Management</ion-label>
         </ion-item>
@@ -116,7 +118,9 @@
       <ion-menu-toggle>
         <ion-item (click)="logout()">
           <ion-icon name="log-out-outline"style="color: rgb(95, 95, 231);" ></ion-icon>
-          <ion-label >&nbsp; &nbsp; &nbsp;Logout</ion-label>
+          <ion-label  id="present-alert">&nbsp; &nbsp; &nbsp;Logout</ion-label>
+        
+
         </ion-item>
       </ion-menu-toggle>
     </div>
@@ -126,7 +130,38 @@
 </ion-menu>
 
   <ion-router-outlet id="main"></ion-router-outlet>
- 
+  <!-- <ion-tabs >
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="home" routerLink="/home">
+        <ion-icon name="home-outline" ></ion-icon>
+        Home
+      </ion-tab-button>
+      <ion-tab-button tab="inventory" [hidden]="aa==='Dealer'" routerLink="/inventory">
+        <ion-icon name="albums-outline"></ion-icon>
+        Inventory
+      </ion-tab-button>
+      <ion-tab-button tab="product" [hidden]="aa==='Manufacturer'" routerLink="/product">
+        <ion-icon name="albums-outline"></ion-icon>
+        Products
+      </ion-tab-button>
+      <ion-tab-button tab="dealers" routerLink="/dealers" [hidden]="aa==='Dealer'" [hidden]="aa==='admin'" >
+        <ion-icon name="people-outline"></ion-icon>
+        Dealers
+      </ion-tab-button>
+      <ion-tab-button tab="manufacturers" routerLink="/manufacturers" [hidden]="aa==='Manufacturer'|| 'admin'" >
+        <ion-icon name="people-outline"></ion-icon>
+        Manufacturers
+      </ion-tab-button>
+      <ion-tab-button tab="users" routerLink="/users" [hidden]="aa==='Manufacturer'|| 'Dealer'" >
+        <ion-icon name="people-outline"></ion-icon>
+        Users
+      </ion-tab-button>
+      <ion-tab-button tab="profile" routerLink="/profile">
+        <ion-icon name="person-outline"></ion-icon>
+        Profile
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs> -->
 </ion-app>
 
 

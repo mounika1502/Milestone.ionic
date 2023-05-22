@@ -5,31 +5,29 @@
       <ion-icon name="arrow-back-sharp" routerLink="/inventory" style="font-size: 30px;"></ion-icon>
     </ion-col>
     <ion-col>
-      
-
-      <img style="width:43%;margin-left: -27%;" src="/assets/mistlogo.png">
-   
+      <img style = "width:43%;margin-left: -27%;" src = "/assets/mistlogo.png">
     </ion-col>
       </ion-row>
     </ion-toolbar>
   </ion-header>
-
   <ion-content [fullscreen]="true">
     <h1 style="text-align: center;"><b>ADD PRODUCT</b></h1>
     <form [formGroup]="productForm">
     <hr>                                                                                                      
   <ion-list style="padding-left: 2.5%;">    
    <ion-input type="hidden" style="margin-top: -45px;" formControlName="qnt"></ion-input>
-    
     <ion-label style="margin-top: -30px;" ><b>Upload image :</b></ion-label><br>
     <ion-input type="file" style=" width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);padding: 5%;"  (change)="selectImage($event)"  placeholder=" upload your image url"></ion-input>
-
     <ion-label ><b>S.NO :</b></ion-label><br>
+
     <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);padding: 5%;" formControlName="prodId" placeholder=" Enter your product ID"> </ion-input>                                         
     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.prodId.errors?.required" style="color: red;">
      S.no is required.
      </span>
      <br>
+
+
+    <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);padding: 5%;" formControlName="prodId" placeholder=" Enter your product ID"> </ion-input>                                         
 
     <ion-label ><b>Name of product :</b></ion-label>
       <ion-select  appFirstCap formControlName="name" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" class="fa fa-caret-down" placeholder="Select name of product &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
@@ -87,6 +85,7 @@
       <ion-select-option value="Thunder White">Thunder White</ion-select-option>
       <ion-select-option value="Viscount White">Viscount White</ion-select-option>
       <ion-select-option value="VizagBlue">Vizag Blue</ion-select-option>
+
     </ion-select> 
     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.name.errors?.required" style="color: red;">
       Name is required.
@@ -216,6 +215,7 @@
     <ion-button type="submit" (click)="onClick()">Submit</ion-button>
  </div>
 </form> 
+
 </ion-content>
 
  

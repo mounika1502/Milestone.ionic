@@ -32,9 +32,17 @@ export class AddProductPage  {
   finalmonth: any;
   finalday: any;
   filePath: any;
+
   isSubmitted=false;
 
+
+  aa:any;
+
   ngOnInit(): void {
+    this.text = JSON.parse(localStorage.getItem('Login') || '{}')
+    console.log(this.text)
+    this.aa = this.text.UserType
+    console.log(this.aa)
     if (this.currentMonth < 10) {
       this.finalmonth = "0" + this.currentMonth
     } else {
@@ -54,6 +62,7 @@ export class AddProductPage  {
     this.textaws = JSON.parse(localStorage.getItem('aws') || '{}')
     console.log(this.textaws)
 
+
     this.productForm = this.formBuilder.group({ 
       prodId: ['', [Validators.required]],
       name:  ['', [Validators.required]],
@@ -61,17 +70,8 @@ export class AddProductPage  {
       size:  ['', [Validators.required,Validators.pattern('^[0-9]{3}[*][0-9]{3}')]],
       stone: ['', [Validators.required]],
       thick: ['', [Validators.required]],
-      qnt: new FormControl("0"),
-      Quantity: ['', [Validators.required,Validators.pattern('[0-9]+$')]],
-      price: ['', [Validators.required,Validators.pattern('[0-9]+$')]],
-      region: ['', [Validators.required,Validators.pattern('[a-zA-Z]+$')]],
-      quality: ['', [Validators.required]],
-      date: ['', [Validators.required]],
-      mobile: new FormControl(""),
-      PhoneNumber:['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
-      description: ['', [Validators.required]],
-      manufacturername: ['', [Validators.required,Validators.pattern('[a-zA-Z]+$')]],     
     })
+   
   }
 
   cancel() {
@@ -93,7 +93,13 @@ export class AddProductPage  {
       }).then(res => res.json())
         .then(result => {
           console.log(result)
+
           window.location.href="/inventory"         
+
+          alert("Added...")
+           window.location.href="/inventory"
+         
+
         }
         )
         .catch(error => console.log('error', error))
@@ -119,7 +125,7 @@ export class AddProductPage  {
     console.log(data)
     var docid=data.imageFile._id
     this.submitForm(docid) 
-    alert("file uploaded")
+   
    })
     console.log(formdata)
   }

@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dealerorders.page.scss'],
 })
 export class DealerordersPage implements OnInit {
-  searchtext:any
+  searchtext:any;
+  cartItem:number=0;
   manufacturername:any;
   PhoneNumber:any;
   Quantity:any;
@@ -78,11 +79,8 @@ OrderStatus:any;
     console.log(this.text)
     this.manumob=this.text.mobile
     console.log(this.manumob)
-
-  
-
-    fetch("https://tiny-ruby-centipede-hat.cyclic.app/orderRoute/getOrders",{
-
+    this.getCartDetails = JSON.parse(localStorage.getItem('anunya') || '{}');
+    fetch("http://localhost:7500/orderRoute/getOrders",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -93,16 +91,6 @@ OrderStatus:any;
       console.log(result),
       this.order = result.orders
     console.log(this.order)
-
-  //   this.randomNumber = Math.floor(Math.random() * 9000000000) + 1000000000;
-  //   console.log(this.randomNumber)
-  //   localStorage.setItem('orderid',JSON.stringify(this.randomNumber))
-  //   this.count=this.order.length;
-  //   console.log(this.count)
-  //   for(let i = 0;i < this.order.length;i++){
-  //     this.data1 = this.order[i]  
-  //     console.log(this.order[i].OrderData.OrderItems )   
-
     this.randomNumber = Math.floor(Math.random() * 9000000000) + 1000000000;
     console.log(this.randomNumber)
     localStorage.setItem('orderid',JSON.stringify(this.randomNumber))
@@ -111,49 +99,48 @@ OrderStatus:any;
     for(let i = 0;i < this.order.length;i++){
       this.data1 = this.order[i]  
       console.log(this.order[i].OrderData.OrderItems )   
-
     
       this.data2.push(this.data1.OrderData.OrderItems)
       console.log(this.data2)
    } 
-  //  for(let i = 0;i < this.data2.length;i++){
-  //   this.data1 = this.data2[i]
-  //   var data =this.order[i].OrderData.Phone
+   for(let i = 0;i < this.data2.length;i++){
+    this.data1 = this.data2[i]
+    var data =this.order[i].OrderData.Phone
    
 
-  //  if(data==this.manumob )
+   if(data==this.manumob )
    
-  //  {
+   {
     
-  //   this.data3.push(this.order[i] )
+    this.data3.push(this.order[i] )
     
     
-  //  }
-  // //  else{
-  // //   this.order.length=0;
-  // //   this.count=this.order.length;
-   
-  // //  }
- 
-  // }  if(this.data3.length!=0)
-  // {
-  // this.order=this.data3
-  //   console.log(this.order)
-  //   localStorage.setItem('prodstatus',JSON.stringify(this.order));
-  //   console.log(this.order)
-  //   this.count=this.order.length;
-   
-  
-  //    console.log(this.data3)
-  // }
-  // else{
+   }
+  //  else{
   //   this.order.length=0;
   //   this.count=this.order.length;
-  // }
-  //   for(let i = 0;i < this.order.length;i++){
-  //      this.data = this.order[i]      
-  //   }  
-   }
+   
+  //  }
+ 
+  }  if(this.data3.length!=0)
+  {
+  this.order=this.data3
+    console.log(this.order)
+    localStorage.setItem('prodstatus',JSON.stringify(this.order));
+    console.log(this.order)
+    this.count=this.order.length;
+   
+  
+     console.log(this.data3)
+  }
+  else{
+    this.order.length=0;
+    this.count=this.order.length;
+  }
+    // for(let i = 0;i < this.order.length;i++){
+    //    this.data = this.order[i]      
+    //}  
+    }
     ).catch(err =>
       console.log('error',err))
   }
@@ -180,9 +167,8 @@ OrderStatus:any;
 Orderid(){
 
 } 
- placed(){
- 
-  const localdata = localStorage.getItem('prodstatus')  
+placed(){
+  const localdata = localStorage.getItem('Prod')  
   if(localdata!=null){                                                                                 
     this.order1 =JSON.parse(localdata) 
     console.log( this.order1);
@@ -210,12 +196,80 @@ this.count=this.order.length;
 }  
  }   
  Shipped(){   
-    const localdata = localStorage.getItem('prodstatus')  
+    const localdata = localStorage.getItem('Prod')  
     if(localdata!=null){                                                                                 
       this.order1 =JSON.parse(localdata) 
       console.log( this.order1);    
   }
+  this.data2.length = 0;
+  this.data3.length = 0;
+    for(let i = 0;i < this.order1.length;i++){
+      this.data1 = this.order1[i]  
+      console.log(this.order1[i].OrderData.OrderItems )   
+      this.data2.push(this.data1.OrderData.OrderItems)
+      console.log(this.data2)
+   } 
+   for(let i = 0;i < this.data2.length;i++){
+    this.data1 = this.data2[i]
+   this.statusdata =this.data1[0].OrderStatus
+   
+   if(this.statusdata=='Delivered')
+   {
+    this.data3.push(this.order1[i] )
+   }
+  this.order=this.data3
+  this.count=this.order.length;
+   console.log(this.data3)
+   localStorage.setItem('Orderstatus',JSON.stringify(this.order))
+  }  
+   }   
+   inprogress(){
+  
+    var body ={
+      Email:this.text.Email
+    }
+    const localdata = localStorage.getItem('Prod')  
+    if(localdata!=null){                                                                                 
+      this.order1 =JSON.parse(localdata) 
+      console.log( this.order1);
+      }
+        this.data2.length = 0;
+  this.data3.length = 0;
+    for(let i = 0;i < this.order1.length;i++){
+      this.data1 = this.order1[i]  
+      console.log(this.order1[i].OrderData.OrderItems )   
+      this.data2.push(this.data1.OrderData.OrderItems)
+      console.log(this.data2)
+   } 
+   for(let i = 0;i < this.data2.length;i++){
+    this.data1 = this.data2[i]
+   var data =this.data1[0].OrderStatus
+   if(data=='Shipped')
+   {
+    this.data3.push(this.order1[i] )
+   }
 
+  this.order=this.data3
+  this.count=this.order.length;
+   console.log(this.data3)
+  }  
+  fetch("http://localhost:7500/orderRoute/orderupdate", {
+    method:'post',
+    headers:{
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type":'application/json'
+    },  
+     body:JSON.stringify(body)
+    
+    }).then(res=> res.json())
+    .then(result=>{ 
+    console.log(result)  
+    }
+    )
+    .catch(error => console.log('error',error))
+   }   
+  
+all(){
+  window.location.reload();
 }
 }
-

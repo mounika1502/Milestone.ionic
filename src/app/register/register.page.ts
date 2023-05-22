@@ -52,14 +52,13 @@ setOpen(isOpen: boolean) {
   //     });
   // }
 
-  passwordType: string = 'password';
-  passwordIcon: string = 'eye-off';
- 
-  hideShowPassword() {
-      this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
-      this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
-  }
-  
+   passwordType: string = 'password';
+ passwordIcon: string = 'eye-off';
+
+ hideShowPassword() {
+     this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
+     this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
+ }
   get errorControl() {
     return this.SignupForm.controls;
   } 

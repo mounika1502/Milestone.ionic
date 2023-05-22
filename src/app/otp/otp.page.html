@@ -1,6 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-icon name="arrow-back-sharp" routerLink="/inventory" style="font-size: 30px;"></ion-icon>
+    <ion-icon name="arrow-back-sharp" routerLink="/mobile-login" style="font-size: 30px;"></ion-icon>
+  
   </ion-toolbar>
 </ion-header>
 
@@ -9,7 +10,7 @@
 
     <form  [formGroup]="form">
       <h3>OTP VERIFICATION</h3>
-      <p class="info">An otp has been sent to ********90</p>
+      <p class="info">An otp has been sent to {{text.mobile}}</p>
       <p class="msg">Please enter OTP to verify</p>
      
     <div class="row ">

@@ -8,7 +8,8 @@
 
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-icon name="arrow-back-sharp" routerLink="/cart" style="font-size: 30px;"></ion-icon>
+    <ion-icon name="arrow-back-sharp" routerLink="/galaxyroute" style="font-size: 30px;"></ion-icon>
+    
   </ion-toolbar>
 </ion-header>
 
@@ -95,9 +96,14 @@
           <ion-select-option value="UttarPradesh">Uttar Pradesh</ion-select-option>
           <ion-select-option value="West Bengal">West Bengal</ion-select-option>
         </ion-select>
+        
       </ion-item>
-
-      <ion-button  (click)="cash1()">ghjk</ion-button>
+   
+      <ion-button  style="height: 50px;   border-radius: 10px; margin-top:20px;" expand="full" strong="true" type="submit"     (click)="cash1()" >
+        Continue to Pay
+   
+       </ion-button>
+     
     </ion-list>
 
      
@@ -106,8 +112,7 @@
     </ion-content>
 
 
-      <ion-button style="margin-left: 86px;" (click)="cash1()" >Continue to Pay</ion-button>
-   
+      
 
       
 

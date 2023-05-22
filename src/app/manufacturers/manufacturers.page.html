@@ -1,29 +1,45 @@
-<ion-header>
-  <ion-toolbar >
-<ion-buttons slot="start" >
-<ion-menu-button style="color:white"  menu="main-menu"></ion-menu-button>
-</ion-buttons>
+<ion-header [translucent]="true">
+  <ion-toolbar>   
+      <ion-buttons slot="start" >
+      <ion-menu-button  menu="main-menu"></ion-menu-button>
+    
+      </ion-buttons>
 
+      <ion-icon name="cart" style=" margin-top: 7px;font-size: 30px;margin-left: -17px;margin-right: 18px;" slot="end" ></ion-icon>
+<span class="number" style="    font-size: 15px;
+font-weight: 700;
+margin-right: 6px;
+margin-left: -21px;
+margin-top: -12px;
+color: #ecdd28;" slot="end" routerLink="/cart" >{{cartItem}} </span>
   </ion-toolbar>
 </ion-header>
 
 <ion-content id="main">
-  <!-- <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">dealermanagement</ion-title>
-    </ion-toolbar>
-  </ion-header> -->
+
   <ion-searchbar placeholder="Search..." [(ngModel)]="searchtext"></ion-searchbar><br>
-  <span class="button"   (click)="Get()"  >All Manufacturers</span><span class="button" (click)="data3()">My Manufacturers</span>  
+  <div class="container">
+    <ion-row>
+      <ion-segment [scrollable]="true" value="home" >     
+        <ion-col>
+          <ion-segment-button value="home" (click)="Get()">
+            <ion-label>All Manufacturers</ion-label>
+          </ion-segment-button>
+        </ion-col>
+        <ion-col>
+          <ion-segment-button value="star" (click)="data3()">
+            <ion-label>My Manufacturers</ion-label>
+          </ion-segment-button>
+        </ion-col>
+      </ion-segment>
+    </ion-row>
+  </div>
   <br>
   <br>
 <div *ngIf="data4">
   <div *ngFor="let text of List | filter:searchtext">
   <ion-card>
     <ion-card-content style="border: 1px solid #a6a6a6;border-radius: 9px;">
-
-
-
 <ion-card>
       <ion-row>
         <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">First Name</ion-col>
@@ -56,6 +72,7 @@
         <ion-col style="color: black;">:</ion-col>
         <ion-col>{{text.City}}</ion-col>
       </ion-row>
+     
       <ion-row>
         <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Address</ion-col>
         <ion-col style="color: black;">:</ion-col>
@@ -69,75 +86,71 @@
 <h6 style="text-align: center;color:green">Contact Dealer
   <ion-icon name="call" style="font-size: large;color:#197a19; "></ion-icon></h6>
     <p>
-      <a href="tel:{{text.mobile}}" style="margin-left: 110px;">{{text.mobile}}</a>
+      <a href="tel:{{text.mobile}}" style="margin-left: 38%;">{{text.mobile}}</a>
     </p>
 
   </ion-card>
   </div>
 </div>
 <div *ngIf="data">
-  <div *ngFor="let text of Array | filter:searchtext">
+  <div *ngFor="let data of Array | filter:searchtext">
   <ion-card>
     <ion-card-content style="border: 1px solid #a6a6a6;border-radius: 9px;">
-<ion-card>
+   <ion-card>
     <ion-row>
       <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">First Name</ion-col>
       <ion-col style="color: black;">:</ion-col>
-      <ion-col>{{text.Firstname}} </ion-col>
+      <ion-col>{{data.Firstname}} </ion-col>
     </ion-row>
+   
     <ion-row>
       <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Last Name</ion-col>
       <ion-col style="color: black;">:</ion-col>
-      <ion-col> {{text.Lastname}}</ion-col>
+      <ion-col> {{data.Lastname}}</ion-col>
     </ion-row>
- 
+    <ion-col type="text" style="margin-top: -45px;color :black" >{{this.aaa}} </ion-col>
     <ion-row>
       <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Phone</ion-col>
       <ion-col style="color: black;">:</ion-col>
-      <ion-col>{{text.mobile}}</ion-col>
+      <ion-col>{{data.mobile}}</ion-col>
     </ion-row>
     <ion-row>
       <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Address</ion-col>
       <ion-col style="color: black;">:</ion-col>
-      <ion-col>{{text.Street}}</ion-col>
+      <ion-col>{{data.Street}}</ion-col>
     </ion-row>
     <ion-row>
       <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">User Type</ion-col>
       <ion-col style="color: black;">:</ion-col>
-      <ion-col>{{text.UserType}}</ion-col>
+      <ion-col>{{data.UserType}}</ion-col>
     </ion-row>
     <ion-row>
       <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">State</ion-col>
       <ion-col style="color: black;">:</ion-col>
-      <ion-col>{{text.State}}</ion-col>
+      <ion-col>{{data.State}}</ion-col>
     </ion-row>
     <ion-row>
       <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">City</ion-col>
       <ion-col style="color: black;">:</ion-col>
-      <ion-col>{{text.City}}</ion-col>
+      <ion-col>{{data.City}}</ion-col>
     </ion-row>
     <ion-footer style="text-align: center;text-decoration: underline;color: rgb(70, 70, 212);">
-      {{text.Email}}
+      {{data.Email}}
      </ion-footer>
+     
      <br>
  
     </ion-card>
-    <button style="border: 1px solid #697184;color:#697184" (click)="dealer2(text)"  (click)="setOpen(true)" style="margin-left: 38%;" >Add</button>
+    <ion-button style="border: 1px solid #697184;color:#697184" (click)="dealer2(data)"   style="margin-left: 38%;" >Add</ion-button>
   
   </ion-card-content>
 
-<ion-alert
-  [isOpen]="isAlertOpen"
-  header="Alert"
-  subHeader="Important message"
-  message="Added Successfully"
-  [buttons]="alertButtons"
-  (didDismiss)="setOpen(false)"
-></ion-alert>
+
 
   </ion-card>
   </div>
 </div>
+
 </ion-content>
 
 

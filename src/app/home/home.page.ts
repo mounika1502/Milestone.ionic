@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomePage implements OnInit {
   text: any;
   aa: any;
+  cartItem:number = 0;
 
   constructor() { }
 

@@ -56,11 +56,10 @@ setOpen(isOpen: boolean) {
   constructor() {}
   ngOnInit(): void {
    this.Get()
-    this.localid=JSON.parse(localStorage.getItem('docId')|| '{}')
-      this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
-      console.log(this.text)
-      this.aa=this.text.UserType
-      console.log(this.aa) 
+    // this.localid=JSON.parse(localStorage.getItem('docId')|| '{}')
+      this.aa = JSON.parse(localStorage.getItem('Login')||'{}') 
+      this.Mobile = this.aa.mobile
+      console.log(this.Mobile) 
   }
   Get(){
     fetch("https://tiny-ruby-centipede-hat.cyclic.app/signupform/getsignupdetails",{
@@ -90,20 +89,26 @@ setOpen(isOpen: boolean) {
 data3(){
   this.data4=true;
   this.data=false;
-  fetch("https://tiny-ruby-centipede-hat.cyclic.app/dealer/getdealer",{
-    method:"GET",
-    headers:{
-      "access-Control-Allow-Origin":"*",
-    },
-  })
-  .then(response => response.json())
-  .then(result =>{
-    console.log(result),
-    this.List1 = result.dealerInfo
-  console.log(this.List1)
-  }
-  ).catch(err =>
-    console.log('error',err))
+  var datauma={
+    Mobile:this.text.Mobile
+  }   
+    fetch("https://tiny-ruby-centipede-hat.cyclic.app/dealer/getdealer",{
+      method:"post",
+      headers:{
+        "access-Control-Allow-Origin":"*",
+      },
+      body:JSON.stringify(datauma)
+    })
+    .then(response => response.json())
+    .then(result =>{
+      console.log(result),
+      this.List1 = result.dealerInfo
+    console.log(this.List1)
+    }
+    ).catch(err =>
+      console.log('error',err))
+ 
+
 }
 Dealer(){
   this.dealers=true;
@@ -111,33 +116,49 @@ Dealer(){
   toggle(){
   this.data=true;
   }
+
+  
   dealer2(data:any){  
-// if(this.text.Isadd==1){
-//   alert("oijuhygtrf")
-// }else{
+var datasss ={
+  Firstname:data.Firstname,
+  Lastname:data.Lastname,
+  Company:data.Company,
+  mobile:data.mobile,
+  Email:data.Email,
+  Street:data.Street,
+  State:data.State,
+  UserType:data.UserType,
+  City:data.City,
+  Mobile:this.Mobile
+
+}
+  console.log(datasss)
     fetch("https://tiny-ruby-centipede-hat.cyclic.app/dealer/adddealer",{
       method:'POST',
       headers:{
         "Access-Control-Allow-Origin":"*",
         "Content-Type":'application/json'
       },
-    body:JSON.stringify(data)
+    body:JSON.stringify(datasss)
     
     })  .then(response => response.json())
    
     .then(result =>{
+      console.log(result),
+      alert("Added...")
+      
     
-      data.Isadd=0;
-var id=data._id
+//       data.Isadd=0;
+// var id=data._id
      
-     let index =this.array.findIndex((item:any)=>item._id === id)
-      this.array.splice(index,1,data)
-      console.log( this.docId)
+//      let index =this.array.findIndex((item:any)=>item._id === id)
+//       this.array.splice(index,1,data)
+//       console.log( this.docId)
      
-      localStorage.setItem('array',JSON.stringify(this.array))
-      localStorage.setItem('docId',JSON.stringify(this.docId))
-       this.docId=result.dealerInfo._id
-      localStorage.setItem('docId',JSON.stringify(this.docId))
+//       localStorage.setItem('array',JSON.stringify(this.array))
+      // localStorage.setItem('docId',JSON.stringify(this.docId))
+      //  this.docId=result.dealerInfo._id
+      // localStorage.setItem('docId',JSON.stringify(this.docId))
      
     
     }

@@ -21,14 +21,16 @@ export class CompanydetailsPage implements OnInit {
   filePath: any;
   images: any;
   data: any;
+  aa: any;
 
   constructor( private apii: UploadService, private fb: FormBuilder,private router:Router) {
   }
 
   ngOnInit(): void {
     this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
-     console.log(this.text)
-     console.log(this.text.Company)
+    console.log(this.text)
+    this.aa=this.text.UserType
+    console.log(this.aa)
 
      this.Form = new FormGroup({
       Company:new FormControl(""),
