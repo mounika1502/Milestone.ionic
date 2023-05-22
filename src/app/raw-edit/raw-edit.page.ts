@@ -39,7 +39,7 @@ export class RawEditPage implements OnInit {
   update(id:any){  
     console.log(this.rawForm.value) 
     localStorage.setItem('RawUpdate',JSON.stringify(this.data));
-    fetch("https://tiny-ruby-centipede-hat.cyclic.app/raw/editRaw/" + id,  {
+    fetch("https://ill-pear-salmon-cape.cyclic.app/raw/editRaw/" + id,  {
       method: 'PUT',
       headers: {
         "access-Control-Allow-Origin": "*",        

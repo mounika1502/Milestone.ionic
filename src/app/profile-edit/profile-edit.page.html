@@ -1,9 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-icon name="arrow-back-sharp" routerLink="/profile" style="font-size: 30px;">Edit Profile</ion-icon>
-    <div style="text-align: center;">
-      <img style="width:25%;margin-left: -18%;" src="/assets/mistlogo.png">
-    </div>
+ 
   </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -11,7 +9,8 @@
           <form [formGroup]="ProfileForm">   
        
             <h2 style="color: blue;">Personal Details</h2>
-              
+            <ion-input type="file" style=" width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);padding: 5%;"  (change)="selectImage($event)"  placeholder=" upload your image url"></ion-input>
+          
                     <ion-label ><b>First Name :</b></ion-label><br>
                     <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;"  [(ngModel)]="text.Firstname" formControlName="Firstname" name="Firstname"> <br>                   
                  
@@ -52,7 +51,7 @@
                     <ion-label ><b>Company Bio :</b></ion-label><br>
                     <textarea type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height:8em;border:1px solid #c2c5ca;margin-bottom: 1em;" [(ngModel)]="text.bio" formControlName="bio" name="Firstname"></textarea>                      
                 <div class="center">
-                  <button type="submit" class="button" (click)="update(text.Authentication)">Save</button>
+                  <button type="submit" class="button" (click)="onClick()">Save</button>
                 </div>          
         </form>
       </ion-list> 

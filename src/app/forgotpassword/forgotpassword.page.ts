@@ -28,7 +28,7 @@ export class ForgotpasswordPage implements OnInit {
   //login form submit function
   submit(){
     console.log(this.Form.value) 
-     fetch("https://tiny-ruby-centipede-hat.cyclic.app/auth/getsignupdetail", {
+     fetch("https://ill-pear-salmon-cape.cyclic.app/auth/getsignupdetail", {
       method:'post',
       headers:{
         "Access-Control-Allow-Origin": "*",

@@ -35,7 +35,7 @@ export class ProfilePage implements OnInit {
     
     this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
      console.log(this.text)
-     console.log(this.text.Company)
+     console.log(this.text.filePath)
 
      this.Form = new FormGroup({
       Company:new FormControl(""),
@@ -100,7 +100,7 @@ export class ProfilePage implements OnInit {
     localStorage.setItem('Login',JSON.stringify(this.text))
     console.log(this.Form.value)
     
-        fetch("https://tiny-ruby-centipede-hat.cyclic.app/signupform/addCompany/" + this.text.Authentication, {
+        fetch("https://ill-pear-salmon-cape.cyclic.app/signupform/addCompany/" + this.text.Authentication, {
           method: 'PUT',
           headers: {
             "access-Control-Allow-Origin": "*",        

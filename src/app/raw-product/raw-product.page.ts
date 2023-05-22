@@ -31,7 +31,7 @@ export class RawProductPage {
       console.log(this.aa)
 
     if(this.aa==='Dealer'){
-      fetch("http://localhost:7500/raw/getrawproduct", {
+      fetch("https://ill-pear-salmon-cape.cyclic.app/getrawproduct", {
         method:'get',
         headers:{
           "Access-Control-Allow-Origin": "*",
@@ -53,7 +53,7 @@ export class RawProductPage {
           var data = {
             mobile :this.text.mobile
           }   
-          fetch("https://tiny-ruby-centipede-hat.cyclic.app/raw/getraw", {
+          fetch("https://ill-pear-salmon-cape.cyclic.app/raw/getraw", {
          method:'post',
          headers:{
            "Access-Control-Allow-Origin": "*",

@@ -11,5 +11,9 @@ export class Tab1Page implements OnInit {
 
   ngOnInit() {
   }
+  isModalOpen = false;
 
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
 }

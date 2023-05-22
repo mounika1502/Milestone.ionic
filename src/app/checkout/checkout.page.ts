@@ -101,7 +101,7 @@ export class CheckoutPage implements OnInit {
     console.log(Obj);
     if (Obj.Phone == this.text.mobile) {
       console.log(JSON.stringify(Obj))   //product details with user details
-      fetch("https://tiny-ruby-centipede-hat.cyclic.app/orderRoute/post", {
+      fetch("http://localhost:7500/orderRoute/post", {
         method: 'POST',
         headers: {
           "Access-Control-Allow-Origin": "*",
@@ -128,7 +128,7 @@ export class CheckoutPage implements OnInit {
     
   }
   // debugger
-  fetch("https://tiny-ruby-centipede-hat.cyclic.app/orderRoute/orderemail", {
+  fetch("http://localhost:7500/orderRoute/orderemail", {
     method:'post',
     headers: {
       "Access-Control-Allow-Origin": "*",
@@ -163,7 +163,7 @@ getProduct(){
   var data={
     mobile:this.text.mobile
   }    
-   fetch("https://tiny-ruby-centipede-hat.cyclic.app/products/getproduct", {
+   fetch("http://localhost:7500/products/getproduct", {
   method:'post',
   headers:{
     "Access-Control-Allow-Origin": "*",
@@ -186,7 +186,7 @@ UpdateQnty() {
   }
   console.log(this.dataqnt[0]._prodId)
   console.log(this.dataqnt[0].Quantity)
-  fetch("https://tiny-ruby-centipede-hat.cyclic.app/products/editqnt/" + this.dataqnt[0].prodId, {
+  fetch("http://localhost:7500/products/editqnt/" + this.dataqnt[0].prodId, {
     method: 'POST',
     headers: {
       "access-Control-Allow-Origin": "*",

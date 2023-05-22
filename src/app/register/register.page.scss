@@ -47,6 +47,7 @@ ion-list {
     }
     ion-item {
         border: 1px solid grey;
+        height: 1%;
         border-radius: 20px;
         -webkit-box-shadow: 0 6px 4px -4px var(--ion-color-medium);
         -moz-box-shadow: 0 6px 4px -4px var(--ion-color-medium);
@@ -78,4 +79,7 @@ ion-toolbar {
     position: relative !important;
     top: 2px !important;
     margin: 0 auto !important;
+ }
+ ion-input{
+    height: 10%;
  }

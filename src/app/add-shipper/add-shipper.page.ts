@@ -48,7 +48,7 @@ export class AddShipperPage implements OnInit {
       
       } else {
        
-           fetch("https://tiny-ruby-centipede-hat.cyclic.app/shippers/addshipper" ,{
+           fetch("https://ill-pear-salmon-cape.cyclic.app/shippers/addshipper" ,{
            method:'post',
            headers:{
              "Access-Control-Allow-Origin": "*",

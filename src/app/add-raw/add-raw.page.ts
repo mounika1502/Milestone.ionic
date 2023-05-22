@@ -77,7 +77,7 @@ export class AddRawPage implements OnInit {
   submitForm(id:any){
       
       console.log(this.productForm.value)
-       fetch("https://tiny-ruby-centipede-hat.cyclic.app/raw/addraw/"+id, {
+       fetch("https://ill-pear-salmon-cape.cyclic.app/raw/addraw/"+id, {
        method:'post',
        headers:{
          "Access-Control-Allow-Origin": "*",

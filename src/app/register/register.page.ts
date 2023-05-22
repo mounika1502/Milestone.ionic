@@ -20,6 +20,7 @@ export class RegisterPage implements OnInit {
   isAlertOpen = false;
   isSubmitted = false;
 public alertButtons = ['OK'];
+  filePath: any;
 
 setOpen(isOpen: boolean) {
   this.isAlertOpen = isOpen;
@@ -82,6 +83,7 @@ setOpen(isOpen: boolean) {
       Company:this.SignupForm.value.Company,
       State:this.SignupForm.value.State,
       uniqueDeviceID:this.UniqueDeviceID,
+      filePath:this.filePath,
       Message:'congratulations your signup successfully!!'
      }
      console.log(signupdata)
@@ -95,7 +97,7 @@ setOpen(isOpen: boolean) {
      alert('Please provide all the required values!')  
     } else {
 
-    fetch("https://tiny-ruby-centipede-hat.cyclic.app/signupform/addsignupdetails", {
+    fetch("https://ill-pear-salmon-cape.cyclic.app/signupform/addsignupdetails", {
      method:'post',
      headers:{
        "Access-Control-Allow-Origin": "*",
@@ -118,7 +120,7 @@ setOpen(isOpen: boolean) {
   var body ={
     Email:this.SignupForm.value.Email
   }
-  fetch("https://tiny-ruby-centipede-hat.cyclic.app/signupform/emailnotification", {
+  fetch("https://ill-pear-salmon-cape.cyclic.app/signupform/emailnotification", {
   method:'post',
   headers:{
   "Access-Control-Allow-Origin": "*",

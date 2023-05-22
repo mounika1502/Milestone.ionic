@@ -93,7 +93,7 @@ export class CompanydetailsPage implements OnInit {
     localStorage.setItem('Login',JSON.stringify(this.text))
     console.log(this.Form.value)
     
-        fetch("https://tiny-ruby-centipede-hat.cyclic.app/signupform/addCompany/" + this.text.Authentication, {
+        fetch("https://ill-pear-salmon-cape.cyclic.app/signupform/addCompany/" + this.text.Authentication, {
           method: 'PUT',
           headers: {
             "access-Control-Allow-Origin": "*",        

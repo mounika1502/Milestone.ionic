@@ -80,7 +80,7 @@ OrderStatus:any;
     this.manumob=this.text.mobile
     console.log(this.manumob)
     this.getCartDetails = JSON.parse(localStorage.getItem('anunya') || '{}');
-    fetch("https://tiny-ruby-centipede-hat.cyclic.app/orderRoute/getOrders",{
+    fetch("https://ill-pear-salmon-cape.cyclic.app/orderRoute/getOrders",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -253,7 +253,7 @@ this.count=this.order.length;
   this.count=this.order.length;
    console.log(this.data3)
   }  
-  fetch("https://tiny-ruby-centipede-hat.cyclic.app/orderRoute/orderupdate", {
+  fetch("https://ill-pear-salmon-cape.cyclic.app/orderRoute/orderupdate", {
     method:'post',
     headers:{
     "Access-Control-Allow-Origin": "*",
