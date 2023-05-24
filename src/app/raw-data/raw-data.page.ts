@@ -33,7 +33,7 @@ export class RawDataPage implements OnInit {
 
       delete(Number:any){  
       
-        fetch("https://ill-pear-salmon-cape.cyclic.app/raw/delete/" + Number,{
+        fetch("https://earmuffs-ox.cyclic.app/raw/delete/" + Number,{
          method:'DELETE',
          headers:{
             "access-Control-Allow-Origin":"*"

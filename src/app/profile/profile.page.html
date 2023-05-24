@@ -4,8 +4,6 @@
   <ion-toolbar >
     <ion-buttons slot="start" >
       <ion-menu-button  style="color:white"  menu="main-menu"></ion-menu-button>
-     
-  
     </ion-buttons>
     <h1 style="margin-left: 30%;font-weight: 900;font-size: xx-large;font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana">Profile</h1>
   </ion-toolbar>
@@ -14,30 +12,20 @@
 <ion-content has-header="true">
   <div id="content">
     <div id="profile-info">
-      
       <img id="profile-image" src="{{text.filePath}}">
-    
-    
-
-      
       <br>
       <div class="edit" >
-   
         <button style="margin-left: -8px;border:1px solid #697184;padding: 2%;border-radius: 10px;background-color:#697184;color:white" (click)="edit(text)">Edit</button>
       </div>
       <h3 id="profile-name">{{text.Firstname}}{{text.Lastname}}</h3>
       <span id="profile-description"><a>{{text.Email}}</a>
       </span>
     </div>
-    
     <ion-list>
       <ion-item ng-repeat="post in posts">
-    
-       
         <div class="post-time">Mobile &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{text.mobile}}</div>
-       
       </ion-item>
       <ion-item ng-repeat="post in posts">
         

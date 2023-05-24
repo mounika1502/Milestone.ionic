@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tab1.page.scss'],
 })
 export class Tab1Page implements OnInit {
+  text: any;
+  aa: any;
 
   constructor() { }
 
@@ -15,5 +17,9 @@ export class Tab1Page implements OnInit {
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
+    this.text = JSON.parse(localStorage.getItem('Login') || '{}')
+console.log(this.text)
+this.aa = this.text.UserType
+console.log(this.aa)
   }
 }

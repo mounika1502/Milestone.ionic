@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DealerordersPage implements OnInit {
   searchtext:any;
-  cartItem:number=0;
+  cartItem:number=0
   manufacturername:any;
   PhoneNumber:any;
   Quantity:any;
@@ -80,7 +80,7 @@ OrderStatus:any;
     this.manumob=this.text.mobile
     console.log(this.manumob)
     this.getCartDetails = JSON.parse(localStorage.getItem('anunya') || '{}');
-    fetch("https://ill-pear-salmon-cape.cyclic.app/orderRoute/getOrders",{
+    fetch("https://earmuffs-ox.cyclic.app/orderRoute/getOrders",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -96,6 +96,8 @@ OrderStatus:any;
     localStorage.setItem('orderid',JSON.stringify(this.randomNumber))
     this.count=this.order.length;
     console.log(this.count)
+    this.order.length=0;
+    this.count=this.order.length;
     for(let i = 0;i < this.order.length;i++){
       this.data1 = this.order[i]  
       console.log(this.order[i].OrderData.OrderItems )   
@@ -167,8 +169,9 @@ OrderStatus:any;
 Orderid(){
 
 } 
-placed(){
-  const localdata = localStorage.getItem('Prod')  
+ placed(){
+ 
+  const localdata = localStorage.getItem('prodstatus')  
   if(localdata!=null){                                                                                 
     this.order1 =JSON.parse(localdata) 
     console.log( this.order1);
@@ -196,7 +199,7 @@ this.count=this.order.length;
 }  
  }   
  Shipped(){   
-    const localdata = localStorage.getItem('Prod')  
+    const localdata = localStorage.getItem('prodstatus')  
     if(localdata!=null){                                                                                 
       this.order1 =JSON.parse(localdata) 
       console.log( this.order1);    
@@ -224,11 +227,7 @@ this.count=this.order.length;
   }  
    }   
    inprogress(){
-  
-    var body ={
-      Email:this.text.Email
-    }
-    const localdata = localStorage.getItem('Prod')  
+    const localdata = localStorage.getItem('prodstatus')  
     if(localdata!=null){                                                                                 
       this.order1 =JSON.parse(localdata) 
       console.log( this.order1);
@@ -253,21 +252,7 @@ this.count=this.order.length;
   this.count=this.order.length;
    console.log(this.data3)
   }  
-  fetch("https://ill-pear-salmon-cape.cyclic.app/orderRoute/orderupdate", {
-    method:'post',
-    headers:{
-    "Access-Control-Allow-Origin": "*",
-    "Content-Type":'application/json'
-    },  
-     body:JSON.stringify(body)
-    
-    }).then(res=> res.json())
-    .then(result=>{ 
-    console.log(result)  
-    }
-    )
-    .catch(error => console.log('error',error))
-   }   
+   }  
   
 all(){
   window.location.reload();

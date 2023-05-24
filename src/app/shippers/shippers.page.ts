@@ -24,7 +24,7 @@ export class ShippersPage implements OnInit {
     }
   
     getProduct(){    
-      fetch("https://ill-pear-salmon-cape.cyclic.app/shippers/getshipper", {
+      fetch("https://earmuffs-ox.cyclic.app/shippers/getshipper", {
      method:'get',
      headers:{
        "Access-Control-Allow-Origin": "*",

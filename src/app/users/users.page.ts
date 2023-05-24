@@ -74,7 +74,7 @@ searchtext:any;
       console.log(this.aa) 
   }
   Get(){
-    fetch("https://ill-pear-salmon-cape.cyclic.app/signupform/getsignupdetails",{
+    fetch("https://earmuffs-ox.cyclic.app/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -111,7 +111,7 @@ searchtext:any;
   }
   data5(){
     
-    fetch("https://ill-pear-salmon-cape.cyclic.app/signupform/getsignupdetails",{
+    fetch("https://earmuffs-ox.cyclic.app/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",

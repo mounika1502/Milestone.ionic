@@ -45,7 +45,7 @@ export class InventoryEditPage implements OnInit {
   update(id:any){
       console.log(this.productForm.value) 
       localStorage.setItem('InventoryProduct',JSON.stringify(this.data));
-      fetch("https://ill-pear-salmon-cape.cyclic.app/products/editProduct/" + id,  {
+      fetch("https://earmuffs-ox.cyclic.app/products/editProduct/" + id,  {
         method: 'PUT',
         headers: {
           "access-Control-Allow-Origin": "*",        

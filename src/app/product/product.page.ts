@@ -74,7 +74,7 @@ export class ProductPage implements OnInit {
  
     get() {
       console.log('getstoreDealer')
-      fetch("https://ill-pear-salmon-cape.cyclic.app/dealerfilterRouter/dealerfilter", {
+      fetch("https://earmuffs-ox.cyclic.app/dealerfilterRouter/dealerfilter", {
         method: 'GET',
       headers: {
         "access-Control-Allow-Origin": "*",

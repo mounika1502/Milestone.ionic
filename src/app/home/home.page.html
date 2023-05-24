@@ -8,12 +8,12 @@
     font-size: 30px;
     margin-left: -17px;
     margin-right: 18px;" slot="end" [hidden]="aa==='manufacturer'"></ion-icon>
-     <span class="number" style="    font-size: 15px;
-     font-weight: 700;
-     margin-right: 6px;
-     margin-left: -21px;
-     margin-top: -12px;
-     color: #ecdd28;" slot="end" routerLink="/cart">{{cartItem}} </span>
+   <span class="number" style="    font-size: 15px;
+   font-weight: 700;
+   margin-right: 6px;
+   margin-left: -21px;
+   margin-top: -12px;
+   color: #ecdd28;background-color: rgb(243, 64, 64);color:white;border-radius: 22%;width: 4%;text-align: center;" slot="end" routerLink="/cart" >{{cartItem}} </span>
   </ion-toolbar>
 </ion-header>
 
@@ -671,9 +671,9 @@
             links are performing.
           </p>
 
-          <div [hidden]= "aa == 'Manufacturer'|| 'Dealer'|| 'admin'">          
+          <div >          
 
-            <div routerLink="/login" class="btn btn-lg" style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana">Get Started</div>
+            <div [hidden]= "aa == 'Manufacturer'|| 'Dealer'|| 'admin'" routerLink="/login" class="btn btn-lg" style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana">Get Started</div>
          
         </div>
         <div class="landing-image">
@@ -700,7 +700,7 @@
                 advanced statistics dashboard.
               </p>
             </div>
-            <!-- <div class="more-features-content">
+             <div class="more-features-content">
               <div class="feature">
                 <div class="feature-illustration">
                   <img src="https://icon-library.com/images/granite-icon/granite-icon-1.jpg" />
@@ -739,7 +739,7 @@
                   </p>
                 </div>
               </div>
-            </div> -->
+            </div> 
           
           </div>
 
@@ -748,10 +748,10 @@
       <!-- Pricing -->
       <section class="pricing" id="pricing">
         <div class="container">
-          <div class="section-header">
+          <div class="section-header">                                                                                                                                                                                                                    
             <h2 style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana">Boost your links today</h2>
             <div [hidden]= "aa == 'Manufacturer'|| 'Dealer'|| 'admin'">
-            <a href="./login" class="btn btn-lg" [hidden]="aa" style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana">Get Started</a>
+            <a href="./login" class="btn btn-lg" [hidden]= "aa == 'Manufacturer'|| 'Dealer'|| 'admin'" style=" font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana">Get Started</a>
             </div>
           </div>
         </div>

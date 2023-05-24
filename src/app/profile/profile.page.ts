@@ -23,19 +23,17 @@ export class ProfilePage implements OnInit {
   data: any;
   aa: any;
   signupSubmit: any;
+  test: any=[]
+  updateddata: any;
 
   constructor( private apii: UploadService, private fb: FormBuilder,private router:Router) {
   }
 
   ngOnInit(): void {
-
-    
-    
-      //formdata.append('file',this.images);
-    
+  
     this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
      console.log(this.text)
-     console.log(this.text.filePath)
+     console.log(this.text.Company)
 
      this.Form = new FormGroup({
       Company:new FormControl(""),
@@ -47,6 +45,9 @@ export class ProfilePage implements OnInit {
      console.log(this.text)
      this.aa=this.text.UserType
      console.log(this.aa)
+
+
+     
   }
 
 
@@ -100,7 +101,7 @@ export class ProfilePage implements OnInit {
     localStorage.setItem('Login',JSON.stringify(this.text))
     console.log(this.Form.value)
     
-        fetch("https://ill-pear-salmon-cape.cyclic.app/signupform/addCompany/" + this.text.Authentication, {
+        fetch("https://earmuffs-ox.cyclic.app/signupform/addCompany/" + this.text.Authentication, {
           method: 'PUT',
           headers: {
             "access-Control-Allow-Origin": "*",        

@@ -31,7 +31,7 @@ export class RawProductPage {
       console.log(this.aa)
 
     if(this.aa==='Dealer'){
-      fetch("https://ill-pear-salmon-cape.cyclic.app/getrawproduct", {
+      fetch("https://earmuffs-ox.cyclic.app/raw/getrawproduct", {
         method:'get',
         headers:{
           "Access-Control-Allow-Origin": "*",
@@ -53,7 +53,7 @@ export class RawProductPage {
           var data = {
             mobile :this.text.mobile
           }   
-          fetch("https://ill-pear-salmon-cape.cyclic.app/raw/getraw", {
+          fetch("https://earmuffs-ox.cyclic.app/raw/getraw", {
          method:'post',
          headers:{
            "Access-Control-Allow-Origin": "*",

@@ -14,16 +14,18 @@ export class ProfileEditPage implements OnInit {
   images: any;
   data: any;
   docid: any;
-
+Firstname:any
+  aaa: any;
   constructor(private apii:UploadService) { }
 
   ngOnInit() {
     this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
     console.log(this.text)
     this.aa=this.text.UserType
-    console.log(this.aa)
+    this.aaa=this.text.Company
+    console.log(this.aaa)
+  
 
-     
     this.ProfileForm = new FormGroup({
       Firstname:new FormControl(""),
       Lastname:new FormControl(""),
@@ -37,7 +39,7 @@ export class ProfileEditPage implements OnInit {
       Company:new FormControl(""),
       Location:new FormControl(""),
       bio:new FormControl(""),
-      filePath:new FormControl("")
+      // filePath:new FormControl("")
     })
   }
 
@@ -61,31 +63,28 @@ export class ProfileEditPage implements OnInit {
       filePath:filePath
      }
      console.log(bodydata)
-    // localStorage.setItem('Login',JSON.stringify(this.text));
-    // fetch("https://ill-pear-salmon-cape.cyclic.app/signupform/editProfile/" +this.text.Authentication,   {
-    //   method: 'PUT',
-    //   headers: {
-    //     "access-Control-Allow-Origin": "*",        
-    //     "Content-Type": 'application/json'
-    //   },
-    //   body: JSON.stringify(bodydata),        // JSON Means An intrinsic object that provides functions to convert JavaScript values to and from the JavaScript Object Notation (JSON) format.
-
-    // })
-    //   .then(response => response.json())
-    //   .then(result => {
-    //     console.log(result)
-    //    alert('updated successfully') 
-    //     // window.location.href='./profile'             
-    //   }
-    //   ).catch(err =>
-    //     console.log(err))
-      localStorage.setItem('Login',JSON.stringify(this.text));
+   
     this.apii.updateprofiledetails(bodydata,this.text.Authentication).subscribe(data=>{
       console.log(data)
-      // var docid=data.imageFile.filePath
-      // this.update(docid) 
-     
+      alert("Updated Successfully")
+      window.location.href="/profile";
+      this.text['Firstname'] = data.updateddata.Firstname,
+      this.text['Lastname'] = data.updateddata.Lastname,
+      this.text['mobile'] = data.updateddata.mobile,
+      this.text['Email'] = data.updateddata.Email,
+      this.text['Password'] = data.updateddata.Password,
+      this.text['City'] = data.updateddata.City,
+      this.text['Pincode'] = data.updateddata.Pincode,
+      this.text['Street'] = data.updateddata.Street,
+      this.text['State'] = data.updateddata.State,
+      this.text['Company'] = data.updateddata.Company,
+    this.text['bio'] = data.updateddata.bio,
+      this.text['filePath'] = filePath,
+    
+     localStorage.setItem('Login',JSON.stringify(this.text))
      })
+     localStorage.setItem('Login',JSON.stringify(this.text))
+     console.log(this.text)
   }
   onClick() {
     console.log(this.data)

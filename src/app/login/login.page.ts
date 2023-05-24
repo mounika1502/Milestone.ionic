@@ -34,7 +34,7 @@ export class LoginPage implements OnInit {
     this.loginForm.value.password =='')
     {
   }else{
-     fetch("http://localhost:7500/loginform/addlogin", {
+     fetch("https://earmuffs-ox.cyclic.app/loginform/addlogin", {
       method:'post',
       headers:{
         "Access-Control-Allow-Origin": "*",

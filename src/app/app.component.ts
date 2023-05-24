@@ -58,10 +58,11 @@ export class AppComponent {
 
 
   logout() {
-  
+
 if(confirm("Are you sure do you want to logout")){
   window.location.href = '/login'
 }
+localStorage.clear();
     
    
 

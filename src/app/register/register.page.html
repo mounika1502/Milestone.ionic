@@ -1,5 +1,5 @@
 
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
 
  
@@ -10,29 +10,26 @@
 </ion-header>
 
   <ion-content [fullscreen]="true">
-    <div class="circle-container">
-      <div class="circle circle-1"></div>
-      <div class="circle circle-2"></div>
-    </div>
-  <ion-list lines="none" class="ion-margin">
+    <h1 style="text-align: center;font-size: xx-large;font-weight: 900;">Register</h1>
+  <ion-list  >
 
-    <img    style="width: 38%;  margin-left: 120px;" 
-    src="/assets/mile stone.png">
-  
+    <!-- <img    stylehjmny="max-width: 60%;  margin-left: 20%;" 
+    src="https://media.istockphoto.com/id/502910284/photo/natural-stone-tiles-marble-granite-samples-stack-clipping-path.jpg?s=612x612&w=0&k=20&c=6-doPB7xCKGqQ6y1EVrJXcrw8ziMw8xmec1GlVxLbUE=">
+   -->
+ 
     <form #userPost="ngForm" [formGroup]="SignupForm" >
-     
+      <ion-input type="hidden"  appFirstCap  type="text" clearInput="true" formControlName="filePath"></ion-input>
       <ion-label style="margin-left: 6%;">First Name</ion-label>
       <ion-item class="ion-margin">    
         <ion-input appFirstCap  placeholder="Enter First Name"  type="text" clearInput="true" formControlName="Firstname"></ion-input>
       </ion-item>
       <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Firstname.errors?.required" style="color: red;">
-        Firstname name is required.
+        Firstname  is required.
       </span>
       <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Firstname.errors?.pattern" style="color: red;">
         Only alphabets allowed.
       </span>
        <br>
-  
       <ion-label style="margin-left: 6%;">Last Name</ion-label>
       <ion-item class="ion-margin">    
         <ion-input  appFirstCap  placeholder="Enter Last Name" type="text" clearInput="true" formControlName="Lastname"></ion-input>
@@ -120,9 +117,7 @@
     </ion-item><span class="error ion-padding" *ngIf="isSubmitted && errorControl.Company.errors?.required" style="color: red;">
       Company is required.
      </span>
-     <!-- <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Company.errors?.minLength" style="color: red;">
-      Password should be min 6.
-     </span> -->
+  
      <br>   
    
     <ion-label style="margin-left: 6%;">State</ion-label>
@@ -176,21 +171,21 @@
           <span class="error ion-padding" *ngIf="isSubmitted && errorControl.UserType.errors?.required" style="color: red;">
             UserType is required.
            </span>
-           <br>
-         
+           
+          
           </form>
-          </ion-list>
           <ion-button  style="height: 50px;   border-radius: 10px; margin-top:20px;" expand="full" strong="true" type="submit" (click)="signupSubmit()" >
             Register
        
            </ion-button>
-
+          
+          </ion-list>
           </ion-content>
          
           
      
   
-  
+          
   
   
    

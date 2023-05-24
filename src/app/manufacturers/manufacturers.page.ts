@@ -72,7 +72,7 @@ setOpen(isOpen: boolean) {
   }
 
   Get(){
-    fetch("https://ill-pear-salmon-cape.cyclic.app/signupform/getsignupdetails",{
+    fetch("https://earmuffs-ox.cyclic.app/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -110,7 +110,7 @@ data3(){
     Mobile:this.aaa
 
  } 
-  fetch("https://ill-pear-salmon-cape.cyclic.app/manufacturer/getdata",{
+  fetch("https://earmuffs-ox.cyclic.app/manufacturer/getdata",{
     method:"post",
     headers:{
       "Access-Control-Allow-Origin":"*",
@@ -150,7 +150,7 @@ Dealer(){
         Mobile:this.aaa
       
       }
-      fetch("https://ill-pear-salmon-cape.cyclic.app/manufacturer/adddata",{
+      fetch("https://earmuffs-ox.cyclic.app/manufacturer/adddata",{
         method:'POST',
         headers:{
           "Access-Control-Allow-Origin":"*",

@@ -31,7 +31,7 @@ export class InventoryDataPage implements OnInit {
   }
 
   delete(prodId:any){ 
-      fetch("https://ill-pear-salmon-cape.cyclic.app/products/deleteproduct/" + prodId,{
+      fetch("https://earmuffs-ox.cyclic.app/products/deleteproduct/" + prodId,{
        method:'DELETE',
        headers:{
          "access-Control-Allow-Origin":"*"

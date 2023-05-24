@@ -20,7 +20,7 @@ export class AddProductPage  {
   add: any;
   raw: any;
   date = "12-04-2023"
-  imgurl: any
+  imgurl: any;
   textaws: any;
   images: any;
   constructor(private router: Router, private apii: UploadService, private http: HttpClient,) { }
@@ -56,7 +56,6 @@ export class AddProductPage  {
     console.log(this.text.mobile) 
     this.textaws = JSON.parse(localStorage.getItem('aws') || '{}')
     console.log(this.textaws)
-
     this.productForm = new FormGroup({
       prodId: new FormControl("",[Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
       name: new FormControl(""),
@@ -86,7 +85,7 @@ export class AddProductPage  {
     console.log(this.productForm.value)
 
       console.log(this.productForm.value)
-      fetch("http://localhost:7500/products/addproduct/" +id, {
+      fetch("https://earmuffs-ox.cyclic.app/products/addproduct/" +id, {
         method: 'post',
         headers: {
           "Access-Control-Allow-Origin": "*",
@@ -102,7 +101,6 @@ export class AddProductPage  {
         }
         )
         .catch(error => console.log('error', error))
-     
   }
   onClick() {
     console.log(this.data)
@@ -114,7 +112,6 @@ export class AddProductPage  {
     console.log(data)
     var docid=data.imageFile._id
     this.submitForm(docid) 
-   
    })
     console.log(formdata)
   }

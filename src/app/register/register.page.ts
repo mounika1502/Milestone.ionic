@@ -42,9 +42,10 @@ setOpen(isOpen: boolean) {
       State:new FormControl('',[Validators.required]),
       // uniqueDeviceID:new FormControl( this.UniqueDeviceID),
       // Isadd:new FormControl('1'),
-      Message:new FormControl('congratulations your signup successfully!!')
+      Message:new FormControl('congratulations your signup successfully!!'),
+      filePath:new FormControl('')
     });
-    // this.getUniqueDeviceID();
+   
   }
   getUniqueDeviceID() {
     this.uniqueDeviceID.get()
@@ -97,7 +98,7 @@ setOpen(isOpen: boolean) {
      alert('Please provide all the required values!')  
     } else {
 
-    fetch("https://ill-pear-salmon-cape.cyclic.app/signupform/addsignupdetails", {
+    fetch("https://earmuffs-ox.cyclic.app/signupform/addsignupdetails", {
      method:'post',
      headers:{
        "Access-Control-Allow-Origin": "*",
@@ -120,7 +121,7 @@ setOpen(isOpen: boolean) {
   var body ={
     Email:this.SignupForm.value.Email
   }
-  fetch("https://ill-pear-salmon-cape.cyclic.app/signupform/emailnotification", {
+  fetch("https://earmuffs-ox.cyclic.app/signupform/emailnotification", {
   method:'post',
   headers:{
   "Access-Control-Allow-Origin": "*",

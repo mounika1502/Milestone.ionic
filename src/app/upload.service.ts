@@ -8,7 +8,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 export class UploadService {
   constructor(private http:HttpClient) { }
   postfiletos3(data:any)  {
-    return this.http.post<any>('http://localhost:7500/upload/upload',data)
+    return this.http.post<any>('https://earmuffs-ox.cyclic.app/upload/upload',data)
     .pipe(catchError(this.errorHandler))
   }
   errorHandler(error:any){
@@ -21,22 +21,22 @@ export class UploadService {
     return throwError(errorMessage)
   }
   updateShipper(data:any,id:any){
-    return this.http.put('https://ill-pear-salmon-cape.cyclic.app/shippers/editShipper/' + id ,data)
+    return this.http.put('https://earmuffs-ox.cyclic.app/shippers/editShipper/' + id ,data)
    }
    postfiletos2(data:any)  {
-    return this.http.post<any>('https://ill-pear-salmon-cape.cyclic.app/s3upload/uploads3',data)
+    return this.http.post<any>('https://earmuffs-ox.cyclic.app/s3upload/uploads3',data)
     .pipe(catchError(this.errorHandler))
   }
   postfiletos4(data:any)  {
-    return this.http.post<any>('https://ill-pear-salmon-cape.cyclic.app/Uploadshipper/uploadshipper',data)
+    return this.http.post<any>('https://earmuffs-ox.cyclic.app/Uploadshipper/uploadshipper',data)
     .pipe(catchError(this.errorHandler))
   }
   postfiletos5(data:any)  {
-    return this.http.post<any>('http://localhost:7500/profiles3/uploadprofile',data)
+    return this.http.post<any>('https://earmuffs-ox.cyclic.app/profiles3/uploadprofile',data)
     .pipe(catchError(this.errorHandler))
   }
   updateprofiledetails(data:any,id:any)  {
-    return this.http.put <HttpResponse<any>>('http://localhost:7500/signupform/editProfile/'+id,data)
-    // .pipe(catchError(this.errorHandler))
+    return this.http.put <any>('https://earmuffs-ox.cyclic.app/signupform/editProfile/'+id,data)
+     .pipe(catchError(this.errorHandler))
   } 
 }
