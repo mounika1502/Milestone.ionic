@@ -62,7 +62,7 @@ setOpen(isOpen: boolean) {
       console.log(this.Mobile) 
   }
   Get(){
-    fetch("https://tiny-ruby-centipede-hat.cyclic.app/signupform/getsignupdetails",{
+    fetch("https://ill-pear-salmon-cape.cyclic.app/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -95,7 +95,7 @@ data3(){
      Mobile:this.Mobile
 
   }   
-    fetch("https://tiny-ruby-centipede-hat.cyclic.app/dealer/getdealer",{
+    fetch("https://ill-pear-salmon-cape.cyclic.app/dealer/getdealer",{
       method:"post",
       headers:{
         "Access-Control-Allow-Origin":"*",
@@ -138,7 +138,7 @@ var datasss ={
 
 }
   console.log(datasss)
-    fetch("http://localhost:7500/dealer/adddealer",{
+    fetch("https://ill-pear-salmon-cape.cyclic.app/dealer/adddealer",{
       method:'POST',
       headers:{
         "Access-Control-Allow-Origin":"*",

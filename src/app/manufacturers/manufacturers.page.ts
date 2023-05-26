@@ -49,9 +49,7 @@ setOpen(isOpen: boolean) {
   this.Get()
    }
   ngOnInit(): void {
-    // this.aa = JSON.parse(localStorage.getItem('Login')||'{}') 
-    //   this.Mobile = this.aa.mobile
-    //   console.log(this.Mobile) 
+   
 
    this.data2();
    this.localIds=JSON.parse(localStorage.getItem('docIds')|| '{}')
@@ -74,7 +72,7 @@ setOpen(isOpen: boolean) {
   }
 
   Get(){
-    fetch("https://tiny-ruby-centipede-hat.cyclic.app/signupform/getsignupdetails",{
+    fetch("https://ill-pear-salmon-cape.cyclic.app/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -112,7 +110,7 @@ data3(){
     Mobile:this.aaa
 
  } 
-  fetch("http://localhost:7500/manufacturer/getdata",{
+  fetch("https://ill-pear-salmon-cape.cyclic.app/manufacturer/getdata",{
     method:"post",
     headers:{
       "Access-Control-Allow-Origin":"*",
@@ -152,7 +150,7 @@ Dealer(){
         Mobile:this.aaa
       
       }
-      fetch("http://localhost:7500/manufacturer/adddata",{
+      fetch("https://ill-pear-salmon-cape.cyclic.app/manufacturer/adddata",{
         method:'POST',
         headers:{
           "Access-Control-Allow-Origin":"*",
@@ -169,23 +167,7 @@ Dealer(){
         }  else{
           alert("Added Successfully!")            
         }        
-        
-       
-    //     data.Isadd=0;
-    //     var id=data._id
-     
-    //  let index =this.array.findIndex((item:any)=>item._id === id)
-    //   this.array.splice(index,1,data)
-    //   console.log( this.docId)
-
-
-     
-      // localStorage.setItem('array',JSON.stringify(this.array))
-      // localStorage.setItem('docId',JSON.stringify(this.docId))
-     
-      // console.log(this.docId)
-    
-      }
+  }
         )
       .catch(error => console.log('error',error)); 
         } 

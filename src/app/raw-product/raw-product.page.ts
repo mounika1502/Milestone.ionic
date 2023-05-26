@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './raw-product.page.html',
   styleUrls: ['./raw-product.page.scss'],
 })
-export class RawProductPage implements OnInit {
+export class RawProductPage {
  products:any=[];
   raw: any;
   data: any;
@@ -31,7 +31,7 @@ export class RawProductPage implements OnInit {
       console.log(this.aa)
 
     if(this.aa==='Dealer'){
-      fetch("https://tiny-ruby-centipede-hat.cyclic.app/raw/getrawproduct", {
+      fetch("https://ill-pear-salmon-cape.cyclic.app/getrawproduct", {
         method:'get',
         headers:{
           "Access-Control-Allow-Origin": "*",
@@ -53,7 +53,7 @@ export class RawProductPage implements OnInit {
           var data = {
             mobile :this.text.mobile
           }   
-          fetch("https://tiny-ruby-centipede-hat.cyclic.app/raw/getraw", {
+          fetch("https://ill-pear-salmon-cape.cyclic.app/raw/getraw", {
          method:'post',
          headers:{
            "Access-Control-Allow-Origin": "*",

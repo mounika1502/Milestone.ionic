@@ -5,7 +5,6 @@
     margin: 0 auto !important;
  }
 
-
 $white-color: #fff;
 $height100: 100%;
 
@@ -23,17 +22,14 @@ ion-row {
     height: $height100;
 }
 
-
 ion-col {
     border: 1px solid #488aff;
     background: $white-color;
 }
 
-
 ion-button {
     font-weight: 300;
 }
-
 
 @media (min-width: 240px) and (max-width: 768px) {
     ion-grid {
@@ -44,18 +40,10 @@ ion-button {
     }
 }
 
-
-
-
-
 ion-toolbar {
     --color: #ffffff;
     --background:#697184;
 }
-
-
-
-
 
 #bg {
     height: 40%;
@@ -107,22 +95,19 @@ ion-button {
     margin-top: 60px;
     height: 40px;
 }
+
 sc-ion-searchbar-md-h{
   border-radius: 90%;
 }
-
-
 
 ion-toolbar {
     --color: #ffffff;
     --background:#697184;
   }
 
-
-
-
-
-
-
-
-
+  .passwordIcon{
+    font-size:1rem !important;
+    position: relative !important;
+    top: 2px !important;
+    margin: 0 auto !important;
+ }

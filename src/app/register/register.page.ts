@@ -14,11 +14,15 @@ export class RegisterPage implements OnInit {
   loginForm: any;
   isAlertOpen = false;
   isSubmitted = false;
-public alertButtons = ['OK'];
-setOpen(isOpen: boolean) {
+  public alertButtons = ['OK'];
+
+  filePath: any;
+
+  setOpen(isOpen: boolean) {
   this.isAlertOpen = isOpen;
-}
+  }
   constructor(private router:Router,public formBuilder: FormBuilder) { }
+
   ngOnInit() {
     this.SignupForm = this.formBuilder.group({  
       Firstname: ['',[Validators.required,Validators.pattern('[a-zA-Z]+$')]],
@@ -38,44 +42,67 @@ setOpen(isOpen: boolean) {
     });
     // this.getUniqueDeviceID();
   }
+   
+
   // getUniqueDeviceID() {
   //   this.uniqueDeviceID.get()
   //     .then((uuid: any) => {
   //       console.log(uuid);
   //       this.UniqueDeviceID = uuid;
 
-  //       //alert(this.UniqueDeviceID)
+        
   //     })
   //     .catch((error: any) => {
   //       console.log(error);
   //       this.UniqueDeviceID = "Error! ${error}";
+  //       alert(this.UniqueDeviceID)
   //     });
   // }
-
-   passwordType: string = 'password';
- passwordIcon: string = 'eye-off';
-
- hideShowPassword() {
-     this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
-     this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
- }
+  passwordType: string = 'password';
+  passwordIcon: string = 'eye-off';
+ 
+  hideShowPassword() {
+      this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
+      this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
+  }
   get errorControl() {
     return this.SignupForm.controls;
   } 
 
-  signupSubmit(){       
+  signupSubmit(){ 
     this.isSubmitted = true;
     if (!this.SignupForm.valid) {
      alert('Please provide all the required values!')  
     } else {
+     console.log(this.SignupForm.value)
+     
+     var signupdata ={
+      Firstname:this.SignupForm.value.Firstname,
+      Lastname:this.SignupForm.value.Lastname,
+      mobile:this.SignupForm.value.mobile,
+      Email:this.SignupForm.value.Email,
+      Password:this.SignupForm.value.Password,
+      UserType:this.SignupForm.value.UserType,
+      City:this.SignupForm.value.City,
+      Pincode:this.SignupForm.value.Pincode,
+      Street:this.SignupForm.value.Street,
+      Company:this.SignupForm.value.Company,
+      State:this.SignupForm.value.State,
+      uniqueDeviceID:this.UniqueDeviceID,
+      filePath:this.filePath,
+      Message:'congratulations your signup successfully!!'
+     }
+     console.log(signupdata)
 
-    fetch("https://tiny-ruby-centipede-hat.cyclic.app/signupform/addsignupdetails", {
+    fetch("http://localhost:7500/signupform/addsignupdetails", {
      method:'post',
      headers:{
        "Access-Control-Allow-Origin": "*",
        "Content-Type":'application/json'
      },
-     body:JSON.stringify(this.SignupForm.value)
+
+     body:JSON.stringify(this.SignupForm.value)   
+
   
    }).then(res=> res.json())
    .then(result=>{ 
@@ -92,7 +119,7 @@ setOpen(isOpen: boolean) {
   var body ={
     Email:this.SignupForm.value.Email
   }
-  fetch("https://tiny-ruby-centipede-hat.cyclic.app/signupform/emailnotification", {
+  fetch("https://ill-pear-salmon-cape.cyclic.app/signupform/emailnotification", {
   method:'post',
   headers:{
   "Access-Control-Allow-Origin": "*",
@@ -107,5 +134,61 @@ setOpen(isOpen: boolean) {
   .catch(error => console.log('error',error))
   }
 }
+
+
+
+    get Firstname()
+  {
+   return this.SignupForm.get('Firstname');
+  }
+  get pincode()
+  {
+   return this.SignupForm.get('pincode');
+  }
+  get Lastname()
+  {
+   return this.SignupForm.get('Lastname');
+  }
+  get mobile()
+  {
+   return this.SignupForm.get('mobile');
+  }
+  get Email()
+  {
+   return this.SignupForm.get('Email');
+  }
+  get Password()
+  {
+   return this.SignupForm.get('Password');
+  }
+  get UserType()
+  {
+   return this.SignupForm.get('UserType');
+  }
+  get City()
+  {
+   return this.SignupForm.get('City');
+  }
+  get Pincode()
+  {
+   return this.SignupForm.get('Pincode');
+  }
+  get Street()
+  {
+   return this.SignupForm.get('Street');
+  }
+  get Company()
+  {
+   return this.SignupForm.get('Company');
+  }
+  get State()
+  {
+   return this.SignupForm.get('State');
+  }
+  get Isadd()
+  {
+   return this.SignupForm.get('Isadd');
+  }
+
 
 }

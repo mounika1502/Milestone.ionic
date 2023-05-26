@@ -1,6 +1,7 @@
 
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { RouteGuard } from './route.guard';
 
 const routes: Routes = [
   {
@@ -26,7 +27,7 @@ const routes: Routes = [
   },
   {
     path: 'add-shipper',
-    loadChildren: () => import('./add-shipper/add-shipper.module').then( m => m.AddShipperPageModule)
+    loadChildren: () => import('./add-shipper/add-shipper.module').then( m => m.AddShipperPageModule),canActivate:[RouteGuard]
   },
   {
     path: 'add-raw',

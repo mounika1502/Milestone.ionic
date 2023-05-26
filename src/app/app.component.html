@@ -114,13 +114,11 @@
       </ion-menu-toggle>
     </div>
 
-    <div>
+    <div  [hidden]= "aa === text.mobile">
       <ion-menu-toggle>
         <ion-item (click)="logout()">
           <ion-icon name="log-out-outline"style="color: rgb(95, 95, 231);" ></ion-icon>
           <ion-label  id="present-alert">&nbsp; &nbsp; &nbsp;Logout</ion-label>
-        
-
         </ion-item>
       </ion-menu-toggle>
     </div>

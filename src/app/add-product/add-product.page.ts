@@ -70,6 +70,16 @@ export class AddProductPage  {
       size:  ['', [Validators.required,Validators.pattern('^[0-9]{3}[*][0-9]{3}')]],
       stone: ['', [Validators.required]],
       thick: ['', [Validators.required]],
+      qnt:  ['', [Validators.required]],
+      price: ['', [Validators.required,Validators.pattern('[0-9]+$')]],
+      region:  ['', [Validators.required]],
+      quality:  ['', [Validators.required]],
+      date:  ['', [Validators.required]],
+      mobile: ['', [Validators.required]],
+      Quantity: ['', [Validators.required,Validators.pattern('[0-9]+$')]],
+      manufacturername:  ['', [Validators.required,Validators.pattern('[a-zA-Z]+$')]],
+      PhoneNumber:['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+      description: ['', [Validators.required]],
     })
    
   }
@@ -83,7 +93,7 @@ export class AddProductPage  {
 
   submitForm(id:any) {
       console.log(this.productForm.value)
-      fetch("https://tiny-ruby-centipede-hat.cyclic.app/products/addproduct/" +id, {
+      fetch("http://localhost:7500/products/addproduct/" +id, {
         method: 'post',
         headers: {
           "Access-Control-Allow-Origin": "*",
@@ -139,5 +149,4 @@ export class AddProductPage  {
     }
     console.log(this.images)
   }
-
 }

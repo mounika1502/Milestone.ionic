@@ -43,7 +43,7 @@ export class MobileLoginPage implements OnInit {
 
   async mobileOtp(){
 
-    fetch("https://tiny-ruby-centipede-hat.cyclic.app/signupform/getsignupdetails", {
+    fetch("https://ill-pear-salmon-cape.cyclic.app/signupform/getsignupdetails", {
       method:'get',
       headers:{
         "Access-Control-Allow-Origin": "*",
@@ -64,7 +64,7 @@ export class MobileLoginPage implements OnInit {
         if(this.List == null || this.List == undefined || this.List == ''){
           alert('Mobile not exist')
         }else{
-          alert('OTP Gerneratred')
+          alert('OTP Generated')
       console.log(this.List)
 
       localStorage.setItem('Login',JSON.stringify(this.List[0]));

@@ -65,9 +65,9 @@ export class CheckoutPage implements OnInit {
       this.text2 = JSON.parse(localdata1)
       console.log(this.text2)
     }
-    this.dataqnt = JSON.parse(localStorage.getItem('anunya') || '{}')
-    this.qnty = this.dataqnt[0].Quantity
-    console.log(this.qnty)
+    // this.dataqnt = JSON.parse(localStorage.getItem('anunya') || '{}')
+    // this.qnty = this.dataqnt[0].Quantity
+    // console.log(this.qnty)
   }
   popup() {
     this.pop = true;
@@ -89,7 +89,6 @@ export class CheckoutPage implements OnInit {
       "Phone": this.Phone,
       "Email": this.Email,
       "Address": this.Address,
-      //  "City":this.City,
       "State": this.State,
       "date": new Date().toLocaleString(),
       "OrderId": this.randomNumber,
@@ -114,12 +113,12 @@ export class CheckoutPage implements OnInit {
         .then(result => {
           console.log(result)
           this.UpdateQnty()
-          // localStorage.removeItem('anunya');
+     
         })
         .catch(error => console.log('error', error));
 
-     
-        // window.location.href = ('./success');
+     alert("Order Placed Successfully")
+         window.location.href = ('./success');
         localStorage.removeItem('anunya');
        
      

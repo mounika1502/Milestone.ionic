@@ -36,8 +36,7 @@ export class AddRawPage implements OnInit {
     this.aa=this.text.UserType
     console.log(this.aa)
 
-    this.productForm = this.formBuilder.group({  
-   
+    this.productForm = this.formBuilder.group({    
       Number: ['', [Validators.required]],
       Name: ['', [Validators.required]],
       color: ['', [Validators.required,Validators.pattern('[a-zA-Z]+$')]],
@@ -77,7 +76,7 @@ export class AddRawPage implements OnInit {
   submitForm(id:any){
       
       console.log(this.productForm.value)
-       fetch("https://tiny-ruby-centipede-hat.cyclic.app/raw/addraw/"+id, {
+       fetch("https://ill-pear-salmon-cape.cyclic.app/raw/addraw/"+id, {
        method:'post',
        headers:{
          "Access-Control-Allow-Origin": "*",

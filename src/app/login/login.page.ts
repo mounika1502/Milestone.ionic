@@ -33,7 +33,7 @@ export class LoginPage implements OnInit {
     this.loginForm.value.password =='')
     {
   }else{
-     fetch("https://tiny-ruby-centipede-hat.cyclic.app/loginform/addlogin", {
+     fetch("http://localhost:7500/loginform/addlogin", {
       method:'post',
       headers:{
         "Access-Control-Allow-Origin": "*",
@@ -45,7 +45,8 @@ export class LoginPage implements OnInit {
       this.loginData = result
       console.log(this.loginData)      
     localStorage.setItem('Login',JSON.stringify(this.loginData));
-    console.log(this.loginData)  
+    console.log(this.loginData)
+      
     if(result.status == 'failed'){
       alert('Login failed')
     }  else{

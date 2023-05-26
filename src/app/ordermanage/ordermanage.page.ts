@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { CheckboxCustomEvent } from '@ionic/angular';
 @Component({
   selector: 'app-ordermanage',
   templateUrl: './ordermanage.page.html',
@@ -50,8 +51,16 @@ ApproximateTime:any;
   manuemail: any;
   randomNumber: any;
   text2: any;
+  canDismiss = false;
+
+  presentingElement :any;
   constructor() { 
 
+    }
+    isModalOpen = false;
+
+    setOpen(isOpen: boolean) {
+      this.isModalOpen = isOpen;
     }
     anu(test:any){
       window.location.href=("/galaxyroute")
@@ -60,7 +69,7 @@ ApproximateTime:any;
       console.log(test)
   }
   ngOnInit(): void {
-
+    this.presentingElement = document.querySelector('.ion-page');
     const localdata1=localStorage.getItem('orderid')
     if(localdata1!=null){                                                    
       this.text2 = JSON.parse(localdata1)
@@ -89,7 +98,7 @@ ApproximateTime:any;
     console.log(this.data)
 
 
-fetch("http://localhost:7500/orderRoute/getAllOrders", {
+fetch("https://ill-pear-salmon-cape.cyclic.app/orderRoute/getAllOrders", {
       method:"get",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -244,7 +253,7 @@ this.count=this.order.length;
   this.count=this.order.length;
    console.log(this.data3)
   }  
-  fetch("http://localhost:7500/orderRoute/orderupdate", {
+  fetch("https://ill-pear-salmon-cape.cyclic.app/orderRoute/orderupdate", {
     method:'post',
     headers:{
     "Access-Control-Allow-Origin": "*",
@@ -290,15 +299,17 @@ Update(){
   .then(result =>{
     console.log(result)
     this.close();
-    Swal.fire('Updated Successfully!', '', 'success').then(() => {
-      window.location.reload();
-    }); 
+  alert("Updated Successfully")
+  window.location.reload()
 
 
   }
   ).catch(err =>
     console.log('error',err))  
 }
-  
+onTermsChanged(event: Event) {
+  const ev = event as CheckboxCustomEvent;
+  this.canDismiss = ev.detail.checked;
+}
 
 }

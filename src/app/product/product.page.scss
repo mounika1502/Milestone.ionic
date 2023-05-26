@@ -1,6 +1,4 @@
-
-ion-searchbar{
-    
+ion-searchbar{    
     --box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     ::ng-deep{
         .searchbar-input-container{            
@@ -12,7 +10,26 @@ ion-searchbar{
         }
     }   
 }
+
 ion-toolbar {
-    --color: #ffffff;
-    --background:#697184;
+  --color: #ffffff;
+  --background:#697184;
 }
+
+.button{
+    background-color: #697184;
+    padding: 3%;
+    border-radius: 5px;
+    width: 30%;
+    color:#697184;
+    margin-left: 6em;
+    margin: 3%;
+    margin-bottom: 1.5em;
+    color: white;
+}
+
+.center{   
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+  }

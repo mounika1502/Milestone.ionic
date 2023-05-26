@@ -46,7 +46,7 @@ export class AddShipperPage implements OnInit {
        alert('Please provide all the required values!')      
       } else {
        
-           fetch("https://tiny-ruby-centipede-hat.cyclic.app/shippers/addshipper" ,{
+           fetch("https://ill-pear-salmon-cape.cyclic.app/shippers/addshipper" ,{
            method:'post',
            headers:{
              "Access-Control-Allow-Origin": "*",

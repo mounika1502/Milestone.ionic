@@ -4,34 +4,21 @@
   <ion-toolbar >
     <ion-buttons slot="start" >
       <ion-menu-button  style="color:white"  menu="main-menu"></ion-menu-button>
-      <div style="text-align: center;">
-        <img style="width:25%;margin-left: -18%;" src="/assets/mistlogo.png">
-      </div>
+     
+  
     </ion-buttons>
+    <h1 style="margin-left: 30%;font-weight: 900;font-size: xx-large;font-family: Poppins, sans-serif, Segoe UI, Tahoma, Geneva, Verdana">Profile</h1>
   </ion-toolbar>
 </ion-header>
    
 <ion-content has-header="true">
-
-  
-
-  
   <div id="content">
     <div id="profile-info">
-      <!-- <button (click)="onClick()">upload</button> -->
-      <img id="profile-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUolWPtYATiwWEwGVKRkVbfdX7vqwX-hSvRg&usqp=CAU">
-      <br>
-      <!-- <div class="input--file">
-        <span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="3.2"/>
-            <path d="M9 2l-1.83 2h-3.17c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-12c0-1.1-.9-2-2-2h-3.17l-1.83-2h-6zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
-            <path d="M0 0h24v24h-24z" fill="none"/>
-          </svg>
-        </span>
-        <input name="Select File" type="file"  />
       
-      </div> -->
+      <img id="profile-image" src="{{text.filePath}}">
+    
+    
+
       
       <br>
       <div class="edit" >
@@ -42,6 +29,7 @@
       <span id="profile-description"><a>{{text.Email}}</a>
       </span>
     </div>
+    
     <ion-list>
       <ion-item ng-repeat="post in posts">
     

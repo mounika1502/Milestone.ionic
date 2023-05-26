@@ -1,16 +1,10 @@
 <ion-header [translucent]="true">
     <ion-toolbar>
-      <ion-row>
-        <ion-col>
       <ion-icon name="arrow-back-sharp" routerLink="/inventory" style="font-size: 30px;"></ion-icon>
-    </ion-col>
-    <ion-col>
-      <img style = "width:43%;margin-left: -27%;" src = "/assets/mistlogo.png">
-    </ion-col>
-      </ion-row>
     </ion-toolbar>
-  </ion-header>
-  <ion-content [fullscreen]="true">
+</ion-header>
+
+  <ion-content>
     <h1 style="text-align: center;"><b>ADD PRODUCT</b></h1>
     <form [formGroup]="productForm">
     <hr>                                                                                                      
@@ -25,9 +19,6 @@
      S.no is required.
      </span>
      <br>
-
-
-    <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);padding: 5%;" formControlName="prodId" placeholder=" Enter your product ID"> </ion-input>                                         
 
     <ion-label ><b>Name of product :</b></ion-label>
       <ion-select  appFirstCap formControlName="name" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" class="fa fa-caret-down" placeholder="Select name of product &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
@@ -144,7 +135,7 @@
     
     <ion-label ><b>Quality :</b></ion-label><br>
     <ion-select  formControlName="quality" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" placeholder="select product quality &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
-      <ion-select-option  value="Premiun">Premiun</ion-select-option>
+      <ion-select-option  value="Premiun">Premium</ion-select-option>
       <ion-select-option  value="Commercial">Commercial</ion-select-option>
       <ion-select-option  value="Standerd">Standard</ion-select-option>
     </ion-select>
@@ -207,13 +198,14 @@
     </span>
     <br>
 
-    <ion-input type="hidden" class="form-control form-control-lg" formControlName="mobile" [(ngModel)]="text.mobile" >  </ion-input> 
-    
+    <ion-input type="hidden" class="form-control form-control-lg" formControlName="mobile" [(ngModel)]="text.mobile" >  </ion-input>
+
+    <div style="text-align: center;margin-bottom: 1em;margin-top: -2em;">
+      <ion-button type="submit" (click)="onClick()">Submit</ion-button>
+   </div>  
 
   </ion-list>
-  <div style="text-align: center;margin-bottom: 1em;margin-top: -2em;">
-    <ion-button type="submit" (click)="onClick()">Submit</ion-button>
- </div>
+
 </form> 
 
 </ion-content>
