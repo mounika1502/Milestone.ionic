@@ -13,7 +13,7 @@ export class CheckoutPage implements OnInit {
   manufacturername: any;
   Mobile: any;
   randomNumber: any;
-
+cartItem:number=0
   grandtotal: any;
   getCartDetails: any = [];
   Firstname: any;
@@ -118,7 +118,7 @@ export class CheckoutPage implements OnInit {
         .catch(error => console.log('error', error));
 
      alert("Order Placed Successfully")
-        // window.location.href = ('./success');
+       window.location.href = ('./success');
         localStorage.removeItem('anunya');
        
      

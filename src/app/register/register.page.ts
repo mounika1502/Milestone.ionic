@@ -16,11 +16,13 @@ import { UniqueDeviceID } from '@ionic-native/unique-device-id/ngx';
 export class RegisterPage implements OnInit {
   UniqueDeviceID!:string;
   SignupForm: any;
-  loginForm: any;
+  loginForm: any ;
   isAlertOpen = false;
   isSubmitted = false;
 public alertButtons = ['OK'];
   filePath: any;
+  CityState: any;
+Pincode:any
 
 setOpen(isOpen: boolean) {
   this.isAlertOpen = isOpen;
@@ -29,23 +31,36 @@ setOpen(isOpen: boolean) {
   ngOnInit() {
     this.getUniqueDeviceID();
 
-    this.SignupForm = new FormGroup({
-      Firstname: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
-      Lastname : new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]+$')]),
-      mobile : new FormControl('',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-      Email : new FormControl('',[Validators.required,Validators.email]),
-      Password : new FormControl('',[Validators.required,Validators.minLength(5)]),
-      City:new FormControl('',[Validators.required]),
-      UserType:new FormControl('',[Validators.required]),
-      pincode:new FormControl('',[Validators.required,Validators.pattern('[0-9]{6}')]),
-      Street:new FormControl('',[Validators.required]),
-      State:new FormControl('',[Validators.required]),
+    this.SignupForm = this.formBuilder.group({
+      Firstname: ['',[Validators.required,Validators.pattern('[a-zA-Z]+$')]],
+      Lastname : ['',[Validators.required,Validators.pattern('[a-zA-Z]+$')]],
+      mobile : ['',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+      Email : ['',[Validators.required,Validators.email]],
+      Password : ['',[Validators.required]],
+      City:['',[Validators.required]],
+      UserType:['',[Validators.required]],
+      Pincode:['',[Validators.required,Validators.pattern('[0-9]{6}')]],
+      Street:['',[Validators.required]],
+      State:['',[Validators.required]],
+      Company:['',[Validators.required]],
       // uniqueDeviceID:new FormControl( this.UniqueDeviceID),
       // Isadd:new FormControl('1'),
-      Message:new FormControl('congratulations your signup successfully!!'),
-      filePath:new FormControl('')
     });
    
+  }
+
+  async getCityState() {
+    const url = `https://api.postalpincode.in/pincode/${this.Pincode}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    if (data[0].Status === 'Success') {
+      const postOffice = data[0].PostOffice[0];
+      this.CityState = ` ${postOffice.State}`;
+     
+    } else {
+      this.CityState = 'Invalid Pincode';
+  
+    }
   }
   getUniqueDeviceID() {
     this.uniqueDeviceID.get()
@@ -172,10 +187,10 @@ get errorControl() {
   {
    return this.SignupForm.get('City');
   }
-  get Pincode()
-  {
-   return this.SignupForm.get('Pincode');
-  }
+  // get Pincode()
+  // {
+  //  return this.SignupForm.get('Pincode');
+  // }
   get Street()
   {
    return this.SignupForm.get('Street');

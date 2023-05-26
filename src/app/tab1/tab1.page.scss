@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+* { padding: 0; margin: 0; box-sizing: border-box;
+}
+html {scroll-behavior: smooth;font-size: 16px;
+}
+body { font-family: "Poppins", sans-serif, "Segoe UI", Tahoma, Geneva, Verdana; font-weight: 500; outline: none;
+}
+h1,h2,h3,h4 {  color: #35323e;  font-weight: 700;}p {  color: #9e9aa7;  font-weight: 500;  line-height: 1.7;}a {  text-decoration: none;}
+
+
+.btn {display: inline-block;color: white;background-color: #697184;text-transform: capitalize;font-weight: 700;border: none;outline: none;cursor: pointer; border-radius: 100px; transition: 0.3s;
+}
+
+.btn.btn-sm {padding: 7px 21px;
+}
+.btn.btn-lg {padding: 12px 36px;
+}
+.btn.btn-plus-icon {display: flex;align-items: center;justify-content: center;column-gap: 10px;
+}
+.btn.btn-plus-icon .icon {font-size: 22px;
+}
+.btn:hover {background-color: white;color: #000;border:1px solid black;
+}
+.flex-between { display: flex; justify-content: space-between; align-items: center; gap: 40px;
+}
+.flex-ver-top { align-items: flex-start;
+}
+.scale-effect:active {transform: scale(0.88);transition: 0.2s;
+}
+.section-header {text-align: center;
+}
+.section-header h2 { font-size: 35px;}
+@media (max-width: 500px) {.section-header h2 {  font-size: 26px;}}
+@media (max-width: 280px) { .section-header h2 {   font-size: 22px; }}
+.section-header p {width: 50%;margin: 7px auto 0;}
+@media (max-width: 992px) {.section-header p {  width: 70%;}}
+@media (max-width: 500px) {.section-header p {  width: 100%;}}
+.container {position: relative;width: 78%;margin: 0 auto;}
+@media (max-width: 992px) { .container {   width: 90%; }}
+.header { padding: 45px 0;}
+// .header .logo img { height: 30px;}
+.header .main-navgation {flex: 1;gap: 0;}
+@media (max-width: 992px) { .header .main-navgation {   position: absolute;   top: 150%;   left: 50%;   transform: translateX(-50%);  width: 70%;   height: 0;   z-index: 999;overflow: hidden;   flex-direction: column;align-items: center;padding: 0 33.33333px;border-radius: 10px;background-color: #3b3054; transition: height 0.3s; }}
+@media (max-width: 767px) {.header .main-navgation {  width: 90%;}}
+@media (max-width: 375px) {.header .main-navgation {  width: 100%;}}
+@media (max-width: 280px) { .header .main-navgation {   padding: 0 25px; }}
+.header .main-navgation > div { display: flex; align-items: center; gap: 30px;}
+@media (max-width: 992px) {.header .main-navgation > div {  flex-direction: column;  width: 100%;  padding: 33.33333px 0;}}
+@media (max-width: 280px) {.header .main-navgation > div {  padding: 25px 0;}}
+.header .main-navgation div:first-child {border-bottom: 1px solid white;}
+.header .nav-buttons .btn {color: #fff;width: 80%;}
+@media (max-width: 375px) { .header .nav-buttons .btn {   width: 100%; }}
+.header .burger-menu {font-size: 22px;color: #9e9aa7;cursor: pointer;display: none;
+}@media (max-width: 992px) { .header .burger-menu {   display: block; }}
+.footer .social-media img { max-width: 85%; transition: 0.2s transform;}
+.footer .social-media img:hover { transform: scale(1.1); filter: invert(0%) sepia(59%) saturate(6585%) hue-rotate(125deg) brightness(86%) contrast(85%);}
+.attribution {padding: 30px 0 25px 0;text-align: center;font-size: 13px; color: #fff;}
+.attribution .outer-link { font-size: 15px; color: #2acfcf;margin-left: 2px;cursor: pointer;
+}.attribution .outer-link:hover { text-decoration: underline wavy #2acfcf 2px;}.attribution .social-media {display: inline-flex;align-items: center;gap: 12px;list-style: none;margin-left: 5px;}
+.attribution .social-media .icon {
+  font-size: 20px;
+  color: #fff;}
+.attribution .social-media .image {width: 23px;}
+.attribution .social-media .image:hover { filter: none;background-color: none;}
+body{ background-image: url(https://img.freepik.com/free-vector/close-up-white-marble-textured-background_53876-58927.jpg)}
+
+
+
+
+ion-searchbar{
+    --box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    ::ng-deep{
+        .searchbar-input-container{            
+            .searchbar-input{ 
+                border-radius: 20px;
+                border: 1px solid #a0a0a8;
+                //any style that you want to implement on your searchbar
+            }
+        }
+    }   
+}
+ion-toolbar {
+    --color: #ffffff;
+    --background:#697184;
+}
+
+.center{   
+ 
+    justify-content: center;
+    align-items: center;  
+  }

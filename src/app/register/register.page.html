@@ -1,24 +1,20 @@
 
 <ion-header>
-  <ion-toolbar>
-
- 
+  <ion-toolbar> 
     <ion-icon name="arrow-back-sharp" routerLink="/login" style="font-size: 30px;"></ion-icon>
-
-
   </ion-toolbar>
 </ion-header>
 
   <ion-content [fullscreen]="true">
-    <h1 style="text-align: center;font-size: xx-large;font-weight: 900;">Register</h1>
-  <ion-list  >
+   
+  <ion-list lines="none">
 
     <!-- <img    stylehjmny="max-width: 60%;  margin-left: 20%;" 
     src="https://media.istockphoto.com/id/502910284/photo/natural-stone-tiles-marble-granite-samples-stack-clipping-path.jpg?s=612x612&w=0&k=20&c=6-doPB7xCKGqQ6y1EVrJXcrw8ziMw8xmec1GlVxLbUE=">
    -->
- 
+   <h1 style="text-align: center;"><b>Register</b></h1>
     <form #userPost="ngForm" [formGroup]="SignupForm" >
-      <ion-input type="hidden"  appFirstCap  type="text" clearInput="true" formControlName="filePath"></ion-input>
+
       <ion-label style="margin-left: 6%;">First Name</ion-label>
       <ion-item class="ion-margin">    
         <ion-input appFirstCap  placeholder="Enter First Name"  type="text" clearInput="true" formControlName="Firstname"></ion-input>
@@ -75,9 +71,9 @@
       <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Password.errors?.required" style="color: red;">
         Password is required.
        </span>
-       <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Password.errors?.minLength" style="color: red;">
+       <!-- <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Password.errors?.minLength" style="color: red;">
         Password should be min 6.
-       </span>
+       </span> -->
      <br>
 
     <ion-label style="margin-left: 6%;">City</ion-label>
@@ -101,12 +97,12 @@
     <ion-label style="margin-left: 6%;">Pincode</ion-label>
     <ion-item class="ion-margin">
   
-      <ion-input appFirstCap placeholder="Enter pincode"   type="text" clearInput="true"   formControlName="pincode"></ion-input>
+      <ion-input appFirstCap placeholder="Enter pincode"   type="text" clearInput="true" (ngModelChange)="getCityState()"   [(ngModel)]="Pincode" formControlName="Pincode"></ion-input>
     </ion-item>
     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.pincode.errors?.required" style="color: red;">
       Pincode is required.
      </span>
-     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.pincode.errors?.minLength" style="color: red;">
+     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.pincode.errors?.pattern" style="color: red;">
       Pincode should be 5 digits long.
      </span>
      <br>
@@ -122,37 +118,7 @@
    
     <ion-label style="margin-left: 6%;">State</ion-label>
       <ion-item class="ion-margin">
-        <ion-select aria-label="fruit" formControlName="State" placeholder="Please Select your state" autocomplete="off">
-          <ion-select-option value="">--Select--</ion-select-option>
-          <ion-select-option value="Andhra Pradesh">Andhra Pradesh</ion-select-option>
-          <ion-select-option value="Arunachal Pradesh">Arunachal Pradesh</ion-select-option>
-          <ion-select-option value="Assam">Assam</ion-select-option>
-          <ion-select-option value="Bihar">Bihar</ion-select-option>
-          <ion-select-option value="Chhattisgarh">Chhattisgarh</ion-select-option>
-          <ion-select-option value="Goa">Goa</ion-select-option>
-          <ion-select-option value="Gujarat">Gujarat</ion-select-option>
-          <ion-select-option value="Haryana">Haryana</ion-select-option>
-          <ion-select-option value="Himachal Pradesh">Himachal Pradesh</ion-select-option>
-          <ion-select-option value="Jammu & Kashmir">Jammu & Kashmir</ion-select-option>
-          <ion-select-option value="Jarkhand">Jarkhand</ion-select-option>
-          <ion-select-option value="Karnataka">Karnataka</ion-select-option>
-          <ion-select-option value="Kerala">Kerala</ion-select-option>
-          <ion-select-option value="Madya Pradesh">Madya Pradesh</ion-select-option>
-          <ion-select-option value="Maharastra">Maharastra</ion-select-option>
-          <ion-select-option value="Manipur">Manipur</ion-select-option>
-          <ion-select-option value="Meghalaya">Meghalaya</ion-select-option>
-          <ion-select-option value="Mizoram">Mizoram</ion-select-option>
-          <ion-select-option value="Nagaland">Nagaland</ion-select-option>
-          <ion-select-option value="Odisha">Odisha</ion-select-option>
-          <ion-select-option value="Panjab">Panjab</ion-select-option>
-          <ion-select-option value="Rajastan">Rajastan</ion-select-option>
-          <ion-select-option value="Sikkim">Sikkim</ion-select-option>
-          <ion-select-option value="Tamil Nadu">Tamil Nadu</ion-select-option>
-          <ion-select-option value="Telangana">Telangana</ion-select-option>
-          <ion-select-option value="Tripura">Tripura</ion-select-option>
-          <ion-select-option value="UttarPradesh">Uttar Pradesh</ion-select-option>
-          <ion-select-option value="West Bengal">West Bengal</ion-select-option>
-        </ion-select>
+        <ion-input aria-label="fruit" [(ngModel)]="CityState" formControlName="State" placeholder="Please Select your state" autocomplete="off"> </ion-input>
       </ion-item>
       <span class="error ion-padding" *ngIf="isSubmitted && errorControl.State.errors?.required" style="color: red;">
         State is required.
@@ -171,16 +137,16 @@
           <span class="error ion-padding" *ngIf="isSubmitted && errorControl.UserType.errors?.required" style="color: red;">
             UserType is required.
            </span>
-           
           
           </form>
-          <ion-button  style="height: 50px;   border-radius: 10px; margin-top:20px;" expand="full" strong="true" type="submit" (click)="signupSubmit()" >
-            Register
+        </ion-list>
+          <div class="center">
+            <button  style="height: 50px;  font-size: 20px; border-radius:20px; margin-top:15px; width: 15em;background-color: #697184; color: white;margin-bottom: 15px;" type="submit"  (click)="signupSubmit()">
+              Register
+             </button>   
+          </div>           
        
-           </ion-button>
-          
-          </ion-list>
-          </ion-content>
+</ion-content>
          
           
      

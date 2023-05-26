@@ -80,7 +80,7 @@ OrderStatus:any;
     this.manumob=this.text.mobile
     console.log(this.manumob)
     this.getCartDetails = JSON.parse(localStorage.getItem('anunya') || '{}');
-    fetch("https://earmuffs-ox.cyclic.app/orderRoute/getOrders",{
+    fetch("http://localhost:7500/orderRoute/getOrders",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
