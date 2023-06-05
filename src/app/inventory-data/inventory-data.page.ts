@@ -31,7 +31,9 @@ export class InventoryDataPage implements OnInit {
   }
 
   delete(prodId:any){ 
-      fetch("https://ill-pear-salmon-cape.cyclic.app/products/deleteproduct/" + prodId,{
+    if(confirm("Are you sure do you want to delete")){
+     
+      fetch("https://new-backend-delta.vercel.app/products/deleteproduct/" + prodId,{
        method:'DELETE',
        headers:{
          "access-Control-Allow-Origin":"*"
@@ -39,13 +41,11 @@ export class InventoryDataPage implements OnInit {
       })
       .then(response => response.json())
       .then(result=>{
-       console.log(result)
-    
-     })
-   
+       console.log(result)    
+     }) 
         
       .catch(err =>
        console.log(err))    
    } 
-
+  }
   }

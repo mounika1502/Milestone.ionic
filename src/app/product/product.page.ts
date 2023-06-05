@@ -74,7 +74,7 @@ export class ProductPage implements OnInit {
  
     get() {
       console.log('getstoreDealer')
-      fetch("https://ill-pear-salmon-cape.cyclic.app/dealerfilterRouter/dealerfilter", {
+      fetch("https://new-backend-delta.vercel.app/dealerfilterRouter/dealerfilter", {
         method: 'GET',
       headers: {
         "access-Control-Allow-Origin": "*",

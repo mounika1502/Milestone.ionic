@@ -104,3 +104,14 @@ ion-item {
 .logo{
   margin-top: 7rem;
   }
+
+  .center{   
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+  }
+  img {
+    width: 250px;
+    -webkit-filter: drop-shadow(5px 5px 5px #a5a5a5);
+    filter: drop-shadow(5px 5px 5px #989898);
+  }

@@ -20,7 +20,7 @@ export class AddProductPage  {
   add: any;
   raw: any;
   date = "12-04-2023"
-  imgurl: any
+  imgurl: any;
   textaws: any;
   images: any;
   constructor(private router: Router, private apii: UploadService, private http: HttpClient,public formBuilder:FormBuilder) { }
@@ -66,22 +66,21 @@ export class AddProductPage  {
     this.productForm = this.formBuilder.group({ 
       prodId: ['', [Validators.required]],
       name:  ['', [Validators.required]],
-      color: ['', [Validators.required,Validators.pattern('[a-zA-Z]+$')]],
-      size:  ['', [Validators.required,Validators.pattern('^[0-9]{3}[*][0-9]{3}')]],
+      color: ['', [Validators.required]],
+      size:  ['', [Validators.required]],
       stone: ['', [Validators.required]],
       thick: ['', [Validators.required]],
       qnt:  ['', [Validators.required]],
-      price: ['', [Validators.required,Validators.pattern('[0-9]+$')]],
+      price: ['', [Validators.required]],
       region:  ['', [Validators.required]],
       quality:  ['', [Validators.required]],
       date:  ['', [Validators.required]],
       mobile: ['', [Validators.required]],
-      Quantity: ['', [Validators.required,Validators.pattern('[0-9]+$')]],
-      manufacturername:  ['', [Validators.required,Validators.pattern('[a-zA-Z]+$')]],
-      PhoneNumber:['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
-      description: ['', [Validators.required]],
-    })
-   
+      Quantity: ['', [Validators.required]],
+      manufacturername:  ['', [Validators.required]],
+      PhoneNumber:['', [Validators.required]],
+      description: ['', [Validators.required]]
+    })   
   }
 
   cancel() {
@@ -93,7 +92,7 @@ export class AddProductPage  {
 
   submitForm(id:any) {
       console.log(this.productForm.value)
-      fetch("http://localhost:7500/products/addproduct/" +id, {
+      fetch("https://new-backend-delta.vercel.app/products/addproduct/" +id, {
         method: 'post',
         headers: {
           "Access-Control-Allow-Origin": "*",
@@ -103,28 +102,26 @@ export class AddProductPage  {
       }).then(res => res.json())
         .then(result => {
           console.log(result)
-
-          window.location.href="/inventory"         
-
-          alert("Added...")
-           window.location.href="/inventory"
-         
-
+          if(result.status === 'failed'){
+            alert('Product already existed')       
+           }else{ 
+            alert("Added...")              
+              window.location.href="/inventory"     
+          } 
         }
         )
         .catch(error => console.log('error', error))
-      }
-
+  }
       
   get errorControl() {
     return this.productForm.controls;
   } 
 
   onClick() {
-    this.isSubmitted = true;
-    if (!this.productForm.valid) {
-     alert('Please provide all the required values!')  
-    } else {
+    // this.isSubmitted = true;
+    // if (!this.productForm.valid) {
+    //  alert('Please provide all the required values!')  
+    // } else {
 
     console.log(this.data)
   const formdata = new FormData();
@@ -135,11 +132,11 @@ export class AddProductPage  {
     console.log(data)
     var docid=data.imageFile._id
     this.submitForm(docid) 
-   
    })
     console.log(formdata)
-  }
+  
 }
+
   selectImage(event: any) {
     if (event.target.files.length > 0) {
       console.log(event.target.files)

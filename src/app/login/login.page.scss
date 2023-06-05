@@ -1,3 +1,4 @@
+
 .passwordIcon{
     font-size:1rem !important;
     position: relative !important;
@@ -27,10 +28,6 @@ ion-col {
     background: $white-color;
 }
 
-ion-button {
-    font-weight: 300;
-}
-
 @media (min-width: 240px) and (max-width: 768px) {
     ion-grid {
         background: $white-color;
@@ -39,6 +36,8 @@ ion-button {
         border: none;
     }
 }
+
+
 
 ion-toolbar {
     --color: #ffffff;
@@ -65,7 +64,7 @@ ion-list {
     margin-top: 6px;
 
     ion-list-header {
-        font-weight: 1000;
+        // font-weight: 1000;
         font-size: 1.5rem;
     }
 
@@ -100,14 +99,4 @@ sc-ion-searchbar-md-h{
   border-radius: 90%;
 }
 
-ion-toolbar {
-    --color: #ffffff;
-    --background:#697184;
-  }
 
-  .passwordIcon{
-    font-size:1rem !important;
-    position: relative !important;
-    top: 2px !important;
-    margin: 0 auto !important;
- }

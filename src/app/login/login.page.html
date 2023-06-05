@@ -5,9 +5,11 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true"> 
-  <ion-list lines="none" class="ion-margin">    
-    <img style="max-width: 65%;  text-align: center;" 
+<ion-content [fullscreen]="true">
+  <ion-list lines="none" class="ion-margin">
+    
+   <img  style="width: 70%; height:70%; margin-left: 20%;margin-top: 3%;" 
+
     src="https://media.istockphoto.com/id/502910284/photo/natural-stone-tiles-marble-granite-samples-stack-clipping-path.jpg?s=612x612&w=0&k=20&c=6-doPB7xCKGqQ6y1EVrJXcrw8ziMw8xmec1GlVxLbUE=">
    
     <form #userPost="ngForm" [formGroup]="loginForm" >
@@ -21,15 +23,16 @@
       <ion-input formControlName="password" [type]="passwordType" placeholder="Enter Password"></ion-input>
       <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
     </ion-item>
-
+    <a style="float:right;margin-top: 5px;" routerLink="/forgotpassword">forgot password?</a><br>
     </form>
       <ion-button  style="height: 50px;   border-radius: 10px; margin-top:20px;" expand="full" strong="true" type="submit" [disabled]="loginForm.value.email == '' || loginForm.value.password == ''"   (click)="loginSubmit()" >
         Login
       </ion-button>
-      <a style="float:right;margin-top: 5px;" routerLink="/forgotpassword">forgot password?</a><br><br>
-      <h5 style="text-align: center;">Login with mobile?&nbsp;<a href="/mobile-login">Login </a></h5> 
-      <h5 style="text-align: center;">Don't have an account?&nbsp;<a href="/register">register</a></h5>  
-  
+   
+      <br>
+      <h5 style="text-align: center;">Login with Mobile Number?&nbsp;<a href="/mobile-login">Login </a></h5> 
+      <h5 style="text-align: center;">Don't have an account?&nbsp;<a href="/register">Register Now</a></h5>  
+ 
    
     </ion-list>
 </ion-content>

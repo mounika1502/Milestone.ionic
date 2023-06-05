@@ -1,7 +1,14 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-icon name="arrow-back-sharp" routerLink="/inventory" style="font-size: 30px;"></ion-icon>
-    
+  <ion-toolbar >
+    <ion-icon name="arrow-back-sharp" routerLink="/inventory" style="font-size: 30px;" slot="start"></ion-icon>
+   
+    <div align="center">
+    <div style=" display:flex; justify-content:center;align-items:center;text-align:center; width:150px; height:60px;">
+      <ion-img src="/assets/Mile.png" style="width: 100px; "></ion-img>
+     </div>
+     </div>
+  
+
   </ion-toolbar>
 </ion-header>
 
@@ -50,7 +57,10 @@
            
         <ion-label ><b>Phone Number :</b></ion-label>
         <input style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;text-align:start;" formControlName="PhoneNumber" [(ngModel)]="data.PhoneNumber" name="PhoneNumber"> 
-           
+         
+        <ion-label ><b>Description :</b></ion-label>
+        <textarea style="margin-top: 7px; width: 97%;border-radius: 6px;height: 3em;border:1px solid #c2c5ca;margin-bottom: 1em;text-align:start;" formControlName="description" [(ngModel)]="data.description" name="description"> </textarea>
+         
       </ion-list>
         <div style="text-align: center;margin-bottom: 1em;">
           <ion-button type="submit" (click)="update(data._id)">Save</ion-button>

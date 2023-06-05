@@ -10,6 +10,7 @@ export class RouteGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree 
     {
+
       if(localStorage.getItem("Login") == null){       
          alert('Please login!')
          window.location.href=("login")
@@ -18,4 +19,5 @@ export class RouteGuard implements CanActivate {
          return true
        }
     }  
-}
+  }
+

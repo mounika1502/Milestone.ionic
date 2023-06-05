@@ -13,7 +13,7 @@ export class CheckoutPage implements OnInit {
   manufacturername: any;
   Mobile: any;
   randomNumber: any;
-
+cartItem:number=0
   grandtotal: any;
   getCartDetails: any = [];
   Firstname: any;
@@ -101,7 +101,7 @@ export class CheckoutPage implements OnInit {
     console.log(Obj);
     if (Obj.Phone == this.text.mobile) {
       console.log(JSON.stringify(Obj))   //product details with user details
-      fetch("http://localhost:7500/orderRoute/post", {
+      fetch("https://new-backend-delta.vercel.app/orderRoute/post", {
         method: 'POST',
         headers: {
           "Access-Control-Allow-Origin": "*",
@@ -118,7 +118,7 @@ export class CheckoutPage implements OnInit {
         .catch(error => console.log('error', error));
 
      alert("Order Placed Successfully")
-         window.location.href = ('./success');
+       window.location.href = ('./success');
         localStorage.removeItem('anunya');
        
      
@@ -128,7 +128,7 @@ export class CheckoutPage implements OnInit {
     
   }
   // debugger
-  fetch("http://localhost:7500/orderRoute/orderemail", {
+  fetch("https://new-backend-delta.vercel.app/orderRoute/orderemail", {
     method:'post',
     headers: {
       "Access-Control-Allow-Origin": "*",
@@ -163,7 +163,7 @@ getProduct(){
   var data={
     mobile:this.text.mobile
   }    
-   fetch("http://localhost:7500/products/getproduct", {
+   fetch("https://new-backend-delta.vercel.app/products/getproduct", {
   method:'post',
   headers:{
     "Access-Control-Allow-Origin": "*",
@@ -186,7 +186,7 @@ UpdateQnty() {
   }
   console.log(this.dataqnt[0]._prodId)
   console.log(this.dataqnt[0].Quantity)
-  fetch("http://localhost:7500/products/editqnt/" + this.dataqnt[0].prodId, {
+  fetch("https://new-backend-delta.vercel.app/products/editqnt/" + this.dataqnt[0].prodId, {
     method: 'POST',
     headers: {
       "access-Control-Allow-Origin": "*",

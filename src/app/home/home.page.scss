@@ -6,8 +6,7 @@ html {scroll-behavior: smooth;font-size: 16px;
 body { font-family: "Poppins", sans-serif, "Segoe UI", Tahoma, Geneva, Verdana; font-weight: 500; outline: none;
 }
 h1,h2,h3,h4 {  color: #35323e;  font-weight: 700;}p {  color: #9e9aa7;  font-weight: 500;  line-height: 1.7;}a {  text-decoration: none;}
-img { max-width: 100%;
-}
+
 
 .btn {display: inline-block;color: white;background-color: #697184;text-transform: capitalize;font-weight: 700;border: none;outline: none;cursor: pointer; border-radius: 100px; transition: 0.3s;
 }
@@ -39,7 +38,7 @@ img { max-width: 100%;
 .container {position: relative;width: 78%;margin: 0 auto;}
 @media (max-width: 992px) { .container {   width: 90%; }}
 .header { padding: 45px 0;}
-.header .logo img { height: 30px;}
+// .header .logo img { height: 30px;}
 .header .main-navgation {flex: 1;gap: 0;}
 @media (max-width: 992px) { .header .main-navgation {   position: absolute;   top: 150%;   left: 50%;   transform: translateX(-50%);  width: 70%;   height: 0;   z-index: 999;overflow: hidden;   flex-direction: column;align-items: center;padding: 0 33.33333px;border-radius: 10px;background-color: #3b3054; transition: height 0.3s; }}
 @media (max-width: 767px) {.header .main-navgation {  width: 90%;}}
@@ -84,3 +83,9 @@ ion-toolbar {
     --color: #ffffff;
     --background:#697184;
 }
+
+.center{   
+ 
+    justify-content: center;
+    align-items: center;  
+  }

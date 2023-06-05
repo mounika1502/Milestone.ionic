@@ -33,7 +33,7 @@ export class OrdermanagePage implements OnInit {
   data2:any=[];
   data3:any=[];
   data4:any=[];
-
+OrderStatus: any;
 ApproximateTime:any;
   testi: any;
   Listdata:any=[]
@@ -51,9 +51,6 @@ ApproximateTime:any;
   manuemail: any;
   randomNumber: any;
   text2: any;
-  canDismiss = false;
-
-  presentingElement :any;
   constructor() { 
 
     }
@@ -69,7 +66,7 @@ ApproximateTime:any;
       console.log(test)
   }
   ngOnInit(): void {
-    this.presentingElement = document.querySelector('.ion-page');
+
     const localdata1=localStorage.getItem('orderid')
     if(localdata1!=null){                                                    
       this.text2 = JSON.parse(localdata1)
@@ -98,7 +95,7 @@ ApproximateTime:any;
     console.log(this.data)
 
 
-fetch("https://ill-pear-salmon-cape.cyclic.app/orderRoute/getAllOrders", {
+fetch("https://new-backend-delta.vercel.app/orderRoute/getAllOrders", {
       method:"get",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -131,7 +128,8 @@ fetch("https://ill-pear-salmon-cape.cyclic.app/orderRoute/getAllOrders", {
    {
     this.data3.push(this.order[i] )
    }
-  }  if(this.data3.length!=0)
+  }
+    if(this.data3.length!=0)
   {
   this.order=this.data3
     console.log(this.order)
@@ -149,12 +147,6 @@ fetch("https://ill-pear-salmon-cape.cyclic.app/orderRoute/getAllOrders", {
     }
     ).catch(err =>
       console.log('error',err))
-      
-
-
-
-
-  
 }
   getAddress(test:any){
     window.location.href=("/address")
@@ -253,7 +245,7 @@ this.count=this.order.length;
   this.count=this.order.length;
    console.log(this.data3)
   }  
-  fetch("https://ill-pear-salmon-cape.cyclic.app/orderRoute/orderupdate", {
+  fetch("https://new-backend-delta.vercel.app/orderRoute/orderupdate", {
     method:'post',
     headers:{
     "Access-Control-Allow-Origin": "*",
@@ -267,7 +259,8 @@ this.count=this.order.length;
     }
     )
     .catch(error => console.log('error',error))
-   }   
+   }  
+
  close(){
   this.popuporder=false;
  }
@@ -275,6 +268,7 @@ this.count=this.order.length;
 All(){
   window.location.reload();
 }
+
 Update(){
   console.log(this.orderdata.value)
   console.log(this.testi)
@@ -287,7 +281,7 @@ Update(){
     Message:this.data.Message,
     Email:this.text.Email
   }
-  fetch("http://localhost:7500/orderRoute/orderStatus",{
+  fetch("https://new-backend-delta.vercel.app/orderRoute/orderStatus",{
     method:"POST",
     headers:{
       "access-Control-Allow-Origin":"*",
@@ -299,17 +293,14 @@ Update(){
   .then(result =>{
     console.log(result)
     this.close();
-  alert("Updated Successfully")
-  window.location.reload()
-
+   alert('Updated Successfully!')
 
   }
   ).catch(err =>
     console.log('error',err))  
 }
-onTermsChanged(event: Event) {
-  const ev = event as CheckboxCustomEvent;
-  this.canDismiss = ev.detail.checked;
-}
+  
+
+
 
 }

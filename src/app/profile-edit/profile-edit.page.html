@@ -1,6 +1,11 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-icon name="arrow-back-sharp" routerLink="/profile" style="font-size: 30px;">Edit Profile</ion-icon> 
+<ion-header>
+  <ion-toolbar >  
+    <ion-icon name="arrow-back-sharp" routerLink="/profile" style="font-size: 30px;" slot="start"></ion-icon>
+    <div align="center">
+    <div style=" display:flex; justify-content:center;align-items:center;text-align:center; width:150px; height:60px;">
+      <ion-img src="/assets/Mile.png" style="width: 100px; "></ion-img>
+     </div>
+     </div>
   </ion-toolbar>
 </ion-header>
 
@@ -38,9 +43,9 @@
                    
               <h2 class="pt-1" style="color: blue;">Company Details</h2>
               <hr>
-          
+                                            
               <ion-label ><b>Company Name:</b></ion-label><br>
-              <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" [(ngModel)]="text.Company" formControlName="Company" name="Firstname" readonly>  <br>              
+              <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" [(ngModel)]="text.Company" formControlName="Company" name="Firstname" >  <br>              
                 
               <ion-label ><b>Company Location :</b></ion-label><br>
               <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" [(ngModel)]="text.Location" formControlName="Location" name="Firstname">  <br>      

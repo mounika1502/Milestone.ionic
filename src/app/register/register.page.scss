@@ -74,8 +74,21 @@ ion-toolbar {
     --background:#697184;
   }
 
+
   .center{   
     display: flex;
     justify-content: center;
     align-items: center;  
   }
+
+  .passwordIcon{
+    font-size:1rem !important;
+    position: relative !important;
+    top: 2px !important;
+    margin: 0 auto !important;
+ }
+ ion-input{
+    height: 10%;
+ }
+
+

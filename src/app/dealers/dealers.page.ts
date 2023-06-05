@@ -7,53 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DealersPage implements OnInit {
 
-  search:any;
+
   dealer:any;
-  popupform=false;
-  popup=false;
   data4=false
-  data=false;
-  popupdata=false;
-datas:any;
-searchtext:any;
-  registerForm: any;
-  productform: any;
-  sendemail: any;
-  send:any;
-  service: any;
-  dealer1: any=[]
+  data=false; 
+  datas:any;
+  searchtext:any; 
   dealers=false;
   text: any;
   aa: any;
-  sign: any=[];
-  List: any=[];
+  sign: any=[];  
   array: any=[];
-  SignupForm:any;
   List1: any=[];
-  add:any=[];
-  Getdealer:any=[]
-  location: any;
-  firstname: any;
-  lastname: any;
   Mobile: any;
-  address: any;
-  email: any;
-  list:any;
-  company:any;
-  docId: any;
-  localid: any=[];
-  x:any;
-  buttonClicked=true;
-  localarray: any=[]
-  ḍata: any;
-_id: any;
-isAlertOpen = false;
-public alertButtons = ['OK'];
+  _id: any;
 
-setOpen(isOpen: boolean) {
-  this.isAlertOpen = isOpen;
-}
   constructor() {}
+
   ngOnInit(): void {
    this.Get()
     // this.localid=JSON.parse(localStorage.getItem('docId')|| '{}')
@@ -62,7 +32,7 @@ setOpen(isOpen: boolean) {
       console.log(this.Mobile) 
   }
   Get(){
-    fetch("https://ill-pear-salmon-cape.cyclic.app/signupform/getsignupdetails",{
+    fetch("https://new-backend-delta.vercel.app/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -82,12 +52,8 @@ setOpen(isOpen: boolean) {
     ).catch(err =>
       console.log('error',err))  
   }
-      remove(){
-        this.popupform=false;
-        this.popupdata=false;
-      }
-data3(){
- 
+
+ data3(){ 
   this.data4=true;
   this.data=false;
 
@@ -95,7 +61,7 @@ data3(){
      Mobile:this.Mobile
 
   }   
-    fetch("https://ill-pear-salmon-cape.cyclic.app/dealer/getdealer",{
+    fetch("https://new-backend-delta.vercel.app/dealer/getdealer",{
       method:"post",
       headers:{
         "Access-Control-Allow-Origin":"*",
@@ -112,19 +78,10 @@ data3(){
     }
     ).catch(err =>
       console.log('error',err))
- 
-
 }
-Dealer(){
-  this.dealers=true;
-}
-  toggle(){
-  this.data=true;
-  }
-
   
   dealer2(data:any){  
-var datasss ={
+ var datasss ={
   Firstname:data.Firstname,
   Lastname:data.Lastname,
   Company:data.Company,
@@ -138,7 +95,7 @@ var datasss ={
 
 }
   console.log(datasss)
-    fetch("https://ill-pear-salmon-cape.cyclic.app/dealer/adddealer",{
+    fetch("https://new-backend-delta.vercel.app/dealer/adddealer",{
       method:'POST',
       headers:{
         "Access-Control-Allow-Origin":"*",
@@ -156,35 +113,8 @@ var datasss ={
       }  else{
         alert("Added Successfully!")            
       }  
-      
-    
-//       data.Isadd=0;
-// var id=data._id
-     
-//      let index =this.array.findIndex((item:any)=>item._id === id)
-//       this.array.splice(index,1,data)
-//       console.log( this.docId)
-     
-//       localStorage.setItem('array',JSON.stringify(this.array))
-      // localStorage.setItem('docId',JSON.stringify(this.docId))
-      //  this.docId=result.dealerInfo._id
-      // localStorage.setItem('docId',JSON.stringify(this.docId))
-     
-    
     }
       )
     .catch(error => console.log('error',error)); 
-// }
   }
-      
-
-
-      dealerform(List1:any){
-        this.text=List1
-        localStorage.setItem('dataform',JSON.stringify(List1))
-
-      }
-
-
-
 }

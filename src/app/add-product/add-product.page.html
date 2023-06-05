@@ -1,10 +1,19 @@
-<ion-header [translucent]="true">
-    <ion-toolbar>
-      <ion-icon name="arrow-back-sharp" routerLink="/inventory" style="font-size: 30px;"></ion-icon>
-    </ion-toolbar>
-</ion-header>
 
-  <ion-content>
+<ion-header>
+  <ion-toolbar >
+    <ion-icon name="arrow-back-sharp" routerLink="/inventory" style="font-size: 30px;" slot="start"></ion-icon>
+   
+    <div align="center">
+    <div style=" display:flex; justify-content:center;align-items:center;text-align:center; width:150px; height:60px;">
+      <ion-img src="/assets/Mile.png" style="width: 100px;margin-left: -25%; "></ion-img>
+     </div>
+     </div>
+  
+
+  </ion-toolbar>
+</ion-header>
+  <ion-content [fullscreen]="true">
+
     <h1 style="text-align: center;"><b>ADD PRODUCT</b></h1>
     <form [formGroup]="productForm">
     <hr>                                                                                                      
@@ -12,8 +21,8 @@
    <ion-input type="hidden" style="margin-top: -45px;" formControlName="qnt"></ion-input>
     <ion-label style="margin-top: -30px;" ><b>Upload image :</b></ion-label><br>
     <ion-input type="file" style=" width: 97%;border-radius: 6px;border:1px solid #c2c5ca;margin-bottom: 1em;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);padding: 5%;"  (change)="selectImage($event)"  placeholder=" upload your image url"></ion-input>
+    
     <ion-label ><b>S.NO :</b></ion-label><br>
-
     <ion-input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);padding: 5%;" formControlName="prodId" placeholder=" Enter your product ID"> </ion-input>                                         
     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.prodId.errors?.required" style="color: red;">
      S.no is required.
@@ -21,7 +30,7 @@
      <br>
 
     <ion-label ><b>Name of product :</b></ion-label>
-      <ion-select  appFirstCap formControlName="name" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" class="fa fa-caret-down" placeholder="Select name of product &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+      <ion-select formControlName="name" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" class="fa fa-caret-down" placeholder="Select name of product &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
       <ion-select-option value="Absolute Black">Absolute Black</ion-select-option>
       <ion-select-option value="Alaska  White">Alaska White</ion-select-option>
       <ion-select-option value="Amazon White">Amazon White</ion-select-option>
@@ -98,9 +107,9 @@
     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.size.errors?.required" style="color: red;">
      Size is required.
      </span>
-     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.size.errors?.pattern" style="color: red;">
+     <!-- <span class="error ion-padding" *ngIf="isSubmitted && errorControl.size.errors?.pattern" style="color: red;">
       Only numerical values allowed.
-     </span>
+     </span> -->
      <br>
 
     <ion-label ><b>Available Quantity :</b></ion-label><i class="fa fa-question-circle-o" style="font-size:15px; color: rgb(102, 102, 232);" ></i>               
@@ -159,9 +168,9 @@
     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.region.errors?.required" style="color: red;">
       Location of stone is required.
      </span>
-     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.region.errors?.pattern" style="color: red;">
+     <!-- <span class="error ion-padding" *ngIf="isSubmitted && errorControl.region.errors?.pattern" style="color: red;">
       Only alphabet values allowed.
-     </span>
+     </span> -->
      <br>
 
     <ion-label ><b>Arrival Date :</b></ion-label>
@@ -198,15 +207,13 @@
     </span>
     <br>
 
-    <ion-input type="hidden" class="form-control form-control-lg" formControlName="mobile" [(ngModel)]="text.mobile" >  </ion-input>
-
-    <div style="text-align: center;margin-bottom: 1em;margin-top: -2em;">
-      <ion-button type="submit" (click)="onClick()">Submit</ion-button>
-   </div>  
-
+    <ion-input type="hidden" class="form-control form-control-lg" formControlName="mobile" [(ngModel)]= "text.mobile" >  </ion-input>
   </ion-list>
 
 </form> 
+    <div style="text-align: center;margin-bottom: 1em;margin-top: -2em;">
+      <ion-button type="submit" (click)="onClick()">Submit</ion-button>
+   </div>  
 
 </ion-content>
 

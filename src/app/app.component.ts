@@ -58,9 +58,11 @@ export class AppComponent {
 
 
   logout() {
+
   localStorage.clear()
   if(confirm("Are you sure do you want to logout")){
   window.location.href = '/login'
+    
   }
   }
   // getUniqueDeviceID() {

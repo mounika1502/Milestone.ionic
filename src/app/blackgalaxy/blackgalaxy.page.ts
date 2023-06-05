@@ -133,7 +133,7 @@ export class BlackgalaxyPage implements OnInit {
    
   get() {
     console.log(this.name)
-    fetch("https://ill-pear-salmon-cape.cyclic.app/products/getbyName/" + this.name, {
+    fetch("https://new-backend-delta.vercel.app/products/getbyName/" + this.name, {
       method: 'GET',
     headers: {
       "access-Control-Allow-Origin": "*",

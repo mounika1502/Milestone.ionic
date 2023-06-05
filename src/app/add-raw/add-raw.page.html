@@ -1,6 +1,14 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-icon name="arrow-back-sharp" routerLink="/raw-product" style="font-size: 30px;"></ion-icon> 
+
+
+<ion-header>
+  <ion-toolbar >
+    <ion-icon name="arrow-back-sharp" routerLink="/raw-product" style="font-size: 30px;" slot="start"></ion-icon>
+   
+    <div align="center">
+    <div style=" display:flex; justify-content:center;align-items:center;text-align:center; width:150px; height:60px;">
+      <ion-img src="/assets/Mile.png" style="width: 100px; margin-left: -25%;"></ion-img>
+     </div>
+     </div>
   </ion-toolbar>
 </ion-header>
 
@@ -88,9 +96,9 @@
             <span class="error ion-padding" *ngIf="isSubmitted && errorControl.color.errors?.required" style="color: red;">
               Product colour is required.
             </span>
-            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.color.errors?.pattern" style="color: red;">
+            <!-- <span class="error ion-padding" *ngIf="isSubmitted && errorControl.color.errors?.pattern" style="color: red;">
               Only numerical alphabets allowed.
-            </span>           
+            </span>            -->
             <br>
     
             <div class="form-outline">                    
@@ -102,9 +110,9 @@
             <span class="error ion-padding" *ngIf="isSubmitted && errorControl.size.errors?.required" style="color: red;">
               Product size is required.
             </span>
-            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.size.errors?.pattern" style="color: red;">
+            <!-- <span class="error ion-padding" *ngIf="isSubmitted && errorControl.size.errors?.pattern" style="color: red;">
               Product size should be in l*b format
-            </span>
+            </span> -->
             <br>
     
             <ion-label ><b>Stone Size/Type :</b></ion-label><br>
@@ -122,9 +130,9 @@
             <span class="error ion-padding" *ngIf="isSubmitted && errorControl.region.errors?.required" style="color: red;">
               Location of stone is required.
             </span>
-            <span class="error ion-padding" *ngIf="isSubmitted && errorControl.region.errors?.pattern" style="color: red;">
+            <!-- <span class="error ion-padding" *ngIf="isSubmitted && errorControl.region.errors?.pattern" style="color: red;">
               Only alphabets allowed.
-            </span>
+            </span> -->
             <br>
     
             <ion-label ><b>Arrival Date :</b></ion-label>

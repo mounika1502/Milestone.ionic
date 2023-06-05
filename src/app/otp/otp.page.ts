@@ -76,6 +76,7 @@ export class OtpPage implements OnInit {
 
  ngOnInit(): void {
   firebase.initializeApp(config)
+  
    this.verify = JSON.parse(localStorage.getItem('verificationId') || '{}');
    this.mobileNo = JSON.parse(localStorage.getItem('mobileNo') || '{}');
    console.log(this.verify)

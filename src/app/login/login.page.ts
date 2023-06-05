@@ -33,7 +33,7 @@ export class LoginPage implements OnInit {
     this.loginForm.value.password =='')
     {
   }else{
-     fetch("http://localhost:7500/loginform/addlogin", {
+     fetch("https://new-backend-delta.vercel.app/loginform/addlogin", {
       method:'post',
       headers:{
         "Access-Control-Allow-Origin": "*",

@@ -31,7 +31,7 @@ export class AddShipperPage implements OnInit {
        TruckImage: ['', [Validators.required]],
         Licence: ['', [Validators.required]],
         Adhar: ['', [Validators.required]],
-        Mobile: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+        Mobile: ['', [Validators.required, Validators.pattern("^[0-9]{10}$")]],
         Pan: ['', [Validators.required]]
       })
     }
@@ -46,7 +46,7 @@ export class AddShipperPage implements OnInit {
        alert('Please provide all the required values!')      
       } else {
        
-           fetch("https://ill-pear-salmon-cape.cyclic.app/shippers/addshipper" ,{
+           fetch("https://new-backend-delta.vercel.app/shippers/addshipper" ,{
            method:'post',
            headers:{
              "Access-Control-Allow-Origin": "*",

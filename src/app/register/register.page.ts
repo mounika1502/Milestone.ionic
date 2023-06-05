@@ -11,36 +11,54 @@ import Swal from 'sweetalert2';
 export class RegisterPage implements OnInit {
   UniqueDeviceID!:string;
   SignupForm: any;
-  loginForm: any;
+  loginForm: any ;
   isAlertOpen = false;
   isSubmitted = false;
   public alertButtons = ['OK'];
 
   filePath: any;
+  CityState: any;
+Pincode:any
+  district: any;
 
   setOpen(isOpen: boolean) {
   this.isAlertOpen = isOpen;
   }
   constructor(private router:Router,public formBuilder: FormBuilder) { }
 
+
   ngOnInit() {
+   // this.getCityState()
     this.SignupForm = this.formBuilder.group({  
       Firstname: ['',[Validators.required,Validators.pattern('[a-zA-Z]+$')]],
       Lastname : ['',[Validators.required,Validators.pattern('[a-zA-Z]+$')]],
-      mobile : ['',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+      mobile : ['',[Validators.required,Validators.pattern("^([0-9]{10}$")]],
       Email : ['',[Validators.required,Validators.email]],
       Password : ['',[Validators.required,Validators.minLength(5)]],
-      City:['',[Validators.required,Validators.pattern('[a-zA-Z]+$')]],
+      City:['',[Validators.required]],
       UserType:['',[Validators.required]],
-      pincode:['',[Validators.required,Validators.pattern('[0-9]{6}')]],
+      Pincode:['',[Validators.required]],
       Street:['',[Validators.required]],
       State:['',[Validators.required]],
       Company:['',[Validators.required]],
       // uniqueDeviceID:[''),
       // Isadd:['1'),
-     
-    });
-    // this.getUniqueDeviceID();
+    });   
+  }
+
+  async getCityState() {
+
+    const url = `https://api.postalpincode.in/pincode/${this.Pincode}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    if (data[0].Status === 'Success') {
+      const postOffice = data[0].PostOffice[0];
+      this.CityState = ` ${postOffice.State}`;
+      // this.district = ` ${postOffice.District}`;
+    } else {
+      this.CityState = 'Invalid Pincode';
+  
+    }
   }
    
 
@@ -94,7 +112,8 @@ export class RegisterPage implements OnInit {
      }
      console.log(signupdata)
 
-    fetch("http://localhost:7500/signupform/addsignupdetails", {
+    fetch("https://new-backend-delta.vercel.app/signupform/addsignupdetails", {
+
      method:'post',
      headers:{
        "Access-Control-Allow-Origin": "*",
@@ -119,7 +138,7 @@ export class RegisterPage implements OnInit {
   var body ={
     Email:this.SignupForm.value.Email
   }
-  fetch("https://ill-pear-salmon-cape.cyclic.app/signupform/emailnotification", {
+  fetch("https://new-backend-delta.vercel.app/signupform/emailnotification", {
   method:'post',
   headers:{
   "Access-Control-Allow-Origin": "*",
@@ -134,61 +153,5 @@ export class RegisterPage implements OnInit {
   .catch(error => console.log('error',error))
   }
 }
-
-
-
-    get Firstname()
-  {
-   return this.SignupForm.get('Firstname');
-  }
-  get pincode()
-  {
-   return this.SignupForm.get('pincode');
-  }
-  get Lastname()
-  {
-   return this.SignupForm.get('Lastname');
-  }
-  get mobile()
-  {
-   return this.SignupForm.get('mobile');
-  }
-  get Email()
-  {
-   return this.SignupForm.get('Email');
-  }
-  get Password()
-  {
-   return this.SignupForm.get('Password');
-  }
-  get UserType()
-  {
-   return this.SignupForm.get('UserType');
-  }
-  get City()
-  {
-   return this.SignupForm.get('City');
-  }
-  get Pincode()
-  {
-   return this.SignupForm.get('Pincode');
-  }
-  get Street()
-  {
-   return this.SignupForm.get('Street');
-  }
-  get Company()
-  {
-   return this.SignupForm.get('Company');
-  }
-  get State()
-  {
-   return this.SignupForm.get('State');
-  }
-  get Isadd()
-  {
-   return this.SignupForm.get('Isadd');
-  }
-
 
 }

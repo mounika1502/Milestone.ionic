@@ -93,7 +93,7 @@ export class CompanydetailsPage implements OnInit {
     localStorage.setItem('Login',JSON.stringify(this.text))
     console.log(this.Form.value)
     
-        fetch("https://ill-pear-salmon-cape.cyclic.app/signupform/addCompany/" + this.text.Authentication, {
+        fetch("https://new-backend-delta.vercel.app/signupform/addCompany/" + this.text.Authentication, {
           method: 'PUT',
           headers: {
             "access-Control-Allow-Origin": "*",        
@@ -105,7 +105,7 @@ export class CompanydetailsPage implements OnInit {
           .then(response => response.json())
           .then(result => {
             console.log(result),
-window.location.href='/profile'
+          window.location.href='/profile'
          this.text['Location']=this.Form.value.Location
          this.text['bio']=this.Form.value.bio
 

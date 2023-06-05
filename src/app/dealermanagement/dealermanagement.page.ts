@@ -62,7 +62,7 @@ setOpen(isOpen: boolean) {
       console.log(this.Mobile) 
   }
   Get(){
-    fetch("https://ill-pear-salmon-cape.cyclic.app/signupform/getsignupdetails",{
+    fetch("https://new-backend-delta.vercel.app/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -92,7 +92,7 @@ data3(){
   var datauma={
     Mobile:this.text.Mobile
   }   
-    fetch("https://ill-pear-salmon-cape.cyclic.app/dealer/getdealer",{
+    fetch("https://new-backend-delta.vercel.app/dealer/getdealer",{
       method:"post",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -133,7 +133,7 @@ var datasss ={
 
 }
   console.log(datasss)
-    fetch("https://ill-pear-salmon-cape.cyclic.app/dealer/adddealer",{
+    fetch("https://new-backend-delta.vercel.app/dealer/adddealer",{
       method:'POST',
       headers:{
         "Access-Control-Allow-Origin":"*",

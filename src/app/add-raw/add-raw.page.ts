@@ -39,14 +39,14 @@ export class AddRawPage implements OnInit {
     this.productForm = this.formBuilder.group({    
       Number: ['', [Validators.required]],
       Name: ['', [Validators.required]],
-      color: ['', [Validators.required,Validators.pattern('[a-zA-Z]+$')]],
+      color: ['', [Validators.required]],
       size:  ['', [Validators.required]],
       stone: ['', [Validators.required]],
       region: ['', [Validators.required]],
       date: ['', [Validators.required]],
       mobile: [''],
       manufacturername:  ['', [Validators.required,Validators.pattern('[a-zA-Z]+$')]],
-      PhoneNumber : ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+      PhoneNumber : ['', [Validators.required, Validators.pattern("^[0-9]{10}$")]],
     })
 
     if (this.currentMonth < 10) {
@@ -76,7 +76,7 @@ export class AddRawPage implements OnInit {
   submitForm(id:any){
       
       console.log(this.productForm.value)
-       fetch("https://ill-pear-salmon-cape.cyclic.app/raw/addraw/"+id, {
+       fetch("https://new-backend-delta.vercel.app/raw/addraw/"+id, {
        method:'post',
        headers:{
          "Access-Control-Allow-Origin": "*",
@@ -88,7 +88,7 @@ export class AddRawPage implements OnInit {
      .then(result=>{ 
        console.log(result)
        if(result.status === 'failed'){
-        alert('Failed')       
+        alert('Product already existed')       
        }else{ 
         alert("Added...")              
           window.location.href="/raw-product"     

@@ -28,8 +28,10 @@ export class ShipperDataPage implements OnInit {
     window.location.href=("./shipper-edit")
     localStorage.setItem('Shippers',JSON.stringify(shippers))   
   }
-  delete(Mobile:any){    
-    fetch("https://ill-pear-salmon-cape.cyclic.app/shippers/delete/" + Mobile,{
+
+  delete(Mobile:any){ 
+    if(confirm("Are you sure do you want to delete")){   
+    fetch("https://new-backend-delta.vercel.app/shippers/delete/" + Mobile,{
      method:'DELETE',
      headers:{
         "access-Control-Allow-Origin":"*"
@@ -44,7 +46,8 @@ export class ShipperDataPage implements OnInit {
     ).catch(err =>
        console.log(err))    
   } 
-  
-  }
+}
+
+}
 
 

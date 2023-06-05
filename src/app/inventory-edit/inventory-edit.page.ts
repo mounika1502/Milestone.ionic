@@ -20,7 +20,7 @@ export class InventoryEditPage implements OnInit {
     this.aa=this.text.UserType
     console.log(this.aa)
     this.productForm = new FormGroup({
-     prodId:new FormControl(""),
+      prodId:new FormControl(""),
       name: new FormControl(""),
       color: new FormControl(""),
       size: new FormControl(""),
@@ -45,7 +45,7 @@ export class InventoryEditPage implements OnInit {
   update(id:any){
       console.log(this.productForm.value) 
       localStorage.setItem('InventoryProduct',JSON.stringify(this.data));
-      fetch("https://ill-pear-salmon-cape.cyclic.app/products/editProduct/" + id,  {
+      fetch("https://new-backend-delta.vercel.app/products/editProduct/" + id,  {
         method: 'PUT',
         headers: {
           "access-Control-Allow-Origin": "*",        
