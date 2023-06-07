@@ -101,7 +101,7 @@ cartItem:number=0
     console.log(Obj);
     if (Obj.Phone == this.text.mobile) {
       console.log(JSON.stringify(Obj))   //product details with user details
-      fetch("https://new-backend-delta.vercel.app/orderRoute/post", {
+      fetch("https://ionic-node.vercel.app/orderRoute/post", {
         method: 'POST',
         headers: {
           "Access-Control-Allow-Origin": "*",
@@ -128,7 +128,7 @@ cartItem:number=0
     
   }
   // debugger
-  fetch("https://new-backend-delta.vercel.app/orderRoute/orderemail", {
+  fetch("https://ionic-node.vercel.app/orderRoute/orderemail", {
     method:'post',
     headers: {
       "Access-Control-Allow-Origin": "*",
@@ -163,7 +163,7 @@ getProduct(){
   var data={
     mobile:this.text.mobile
   }    
-   fetch("https://new-backend-delta.vercel.app/products/getproduct", {
+   fetch("https://ionic-node.vercel.app/products/getproduct", {
   method:'post',
   headers:{
     "Access-Control-Allow-Origin": "*",
@@ -186,7 +186,7 @@ UpdateQnty() {
   }
   console.log(this.dataqnt[0]._prodId)
   console.log(this.dataqnt[0].Quantity)
-  fetch("https://new-backend-delta.vercel.app/products/editqnt/" + this.dataqnt[0].prodId, {
+  fetch("https://ionic-node.vercel.app/products/editqnt/" + this.dataqnt[0].prodId, {
     method: 'POST',
     headers: {
       "access-Control-Allow-Origin": "*",

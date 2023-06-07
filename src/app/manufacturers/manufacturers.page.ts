@@ -72,7 +72,7 @@ setOpen(isOpen: boolean) {
   }
 
   Get(){
-    fetch("https://new-backend-delta.vercel.app/signupform/getsignupdetails",{
+    fetch("https://ionic-node.vercel.app/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -110,7 +110,7 @@ data3(){
     Mobile:this.aaa
 
  } 
-  fetch("https://new-backend-delta.vercel.app/manufacturer/getdata",{
+  fetch("https://ionic-node.vercel.app/manufacturer/getdata",{
     method:"post",
     headers:{
       "Access-Control-Allow-Origin":"*",
@@ -150,7 +150,7 @@ Dealer(){
         Mobile:this.aaa
       
       }
-      fetch("https://new-backend-delta.vercel.app/manufacturer/adddata",{
+      fetch("https://ionic-node.vercel.app/manufacturer/adddata",{
         method:'POST',
         headers:{
           "Access-Control-Allow-Origin":"*",

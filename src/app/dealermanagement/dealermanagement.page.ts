@@ -9,8 +9,7 @@ import Swal from 'sweetalert2';
 export class DealermanagementPage implements OnInit {
   search:any;
   dealer:any;
-  popupform=false;
-  popup=false;
+ 
   data4=false
   data=false;
   popupdata=false;
@@ -62,7 +61,7 @@ setOpen(isOpen: boolean) {
       console.log(this.Mobile) 
   }
   Get(){
-    fetch("https://new-backend-delta.vercel.app/signupform/getsignupdetails",{
+    fetch("https://ionic-node.vercel.app/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -82,17 +81,14 @@ setOpen(isOpen: boolean) {
     ).catch(err =>
       console.log('error',err))  
   }
-      remove(){
-        this.popupform=false;
-        this.popupdata=false;
-      }
+     
 data3(){
   this.data4=true;
   this.data=false;
   var datauma={
     Mobile:this.text.Mobile
   }   
-    fetch("https://new-backend-delta.vercel.app/dealer/getdealer",{
+    fetch("https://ionic-node.vercel.app/dealer/getdealer",{
       method:"post",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -133,7 +129,7 @@ var datasss ={
 
 }
   console.log(datasss)
-    fetch("https://new-backend-delta.vercel.app/dealer/adddealer",{
+    fetch("https://ionic-node.vercel.app/dealer/adddealer",{
       method:'POST',
       headers:{
         "Access-Control-Allow-Origin":"*",

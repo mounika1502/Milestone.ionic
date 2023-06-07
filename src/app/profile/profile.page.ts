@@ -10,13 +10,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-
   imageFile:any
   text:any=[]  
   profile = true;
   companyForm= false;
   products: any
-  
   Form: any;
   filePath: any;
   images: any;
@@ -26,6 +24,10 @@ export class ProfilePage implements OnInit {
   test: any=[]
   updateddata: any;
 
+  ProfileForm: any;
+  docid: any;
+  Firstname:any
+  aaa: any;
   constructor( private apii: UploadService, private fb: FormBuilder,private router:Router) {
   }
 
@@ -39,7 +41,6 @@ export class ProfilePage implements OnInit {
       Company:new FormControl(""),
       Location:new FormControl(""),
       bio:new FormControl("")
-
      }) 
      this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
      console.log(this.text)
@@ -101,7 +102,7 @@ export class ProfilePage implements OnInit {
     localStorage.setItem('Login',JSON.stringify(this.text))
     console.log(this.Form.value)
     
-        fetch("https://new-backend-delta.vercel.app/signupform/addCompany/" + this.text.Authentication, {
+        fetch("https://ionic-node.vercel.app/signupform/addCompany/" + this.text.Authentication, {
           method: 'PUT',
           headers: {
             "access-Control-Allow-Origin": "*",        
@@ -127,6 +128,80 @@ export class ProfilePage implements OnInit {
           }
           ).catch(err =>
             console.log(err))
+      }
+      update(filePath:any){  
+        console.log(this.text.Authentication) 
+       // console.log(this.ProfileForm.value)
+        console.log(filePath)
+        var bodydata={
+         Firstname:this.ProfileForm.value.Firstname,
+         Lastname:this.ProfileForm.value.Lastname,
+         mobile:this.ProfileForm.value.mobile,
+         Email:this.ProfileForm.value.Email,
+         Password:this.ProfileForm.value.Password,
+         City:this.ProfileForm.value.City,
+         Pincode:this.ProfileForm.value.Pincode,
+         Street:this.ProfileForm.value.Street,
+         State:this.ProfileForm.value.State,
+         Company:this.ProfileForm.value.Company,
+         Location:this.ProfileForm.value.Location,
+         bio:this.ProfileForm.value.bio,
+         filePath:filePath
+        }
+        console.log(bodydata)
+      
+       this.apii.updateprofiledetails(bodydata,this.text.Authentication).subscribe(data=>{
+         console.log(data)
+   
+         // var docid=data.imageFile.filePath
+         // this.update(docid)      
+   
+         alert("Updated Successfully")
+         window.location.href="/profile";
+         this.text['Firstname'] = data.updateddata.Firstname,
+         this.text['Lastname'] = data.updateddata.Lastname,
+         this.text['mobile'] = data.updateddata.mobile,
+         this.text['Email'] = data.updateddata.Email,
+         this.text['Password'] = data.updateddata.Password,
+         this.text['City'] = data.updateddata.City,
+         this.text['Pincode'] = data.updateddata.Pincode,
+         this.text['Street'] = data.updateddata.Street,
+         this.text['State'] = data.updateddata.State,
+         this.text['Company'] = data.updateddata.Company,
+         this.text['bio'] = data.updateddata.bio,
+         this.text['filePath'] = filePath,
+       
+        localStorage.setItem('Login',JSON.stringify(this.text))
+   
+        })
+        localStorage.setItem('Login',JSON.stringify(this.text))
+        console.log(this.text)
+     }
+
+      onClick() {
+        console.log(this.data)
+        const formdata = new FormData();
+        for(let pdffiles of this.images){
+        formdata.append("file",pdffiles)
+       }
+        this.apii.postfiletos5(formdata).subscribe(data=>{
+        console.log(data)
+        this.docid=data.imageFile.filePath  
+        this.update(this.docid) 
+       }) 
+        console.log(formdata)
+    
+    
+      }
+    
+      selectImage(event: any) {
+        if (event.target.files.length > 0) {
+          console.log(event.target.files)
+          const file = event.target.files;
+          console.log(file);
+          this.images = file;   
+        }
+        console.log(this.images)
       }
 
 }

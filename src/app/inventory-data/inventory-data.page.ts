@@ -33,7 +33,7 @@ export class InventoryDataPage implements OnInit {
   delete(prodId:any){ 
     if(confirm("Are you sure do you want to delete")){
      
-      fetch("https://new-backend-delta.vercel.app/products/deleteproduct/" + prodId,{
+      fetch("https://ionic-node.vercel.app/products/deleteproduct/" + prodId,{
        method:'DELETE',
        headers:{
          "access-Control-Allow-Origin":"*"

@@ -52,7 +52,7 @@ ngOnInit(): void {
  }  
  getProduct(){
    if(this.text.UserType=='admin'){
-    fetch("https://new-backend-delta.vercel.app/products/getproducts", {
+    fetch("https://ionic-node.vercel.app/products/getproducts", {
       method:'get',
       headers:{
         "Access-Control-Allow-Origin": "*",
@@ -71,7 +71,7 @@ ngOnInit(): void {
     var data={
       mobile:this.text.mobile
     }    
-     fetch("https://new-backend-delta.vercel.app/products/getproduct", {
+     fetch("https://ionic-node.vercel.app/products/getproduct", {
     method:'post',
     headers:{
       "Access-Control-Allow-Origin": "*",

@@ -95,7 +95,7 @@ ApproximateTime:any;
     console.log(this.data)
 
 
-fetch("https://new-backend-delta.vercel.app/orderRoute/getAllOrders", {
+fetch("https://ionic-node.vercel.app/orderRoute/getAllOrders", {
       method:"get",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -245,7 +245,7 @@ this.count=this.order.length;
   this.count=this.order.length;
    console.log(this.data3)
   }  
-  fetch("https://new-backend-delta.vercel.app/orderRoute/orderupdate", {
+  fetch("https://ionic-node.vercel.app/orderRoute/orderupdate", {
     method:'post',
     headers:{
     "Access-Control-Allow-Origin": "*",
@@ -281,7 +281,7 @@ Update(){
     Message:this.data.Message,
     Email:this.text.Email
   }
-  fetch("https://new-backend-delta.vercel.app/orderRoute/orderStatus",{
+  fetch("https://ionic-node.vercel.app/orderRoute/orderStatus",{
     method:"POST",
     headers:{
       "access-Control-Allow-Origin":"*",

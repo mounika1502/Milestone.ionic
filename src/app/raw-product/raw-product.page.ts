@@ -31,7 +31,7 @@ export class RawProductPage {
       console.log(this.aa)
 
     if(this.aa==='Dealer'){
-      fetch("https://new-backend-delta.vercel.app/raw/getrawproduct", {
+      fetch("https://ionic-node.vercel.app/raw/getrawproduct", {
         method:'get',
         headers:{
           "Access-Control-Allow-Origin": "*",
@@ -53,7 +53,7 @@ export class RawProductPage {
           var data = {
             mobile :this.text.mobile
           }   
-          fetch("https://new-backend-delta.vercel.app/raw/getraw", {
+          fetch("https://ionic-node.vercel.app/raw/getraw", {
          method:'post',
          headers:{
            "Access-Control-Allow-Origin": "*",

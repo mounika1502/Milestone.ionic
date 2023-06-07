@@ -43,7 +43,7 @@ export class MobileLoginPage implements OnInit {
 
   async mobileOtp(){
 
-    fetch("https://new-backend-delta.vercel.app/signupform/getsignupdetails", {
+    fetch("https://ionic-node.vercel.app/signupform/getsignupdetails", {
       method:'get',
       headers:{
         "Access-Control-Allow-Origin": "*",

@@ -32,8 +32,9 @@ export class RawDataPage implements OnInit {
       }
 
       delete(Number:any){  
+        if(confirm("Are you sure do you want to delete")){
       
-        fetch("https://new-backend-delta.vercel.app/raw/delete/" + Number,{
+        fetch("https://ionic-node.vercel.app/raw/delete/" + Number,{
          method:'DELETE',
          headers:{
             "access-Control-Allow-Origin":"*"
@@ -42,11 +43,10 @@ export class RawDataPage implements OnInit {
         .then(response => response.json())
         .then(result=>{
           console.log(result)
-          alert('deleted')
           window.location.href='./raw-product'
        }
         ).catch(err =>
            console.log(err))    
         }
-
+      }
       }

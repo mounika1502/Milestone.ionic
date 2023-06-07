@@ -60,7 +60,7 @@ Firstname:any
       Street:this.ProfileForm.value.Street,
       State:this.ProfileForm.value.State,
       Company:this.ProfileForm.value.Company,
-      // Location:this.ProfileForm.value.Location,
+      Location:this.ProfileForm.value.Location,
       bio:this.ProfileForm.value.bio,
       filePath:filePath
      }
@@ -106,6 +106,8 @@ Firstname:any
     this.update(this.docid) 
    }) 
     console.log(formdata)
+
+
   }
 
   selectImage(event: any) {

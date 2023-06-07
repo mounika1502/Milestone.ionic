@@ -92,7 +92,7 @@ export class AddProductPage  {
 
   submitForm(id:any) {
       console.log(this.productForm.value)
-      fetch("https://new-backend-delta.vercel.app/products/addproduct/" +id, {
+      fetch("https://ionic-node.vercel.app/products/addproduct/" +id, {
         method: 'post',
         headers: {
           "Access-Control-Allow-Origin": "*",

@@ -1,16 +1,15 @@
 <ion-header>
   <ion-toolbar >
     <ion-buttons slot="start" >
-      <ion-menu-button  style="color:white" menu="main-menu"></ion-menu-button>
-  
+      <ion-menu-button  style="color:white" menu="main-menu"></ion-menu-button>  
     </ion-buttons>
-   
-    <div align="center">
+    <h4>Profile</h4>
+
+    <!-- <div align="center">
     <div style=" display:flex; justify-content:center;align-items:center;text-align:center; width:150px; height:60px;">
       <ion-img src="/assets/Mile.png" style="width: 100px; "></ion-img>
      </div>
-     </div>
-  
+     </div>  -->
 
   </ion-toolbar>
 </ion-header>
@@ -18,8 +17,19 @@
 <ion-content has-header="true">
   <div id="content">
     <div id="profile-info">
-      <img id="profile-image" src="{{text.filePath}}">
+      <div class="center">
+        <img id="profile-image"  class="image" src="{{text.filePath}}">
+      </div>
+      <!-- <div class="center" style="font-size: x-large;position: relative;margin-top: -30px;margin-left: 21%;">
+        <ion-icon name="camera-sharp" style="color:#697184"  (change)="selectImage($event)" type="file"></ion-icon>
+        </div>  -->
+        <div class="image">
+    <label for="file"><ion-icon name="camera-sharp" style="font-size: x-large;position: relative;margin-top: -40px;margin-left: 21%;"></ion-icon></label>
+    <input type="file"(change)="selectImage($event)" name="" id="file" style="display:none; visibility: none; margin-top: -40px;" > 
+    <button (click)="onClick()">fghj</button>  
+</div>    
       <br>
+     
       <div class="edit" >
         <button style="margin-left: -8px;border:1px solid #697184;padding: 2%;border-radius: 10px;background-color:#697184;color:white" (click)="edit(text)">Edit</button>
       </div>

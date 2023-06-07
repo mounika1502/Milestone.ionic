@@ -112,7 +112,7 @@ Pincode:any
      }
      console.log(signupdata)
 
-    fetch("https://new-backend-delta.vercel.app/signupform/addsignupdetails", {
+    fetch("https://ionic-node.vercel.app/signupform/addsignupdetails", {
 
      method:'post',
      headers:{
@@ -138,7 +138,7 @@ Pincode:any
   var body ={
     Email:this.SignupForm.value.Email
   }
-  fetch("https://new-backend-delta.vercel.app/signupform/emailnotification", {
+  fetch("https://ionic-node.vercel.app/signupform/emailnotification", {
   method:'post',
   headers:{
   "Access-Control-Allow-Origin": "*",

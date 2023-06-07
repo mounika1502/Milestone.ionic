@@ -33,7 +33,7 @@ export class LoginPage implements OnInit {
     this.loginForm.value.password =='')
     {
   }else{
-     fetch("https://new-backend-delta.vercel.app/loginform/addlogin", {
+     fetch("https://ionic-node.vercel.app/loginform/addlogin", {
       method:'post',
       headers:{
         "Access-Control-Allow-Origin": "*",
@@ -52,7 +52,8 @@ export class LoginPage implements OnInit {
     }  else{
       alert("Login success....") 
       window.location.href='/home' 
-    }   
+    } 
+
       
    })
     }   

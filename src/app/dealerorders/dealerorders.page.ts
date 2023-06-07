@@ -80,7 +80,7 @@ export class DealerordersPage implements OnInit {
     this.manumob=this.text.mobile
     console.log(this.manumob)
     this.getCartDetails = JSON.parse(localStorage.getItem('anunya') || '{}');
-    fetch("https://new-backend-delta.vercel.app/orderRoute/getOrders",{
+    fetch("https://ionic-node.vercel.app/orderRoute/getOrders",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",

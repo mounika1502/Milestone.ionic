@@ -28,7 +28,7 @@ export class ForgotpasswordPage implements OnInit {
   //login form submit function
   submit(){
     console.log(this.Form.value) 
-     fetch("https://new-backend-delta.vercel.app/auth/getsignupdetail", {
+     fetch("https://ionic-node.vercel.app/auth/getsignupdetail", {
       method:'post',
       headers:{
         "Access-Control-Allow-Origin": "*",

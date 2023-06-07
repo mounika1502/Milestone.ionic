@@ -45,7 +45,7 @@ export class InventoryEditPage implements OnInit {
   update(id:any){
       console.log(this.productForm.value) 
       localStorage.setItem('InventoryProduct',JSON.stringify(this.data));
-      fetch("https://new-backend-delta.vercel.app/products/editProduct/" + id,  {
+      fetch("https://ionic-node.vercel.app/products/editProduct/" + id,  {
         method: 'PUT',
         headers: {
           "access-Control-Allow-Origin": "*",        

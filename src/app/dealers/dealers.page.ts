@@ -32,7 +32,7 @@ export class DealersPage implements OnInit {
       console.log(this.Mobile) 
   }
   Get(){
-    fetch("https://new-backend-delta.vercel.app/signupform/getsignupdetails",{
+    fetch("https://ionic-node.vercel.app/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -61,7 +61,7 @@ export class DealersPage implements OnInit {
      Mobile:this.Mobile
 
   }   
-    fetch("https://new-backend-delta.vercel.app/dealer/getdealer",{
+    fetch("https://ionic-node.vercel.app/dealer/getdealer",{
       method:"post",
       headers:{
         "Access-Control-Allow-Origin":"*",
@@ -95,7 +95,7 @@ export class DealersPage implements OnInit {
 
 }
   console.log(datasss)
-    fetch("https://new-backend-delta.vercel.app/dealer/adddealer",{
+    fetch("https://ionic-node.vercel.app/dealer/adddealer",{
       method:'POST',
       headers:{
         "Access-Control-Allow-Origin":"*",
