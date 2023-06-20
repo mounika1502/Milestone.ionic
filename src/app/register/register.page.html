@@ -69,9 +69,8 @@
    
       <ion-label style="margin-left: 6%;"><b>Password</b></ion-label>
       <ion-item class="ion-margin">
-        <ion-input appCapitalize placeholder="Enter Password" [type]="passwordType"  formControlName="Password"></ion-input>
+        <ion-input formControlName="Password" [type]="passwordType" placeholder="Enter Password"></ion-input>
         <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
-        <i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
       </ion-item>
       <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Password.errors?.required" style="color: red;">
         Password is required.

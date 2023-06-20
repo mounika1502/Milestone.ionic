@@ -11,6 +11,7 @@ export class InventoryEditPage implements OnInit {
   productForm: any;
   aa: any;
   text: any;
+  product: any;
 
   constructor() { }
 
@@ -44,7 +45,7 @@ export class InventoryEditPage implements OnInit {
   }
   update(id:any){
       console.log(this.productForm.value) 
-      localStorage.setItem('InventoryProduct',JSON.stringify(this.data));
+      localStorage.setItem('InventoryProduct',JSON.stringify(this.product));
       fetch("https://sore-gold-coyote-wrap.cyclic.app/products/editProduct/" + id,  {
         method: 'PUT',
         headers: {
@@ -55,10 +56,13 @@ export class InventoryEditPage implements OnInit {
       })
         .then(response => response.json())
         .then(result => {
+          this.product = result
           console.log(result)
+          console.log(this.product)
          alert('updated...') 
-         window.location.reload()
-          window.location.href=("/inventory-data")             
+          // window.location.reload()
+          window.location.href=("/inventory-data") 
+         // window .location.reload()             
         }
         ).catch(err =>
           console.log(err))  

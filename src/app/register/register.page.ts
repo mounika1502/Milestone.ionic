@@ -23,8 +23,8 @@ export class RegisterPage implements OnInit {
   setOpen(isOpen: boolean) {
   this.isAlertOpen = isOpen;
   }
-  constructor(private router:Router,public formBuilder: FormBuilder) { }
 
+  constructor(private router:Router,public formBuilder: FormBuilder) { }
 
   ngOnInit() {
    // this.getCityState()
