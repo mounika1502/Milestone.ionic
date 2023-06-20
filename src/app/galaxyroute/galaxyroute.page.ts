@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-galaxyroute',
@@ -11,11 +10,7 @@ export class GalaxyroutePage implements OnInit {
   cartItem:number = 0;
   data2: any=[]
 
-
-
   ngOnInit(): void {
-   
-
     const localdata=localStorage.getItem('anu')
     if(localdata!=null){
       this.data = JSON.parse(localdata)
@@ -35,7 +30,9 @@ export class GalaxyroutePage implements OnInit {
       let storeDataGet: any = []; // storeDataGet is a array
       storeDataGet.push(category); // push the category into localstorage
       localStorage.setItem('anunya',JSON.stringify(storeDataGet));
+      console.log(storeDataGet)
     }
+
     else {
       var id = category.prodId;  // this is product id represented
       let index: number = -1;
@@ -53,20 +50,17 @@ export class GalaxyroutePage implements OnInit {
       }
       else {
         localStorage.setItem('anunya', JSON.stringify(this.itemsCart));
+        console.log(this.itemsCart)
       }
-    }
-   
+    }   
      alert("Added to Cart...")
-      window .location.reload()
-   
-    // window .location.reload()     
+      window .location.reload()    
 }
 cartItemFunc(){
   if(localStorage.getItem('anunya') != null){
   var cartCount = JSON.parse(localStorage.getItem('anunya') || '{}');
   this.cartItem = cartCount.length;
-  console.log(this.cartItem)
- 
+  console.log(this.cartItem) 
 }
 }
 

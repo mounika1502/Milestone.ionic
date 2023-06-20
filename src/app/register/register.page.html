@@ -17,18 +17,21 @@
 
     <form #userPost="ngForm" [formGroup]="SignupForm" >
 
-      <ion-label style="margin-left: 6%;">First Name</ion-label>
+      <ion-label style="margin-left: 6%;"><b>First Name</b></ion-label>
       <ion-item class="ion-margin">    
         <ion-input appFirstCap  placeholder="Enter First Name"  type="text" clearInput="true" formControlName="Firstname"></ion-input>
       </ion-item>
-      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Firstname.errors?.required" style="color: red;">
+       
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Firstname.errors?.required" style="color: red;margin-top:-5px">
         Firstname  is required.
       </span>
       <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Firstname.errors?.pattern" style="color: red;">
         Only alphabets allowed.
-      </span>
-       <br>
-      <ion-label style="margin-left: 6%;">Last Name</ion-label>
+      </span> 
+      <br>
+      
+
+      <ion-label style="margin-left: 6%;"><b>Last Name</b></ion-label>
       <ion-item class="ion-margin">    
         <ion-input  appFirstCap  placeholder="Enter Last Name" type="text" clearInput="true" formControlName="Lastname"></ion-input>
       </ion-item>
@@ -40,19 +43,19 @@
       </span>
        <br>
 
-      <ion-label style="margin-left: 6%;">Phone Number</ion-label>
+      <ion-label style="margin-left: 6%;"><b>Phone Number</b></ion-label>
     <ion-item class="ion-margin">  
       <ion-input  appFirstCap placeholder="Enter Phone Number" type="text" clearInput="true" formControlName="mobile"></ion-input>
     </ion-item>
     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile.errors?.required" style="color: red;">
       PhoneNumber is required.
     </span>
-    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Lastname.errors?.pattern" style="color: red;">
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile.errors?.pattern" style="color: red;">
     Please, Enter 10 digit mobile number.
     </span>
      <br>
 
-      <ion-label style="margin-left: 6%;">Email Address</ion-label>
+      <ion-label style="margin-left: 6%;"><b>Email Address</b></ion-label>
       <ion-item class="ion-margin">    
         <ion-input appFirstCap placeholder="Enter Email Address" type="text" clearInput="true" formControlName="Email"></ion-input>
       </ion-item>
@@ -64,7 +67,7 @@
       </span>
      <br>
    
-      <ion-label style="margin-left: 6%;">Password</ion-label>
+      <ion-label style="margin-left: 6%;"><b>Password</b></ion-label>
       <ion-item class="ion-margin">
         <ion-input appCapitalize placeholder="Enter Password" [type]="passwordType"  formControlName="Password"></ion-input>
         <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
@@ -73,12 +76,12 @@
       <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Password.errors?.required" style="color: red;">
         Password is required.
        </span>
-       <!-- <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Password.errors?.minLength" style="color: red;">
+       <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Password.errors?.minLength" style="color: red;">
         Password should be min 6.
-       </span> -->
+       </span>
      <br>
 
-    <ion-label style="margin-left: 6%;">City</ion-label>
+    <ion-label style="margin-left: 6%;"><b>City</b></ion-label>
     <ion-item class="ion-margin">  
       <ion-input appFirstCap  placeholder="Enter City" type="text" clearInput="true" formControlName="City"></ion-input>
     </ion-item>
@@ -87,7 +90,7 @@
      </span>   
     <br>
 
-    <ion-label style="margin-left: 6%;">Street</ion-label>
+    <ion-label style="margin-left: 6%;"><b>Street</b></ion-label>
     <ion-item class="ion-margin">  
       <ion-input appFirstCap  placeholder="Enter Address" type="text" clearInput="true" formControlName="Street"></ion-input>
     </ion-item>
@@ -96,29 +99,29 @@
      </span>
      <br>
 
-    <ion-label style="margin-left: 6%;">Pincode</ion-label>
-    <ion-item class="ion-margin">
-  
-      <ion-input appFirstCap placeholder="Enter pincode"   type="text" clearInput="true" (ngModelChange)="getCityState()"   [(ngModel)]="Pincode" formControlName="Pincode"></ion-input>
+    <ion-label style="margin-left: 6%;"><b>Pincode</b></ion-label>
+    <ion-item class="ion-margin">  
+      <ion-input appFirstCap placeholder="Enter pincode"   type="text" clearInput="true" formControlName="Pincode"></ion-input>
     </ion-item>
-    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.pincode.errors?.required" style="color: red;">
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Pincode.errors?.required" style="color: red;">
       Pincode is required.
-     </span>
-     <!-- <span class="error ion-padding" *ngIf="isSubmitted && errorControl.pincode.errors?.pattern" style="color: red;">
+     </span> 
+     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Pincode.errors?.pattern" style="color: red;"   (ngModelChange)="getCityState()"   [(ngModel)]="Pincode">
       Pincode should be 5 digits long.
-     </span> -->
+     </span>
      <br>
 
-    <ion-label style="margin-left: 6%;">Company</ion-label>
+    <ion-label style="margin-left: 6%;"><b>Company</b></ion-label>
     <ion-item class="ion-margin">  
       <ion-input appFirstCap  placeholder="Enter Company Name" type="text" clearInput="true" formControlName="Company"></ion-input>
-    </ion-item><span class="error ion-padding" *ngIf="isSubmitted && errorControl.Company.errors?.required" style="color: red;">
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Company.errors?.required" style="color: red;">
       Company is required.
      </span>
   
      <br>   
    
-    <ion-label style="margin-left: 6%;">State</ion-label>
+    <ion-label style="margin-left: 6%;"><b>State</b></ion-label>
       <ion-item class="ion-margin">
         <ion-input aria-label="fruit" [(ngModel)]="CityState" formControlName="State" placeholder="Please Select your state" autocomplete="off"> </ion-input>
       </ion-item>
@@ -127,7 +130,7 @@
        </span>
        <br>
    
-      <ion-label style="margin-left: 6%;">User Type</ion-label>
+      <ion-label style="margin-left: 6%;"><b>User Type</b></ion-label>
       <ion-item class="ion-margin">
         <ion-select aria-label="fruit" formControlName="UserType" placeholder="Select User Type" autocomplete="off">
           <ion-select-option value="">--Select--</ion-select-option>
@@ -144,14 +147,11 @@
 
           </ion-list>
           <div class="center">
-            <button  style="height: 50px; width: 15em;background-color: #697184;color: white;margin-bottom: 15px;margin-top: 15px;  border-radius: 20px; margin-top:20px;" type="submit" (click)="signupSubmit()" >
-              Register
-         
-             </button>
-          </div>
-          
-
-          </ion-content>
+            <button  style="height: 50px; width: 15em;background-color: #697184;color: white;margin-bottom: 15px;margin-top: 15px;  border-radius: 20px; margin-top:20px;" type="submit" (click)="signupSubmit()">
+              Register         
+            </button>
+          </div>        
+      </ion-content>
 
          
           

@@ -32,7 +32,7 @@ export class DealersPage implements OnInit {
       console.log(this.Mobile) 
   }
   Get(){
-    fetch("https://ionic-node.vercel.app/signupform/getsignupdetails",{
+    fetch("https://sore-gold-coyote-wrap.cyclic.app/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -61,7 +61,7 @@ export class DealersPage implements OnInit {
      Mobile:this.Mobile
 
   }   
-    fetch("https://ionic-node.vercel.app/dealer/getdealer",{
+    fetch("https://sore-gold-coyote-wrap.cyclic.app/dealer/getdealer",{
       method:"post",
       headers:{
         "Access-Control-Allow-Origin":"*",
@@ -95,7 +95,7 @@ export class DealersPage implements OnInit {
 
 }
   console.log(datasss)
-    fetch("https://ionic-node.vercel.app/dealer/adddealer",{
+    fetch("https://sore-gold-coyote-wrap.cyclic.app/dealer/adddealer",{
       method:'POST',
       headers:{
         "Access-Control-Allow-Origin":"*",

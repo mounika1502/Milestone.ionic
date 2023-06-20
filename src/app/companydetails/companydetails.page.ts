@@ -10,8 +10,6 @@ import { Router } from '@angular/router';
 })
 export class CompanydetailsPage implements OnInit {
 
-
-
   text:any=[]  
   profile = true;
   companyForm= false;
@@ -40,14 +38,7 @@ export class CompanydetailsPage implements OnInit {
      }) 
   }
 
-  company(){
-    this.companyForm = true;
-    this.profile = false;
-  }
-  arrow(){
-    this.companyForm = false;
-    this.profile = true;
-  }
+
 
  
       selectImage(event: any) {
@@ -93,7 +84,7 @@ export class CompanydetailsPage implements OnInit {
     localStorage.setItem('Login',JSON.stringify(this.text))
     console.log(this.Form.value)
     
-        fetch("https://ionic-node.vercel.app/signupform/addCompany/" + this.text.Authentication, {
+        fetch("https://sore-gold-coyote-wrap.cyclic.app/signupform/addCompany/" + this.text.Authentication, {
           method: 'PUT',
           headers: {
             "access-Control-Allow-Origin": "*",        

@@ -76,7 +76,7 @@ export class AddRawPage implements OnInit {
   submitForm(id:any){
       
       console.log(this.productForm.value)
-       fetch("https://ionic-node.vercel.app/raw/addraw/"+id, {
+       fetch("https://sore-gold-coyote-wrap.cyclic.app/raw/addraw/"+id, {
        method:'post',
        headers:{
          "Access-Control-Allow-Origin": "*",

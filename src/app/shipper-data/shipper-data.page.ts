@@ -31,7 +31,7 @@ export class ShipperDataPage implements OnInit {
 
   delete(Mobile:any){ 
     if(confirm("Are you sure do you want to delete")){   
-    fetch("https://ionic-node.vercel.app/shippers/delete/" + Mobile,{
+    fetch("https://sore-gold-coyote-wrap.cyclic.app/shippers/delete/" + Mobile,{
      method:'DELETE',
      headers:{
         "access-Control-Allow-Origin":"*"

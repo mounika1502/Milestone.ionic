@@ -13,9 +13,7 @@
     <ion-searchbar placeholder="Search..." [(ngModel)]="searchtext"></ion-searchbar>
     <div class="container">
       <ion-row>
-        <ion-segment [scrollable]="true" value="home" >
-    
-        
+        <ion-segment [scrollable]="true" value="home">         
           <ion-col>
             <ion-segment-button value="home" (click)="Get()">
               <ion-label>All Dealers</ion-label>
@@ -25,8 +23,7 @@
             <ion-segment-button value="star" (click)="data3()">
               <ion-label>My Dealers</ion-label>
             </ion-segment-button>
-          </ion-col>
-       
+          </ion-col> 
          
         </ion-segment>
       </ion-row>
@@ -123,7 +120,7 @@
         <ion-col style="color: black;">:</ion-col>
         <ion-col>{{text.State}}</ion-col>
       </ion-row>
-      <ion-col type="hidden">{{aa.mobile}} </ion-col>
+      <!-- <ion-col type="hidden">{{aa.mobile}} </ion-col> -->
       <ion-row>
         <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">City</ion-col>
         <ion-col style="color: black;">:</ion-col>

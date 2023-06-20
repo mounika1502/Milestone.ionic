@@ -24,7 +24,7 @@ export class ShippersPage implements OnInit {
     }
   
     getProduct(){    
-      fetch("https://ionic-node.vercel.app/shippers/getshipper", {
+      fetch("https://sore-gold-coyote-wrap.cyclic.app/shippers/getshipper", {
      method:'get',
      headers:{
        "Access-Control-Allow-Origin": "*",

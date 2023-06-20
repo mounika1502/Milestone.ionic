@@ -29,11 +29,11 @@ export class LoginPage implements OnInit {
  }
   
   loginSubmit(){
-    if(this.loginForm.value.email ==''||
-    this.loginForm.value.password =='')
-    {
-  }else{
-     fetch("https://ionic-node.vercel.app/loginform/addlogin", {
+  //   if(this.loginForm.value.email ==''||
+  //   this.loginForm.value.password =='')
+  //   {
+  // }else{
+     fetch("https://sore-gold-coyote-wrap.cyclic.app/loginform/addlogin", {
       method:'post',
       headers:{
         "Access-Control-Allow-Origin": "*",
@@ -53,17 +53,8 @@ export class LoginPage implements OnInit {
       alert("Login success....") 
       window.location.href='/home' 
     } 
-
+  })
       
-   })
-    }   
   }
-  get email()
-  {
-   return this.loginForm.get('email');
-  }
-  get Password()
-  {
-    return this.loginForm.get('password');
-  }
+
 }

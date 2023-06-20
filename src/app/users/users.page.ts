@@ -74,7 +74,7 @@ searchtext:any;
       console.log(this.aa) 
   }
   Get(){
-    fetch("https://ionic-node.vercel.app/signupform/getsignupdetails",{
+    fetch("https://sore-gold-coyote-wrap.cyclic.app/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -111,7 +111,7 @@ searchtext:any;
   }
   data5(){
     
-    fetch("https://ionic-node.vercel.app/signupform/getsignupdetails",{
+    fetch("https://sore-gold-coyote-wrap.cyclic.app/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",

@@ -37,9 +37,9 @@ export class RawEditPage implements OnInit {
   }
   
   update(id:any){  
-    console.log(this.rawForm.value) 
+
     localStorage.setItem('RawUpdate',JSON.stringify(this.data));
-    fetch("https://ionic-node.vercel.app/raw/editRaw/" + id,  {
+    fetch("https://sore-gold-coyote-wrap.cyclic.app/raw/editRaw/" + id,  {
       method: 'PUT',
       headers: {
         "access-Control-Allow-Origin": "*",        
@@ -52,7 +52,7 @@ export class RawEditPage implements OnInit {
       .then(result => {
         console.log(result)
        alert('updated') 
-       window.location.href='./raw-product'             
+       window.location.href='./raw-data'             
       }
       ).catch(err =>
         console.log(err))

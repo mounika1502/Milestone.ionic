@@ -42,10 +42,6 @@ const routes: Routes = [
     loadChildren: () => import('./checkout/checkout.module').then( m => m.CheckoutPageModule),canActivate:[RouteGuard]
   },  
   {
-    path: 'dealermanagement',
-    loadChildren: () => import('./dealermanagement/dealermanagement.module').then( m => m.DealermanagementPageModule),canActivate:[RouteGuard]
-  },
-  {
     path: 'manufacturers',
     loadChildren: () => import('./manufacturers/manufacturers.module').then( m => m.ManufacturersPageModule),canActivate:[RouteGuard]
   },
@@ -67,7 +63,7 @@ const routes: Routes = [
   },
   {
     path: 'raw-product',
-    loadChildren: () => import('./raw-product/raw-product.module').then( m => m.RawProductPageModule)
+    loadChildren: () => import('./raw-product/raw-product.module').then( m => m.RawProductPageModule),canActivate:[RouteGuard]
   },
   {
     path: 'raw-data',
@@ -149,32 +145,8 @@ const routes: Routes = [
     loadChildren: () => import('./shipper-edit/shipper-edit.module').then( m => m.ShipperEditPageModule),canActivate:[RouteGuard]
   },
   {
-    path: 'password-update',
-    loadChildren: () => import('./password-update/password-update.module').then( m => m.PasswordUpdatePageModule)
-  },
-  {
     path: 'dealers',
     loadChildren: () => import('./dealers/dealers.module').then( m => m.DealersPageModule),canActivate:[RouteGuard]
-  },
-  {
-    path: 'tabs',
-    loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
-  },
-  {
-    path: 'tabs/tab1',
-    loadChildren: () => import('./tab1/tab1.module').then( m => m.Tab1PageModule)
-  },
-  {
-    path: 'tabs/tab2',
-    loadChildren: () => import('./tab2/tab2.module').then( m => m.Tab2PageModule)
-  },
-  {
-    path: 'tab3',
-    loadChildren: () => import('./tab3/tab3.module').then( m => m.Tab3PageModule)
-  },
-  {
-    path: 'tab4',
-    loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)
   },
   {
     path: 'logo',

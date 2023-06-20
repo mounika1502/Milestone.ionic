@@ -9,75 +9,52 @@ import Swal from 'sweetalert2';
 export class CheckoutPage implements OnInit {
   finalcartItem: any = [];
   text: any;
-  mobile: any;
-  manufacturername: any;
-  Mobile: any;
-  randomNumber: any;
-cartItem:number=0
-  grandtotal: any;
-  getCartDetails: any = [];
+  randomNumber: any;  
   Firstname: any;
   Lastname: any;
-  stone:any;
-
   Phone: any;
   Address: any;
   City: any;
   State: any;
   Pincode: any;
   Email: any;
-  removeall: any
-  name: any;
-  price: any;
-  quality: any;
-  size: any;
-  thick: any;
-  description: any;
-  region: any;
-  date: any;
-  qnt: any;
-  prodId: any;
-  Totalprice: any;
   OrderId: any;
-  imgurl: any;
-  Quantity: any;
-  pop = false;
-  pickupPincode: any;
-  pickup: any;
-  text2: any;
-  pickupdrop: any;
   pincode: any;
+  cartItem : number=0
+  pop = false; 
+  text2: any;  
   cityState: any;
   dataqnt: any = []
-  Obj: any;
   products: any=[]
-  qnty: any;
-  textdata: any=[]
-  text3: any=[]
-  test: any;
-  data: any=[]
+  qnty:any;
+
   constructor() { }
+
   ngOnInit(): void {
     this.text = JSON.parse(localStorage.getItem('Login') || '{}')
     console.log(this.text.Email)
+    console.log(this.text.mobile)
+
     const localdata1 = localStorage.getItem('orderid')
     if (localdata1 != null) {
       this.text2 = JSON.parse(localdata1)
       console.log(this.text2)
     }
-    // this.dataqnt = JSON.parse(localStorage.getItem('anunya') || '{}')
-    // this.qnty = this.dataqnt[0].Quantity
-    // console.log(this.qnty)
+
+    this.dataqnt = JSON.parse(localStorage.getItem('anunya') || '{}')
+    this.qnty = this.dataqnt[0].Quantity
+    console.log(this.qnty)
   }
+
   popup() {
     this.pop = true;
   }
-  cash1() {
-  
+
+  cash1() {  
     var body = {
       Email: this.text.Email
     }
-        this.finalcartItem = localStorage.getItem('anunya')
+    this.finalcartItem = localStorage.getItem('anunya')
     console.log(this.finalcartItem);
     this.randomNumber = Math.floor(Math.random() * 9000000000) + 1000000000;
     console.log(this.randomNumber)
@@ -101,7 +78,7 @@ cartItem:number=0
     console.log(Obj);
     if (Obj.Phone == this.text.mobile) {
       console.log(JSON.stringify(Obj))   //product details with user details
-      fetch("https://ionic-node.vercel.app/orderRoute/post", {
+      fetch("https://sore-gold-coyote-wrap.cyclic.app/orderRoute/post", {
         method: 'POST',
         headers: {
           "Access-Control-Allow-Origin": "*",
@@ -109,26 +86,22 @@ cartItem:number=0
         },
         body: JSON.stringify(Obj)
       }).then(response => response.json())
-
         .then(result => {
           console.log(result)
-          this.UpdateQnty()
-     
+          this.UpdateQnty()     
         })
         .catch(error => console.log('error', error));
 
      alert("Order Placed Successfully")
-       window.location.href = ('./success');
-        localStorage.removeItem('anunya');
-       
-     
+       //window.location.href = ('./success');
+        localStorage.removeItem('anunya');     
     } else {
       alert("Please Enter register mobile number")
         window.location.reload()
-    
-  }
+    }
+
   // debugger
-  fetch("https://ionic-node.vercel.app/orderRoute/orderemail", {
+  fetch("https://sore-gold-coyote-wrap.cyclic.app/orderRoute/orderemail", {
     method:'post',
     headers: {
       "Access-Control-Allow-Origin": "*",
@@ -143,9 +116,11 @@ cartItem:number=0
   )
   .catch(error => console.log('error', error))
   }
+
 close() {
   this.pop = false;
 }
+
   async getCityState() {
   const url = `https://api.postalpincode.in/pincode/${this.pincode}`;
   const response = await fetch(url);
@@ -159,11 +134,12 @@ close() {
 
   }
 }
+
 getProduct(){
   var data={
     mobile:this.text.mobile
   }    
-   fetch("https://ionic-node.vercel.app/products/getproduct", {
+   fetch("https://sore-gold-coyote-wrap.cyclic.app/products/getproduct", {
   method:'post',
   headers:{
     "Access-Control-Allow-Origin": "*",
@@ -179,6 +155,8 @@ getProduct(){
   )     
   .catch(error => console.log('error',error))
 }
+
+
 UpdateQnty() {
   var Obj = {
     _prodId: this.dataqnt[0].prodId,
@@ -186,7 +164,8 @@ UpdateQnty() {
   }
   console.log(this.dataqnt[0]._prodId)
   console.log(this.dataqnt[0].Quantity)
-  fetch("https://ionic-node.vercel.app/products/editqnt/" + this.dataqnt[0].prodId, {
+  
+  fetch("https://sore-gold-coyote-wrap.cyclic.app/products/editqnt/" + this.dataqnt[0].prodId, {
     method: 'POST',
     headers: {
       "access-Control-Allow-Origin": "*",

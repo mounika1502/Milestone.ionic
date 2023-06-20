@@ -45,10 +45,9 @@
           <ion-col
             style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">S.No</ion-col>
             <div class="center">
-            <ion-col style="color: black;">:</ion-col>
+             <ion-col style="color: black;">:</ion-col>
             </div>
-          <ion-col
-            style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">{{data.prodId}}</ion-col>
+          <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">{{data.prodId}}</ion-col>
         </ion-row>
       </ion-card>
 
@@ -112,10 +111,9 @@
       <ion-card>
         <ion-row>
           <ion-col
-            style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Stone
-            type</ion-col>
+            style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Stone type</ion-col>
             <div class="center">
-            <ion-col style="color: black;">:</ion-col>
+             <ion-col style="color: black;">:</ion-col>
             </div>
           <ion-col>{{data.stone}}</ion-col>
         </ion-row>
@@ -126,7 +124,7 @@
           <ion-col
             style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Region</ion-col>
             <div class="center">
-            <ion-col style="color: black;">:</ion-col>
+             <ion-col style="color: black;">:</ion-col>
             </div>
           <ion-col>{{data.region}}</ion-col>
         </ion-row>
@@ -137,7 +135,7 @@
           <ion-col
             style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Manufacturer</ion-col>
             <div class="center">
-            <ion-col style="color: black;">:</ion-col>
+             <ion-col style="color: black;">:</ion-col>
             </div>
           <ion-col>{{data.manufacturername}}</ion-col>
         </ion-row>
@@ -146,10 +144,9 @@
       <ion-card>
         <ion-row>
           <ion-col
-            style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Phone
-            Number</ion-col>
+            style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Phone Number</ion-col>
             <div class="center">
-            <ion-col style="color: black;">:</ion-col>
+             <ion-col style="color: black;">:</ion-col>
             </div>
           <ion-col>{{data.PhoneNumber}}</ion-col>
         </ion-row>
@@ -159,7 +156,7 @@
           <ion-col
             style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Description</ion-col>
             <div class="center">
-            <ion-col style="color: black;">:</ion-col>
+             <ion-col style="color: black;">:</ion-col>
             </div>
           <ion-col>{{data.description}}</ion-col>
         </ion-row>
@@ -174,23 +171,11 @@
     </div> 
     <p> &nbsp;<a href="tel:{{data.PhoneNumber}}"
       style="text-decoration: none;font-size: larger;margin-left: 120px;">{{data.PhoneNumber}}</a></p>  
-    <ion-item>
+
       <div class="center">
-        <button style=" width:200px"  (click)="addCart(data)">Add
-  
-          to cart</button>
-     
-          
-    </div>
-     <a
-      style="font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: #197a19; font-weight: 500; font-size: larger;">
-      <ion-icon name="call" style="font-size: large;color:#197a19;text-align: center; "></ion-icon> &nbsp;Contact Supplier</a>
-   
-      <div class="center">
-    <p> &nbsp;<a href="tel:{{data.PhoneNumber}}"
-        style="text-decoration: none;font-size: larger;">{{data.PhoneNumber}}</a></p>
-        </div>
-   </ion-item>   
+        <button class="button" (click)="addCart(data)">Add to cart</button>   
+      </div>
+    
   <br>     
   </ion-card>
 

@@ -33,7 +33,7 @@ export class InventoryDataPage implements OnInit {
   delete(prodId:any){ 
     if(confirm("Are you sure do you want to delete")){
      
-      fetch("https://ionic-node.vercel.app/products/deleteproduct/" + prodId,{
+      fetch("https://sore-gold-coyote-wrap.cyclic.app/products/deleteproduct/" + prodId,{
        method:'DELETE',
        headers:{
          "access-Control-Allow-Origin":"*"
@@ -41,11 +41,15 @@ export class InventoryDataPage implements OnInit {
       })
       .then(response => response.json())
       .then(result=>{
-       console.log(result)    
-     }) 
+       console.log(result)  
+       window.location.href='./inventory'  
+     })
         
       .catch(err =>
        console.log(err))    
    } 
+   else{
+    alert("Your product is safe")
+   }
   }
   }

@@ -10,10 +10,10 @@ export class CartPage implements OnInit {
   OrderItems:any;
   cartItem:number = 0;
   Totalprice:any;
-Get: any;
-sign: any=[]
-qnt:any;
-cart:any;
+  Get: any;
+  sign: any=[]
+  qnt:any;
+  cart:any;
   getCartd: any=[]
   data: any;
   text: any;
@@ -45,13 +45,17 @@ cart:any;
     if (localStorage.getItem('uma')) {
     this.getCart = JSON.parse(localStorage.getItem('uma') || '{}');
     }
+    console.log(this.getCart)
   }
+
   CartDetails() {
     if (localStorage.getItem('anunya')) {          // localCartis a key
       this.getCartDetails = JSON.parse(localStorage.getItem('anunya') || '{}');
     }
+    console.log(this.getCartDetails)
   }
-  incQnt(prodId: any, qnt: any,Qnty:any) {  // increase the qnt product 
+  
+  incQnt(prodId:any, qnt: any,Qnty:any) {  // increase the qnt product 
     for (let i = 0; i < this.getCartDetails.length; i++) {   // this is forloop
       if (this.getCartDetails[i].prodId === prodId) {  // based on the prodId
         if (qnt != 1000)
@@ -108,16 +112,11 @@ cart:any;
           this.cartItemFunc()  
         }
       }
-    }
-   
+    }   
       window .location.reload()
-
-  
     
       // localStorage.removeItem('anunya');
-      
-
-    }
+ }
     
   itemsCart: any = [];  // itemsCart is a global array
   addCart(category: any) {
@@ -155,22 +154,14 @@ cart:any;
       else {
         localStorage.setItem('anunya', JSON.stringify(this.itemsCart));
       }
-    
-
-  
-    }
-   
-   
-      
+    }      
 }
+
 cartItemFunc(){
   if(localStorage.getItem('anunya') != null){
   var cartCount = JSON.parse(localStorage.getItem('anunya') || '{}');
   this.cartItem = cartCount.length;
   console.log(this.cartItem)
-
 }
-}
-  
-
+} 
 }

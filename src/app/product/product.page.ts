@@ -74,7 +74,7 @@ export class ProductPage implements OnInit {
  
     get() {
       console.log('getstoreDealer')
-      fetch("https://ionic-node.vercel.app/dealerfilterRouter/dealerfilter", {
+      fetch("http://localhost:7500/dealerfilterRouter/dealerfilter", {
         method: 'GET',
       headers: {
         "access-Control-Allow-Origin": "*",

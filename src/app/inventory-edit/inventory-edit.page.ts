@@ -45,20 +45,20 @@ export class InventoryEditPage implements OnInit {
   update(id:any){
       console.log(this.productForm.value) 
       localStorage.setItem('InventoryProduct',JSON.stringify(this.data));
-      fetch("https://ionic-node.vercel.app/products/editProduct/" + id,  {
+      fetch("https://sore-gold-coyote-wrap.cyclic.app/products/editProduct/" + id,  {
         method: 'PUT',
         headers: {
           "access-Control-Allow-Origin": "*",        
           "Content-Type": 'application/json'
         },
-        body: JSON.stringify(this.productForm.value),        // JSON Means An intrinsic object that provides functions to convert JavaScript values to and from the JavaScript Object Notation (JSON) format.
-  
+        body: JSON.stringify(this.productForm.value),       // JSON Means An intrinsic object that provides functions to convert JavaScript values to and from the JavaScript Object Notation (JSON) format.
       })
         .then(response => response.json())
         .then(result => {
           console.log(result)
          alert('updated...') 
-          window.location.href='./inventory-data'             
+         window.location.reload()
+          window.location.href=("/inventory-data")             
         }
         ).catch(err =>
           console.log(err))  

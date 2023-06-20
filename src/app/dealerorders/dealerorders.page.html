@@ -1,13 +1,10 @@
 <ion-header>
   <ion-toolbar >
-    <ion-icon name="arrow-back-sharp" routerLink="/galaxyroute" style="font-size: 30px;" slot="start"></ion-icon>
+    <ion-buttons slot="start" >
+      <ion-menu-button  style="color:white" menu="main-menu"></ion-menu-button>  
+    </ion-buttons>
     <h4>My Orders</h4>
-<!--    
-    <div align="center">
-    <div style=" display:flex; justify-content:center;align-items:center;text-align:center; width:150px; height:60px;">
-      <ion-img src="/assets/Mile.png" style="width: 100px; "></ion-img>
-     </div>
-     </div> -->
+
      <ion-icon name="cart" style=" margin-top: 7px;
      font-size: 30px;
      margin-left: -17px;
@@ -22,12 +19,13 @@
 
   </ion-toolbar>
 </ion-header>
-<ion-searchbar></ion-searchbar>
-<div class="container">
-  <ion-row>
-    <ion-segment [scrollable]="true" value="home">
 
-    
+<ion-searchbar placeholder= "Search...." [(ngModel)]="searchtext" name="array id" class="form-control"></ion-searchbar>
+
+ <div class="container">
+
+  <ion-row>
+    <ion-segment [scrollable]="true" value="home">    
       <ion-col>
         <ion-segment-button value="home" (click)="placed()">
           <ion-label>New Orders</ion-label>
@@ -47,44 +45,47 @@
     </ion-segment>
   </ion-row>
 </div> 
-<br>
+<br> 
 
-<ion-content>
+ <ion-content>
   <span style="color:gray">Count:</span><span style="color:black;font-weight: 800;">{{count}}</span>
-<div class="panel-body"  *ngFor="let test of order ">  <br>                  
+<div class="panel-body"  *ngFor="let test of order  | filter : searchtext" >  <br>                  
   <div *ngFor="let data of test.OrderData.OrderItems" >
 
 <ion-card style="border: 1px solid #d9d9d9;">
   <ion-card-header>
-    <ion-card-subtitle style=" font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-weight: 600;color: rgb(254, 119, 128);" >Order Id :{{test.OrderData.OrderId}}</ion-card-subtitle>
+    <ion-card-subtitle style="font-weight: 600;color: rgb(254, 119, 128);" >Order Id :{{test.OrderData.OrderId}}</ion-card-subtitle>
     <br>
-    
-    <img src="{{data.filePath}}" style="height: 10%;width: 26%;margin-left: 113px;">
-    <ion-card-title style="margin-left: 100px; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-weight: 600;">{{data.name}}</ion-card-title>
+    <div class="center">
+      <img src="{{data.filePath}}" style="height: 10%;width: 26%;"> 
+    </div>  
+    <div class="center">
+      <ion-card-title style="font-weight: 600;">{{data.name}}</ion-card-title>
+    </div>
     <ion-row>
-      <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;margin-left: 19%;">Price</ion-col>
+      <ion-col style="color: black;margin-left: 19%;">Price</ion-col>
       <ion-col > : ₹{{data.price}}</ion-col>
     </ion-row>
     <ion-row>
-      <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;margin-left: 19%;">Quantity</ion-col>
+      <ion-col style="color: black;margin-left: 19%;">Quantity</ion-col>
       <ion-col > : {{data.qnt}}</ion-col>
     </ion-row>
     <ion-row>
-      <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;margin-left: 19%;">Total Price</ion-col>
+      <ion-col style="color: black;margin-left: 19%;">Total Price</ion-col>
       <ion-col > : ₹ {{data.price * data.qnt}}</ion-col>
       
     </ion-row>
     <ion-row>
-      <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;margin-left: 19%;">Status</ion-col>
+      <ion-col style="color: black;margin-left: 19%;">Status</ion-col>
       <ion-col > : {{data.OrderStatus}}</ion-col>
       
     </ion-row>
     <ion-row>
-      <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;margin-left: 19%;">Deliver To</ion-col>
-      <ion-col>:&nbsp;{{test.OrderData.Firstname}}{{test.OrderData.Lastname}}</ion-col>
+      <ion-col style="color: black;margin-left: 19%;">Deliver To</ion-col>
+      <ion-col>:&nbsp;{{test.OrderData.Firstname}} {{test.OrderData.Lastname}}</ion-col>
      
     </ion-row>
-    <ion-card-title style=" font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-weight: 600;text-decoration: underline;text-align: center;">Address Details</ion-card-title>
+    <ion-card-title style="font-weight: 600;text-decoration: underline;text-align: center;">Address Details</ion-card-title>
 
 <br>
    
@@ -94,9 +95,9 @@
       
    
   </ion-card-header>
-  <ion-button fill="clear"style="margin-left: 100px; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-weight: 600;width:149px; " (click)="anu(data)">View details</ion-button>
+  <ion-button fill="clear"style="margin-left: 100px; font-weight: 600;width:149px; " (click)="anu(data)">View details</ion-button>
 </ion-card>
 </div>
 </div>
 
-</ion-content>
+</ion-content> 

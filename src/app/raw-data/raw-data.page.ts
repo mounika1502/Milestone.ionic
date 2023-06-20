@@ -14,7 +14,6 @@ export class RawDataPage implements OnInit {
      }
    
      ngOnInit() {
-
       this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
       console.log(this.text)
       this.aa = this.text.UserType
@@ -34,7 +33,7 @@ export class RawDataPage implements OnInit {
       delete(Number:any){  
         if(confirm("Are you sure do you want to delete")){
       
-        fetch("https://ionic-node.vercel.app/raw/delete/" + Number,{
+        fetch("https://sore-gold-coyote-wrap.cyclic.app/raw/delete/" + Number,{
          method:'DELETE',
          headers:{
             "access-Control-Allow-Origin":"*"

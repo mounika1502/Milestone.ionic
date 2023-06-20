@@ -46,7 +46,7 @@ export class AddShipperPage implements OnInit {
        alert('Please provide all the required values!')      
       } else {
        
-           fetch("https://ionic-node.vercel.app/shippers/addshipper" ,{
+           fetch("https://sore-gold-coyote-wrap.cyclic.app/shippers/addshipper" ,{
            method:'post',
            headers:{
              "Access-Control-Allow-Origin": "*",

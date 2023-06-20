@@ -15,10 +15,9 @@ export class RegisterPage implements OnInit {
   isAlertOpen = false;
   isSubmitted = false;
   public alertButtons = ['OK'];
-
   filePath: any;
   CityState: any;
-Pincode:any
+  Pincode:any
   district: any;
 
   setOpen(isOpen: boolean) {
@@ -32,15 +31,15 @@ Pincode:any
     this.SignupForm = this.formBuilder.group({  
       Firstname: ['',[Validators.required,Validators.pattern('[a-zA-Z]+$')]],
       Lastname : ['',[Validators.required,Validators.pattern('[a-zA-Z]+$')]],
-      mobile : ['',[Validators.required,Validators.pattern("^([0-9]{10}$")]],
+      mobile : ['',[Validators.required,Validators.pattern("[0-9]{10}$")]],
       Email : ['',[Validators.required,Validators.email]],
       Password : ['',[Validators.required,Validators.minLength(5)]],
-      City:['',[Validators.required]],
-      UserType:['',[Validators.required]],
-      Pincode:['',[Validators.required]],
-      Street:['',[Validators.required]],
-      State:['',[Validators.required]],
-      Company:['',[Validators.required]],
+      City : ['',[Validators.required]],
+      UserType : ['',[Validators.required]],
+      Pincode : ['',[Validators.required]],
+      Street : ['',[Validators.required]],
+      State : ['',[Validators.required]],
+      Company : ['',[Validators.required]],
       // uniqueDeviceID:[''),
       // Isadd:['1'),
     });   
@@ -94,25 +93,24 @@ Pincode:any
     } else {
      console.log(this.SignupForm.value)
      
-     var signupdata ={
-      Firstname:this.SignupForm.value.Firstname,
-      Lastname:this.SignupForm.value.Lastname,
-      mobile:this.SignupForm.value.mobile,
-      Email:this.SignupForm.value.Email,
-      Password:this.SignupForm.value.Password,
-      UserType:this.SignupForm.value.UserType,
-      City:this.SignupForm.value.City,
-      Pincode:this.SignupForm.value.Pincode,
-      Street:this.SignupForm.value.Street,
-      Company:this.SignupForm.value.Company,
-      State:this.SignupForm.value.State,
-      uniqueDeviceID:this.UniqueDeviceID,
-      filePath:this.filePath,
-      Message:'congratulations your signup successfully!!'
-     }
-     console.log(signupdata)
+    //  var signupdata ={
+    //   Firstname:this.SignupForm.value.Firstname,
+    //   Lastname:this.SignupForm.value.Lastname,
+    //   mobile:this.SignupForm.value.mobile,
+    //   Email:this.SignupForm.value.Email,
+    //   Password:this.SignupForm.value.Password,
+    //   UserType:this.SignupForm.value.UserType,
+    //   City:this.SignupForm.value.City,
+    //   Pincode:this.SignupForm.value.Pincode,
+    //   Street:this.SignupForm.value.Street,
+    //   Company:this.SignupForm.value.Company,
+    //   State:this.SignupForm.value.State,
+    //   // uniqueDeviceID:this.UniqueDeviceID,
+    //   // filePath:this.filePath,
+    //  }
+     console.log(this.SignupForm.value)
 
-    fetch("https://ionic-node.vercel.app/signupform/addsignupdetails", {
+    fetch("https://sore-gold-coyote-wrap.cyclic.app/signupform/addsignupdetails", {
 
      method:'post',
      headers:{
@@ -120,12 +118,12 @@ Pincode:any
        "Content-Type":'application/json'
      },
 
-     body:JSON.stringify(this.SignupForm.value)   
-
+     body:JSON.stringify(this.SignupForm.value)  
   
    }).then(res=> res.json())
    .then(result=>{ 
      console.log(result)
+
     if(result.status == 'failed'){
       alert('User already existed')
     }  else{
@@ -134,11 +132,11 @@ Pincode:any
     }         
    })       
      .catch(error => console.log('error',error))     
-  
+    }
   var body ={
     Email:this.SignupForm.value.Email
   }
-  fetch("https://ionic-node.vercel.app/signupform/emailnotification", {
+  fetch("https://sore-gold-coyote-wrap.cyclic.app/signupform/emailnotification", {
   method:'post',
   headers:{
   "Access-Control-Allow-Origin": "*",
@@ -154,4 +152,4 @@ Pincode:any
   }
 }
 
-}
+

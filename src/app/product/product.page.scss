@@ -1,4 +1,5 @@
-ion-searchbar{    
+ion-searchbar{
+    
     --box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     ::ng-deep{
         .searchbar-input-container{            
@@ -16,7 +17,7 @@ ion-toolbar {
   --background:#697184;
 }
 
-.button{
+.view{
     background-color: #697184;
     padding: 3%;
     border-radius: 5px;

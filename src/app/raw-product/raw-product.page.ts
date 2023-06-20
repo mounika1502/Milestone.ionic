@@ -12,9 +12,7 @@ export class RawProductPage {
   text: any;
   aa: any;
   mobile: any;
-
   cartItem:number=0
-
   searchtext:any
 
   constructor() { 
@@ -31,7 +29,7 @@ export class RawProductPage {
       console.log(this.aa)
 
     if(this.aa==='Dealer'){
-      fetch("https://ionic-node.vercel.app/raw/getrawproduct", {
+      fetch("https://sore-gold-coyote-wrap.cyclic.app/raw/getrawproduct", {
         method:'get',
         headers:{
           "Access-Control-Allow-Origin": "*",
@@ -48,12 +46,11 @@ export class RawProductPage {
         )     
         .catch(error => console.log('error',error))
     }
-    else{
-   
+    else{   
           var data = {
             mobile :this.text.mobile
           }   
-          fetch("https://ionic-node.vercel.app/raw/getraw", {
+          fetch("https://sore-gold-coyote-wrap.cyclic.app/raw/getraw", {
          method:'post',
          headers:{
            "Access-Control-Allow-Origin": "*",
@@ -69,10 +66,7 @@ export class RawProductPage {
          }
          )     
          .catch(error => console.log('error',error))
-        
     }
-    
-
     const localdata=localStorage.getItem('mounika')
     if(localdata!=null){
       this.data = JSON.parse(localdata)

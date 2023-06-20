@@ -95,7 +95,7 @@ ApproximateTime:any;
     console.log(this.data)
 
 
-fetch("https://ionic-node.vercel.app/orderRoute/getAllOrders", {
+fetch("https://sore-gold-coyote-wrap.cyclic.app/orderRoute/getAllOrders", {
       method:"get",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -245,7 +245,7 @@ this.count=this.order.length;
   this.count=this.order.length;
    console.log(this.data3)
   }  
-  fetch("https://ionic-node.vercel.app/orderRoute/orderupdate", {
+  fetch("https://sore-gold-coyote-wrap.cyclic.app/orderRoute/orderupdate", {
     method:'post',
     headers:{
     "Access-Control-Allow-Origin": "*",
@@ -281,7 +281,7 @@ Update(){
     Message:this.data.Message,
     Email:this.text.Email
   }
-  fetch("https://ionic-node.vercel.app/orderRoute/orderStatus",{
+  fetch("https://sore-gold-coyote-wrap.cyclic.app/orderRoute/orderStatus",{
     method:"POST",
     headers:{
       "access-Control-Allow-Origin":"*",

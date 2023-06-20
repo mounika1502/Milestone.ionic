@@ -18,8 +18,10 @@ product: any;
 textaws: any;
 data: any;
 aa: any;
+List:any=[];
 
 constructor( private router:Router,private service:UploadService) { 
+  // this.delete()
  }
 ngOnInit(): void {
 
@@ -34,25 +36,35 @@ ngOnInit(): void {
    console.log(this.text.mobile) 
    this.getProduct(); 
    this.getCartDetails = JSON.parse(localStorage.getItem('anunya') || '{}');
+
+   var data={
+    mobile:this.text.mobile
+  }    
+   fetch("https://sore-gold-coyote-wrap.cyclic.app/products/getproduct", {
+  method:'post',
+  headers:{
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type":'application/json'
+  },
+  body:JSON.stringify(data)
+}).then(res=> res.json())
+.then(result=>{ 
+  console.log(result),
+  this.products = result.ProductInfo
+  console.log(this.products)
 }
- //this is for quantity function
- quantity:number=1;
- i=1
- plus(){
-   if(this.i !=0){
-     this.i++;
-     this.quantity=this.i;
-   }
- }
- minus(){
-   if(this.i !=1){
-     this.i--;
-     this.quantity=this.i;
-   }
- }  
+) 
+  
+
+   this.List = this.products.filter((item : any)=> { 
+    return item.Quantity == '7'});
+    console.log(this.List)
+}
+
+ 
  getProduct(){
    if(this.text.UserType=='admin'){
-    fetch("https://ionic-node.vercel.app/products/getproducts", {
+    fetch("https://sore-gold-coyote-wrap.cyclic.app/products/getproducts", {
       method:'get',
       headers:{
         "Access-Control-Allow-Origin": "*",
@@ -63,15 +75,17 @@ ngOnInit(): void {
     .then(result=>{ 
       console.log(result),
       this.products = result.Products
+
       localStorage.setItem('product',JSON.stringify(this.products))
       }
       )     
       .catch(error => console.log('error',error))
   }else{
+
     var data={
       mobile:this.text.mobile
     }    
-     fetch("https://ionic-node.vercel.app/products/getproduct", {
+     fetch("https://sore-gold-coyote-wrap.cyclic.app/products/getproduct", {
     method:'post',
     headers:{
       "Access-Control-Allow-Origin": "*",
@@ -82,12 +96,36 @@ ngOnInit(): void {
   .then(result=>{ 
     console.log(result),
     this.products = result.ProductInfo
+    console.log(this.products)
     localStorage.setItem('product',JSON.stringify(this.products))
     }
     )     
     .catch(error => console.log('error',error))
   }
 }
+
+delete(){
+  this.List = this.products.filter((item : any)=> { 
+    return item.Quantity == '7'});
+    console.log(this.List)
+ 
+  // fetch("https://sore-gold-coyote-wrap.cyclic.app/products/deleteproduct/" + prodId,{
+  //   method:'DELETE',
+  //   headers:{
+  //     "access-Control-Allow-Origin":"*"
+  //   },
+  //  })
+  //  .then(response => response.json())
+  //  .then(result=>{
+  //   console.log(result)  
+     
+  // })
+     
+  //  .catch(err =>
+  //   console.log(err))    
+} 
+
+
 
 
 description(product:any){

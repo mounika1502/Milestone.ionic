@@ -95,10 +95,7 @@ export class BlackgalaxyPage implements OnInit {
         }
         else {
           localStorage.setItem('anunya', JSON.stringify(this.itemsCart));
-        }
-      
-  
-    
+        }    
       }
       // Swal.fire('Added to Cart!', '', 'success').then(() =>
       //  {
@@ -112,12 +109,9 @@ export class BlackgalaxyPage implements OnInit {
     if(localStorage.getItem('anunya') != null){
     var cartCount = JSON.parse(localStorage.getItem('anunya') || '{}');
     this.cartItem = cartCount.length;
-    console.log(this.cartItem)
-  
+    console.log(this.cartItem)  
   }
-  }
-  
-     
+  }    
     
   //increase the cartItem product
   
@@ -125,25 +119,24 @@ export class BlackgalaxyPage implements OnInit {
     window.location.href=("/galaxyroute")
     localStorage.setItem('anu',JSON.stringify(cart));
     // localStorage.setItem('local',JSON.stringify(this.cart1));
-    console.log(cart)
-   
+    console.log(cart)   
   }
   
   
    
   get() {
     console.log(this.name)
-    fetch("https://ionic-node.vercel.app/products/getbyName/" + this.name, {
+    fetch("https://sore-gold-coyote-wrap.cyclic.app/products/getbyName/" + this.name, {
       method: 'GET',
     headers: {
-      "access-Control-Allow-Origin": "*",
-  
+      "access-Control-Allow-Origin": "*",  
     },
   
   })
     .then(response => response.json())
     .then(result => {
       console.log(result),
+
         this.products = result.product
   
       console.log(this.products)

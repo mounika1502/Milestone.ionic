@@ -70,7 +70,7 @@ export class AddProductPage  {
       size:  ['', [Validators.required]],
       stone: ['', [Validators.required]],
       thick: ['', [Validators.required]],
-      qnt:  ['', [Validators.required]],
+      qnt: new FormControl(0),
       price: ['', [Validators.required]],
       region:  ['', [Validators.required]],
       quality:  ['', [Validators.required]],
@@ -92,7 +92,7 @@ export class AddProductPage  {
 
   submitForm(id:any) {
       console.log(this.productForm.value)
-      fetch("https://ionic-node.vercel.app/products/addproduct/" +id, {
+      fetch("https://sore-gold-coyote-wrap.cyclic.app/products/addproduct/" +id, {
         method: 'post',
         headers: {
           "Access-Control-Allow-Origin": "*",

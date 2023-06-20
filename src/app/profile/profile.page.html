@@ -20,14 +20,15 @@
       <div class="center">
         <img id="profile-image"  class="image" src="{{text.filePath}}">
       </div>
-      <!-- <div class="center" style="font-size: x-large;position: relative;margin-top: -30px;margin-left: 21%;">
-        <ion-icon name="camera-sharp" style="color:#697184"  (change)="selectImage($event)" type="file"></ion-icon>
-        </div>  -->
+       <!--  <div class="center" style="font-size: x-large;position: relative;margin-top: -30px;margin-left: 21%;">
+        <label for="file"><ion-icon name="camera-sharp" style="color:#697184" (change)="selectImage($event)" id="file"></ion-icon></label>
+        </div> 
+             <button (click)="onClick()"></button>   -->
         <div class="image">
-    <label for="file"><ion-icon name="camera-sharp" style="font-size: x-large;position: relative;margin-top: -40px;margin-left: 21%;"></ion-icon></label>
-    <input type="file"(change)="selectImage($event)" name="" id="file" style="display:none; visibility: none; margin-top: -40px;" > 
-    <button (click)="onClick()">fghj</button>  
-</div>    
+          <label for="file"><ion-icon name="camera-sharp" style="font-size: x-large;position: relative;margin-top: -50px;margin-left: 21%;"></ion-icon></label>
+          <input type="file"(change)="selectImage($event)" name="" id="file" style="display:none; visibility: none; margin-top: -50px;" > 
+          <button (click)="onClick()"></button>  
+        </div>      
       <br>
      
       <div class="edit" >
