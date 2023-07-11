@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -13,7 +14,8 @@ export class ForgotpasswordPage implements OnInit {
   Form: any;
   mouni: any;
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,
+    private alertController: AlertController) { }
 
   ngOnInit(): void {
 
@@ -23,12 +25,28 @@ export class ForgotpasswordPage implements OnInit {
     console.log(this.Form)
   }
 
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Link sended successfully',
+      buttons: ['OK']
+    });  
+    await alert.present();  
+  }
+
+  async failedAlert() {
+    const alert = await this.alertController.create({
+      header: 'Email does not exist',
+      buttons: ['OK']
+    });  
+    await alert.present();  
+  }
+
  
  
   //login form submit function
   submit(){
     console.log(this.Form.value) 
-     fetch("https://sore-gold-coyote-wrap.cyclic.app/auth/getsignupdetail", {
+     fetch("https://milestone-096608973980.herokuapp.com/auth/getsignupdetail", {
       method:'post',
       headers:{
         "Access-Control-Allow-Origin": "*",
@@ -41,10 +59,9 @@ export class ForgotpasswordPage implements OnInit {
     console.log(this.Form) 
     
    if(result.status == 'failed'){
-   alert('Email does not exist')
+   this.failedAlert()
    }else{
-    alert('Link sended successfully!')   
-      // window .location.reload()      
+    this.presentAlert()    
    }   
         
     })  

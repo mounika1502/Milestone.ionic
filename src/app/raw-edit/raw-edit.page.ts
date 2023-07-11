@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { UploadService } from '../upload.service';
+import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-raw-edit',
@@ -11,8 +14,9 @@ export class RawEditPage implements OnInit {
   rawForm:any;
   text: any;
   aa: any;
+  datas: any;
 
-  constructor() { }
+  constructor(private apii:UploadService,private router: Router,private alertController: AlertController,) { }
 
   ngOnInit() {
     this.rawForm = new FormGroup ({
@@ -30,33 +34,72 @@ export class RawEditPage implements OnInit {
 
     this.data = JSON.parse(localStorage.getItem('RawUpdate') || '{}') 
     console.log(this.data)
+
     this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
     console.log(this.text)
     this.aa=this.text.UserType
     console.log(this.aa)
   }
-  
-  update(id:any){  
 
-    localStorage.setItem('RawUpdate',JSON.stringify(this.data));
-    fetch("https://sore-gold-coyote-wrap.cyclic.app/raw/editRaw/" + id,  {
-      method: 'PUT',
-      headers: {
-        "access-Control-Allow-Origin": "*",        
-        "Content-Type": 'application/json'
-      },
-      body: JSON.stringify(this.rawForm.value),        // JSON Means An intrinsic object that provides functions to convert JavaScript values to and from the JavaScript Object Notation (JSON) format.
-
-    })
-      .then(response => response.json())
-      .then(result => {
-        console.log(result)
-       alert('updated') 
-       window.location.href='./raw-data'             
-      }
-      ).catch(err =>
-        console.log(err))
-
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Updated successfully...',
+      buttons: ['OK']
+    });
+    await alert.present();
+    await alert.onDidDismiss().then(() => {
+      this.router.navigateByUrl('/raw-data');
+    });
   }
+
+  update(id:any){
+    localStorage.setItem('RawUpdate',JSON.stringify(this.data)); 
+    var data={
+      Number:this.rawForm.value.Number,
+      Name:this.rawForm.value.Name,
+      color:this.rawForm.value.color,
+      size:this.rawForm.value.size,
+      stone:this.rawForm.value.stone,
+      region:this.rawForm.value.region,
+      date:this.rawForm.value.date,
+      manufacturername:this.rawForm.value.manufacturername,
+      PhoneNumber:this.rawForm.value.PhoneNumber    
+     }
+  this.apii.EditRaw(data,id).subscribe(datas=>{
+    console.log(datas)
+    this.presentAlert()
+    // window.location.href=("/raw-data")  
+    if(datas){
+      // alert('Updated successfully')
+      //  window.location.href=("/profile")     
+    }
+
+  })
+}
+  
+  // update(id:any){  
+
+  //   localStorage.setItem('RawUpdate',JSON.stringify(this.datas));
+  //   fetch("https://milestone-096608973980.herokuapp.com/raw/editRaw/" + id,  {
+  //     method: 'PUT',
+  //     headers: {
+  //       "access-Control-Allow-Origin": "*",        
+  //       "Content-Type": 'application/json'
+  //     },
+  //     body: JSON.stringify(this.rawForm.value),        // JSON Means An intrinsic object that provides functions to convert JavaScript values to and from the JavaScript Object Notation (JSON) format.
+
+  //   })
+  //     .then(response => response.json())
+  //     .then(result => {
+  //       console.log(result)
+  //       this.datas = result
+  //       console.log(this.datas)
+  //      alert('updated') 
+  //      window.location.href='./raw-data'             
+  //     }
+  //     ).catch(err =>
+  //       console.log(err))
+
+  // }
 
 }

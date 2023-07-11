@@ -2,19 +2,18 @@
 <ion-header>
   <ion-toolbar >
     <ion-icon name="arrow-back-sharp" routerLink="/inventory" style="font-size: 30px;" slot="start"></ion-icon>
-    <!-- <h4>Add Product</h4> -->
+    <div align="center"><h4>&nbsp;ADD PRODUCT</h4></div>
+    
     <!-- <div align="center">
     <div style=" display:flex; justify-content:center;align-items:center;text-align:center; width:150px; height:60px;">
       <ion-img src="/assets/Mile.png" style="width: 100px;margin-left: -25%; "></ion-img>
      </div>
-     </div> -->
-  
+     </div> --> 
 
   </ion-toolbar>
 </ion-header>
   <ion-content [fullscreen]="true">
 
-    <h1 style="text-align: center;"><b>ADD PRODUCT</b></h1>
     <form [formGroup]="productForm">
     <hr>                                                                                                      
   <ion-list style="padding-left: 2.5%;">    
@@ -30,7 +29,7 @@
      <br>
 
     <ion-label ><b>Name of product :</b></ion-label>
-      <ion-select formControlName="name" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" class="fa fa-caret-down" placeholder="Select name of product &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+      <ion-select formControlName="name" label-placement="stacked" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" class="fa fa-caret-down" placeholder="Select name of product">
       <ion-select-option value="Absolute Black">Absolute Black</ion-select-option>
       <ion-select-option value="Alaska  White">Alaska White</ion-select-option>
       <ion-select-option value="Amazon White">Amazon White</ion-select-option>
@@ -123,7 +122,7 @@
      <br>
 
     <ion-label ><b>Thickness :</b></ion-label><br>               
-    <ion-select  formControlName="thick" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" placeholder="select product thickness &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+    <ion-select label-placement="stacked" formControlName="thick" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" placeholder="select product thickness">
       <ion-select-option  value="3Cm">3Cm</ion-select-option>
       <ion-select-option  value="2Cm">2Cm</ion-select-option>
     </ion-select>
@@ -133,7 +132,7 @@
      <br>
 
     <ion-label ><b>Stone Size/Type :</b></ion-label><br>
-    <ion-select  formControlName="stone" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" placeholder="select product type &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+    <ion-select  formControlName="stone" label-placement="stacked" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" placeholder="select product type">
       <ion-select-option  value="Gangsaw Size">Gangsaw Size</ion-select-option>
       <ion-select-option  value="Cutter Size">Cutter Size</ion-select-option>
     </ion-select>
@@ -143,7 +142,7 @@
      <br>
     
     <ion-label ><b>Quality :</b></ion-label><br>
-    <ion-select  formControlName="quality" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" placeholder="select product quality &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+    <ion-select label-placement="stacked" formControlName="quality" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" placeholder="select product quality">
       <ion-select-option  value="Premiun">Premium</ion-select-option>
       <ion-select-option  value="Commercial">Commercial</ion-select-option>
       <ion-select-option  value="Standerd">Standard</ion-select-option>
@@ -201,7 +200,7 @@
     <br>
 
     <ion-label ><b>Description :</b></ion-label>
-    <textarea appFirstCap type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height:10em;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="description" placeholder="Write few lines about your product"> </textarea> 
+    <ion-textarea appFirstCap type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height:10em;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="description" placeholder="Write few lines about your product"> </ion-textarea> 
     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.description.errors?.required" style="color: red;">
       Description is required.
     </span>
@@ -211,8 +210,8 @@
   </ion-list>
 
 </form> 
-    <div style="text-align: center;margin-bottom: 1em;margin-top: -2em;">
-      <ion-button type="submit" (click)="onClick()">Submit</ion-button>
+    <div style="text-align: center;margin-bottom: 1em;margin-top: -4em;">
+      <ion-button type="submit" class="save" (click)="onClick()">Submit</ion-button>
    </div>  
 
 </ion-content>

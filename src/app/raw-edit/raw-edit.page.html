@@ -3,63 +3,84 @@
   
     <ion-icon name="arrow-back-sharp" routerLink="/raw-product" style="font-size: 30px;" slot="start"></ion-icon>
     <div align="center">
-    <div style=" display:flex; justify-content:center;align-items:center;text-align:center; width:150px; height:60px;">
-      <ion-img src="/assets/Mile.png" style="width: 100px; "></ion-img>
+    <h4>EDIT RAW-PRODUCT</h4>
      </div>
-     </div>
-  
 
   </ion-toolbar>
 </ion-header>
 
-
-<ion-content> 
-  
-  <h1 style="text-align: center;"><b>EDIT RAW-PRODUCT</b></h1>
+<ion-content>  
+  <!-- <h1 style="text-align: center;"><b>EDIT RAW-PRODUCT</b></h1> -->
           <!-- [formGroup]="productForm"  -->
   <form [formGroup]="rawForm">
     <hr>
     <ion-list style="padding-left: 2.5%;">                     
         
           <!-- <ion-label ><b>Upload image :</b></ion-label><br>
-          <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" placeholder=" upload your image url"></input> -->
+          <ion-input type="text"  placeholder=" upload your image url"></ion-input> -->
        
           <ion-label ><b>S.NO :</b></ion-label><br>
-          <input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;"formControlName="Number" readonly [(ngModel)]="data.Number" name="Number">   
-          
+          <ion-item style="width: 90%;margin-left: 5%;height: 3em;">
+          <ion-input type="text" appFirstCap formControlName="Number" readonly [(ngModel)]="data.Number" name="Number"/>   
+        </ion-item>
+        <br>
+
           <ion-label ><b>Name of Product :</b></ion-label><br>
-          <input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" formControlName="Name" [(ngModel)]="data.Name" name="Name">   
-                         
+          <ion-item style="width: 90%;margin-left: 5%;height: 3em;">
+          <ion-input type="text" appFirstCap  formControlName="Name" [(ngModel)]="data.Name" name="Name"/>   
+        </ion-item>
+        <br>
+
           <ion-label ><b>Colour :</b></ion-label>
-          <input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" formControlName="color" [(ngModel)]="data.color" name="color">
-                        
+          <ion-item style="width: 90%;margin-left: 5%;height: 3em;">
+          <ion-input type="text" appFirstCap  formControlName="color" [(ngModel)]="data.color" name="color"/>
+        </ion-item>  
+        <br>           
                                   
     <!-- <div class="form-outline">                    
-      <input type="hidden" class="form-control form-control-lg" formControlName="mobile" [(ngModel)]="text.mobile" >                    
+      <ion-input type="hidden" class="form-control form-control-lg" formControlName="mobile" [(ngModel)]="text.mobile" >                    
     </div> -->
     
 
-        <ion-label ><b>Size :</b></ion-label>   <i class="fa fa-question-circle-o" style="font-size:15px; color: rgb(102, 102, 232);"></i>               
-        <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" formControlName="size" [(ngModel)]="data.size" name="size">                                                       
+        <ion-label ><b>Size :</b></ion-label>   <i class="fa fa-question-circle-o" style="font-size:15px; color: rgb(102, 102, 232);"></i> 
+        <ion-item style="width: 90%;margin-left: 5%;height: 3em;">              
+        <ion-input type="text"  formControlName="size" [(ngModel)]="data.size" name="size"/>                                                       
+      </ion-item>
+      <br>
 
         <ion-label ><b>Stone Size/Type :</b></ion-label><br>
-        <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" formControlName="stone" [(ngModel)]="data.stone" name="stone">                                
-         
+        <ion-item style="width: 90%;margin-left: 5%;height: 3em;">
+        <ion-input type="text"  formControlName="stone" [(ngModel)]="data.stone" name="stone"/>                                
+      </ion-item>
+      <br>
+
         <ion-label ><b>Location of stone :</b></ion-label>
-        <input type="text" appFirstCap style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" formControlName="region" [(ngModel)]="data.region" name="region">
-                      
+        <ion-item style="width: 90%;margin-left: 5%;height: 3em;">
+        <ion-input type="text" appFirstCap  formControlName="region" [(ngModel)]="data.region" name="region"/>
+      </ion-item>
+      <br>
+
         <ion-label ><b>Arrival Date :</b></ion-label>
-        <input style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;text-align:start;" formControlName="date" [(ngModel)]="data.date" name="date"> 
-           
+        <ion-item style="width: 90%;margin-left: 5%;height: 3em;">
+        <ion-input  formControlName="date" [(ngModel)]="data.date" name="date"/> 
+      </ion-item>
+      <br>
+
         <ion-label ><b>Manufacturer Name :</b></ion-label>
-        <input style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;text-align:start;" formControlName="manufacturername" [(ngModel)]="data.manufacturername" name="manufacturername"> 
-           
+        <ion-item style="width: 90%;margin-left: 5%;height: 3em;">
+        <ion-input  formControlName="manufacturername" [(ngModel)]="data.manufacturername" name="manufacturername"/> 
+      </ion-item>
+      <br>
+
         <ion-label ><b>Phone Number :</b></ion-label>
-        <input style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;text-align:start;" formControlName="PhoneNumber" [(ngModel)]="data.PhoneNumber" name="PhoneNumber"> 
-           
+        <ion-item style="width: 90%;margin-left: 5%;height:3em">
+        <ion-input  formControlName="PhoneNumber" [(ngModel)]="data.PhoneNumber" name="PhoneNumber"/> 
+      </ion-item>
+      <br>
+
       </ion-list>
         <div style="text-align: center;margin-bottom: 1em;">
-          <ion-button type="submit" (click)="update(data._id)">Save</ion-button>
+          <ion-button type="submit" class="save" (click)="update(data._id)">Save</ion-button>
         </div>    
   </form> 
 

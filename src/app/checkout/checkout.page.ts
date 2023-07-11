@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -28,7 +30,26 @@ export class CheckoutPage implements OnInit {
   products: any=[]
   qnty:any;
 
-  constructor() { }
+  constructor(private router: Router,private alertController: AlertController) { }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Order Placed Successfully',
+      buttons: ['OK']
+    });  
+    await alert.present();  
+    await alert.onDidDismiss().then(() => {
+      this.router.navigateByUrl('/success');
+    });
+  }
+
+  async FailedAlert() {
+    const alert = await this.alertController.create({
+      header: 'Please provide your registered mobile number and Email',
+      buttons: ['OK']
+    });  
+    await alert.present();
+  }
 
   ngOnInit(): void {
     this.text = JSON.parse(localStorage.getItem('Login') || '{}')
@@ -78,7 +99,7 @@ export class CheckoutPage implements OnInit {
     console.log(Obj);
     if (Obj.Phone == this.text.mobile) {
       console.log(JSON.stringify(Obj))   //product details with user details
-      fetch("https://sore-gold-coyote-wrap.cyclic.app/orderRoute/post", {
+      fetch("https://milestone-096608973980.herokuapp.com/orderRoute/post", {
         method: 'POST',
         headers: {
           "Access-Control-Allow-Origin": "*",
@@ -88,20 +109,25 @@ export class CheckoutPage implements OnInit {
       }).then(response => response.json())
         .then(result => {
           console.log(result)
-          this.UpdateQnty()     
+          if(result.status == 'failed'){
+          this.FailedAlert()
+          }else{
+         this.presentAlert()
+            this.UpdateQnty()
+          }
+               
         })
         .catch(error => console.log('error', error));
 
-     alert("Order Placed Successfully")
-       //window.location.href = ('./success');
+    
         localStorage.removeItem('anunya');     
     } else {
-      alert("Please Enter register mobile number")
+      this.FailedAlert()
         window.location.reload()
     }
 
   // debugger
-  fetch("https://sore-gold-coyote-wrap.cyclic.app/orderRoute/orderemail", {
+  fetch("https://milestone-096608973980.herokuapp.com/orderRoute/orderemail", {
     method:'post',
     headers: {
       "Access-Control-Allow-Origin": "*",
@@ -139,7 +165,7 @@ getProduct(){
   var data={
     mobile:this.text.mobile
   }    
-   fetch("https://sore-gold-coyote-wrap.cyclic.app/products/getproduct", {
+   fetch("https://milestone-096608973980.herokuapp.com/products/getproduct", {
   method:'post',
   headers:{
     "Access-Control-Allow-Origin": "*",
@@ -165,7 +191,7 @@ UpdateQnty() {
   console.log(this.dataqnt[0]._prodId)
   console.log(this.dataqnt[0].Quantity)
   
-  fetch("https://sore-gold-coyote-wrap.cyclic.app/products/editqnt/" + this.dataqnt[0].prodId, {
+  fetch("https://milestone-096608973980.herokuapp.com/products/editqnt/" + this.dataqnt[0].prodId, {
     method: 'POST',
     headers: {
       "access-Control-Allow-Origin": "*",

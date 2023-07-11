@@ -99,4 +99,15 @@ sc-ion-searchbar-md-h{
   border-radius: 90%;
 }
 
+.success-alert {
+    .alert-icon {
+      color: green;
+    }
+  
+    .alert-button-inner::before {
+      content: "\f14a"; /* Replace this with the code for your success icon */
+      font-family: "Ionicons";
+      margin-right: 8px;
+    }
+  }
 

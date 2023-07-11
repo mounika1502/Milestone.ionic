@@ -10,7 +10,7 @@ ion-searchbar{
             }
         }
     }   
-}
+  }
 
 ion-toolbar {
   --color: #ffffff;
@@ -19,9 +19,10 @@ ion-toolbar {
 
 .view{
     background-color: #697184;
-    padding: 3%;
+    padding: 3px;
     border-radius: 5px;
-    width: 30%;
+    width: 50%;
+    height: 35px;
     color:#697184;
     margin-left: 6em;
     margin: 3%;

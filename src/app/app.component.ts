@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 // import OneSignal from 'onesignal-cordova-plugin';
 
-import { Platform } from '@ionic/angular';
+import { AlertController, Platform } from '@ionic/angular';
 // import { UniqueDeviceID } from '@ionic-native/unique-device-id/ngx';
 // import OneSignal from 'onesignal-cordova-plugin';
 
@@ -18,6 +19,7 @@ export class AppComponent {
   aa: any = {}
   text: any;
   cartItem: number = 0;
+  profile = true;
 
   AllNotifications: any[] = [];
   public alertButtons = [
@@ -28,43 +30,101 @@ export class AppComponent {
     {
       text: 'Yes',
       cssClass: 'alert-button-confirm',
-
-    },
-   
+    },   
   ];
-  constructor(private platform: Platform ) {
+  texts: any;
+
+  getInitials(name: string): string {
+    const parts = name.split(' ');
+  
+    if (parts.length === 1) {
+      return parts[0].charAt(0).toUpperCase();
+    } else {
+      let initials = '';
+      for (const part of parts) {
+        initials += part.charAt(0).toUpperCase();
+      }
+      return initials;
+    }
+  }
+
+  aaa: any;
+  constructor(private platform: Platform,private alertController: AlertController,private router: Router)  {
+    this.text = JSON.parse(localStorage.getItem('Login') || '{}')
     platform.ready().then(() => {
       this.OneSignalInit();
     })
     const storedItems = localStorage.getItem('InappNotifictions');
     if (storedItems) {
       this.AllNotifications = JSON.parse(storedItems);
-
     };
   }
  
 
   ngOnInit(): void {
     this.text = JSON.parse(localStorage.getItem('Login') || '{}')
+    // this.texts = JSON.parse(localStorage.getItem('isLogedin') || '{}')
+    console.log(this.texts)
     console.log(this.text)
     this.aa = this.text.UserType
-    console.log(this.aa)
-
-
-    
+    console.log(this.aa)   
+    this.aaa=this.text.Authentication 
     // this.getUniqueDeviceID();
 
   }  // itemsCart is a global array
 
+  // async presentAlert() {
+  //   const confirmAlert = await this.alertController.create({
+  //     header: 'Are you sure you want to logout',
+  //     buttons: [
+  //       {
+  //         text: 'Cancel',
+  //         role: 'cancel',
+  //         handler: () => {
+  //           // Code to handle the cancel button click
+  //           console.log('Confirm alert dismissed');
+  //         }
+  //       },
+  //       {
+  //         text: 'OK',
+  //         handler: () => {
+  //           localStorage.clear(); // Clear the localStorage
+  //           console.log('OK button clicked');
+  //           this.router.navigateByUrl('/login');
+  //         }
+  //       }
+  //     ]
+  //   });
+  
+  //   await confirmAlert.present();
+  // }
 
-  logout() {
-
+logout(){
   localStorage.clear()
+  localStorage.setItem('isLogedin',JSON.stringify(false));
+  // this.presentAlert()
   if(confirm("Are you sure do you want to logout")){
-  window.location.href = '/login'
-    
+  window.location.href = '/login'    
   }
-  }
+}
+
+get(){
+  fetch("https://sore-gold-coyote-wrap.cyclic.app/signupform/getby/" + this.aaa, {
+    method: 'GET',
+  headers: {
+    "access-Control-Allow-Origin": "*",  
+  },  
+})
+  .then(response => response.json())
+  .then(result => {
+    console.log(result),
+      this.profile = result.product.filePath
+    console.log(this.profile)  
+  }  
+  ).catch(err =>
+    console.log(err))
+}
+
   // getUniqueDeviceID() {
   //   this.uniqueDeviceID.get()
   //     .then((uuid: any) => {

@@ -3,3 +3,26 @@ ion-toolbar {
     --color: #ffffff;
     --background:#697184;
   }
+  ion-item {
+    border: 1px solid grey;
+    height: 1%;
+    margin-top: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 6px 4px -4px var(--ion-color-medium);
+    -moz-box-shadow: 0 4px 4px -4px var(--ion-color-medium);
+    box-shadow: 2px 4px 4px -4px var(--ion-color-medium);
+  }
+  ion-label {
+    margin-left: 5%;
+  }
+
+  .save{
+    --background: #697184;
+    --padding: 3%;
+    --border-radius: 10px;
+    --width: 30%;
+    // color:#697184;
+    --margin-left: 6em;
+    --margin: 3%;
+    --color: white;
+}

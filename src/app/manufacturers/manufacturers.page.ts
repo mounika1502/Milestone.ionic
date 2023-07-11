@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { AlertController } from '@ionic/angular';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -37,15 +38,15 @@ sign: any=[];
   array: any=[]
   docId: any;
   localarray: any=[]
-  isAlertOpen = false;
+ 
 public alertButtons = ['OK'];
   Mobile: any;
   aaa: any;
 
-setOpen(isOpen: boolean) {
-  this.isAlertOpen = isOpen;
-}
-  constructor() {
+// setOpen(isOpen: boolean) {
+//   this.isAlertOpen = isOpen;
+// }
+  constructor(private alertController: AlertController,) {
   this.Get()
    }
   ngOnInit(): void {
@@ -71,8 +72,24 @@ setOpen(isOpen: boolean) {
       console.log(this.aaa) 
   }
 
+  async failedAlert() {
+    const alert = await this.alertController.create({
+      header: 'Manufacturer already existed',
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Added Successfully...',
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+
   Get(){
-    fetch("https://sore-gold-coyote-wrap.cyclic.app/signupform/getsignupdetails",{
+    fetch("https://milestone-096608973980.herokuapp.com/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -110,7 +127,7 @@ data3(){
     Mobile:this.aaa
 
  } 
-  fetch("https://sore-gold-coyote-wrap.cyclic.app/manufacturer/getdata",{
+  fetch("https://milestone-096608973980.herokuapp.com/manufacturer/getdata",{
     method:"post",
     headers:{
       "Access-Control-Allow-Origin":"*",
@@ -150,7 +167,7 @@ Dealer(){
         Mobile:this.aaa
       
       }
-      fetch("https://sore-gold-coyote-wrap.cyclic.app/manufacturer/adddata",{
+      fetch("https://milestone-096608973980.herokuapp.com/manufacturer/adddata",{
         method:'POST',
         headers:{
           "Access-Control-Allow-Origin":"*",
@@ -163,9 +180,9 @@ Dealer(){
         this.docid=result.SignData
 
         if(result.status == 'failed'){
-          alert('Manufacturer already existed')
+          this.failedAlert()
         }  else{
-          alert("Added Successfully!")            
+         this.presentAlert()          
         }        
   }
         )

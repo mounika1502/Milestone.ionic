@@ -54,9 +54,11 @@ export class DealerordersPage implements OnInit {
   manumob: any;
   randomNumber: any;
   text2: any;
-
+  placed:any=[]
   getCartDetails: any;
-  constructor() { }
+  constructor() { 
+    this.Placed()
+  }
   anu(test:any){
     window.location.href=("./galaxyroute")
     localStorage.setItem('anu',JSON.stringify(test));
@@ -65,6 +67,8 @@ export class DealerordersPage implements OnInit {
     this.myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
   }
   ngOnInit(): void {
+
+    this.Placed()
   
        const localdata1=localStorage.getItem('orderid')
     if(localdata1!=null){                                                    
@@ -80,30 +84,6 @@ export class DealerordersPage implements OnInit {
     this.manumob=this.text.mobile
     console.log(this.manumob)
     this.getCartDetails = JSON.parse(localStorage.getItem('anunya') || '{}');
-
-    fetch("https://sore-gold-coyote-wrap.cyclic.app/orderRoute/getOrders",{
-      method:"GET",
-      headers:{
-        "access-Control-Allow-Origin":"*",
-      },
-    })
-    .then(response => response.json())
-    .then(result =>{
-      console.log(result),
-      this.order = result.orders
-    
-    console.log(this.order)
-
-
-    this.count=this.order.length;
-    console.log(this.count)
-    
-    for(let i = 0;i < this.order.length;i++){
-       this.data = this.order[i]      
-    }  
-    }
-    ).catch(err =>
-      console.log('error',err))
     
 
     this.randomNumber = Math.floor(Math.random() * 9000000000) + 1000000000;
@@ -113,43 +93,24 @@ export class DealerordersPage implements OnInit {
     console.log(this.count)
     this.order.length=0;
     this.count=this.order.length;
-  }
-  //   for(let i = 0;i < this.order.length;i++){
-  //     this.data1 = this.order[i]  
-  //     console.log(this.order[i].OrderData.OrderItems )   
-    
-  //     this.data2.push(this.data1.OrderData.OrderItems)
-  //     console.log(this.data2)
-  //  } 
-  //  for(let i = 0;i < this.data2.length;i++){
-  //   this.data1 = this.data2[i]
-  //   var data =this.order[i].OrderData.Phone
-   
 
-  //  if(data==this.manumob )
-   
-  //  {    
-  //   this.data3.push(this.order[i] )    
-  //  }
- 
-  // }  if(this.data3.length!=0)
-  // {
-  // this.order=this.data3
-  //   console.log(this.order)
-  //   localStorage.setItem('prodstatus',JSON.stringify(this.order));
-  //   console.log(this.order)
-  //   this.count=this.order.length;
-   
+    
+    fetch("https://milestone-096608973980.herokuapp.com/orderRoute/allorders", {
+      method: "get",
+      headers: {
+        "access-Control-Allow-Origin": "*",
+        "Content-Type":'application/json'
+      },
+     
+      }).then(res=> res.json())
+     .then(result=>{ 
+        console.log(result)
+        this.order = result.orders
+         console.log(this.order)
+      })
   
-  //    console.log(this.data3)
-  // }
-  // else{
-  //   this.order.length=0;
-  //   this.count=this.order.length;
-  // }
-    // for(let i = 0;i < this.order.length;i++){
-    //    this.data = this.order[i]      
-    //}  
+  }
+
     
   getAddress(test:any){
     window.location.href=("/address")
@@ -160,104 +121,41 @@ export class DealerordersPage implements OnInit {
     this.data = test
     localStorage.setItem('orderitems',JSON.stringify(test))
   }
-//  placed(){
-//   debugger
-//   this.order1 = this.order.filter((item: any ) => item.OrderData.OrderItems.OrderStatus ==='Shipped'); 
-//   console.log(this.order1)  
-//   for(let i = 0;i < this.order1.length;i++){
-//     this.data1 = this.order1[i]  
-//     console.log(this.data1)    
-//  } 
-    
-  
-//  }  
-Orderid(){
-
-} 
- placed(){
  
-  const localdata = localStorage.getItem('prodstatus')  
-  if(localdata!=null){                                                                                 
-    this.order1 =JSON.parse(localdata) 
-    console.log( this.order1);
-  }  
 
-this.data2.length = 0;
-this.data3.length = 0;
-  for(let i = 0;i < this.order1.length;i++){
-    this.data1 = this.order1[i]  
-    console.log(this.order1[i].OrderData.OrderItems )   
-   
-    this.data2.push(this.data1.OrderData.OrderItems)
-    console.log(this.data2)
- } 
- for(let i = 0;i < this.data2.length;i++){
-  this.data1 = this.data2[i]
- var data =this.data1[0].OrderStatus
- if(data=='Placed')
- {
-  this.data3.push(this.order1[i] )
- }
-this.order=this.data3
-this.count=this.order.length;
- console.log(this.data3)
-}  
- }   
- Shipped(){   
-    const localdata = localStorage.getItem('prodstatus')  
-    if(localdata!=null){                                                                                 
-      this.order1 =JSON.parse(localdata) 
-      console.log( this.order1);    
+  Placed() {
+    this.List = this.order.filter((item: any) => {
+      return item.OrderItems.filter((orderItem: any) => {
+        return orderItem.OrderStatus == 'Placed';
+      }).length > 0;
+    });
+    this.count = this.List.length;
+           console.log(this.count)
+    console.log(this.List);
   }
-  this.data2.length = 0;
-  this.data3.length = 0;
-    for(let i = 0;i < this.order1.length;i++){
-      this.data1 = this.order1[i]  
-      console.log(this.order1[i].OrderData.OrderItems )   
-      this.data2.push(this.data1.OrderData.OrderItems)
-      console.log(this.data2)
-   } 
-   for(let i = 0;i < this.data2.length;i++){
-    this.data1 = this.data2[i]
-   this.statusdata =this.data1[0].OrderStatus
-   
-   if(this.statusdata=='Delivered')
-   {
-    this.data3.push(this.order1[i] )
-   }
-  this.order=this.data3
-  this.count=this.order.length;
-   console.log(this.data3)
-   localStorage.setItem('Orderstatus',JSON.stringify(this.order))
-  }  
-   }   
-   inprogress(){
-    const localdata = localStorage.getItem('prodstatus')  
-    if(localdata!=null){                                                                                 
-      this.order1 =JSON.parse(localdata) 
-      console.log( this.order1);
-      }
-        this.data2.length = 0;
-  this.data3.length = 0;
-    for(let i = 0;i < this.order1.length;i++){
-      this.data1 = this.order1[i]  
-      console.log(this.order1[i].OrderData.OrderItems )   
-      this.data2.push(this.data1.OrderData.OrderItems)
-      console.log(this.data2)
-   } 
-   for(let i = 0;i < this.data2.length;i++){
-    this.data1 = this.data2[i]
-   var data =this.data1[0].OrderStatus
-   if(data=='Shipped')
-   {
-    this.data3.push(this.order1[i] )
-   }
 
-  this.order=this.data3
-  this.count=this.order.length;
-   console.log(this.data3)
-  }  
-   }  
+  Shipped() {
+    this.List = this.order.filter((item: any) => {
+      return item.OrderItems.filter((orderItem: any) => {
+        return orderItem.OrderStatus == 'Shipped';
+      }).length > 0;
+    });
+    this.count = this.List.length;
+           console.log(this.count)
+    console.log(this.List);
+  }
+
+
+  Delivered(){
+    this.List = this.order.filter((item: any) => {
+      return item.OrderItems.filter((orderItem: any) => {
+        return orderItem.OrderStatus == 'Delivered';
+      }).length > 0;
+    });
+    this.count = this.List.length;
+           console.log(this.count)
+    console.log(this.List);
+  }
   
 all(){
   window.location.reload();

@@ -46,7 +46,7 @@ export class AddShipperPage implements OnInit {
        alert('Please provide all the required values!')      
       } else {
        
-           fetch("https://sore-gold-coyote-wrap.cyclic.app/shippers/addshipper" ,{
+           fetch("https://milestone-096608973980.herokuapp.com/shippers/addshipper" ,{
            method:'post',
            headers:{
              "Access-Control-Allow-Origin": "*",

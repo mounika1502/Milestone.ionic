@@ -19,26 +19,25 @@
 
   </ion-toolbar>
 </ion-header>
-
-<ion-searchbar placeholder= "Search...." [(ngModel)]="searchtext" name="array id" class="form-control"></ion-searchbar>
-
- <div class="container">
+<ion-content [fullscreen]="true">
+<div class="container">
+  <ion-searchbar placeholder= "Search...." [(ngModel)]="searchtext" name="array id" class="form-control"></ion-searchbar>
 
   <ion-row>
     <ion-segment [scrollable]="true" value="home">    
       <ion-col>
-        <ion-segment-button value="home" (click)="placed()">
+        <ion-segment-button (click)="Placed()">
           <ion-label>New Orders</ion-label>
         </ion-segment-button>
       </ion-col>
       <ion-col>
-        <ion-segment-button value="star" (click)="inprogress()">
+        <ion-segment-button  (click)="Shipped()">
           <ion-label>Shipped</ion-label>
         </ion-segment-button>
       </ion-col>
    
       <ion-col>
-        <ion-segment-button value="call" (click)="Shipped()">
+        <ion-segment-button  (click)="Delivered()">
           <ion-label>Delivered</ion-label>
         </ion-segment-button>
       </ion-col>
@@ -47,14 +46,14 @@
 </div> 
 <br> 
 
- <ion-content>
+
   <span style="color:gray">Count:</span><span style="color:black;font-weight: 800;">{{count}}</span>
-<div class="panel-body"  *ngFor="let test of order  | filter : searchtext" >  <br>                  
-  <div *ngFor="let data of test.OrderData.OrderItems" >
+<div class="panel-body"  *ngFor="let test of List  | filter : searchtext" >  <br>                  
+  <div *ngFor="let data of test.OrderItems | filter : searchtext" >
 
 <ion-card style="border: 1px solid #d9d9d9;">
   <ion-card-header>
-    <ion-card-subtitle style="font-weight: 600;color: rgb(254, 119, 128);" >Order Id :{{test.OrderData.OrderId}}</ion-card-subtitle>
+    <ion-card-subtitle style="font-weight: 600;color: rgb(254, 119, 128);" >Order Id :{{test.OrderId}}</ion-card-subtitle>
     <br>
     <div class="center">
       <img src="{{data.filePath}}" style="height: 10%;width: 26%;"> 
@@ -82,16 +81,16 @@
     </ion-row>
     <ion-row>
       <ion-col style="color: black;margin-left: 19%;">Deliver To</ion-col>
-      <ion-col>:&nbsp;{{test.OrderData.Firstname}} {{test.OrderData.Lastname}}</ion-col>
+      <ion-col>:&nbsp;{{test.Firstname}} {{test.Lastname}}</ion-col>
      
     </ion-row>
     <ion-card-title style="font-weight: 600;text-decoration: underline;text-align: center;">Address Details</ion-card-title>
 
 <br>
    
-      <ion-col style="text-align: center;">{{test.OrderData.Address}},{{test.OrderData.pincode}},{{test.OrderData.State}}</ion-col>
+      <ion-col style="text-align: center;">{{test.Address}},{{test.pincode}},{{test.State}}</ion-col>
       <br>
-      <ion-col style="text-align: center;">{{test.OrderData.Phone}}</ion-col><br>
+      <ion-col style="text-align: center;">{{test.Phone}}</ion-col><br>
       
    
   </ion-card-header>

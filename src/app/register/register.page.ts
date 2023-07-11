@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { LoadingController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -19,21 +21,26 @@ export class RegisterPage implements OnInit {
   CityState: any;
   Pincode:any
   district: any;
+  confirmPassword: any;
+
 
   setOpen(isOpen: boolean) {
   this.isAlertOpen = isOpen;
   }
 
-  constructor(private router:Router,public formBuilder: FormBuilder) { }
+  constructor(private router:Router,
+    public formBuilder: FormBuilder, 
+    public Loading:LoadingController,
+    private alertController: AlertController) { }
 
   ngOnInit() {
-   // this.getCityState()
+    this.getCityState()
     this.SignupForm = this.formBuilder.group({  
-      Firstname: ['',[Validators.required,Validators.pattern('[a-zA-Z]+$')]],
-      Lastname : ['',[Validators.required,Validators.pattern('[a-zA-Z]+$')]],
+      Firstname: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]+$')]],
+      Lastname : ['',[Validators.required,Validators.pattern('^[a-zA-Z ]+$')]],
       mobile : ['',[Validators.required,Validators.pattern("[0-9]{10}$")]],
       Email : ['',[Validators.required,Validators.email]],
-      Password : ['',[Validators.required,Validators.minLength(5)]],
+      Password : ['',[Validators.required]],
       City : ['',[Validators.required]],
       UserType : ['',[Validators.required]],
       Pincode : ['',[Validators.required]],
@@ -77,6 +84,41 @@ export class RegisterPage implements OnInit {
   // }
   passwordType: string = 'password';
   passwordIcon: string = 'eye-off';
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Register Successfully',
+      buttons: ['OK']
+    });  
+    await alert.present();  
+    await alert.onDidDismiss().then(() => {
+      this.router.navigateByUrl('/login');
+    });
+  }
+
+  async FailedAlert() {
+    const alert = await this.alertController.create({
+      header: 'User already existed',
+      buttons: ['OK']
+    });  
+    await alert.present();
+  }
+
+  async validateAlert() {
+    const alert = await this.alertController.create({
+      header: 'Please provide all the required values!',
+      buttons: ['OK']
+    });  
+    await alert.present();
+  }
+
+  async PasswordAlert() {
+    const alert = await this.alertController.create({
+      header: 'password not matched',
+      buttons: ['OK']
+    });  
+    await alert.present();
+  }  
  
   hideShowPassword() {
       this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
@@ -86,31 +128,30 @@ export class RegisterPage implements OnInit {
     return this.SignupForm.controls;
   } 
 
-  signupSubmit(){ 
+  async signupSubmit(){
+    const Loading = await this.Loading.create({
+      message : "Loading...",
+      spinner:'crescent'      
+    }) 
+    await Loading.present()
+    var Obj={
+      "confirmPassword":this.confirmPassword
+    }
     this.isSubmitted = true;
     if (!this.SignupForm.valid) {
-     alert('Please provide all the required values!')  
+      this.validateAlert()
+    //  alert('Please provide all the required values!') 
+     Loading.dismiss() 
     } else {
      console.log(this.SignupForm.value)
-     
-    //  var signupdata ={
-    //   Firstname:this.SignupForm.value.Firstname,
-    //   Lastname:this.SignupForm.value.Lastname,
-    //   mobile:this.SignupForm.value.mobile,
-    //   Email:this.SignupForm.value.Email,
-    //   Password:this.SignupForm.value.Password,
-    //   UserType:this.SignupForm.value.UserType,
-    //   City:this.SignupForm.value.City,
-    //   Pincode:this.SignupForm.value.Pincode,
-    //   Street:this.SignupForm.value.Street,
-    //   Company:this.SignupForm.value.Company,
-    //   State:this.SignupForm.value.State,
-    //   // uniqueDeviceID:this.UniqueDeviceID,
-    //   // filePath:this.filePath,
-    //  }
-     console.log(this.SignupForm.value)
 
-    fetch("https://sore-gold-coyote-wrap.cyclic.app/signupform/addsignupdetails", {
+    console.log(Obj.confirmPassword) 
+    if(this.SignupForm.value.Password == Obj.confirmPassword) {
+
+     console.log(this.SignupForm.value.Password)
+     console.log(Obj.confirmPassword)
+
+    fetch("https://milestone-096608973980.herokuapp.com/signupform/addsignupdetails", {
 
      method:'post',
      headers:{
@@ -123,33 +164,44 @@ export class RegisterPage implements OnInit {
    }).then(res=> res.json())
    .then(result=>{ 
      console.log(result)
-
+    
     if(result.status == 'failed'){
-      alert('User already existed')
+      this.FailedAlert()
+      // alert('User already existed')
+      Loading.dismiss()
     }  else{
-     alert("Register Successfully")
-    window.location.href="/login"
-    }         
-   })       
-     .catch(error => console.log('error',error))     
+      this.presentAlert()
+    //  alert("Register Successfully")
+
+   Loading.dismiss()
+    var body ={
+      Email:this.SignupForm.value.Email
     }
-  var body ={
-    Email:this.SignupForm.value.Email
+    fetch("https://milestone-096608973980.herokuapp.com/signupform/emailnotification", {
+    method:'post',
+    headers:{
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type":'application/json'
+    },  
+    body:JSON.stringify(body)
+    
+    }).then(res=> res.json())
+    .then(result=>{ 
+    console.log(result) 
+    Loading.dismiss() 
+    })
+    .catch(error => console.log('error',error))
+    Loading.dismiss()
+    }
+            
+   })       
+     .catch(error => console.log('error',error)) 
+     Loading.dismiss()    
+    }else {
+      this.PasswordAlert()
+      // alert('password not match')
+      Loading.dismiss()
+    }
   }
-  fetch("https://sore-gold-coyote-wrap.cyclic.app/signupform/emailnotification", {
-  method:'post',
-  headers:{
-  "Access-Control-Allow-Origin": "*",
-  "Content-Type":'application/json'
-  },  
-  body:JSON.stringify(body)
-  
-  }).then(res=> res.json())
-  .then(result=>{ 
-  console.log(result)  
-  })
-  .catch(error => console.log('error',error))
   }
 }
-
-

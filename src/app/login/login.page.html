@@ -1,28 +1,39 @@
 
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title style="text-align: center;font-size: xx-large;font-weight: 600;">Login/Signin</ion-title>
+    <ion-title style="text-align: center;font-weight: 600;">Login/Signin</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-list lines="none" class="ion-margin">
     
-   <img  style="width: 70%; height:70%; margin-left: 20%;margin-top: 3%;" 
+   <img  style="width:70%; height:70%; margin-left:20%;margin-top: 3%;" 
 
     src="https://media.istockphoto.com/id/502910284/photo/natural-stone-tiles-marble-granite-samples-stack-clipping-path.jpg?s=612x612&w=0&k=20&c=6-doPB7xCKGqQ6y1EVrJXcrw8ziMw8xmec1GlVxLbUE=">
    
     <form #userPost="ngForm" [formGroup]="loginForm" >
       <label style="margin-left: 8%;">Email Address</label>
     <ion-item class="ion-margin">
-      <ion-input  appCapitalize placeholder="Enter Email Address" type="text" clearInput="true" formControlName="email"></ion-input>
+      <ion-input  appCapitalize placeholder="Enter Email Address" type="text" clearInput="true" formControlName="email" style="text-transform: lowercase;"></ion-input>
     </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.required" style="color: red;">
+      Email is required.
+     </span>
+     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.email" style="color: red;">
+      Please, provide a valid email address.
+     </span>
+     <br>
 
     <label style="margin-left: 8%;">Password</label>
     <ion-item class="ion-margin">
       <ion-input formControlName="password" [type]="passwordType" placeholder="Enter Password"></ion-input>
       <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
     </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.password.errors?.required" style="color: red;">
+      Password is required.
+     </span>
+     <br>
     <a style="float:right;margin-top: 5px;" routerLink="/forgotpassword">forgot password?</a><br>
     </form>
       <ion-button  style="height: 50px;   border-radius: 10px; margin-top:20px;" expand="full" strong="true" type="submit" [disabled]="loginForm.value.email == '' || loginForm.value.password == ''"   (click)="loginSubmit()" >

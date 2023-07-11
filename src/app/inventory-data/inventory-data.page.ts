@@ -33,7 +33,7 @@ export class InventoryDataPage implements OnInit {
   delete(prodId:any){ 
     if(confirm("Are you sure do you want to delete")){
      
-      fetch("https://sore-gold-coyote-wrap.cyclic.app/products/deleteproduct/" + prodId,{
+      fetch("https://milestone-096608973980.herokuapp.com/products/deleteproduct/" + prodId,{
        method:'DELETE',
        headers:{
          "access-Control-Allow-Origin":"*"

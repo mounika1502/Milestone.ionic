@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UploadService } from '../upload.service';
+import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-edit',
@@ -16,7 +18,7 @@ export class ProfileEditPage implements OnInit {
   docid: any;
 Firstname:any
   aaa: any;
-  constructor(private apii:UploadService) { }
+  constructor(private apii:UploadService,private alertController: AlertController,private router: Router) { }
 
   ngOnInit() {
     const localdata = localStorage.getItem('Login')
@@ -46,6 +48,17 @@ Firstname:any
     })
   }
 
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Updated successfully...',
+      buttons: ['OK']
+    });
+    await alert.present();
+    await alert.onDidDismiss().then(() => {
+      this.router.navigateByUrl('/profile');
+    });
+  }
+
   update(Authentication:any){  
     localStorage.setItem('Login',JSON.stringify(this.data))
 
@@ -61,15 +74,15 @@ Firstname:any
       State:this.data.State,
       Company:this.data.Company,
       Location:this.data.Location,
-      bio:this.data.bio,
-     
+      bio:this.data.bio,     
      }
      console.log(data)
    
     this.apii.updateprofiledetails(data,Authentication).subscribe(datas=>{
       console.log(datas)
-      alert('Updated successfully')
-      window.location.href=("/profile")  
+      this.presentAlert()
+      
+      //window.location.href=("/profile")  
       if(datas){
         // alert('Updated successfully')
         //  window.location.href=("/profile")     

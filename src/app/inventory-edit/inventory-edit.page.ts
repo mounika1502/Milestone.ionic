@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-inventory-edit',
@@ -13,7 +15,8 @@ export class InventoryEditPage implements OnInit {
   text: any;
   product: any;
 
-  constructor() { }
+  constructor(private router:Router,
+    private alertController: AlertController) { }
 
   ngOnInit() {
     this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
@@ -37,16 +40,27 @@ export class InventoryEditPage implements OnInit {
       manufacturername: new FormControl(""),
       // filePath: new FormControl()
     })
-
     const localdata=localStorage.getItem('InventoryProduct')
     if(localdata!=null){
       this.data = JSON.parse(localdata)
     }
   }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'updated...',
+      buttons: ['OK']
+    });  
+    await alert.present(); 
+    await alert.onDidDismiss().then(() => {
+      this.router.navigateByUrl('/inventory');
+    }); 
+  }
+
   update(id:any){
       console.log(this.productForm.value) 
       localStorage.setItem('InventoryProduct',JSON.stringify(this.product));
-      fetch("https://sore-gold-coyote-wrap.cyclic.app/products/editProduct/" + id,  {
+      fetch("https://milestone-096608973980.herokuapp.com/products/editProduct/" + id,  {
         method: 'PUT',
         headers: {
           "access-Control-Allow-Origin": "*",        
@@ -59,9 +73,7 @@ export class InventoryEditPage implements OnInit {
           this.product = result
           console.log(result)
           console.log(this.product)
-         alert('updated...') 
-          // window.location.reload()
-          window.location.href=("/inventory-data") 
+          this.presentAlert()
          // window .location.reload()             
         }
         ).catch(err =>

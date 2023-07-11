@@ -33,7 +33,7 @@ export class RawDataPage implements OnInit {
       delete(Number:any){  
         if(confirm("Are you sure do you want to delete")){
       
-        fetch("https://sore-gold-coyote-wrap.cyclic.app/raw/delete/" + Number,{
+        fetch("https://milestone-096608973980.herokuapp.com/raw/delete/" + Number,{
          method:'DELETE',
          headers:{
             "access-Control-Allow-Origin":"*"

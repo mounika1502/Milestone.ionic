@@ -21,6 +21,7 @@
 
   </ion-toolbar>
 </ion-header>
+
     <ion-content id="main">
         <div *ngIf="getCartDetails.length !=0">
           <ion-col  size="6" class="panel-body" *ngFor="let cart of getCartDetails">
@@ -53,9 +54,9 @@
           <ion-col style="color: black;">:</ion-col>
           <ion-col>
             <span>
-              <input type="button" value="-" [disabled]="cart.qnt == 0" (click)="decQnt(cart.prodId, cart.qnt,cart.Quantity)" style="margin-right: 9%;" class="button-minus border rounded-circle  icon-shape icon-sm mx-2 " data-field="quantity">
+              <input type="button" value="-" [disabled]="cart.qnt == 0" (click)="decQnt(cart.prodId, cart.qnt,cart.Quantity)" style="margin-right: 9%;color: white;" class="button-minus border rounded-circle  icon-shape icon-sm mx-2 " data-field="quantity">
               <span type="text" style="font-weight: bold; ">{{cart.qnt}}</span>
-              <input type="button" value="+" [disabled]="cart.Quantity == 0"  (click)="incQnt(cart.prodId, cart.qnt,cart.Quantity)" style="margin-left: 9%;" class="button-plus border rounded-circle icon-shape icon-sm " data-field="quantity"> 
+              <input type="button" value="+" [disabled]="cart.Quantity == 0"  (click)="incQnt(cart.prodId, cart.qnt,cart.Quantity)" style="margin-left: 9%;color: white;" class="button-plus border rounded-circle icon-shape icon-sm mx-2" data-field="quantity"> 
             </span>
           </ion-col>
         </ion-row>
@@ -84,9 +85,8 @@
       </div>
     
 
-        <div *ngIf="getCartDetails.length ==0" class="noitem">
-          <div>
-           
+        <div *ngIf="getCartDetails.length == 0" class="noitem">
+          <div>           
             <h1 style="margin-left: 642px; margin-top: -64px;" style="font-weight: bolder; text-align: center;">Your Cart is
               Empty </h1>
             <p style="font-weight: bold; text-align: center; "> Dude!!! Add some Products </p>

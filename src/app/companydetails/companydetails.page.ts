@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UploadService } from '../upload.service';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-companydetails',
@@ -21,7 +22,10 @@ export class CompanydetailsPage implements OnInit {
   data: any;
   aa: any;
 
-  constructor( private apii: UploadService, private fb: FormBuilder,private router:Router) {
+  constructor( private apii: UploadService, 
+    private fb: FormBuilder,
+    private router:Router,
+    private alertController: AlertController) {
   }
 
   ngOnInit(): void {
@@ -80,11 +84,22 @@ export class CompanydetailsPage implements OnInit {
     console.log(text)  
   } 
 
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Added successfully',
+      buttons: ['OK']
+    });  
+    await alert.present();  
+    await alert.onDidDismiss().then(() => {
+      this.router.navigateByUrl('/profile');
+    });
+  }
+
   submit(){
     localStorage.setItem('Login',JSON.stringify(this.text))
     console.log(this.Form.value)
     
-        fetch("https://sore-gold-coyote-wrap.cyclic.app/signupform/addCompany/" + this.text.Authentication, {
+        fetch("https://milestone-096608973980.herokuapp.com/signupform/addCompany/" + this.text.Authentication, {
           method: 'PUT',
           headers: {
             "access-Control-Allow-Origin": "*",        
@@ -96,7 +111,8 @@ export class CompanydetailsPage implements OnInit {
           .then(response => response.json())
           .then(result => {
             console.log(result),
-          window.location.href='/profile'
+            this.presentAlert()
+          // window.location.href='/profile'
          this.text['Location']=this.Form.value.Location
          this.text['bio']=this.Form.value.bio
 

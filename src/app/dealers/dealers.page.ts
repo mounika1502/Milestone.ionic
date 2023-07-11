@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-dealers',
@@ -22,7 +23,7 @@ export class DealersPage implements OnInit {
   Mobile: any;
   _id: any;
 
-  constructor() {}
+  constructor(private alertController: AlertController) {}
 
   ngOnInit(): void {
    this.Get()
@@ -31,8 +32,25 @@ export class DealersPage implements OnInit {
       this.Mobile = this.aa.mobile
       console.log(this.Mobile) 
   }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Added Successfully...',
+      buttons: ['OK']
+    });  
+    await alert.present();  
+  }
+
+  async FailedAlert() {
+    const alert = await this.alertController.create({
+      header: 'Dealer already existed',
+      buttons: ['OK']
+    });  
+    await alert.present();
+  }
+
   Get(){
-    fetch("https://sore-gold-coyote-wrap.cyclic.app/signupform/getsignupdetails",{
+    fetch("https://milestone-096608973980.herokuapp.com/signupform/getsignupdetails",{
       method:"GET",
       headers:{
         "access-Control-Allow-Origin":"*",
@@ -61,7 +79,7 @@ export class DealersPage implements OnInit {
      Mobile:this.Mobile
 
   }   
-    fetch("https://sore-gold-coyote-wrap.cyclic.app/dealer/getdealer",{
+    fetch("https://milestone-096608973980.herokuapp.com/dealer/getdealer",{
       method:"post",
       headers:{
         "Access-Control-Allow-Origin":"*",
@@ -95,7 +113,7 @@ export class DealersPage implements OnInit {
 
 }
   console.log(datasss)
-    fetch("https://sore-gold-coyote-wrap.cyclic.app/dealer/adddealer",{
+    fetch("https://milestone-096608973980.herokuapp.com/dealer/adddealer",{
       method:'POST',
       headers:{
         "Access-Control-Allow-Origin":"*",
@@ -109,9 +127,9 @@ export class DealersPage implements OnInit {
       console.log(result)
 
       if(result.status == 'failed'){
-        alert('Dealer already existed')
+        this.FailedAlert() 
       }  else{
-        alert("Added Successfully!")            
+       this.presentAlert()            
       }  
     }
       )

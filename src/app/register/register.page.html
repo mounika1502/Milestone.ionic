@@ -1,27 +1,24 @@
 
 <ion-header>
   <ion-toolbar> 
+    <ion-buttons slot="start" >
     <ion-icon name="arrow-back-sharp" routerLink="/login" style="font-size: 30px;"></ion-icon>
+  </ion-buttons>
+    <h2 style="color: white; text-align: center;"><b>Register</b></h2>
   </ion-toolbar>
 </ion-header>
 
-  <ion-content [fullscreen]="true">
-   
+<ion-content [fullscreen]="true">  
 
   <ion-list lines="none" >
+   <!-- <h1 style="text-align: center;"><b>Register</b></h1> -->
+   <br>
+    <form #userPost="ngForm" [formGroup]="SignupForm">
 
-    <!-- <img    stylehjmny="max-width: 60%;  margin-left: 20%;" 
-    src="https://media.istockphoto.com/id/502910284/photo/natural-stone-tiles-marble-granite-samples-stack-clipping-path.jpg?s=612x612&w=0&k=20&c=6-doPB7xCKGqQ6y1EVrJXcrw8ziMw8xmec1GlVxLbUE=">
-   -->
-   <h1 style="text-align: center;"><b>Register</b></h1>
-
-    <form #userPost="ngForm" [formGroup]="SignupForm" >
-
-      <ion-label style="margin-left: 6%;"><b>First Name</b></ion-label>
-      <ion-item class="ion-margin">    
-        <ion-input appFirstCap  placeholder="Enter First Name"  type="text" clearInput="true" formControlName="Firstname"></ion-input>
-      </ion-item>
-       
+      <ion-label style="margin-left: 6%;"><b>First Name</b></ion-label><br>  
+      <ion-item style="width: 90%;margin-left: 5%;height: 3em;">     
+      <ion-input appFirstCap  placeholder="Enter First Name"  type="text" clear-input="true" formControlName="Firstname" class="box"></ion-input>     
+    </ion-item>
       <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Firstname.errors?.required" style="color: red;margin-top:-5px">
         Firstname  is required.
       </span>
@@ -29,12 +26,12 @@
         Only alphabets allowed.
       </span> 
       <br>
-      
+    
 
-      <ion-label style="margin-left: 6%;"><b>Last Name</b></ion-label>
-      <ion-item class="ion-margin">    
-        <ion-input  appFirstCap  placeholder="Enter Last Name" type="text" clearInput="true" formControlName="Lastname"></ion-input>
-      </ion-item>
+      <ion-label style="margin-left: 6%;"><b>Last Name</b></ion-label> 
+      <ion-item style="width: 90%;margin-left: 5%;height: 3em;">
+      <ion-input class="box" appFirstCap  placeholder="Enter Last Name" type="text" clear-input="true" formControlName="Lastname"></ion-input>
+    </ion-item>
       <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Lastname.errors?.required" style="color: red;">
         Lastname is required.
       </span>
@@ -42,10 +39,11 @@
         Only alphabets allowed.
       </span>
        <br>
+      
 
       <ion-label style="margin-left: 6%;"><b>Phone Number</b></ion-label>
-    <ion-item class="ion-margin">  
-      <ion-input  appFirstCap placeholder="Enter Phone Number" type="text" clearInput="true" formControlName="mobile"></ion-input>
+      <ion-item style="width: 90%;margin-left: 5%;height: 3em;">
+      <ion-input class="box" appFirstCap placeholder="Enter Phone Number" type="text" clear-input="true" formControlName="mobile"></ion-input>
     </ion-item>
     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile.errors?.required" style="color: red;">
       PhoneNumber is required.
@@ -53,12 +51,12 @@
     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile.errors?.pattern" style="color: red;">
     Please, Enter 10 digit mobile number.
     </span>
-     <br>
+     <br> 
 
-      <ion-label style="margin-left: 6%;"><b>Email Address</b></ion-label>
-      <ion-item class="ion-margin">    
-        <ion-input appFirstCap placeholder="Enter Email Address" type="text" clearInput="true" formControlName="Email"></ion-input>
-      </ion-item>
+      <ion-label style="margin-left: 6%;"><b>Email Address</b></ion-label>  
+      <ion-item style="width: 90%;margin-left: 5%;height: 3em;"> 
+      <ion-input class="box" appFirstCap placeholder="Enter Email Address" type="text" clear-input="true" formControlName="Email" style="text-transform: lowercase;"></ion-input>
+    </ion-item>
       <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Email.errors?.required" style="color: red;">
        Email is required.
       </span>
@@ -66,42 +64,53 @@
        Please, provide a valid email address.
       </span>
      <br>
+     
    
-      <ion-label style="margin-left: 6%;"><b>Password</b></ion-label>
-      <ion-item class="ion-margin">
-        <ion-input formControlName="Password" [type]="passwordType" placeholder="Enter Password"></ion-input>
-        <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
-      </ion-item>
+     <ion-label style="margin-left: 6%;"><b>Password</b></ion-label>
+     <ion-item style="width: 90%;margin-left: 5%;height: 3em;">
+       <ion-input formControlName="Password" [type]="passwordType" placeholder="Enter Password"></ion-input>
+       <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+     </ion-item>
       <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Password.errors?.required" style="color: red;">
         Password is required.
        </span>
-       <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Password.errors?.minLength" style="color: red;">
-        Password should be min 6.
-       </span>
      <br>
 
+     <ion-label style="margin-left: 6%;"><b>Confirm Password</b></ion-label>
+     <ion-item style="width: 90%;margin-left: 5%;height: 3em;">
+       <ion-input [(ngModel)]="confirmPassword" [type]="passwordType" placeholder="Enter Password" [ngModelOptions]="{standalone: true}"></ion-input>
+       <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+     </ion-item>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Password.errors?.required" style="color: red;">
+        Password is required.
+       </span>
+     <br>
+    
+
     <ion-label style="margin-left: 6%;"><b>City</b></ion-label>
-    <ion-item class="ion-margin">  
-      <ion-input appFirstCap  placeholder="Enter City" type="text" clearInput="true" formControlName="City"></ion-input>
-    </ion-item>
+    <ion-item style="width: 90%;margin-left: 5%;height: 3em;">
+    <ion-input class="box" appFirstCap  placeholder="Enter City" type="text" clear-input="true" formControlName="City"></ion-input>
+  </ion-item>
     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.City.errors?.required" style="color: red;">
       City is required.
      </span>   
     <br>
+   
 
     <ion-label style="margin-left: 6%;"><b>Street</b></ion-label>
-    <ion-item class="ion-margin">  
-      <ion-input appFirstCap  placeholder="Enter Address" type="text" clearInput="true" formControlName="Street"></ion-input>
-    </ion-item>
+    <ion-item style="width: 90%;margin-left: 5%;height: 3em;">
+    <ion-input class="box" appFirstCap  placeholder="Enter Address" type="text" clear-input="true" formControlName="Street"></ion-input>
+  </ion-item>
     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Street.errors?.required" style="color: red;">
       Street is required.
      </span>
      <br>
+    
 
     <ion-label style="margin-left: 6%;"><b>Pincode</b></ion-label>
-    <ion-item class="ion-margin">  
-      <ion-input appFirstCap placeholder="Enter pincode"   type="text" clearInput="true" formControlName="Pincode"></ion-input>
-    </ion-item>
+    <ion-item style="width: 90%;margin-left: 5%;height: 3em;">
+    <ion-input class="box" appFirstCap placeholder="Enter pincode"   type="text" clear-input="true" formControlName="Pincode"></ion-input>
+  </ion-item>
     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Pincode.errors?.required" style="color: red;">
       Pincode is required.
      </span> 
@@ -109,20 +118,53 @@
       Pincode should be 5 digits long.
      </span>
      <br>
+   
 
-    <ion-label style="margin-left: 6%;"><b>Company</b></ion-label>
-    <ion-item class="ion-margin">  
-      <ion-input appFirstCap  placeholder="Enter Company Name" type="text" clearInput="true" formControlName="Company"></ion-input>
-    </ion-item>
+    <ion-label style="margin-left: 6%;"><b>Company</b></ion-label> 
+    <ion-item style="width: 90%;margin-left: 5%;height: 3em;">   
+    <ion-input class="box" appFirstCap  placeholder="Enter Company Name" type="text" clear-input="true" formControlName="Company"></ion-input>
+  </ion-item>
     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Company.errors?.required" style="color: red;">
       Company is required.
      </span>
-  
-     <br>   
+     <br>
+    
    
     <ion-label style="margin-left: 6%;"><b>State</b></ion-label>
-      <ion-item class="ion-margin">
-        <ion-input aria-label="fruit" [(ngModel)]="CityState" formControlName="State" placeholder="Please Select your state" autocomplete="off"> </ion-input>
+    <ion-item style="width: 90%;margin-left: 5%;height: 3em;">
+        <ion-select label-placement="stacked" formControlName="State" autocomplete="off">
+          <!-- <ion-select-option value="">--Select--</ion-select-option> -->
+          <ion-select-option value="Andhra Pradesh">Andhra Pradesh</ion-select-option>
+          <ion-select-option value="Arunachal Pradesh">Arunachal Pradesh</ion-select-option>
+          <ion-select-option value="Assam">Assam</ion-select-option>
+          <ion-select-option value="Bihar">Bihar</ion-select-option>
+          <ion-select-option value="Chhattisgarh">Chhattisgarh</ion-select-option>
+          <ion-select-option value="Goa">Goa</ion-select-option>
+          <ion-select-option value="Gujarat">Gujarat</ion-select-option>
+          <ion-select-option value="Haryana">Haryana</ion-select-option>
+          <ion-select-option value="Himachal Pradesh">Himachal Pradesh</ion-select-option>
+          <ion-select-option value="Jharkhand">Jharkhand</ion-select-option>
+          <ion-select-option value="Karnataka">Karnataka</ion-select-option>
+          <ion-select-option value="Kerala">Kerala</ion-select-option>
+          <ion-select-option value="Madhya Pradesh">Madhya Pradesh</ion-select-option>
+          <ion-select-option value="Maharashtra">Maharashtra</ion-select-option>
+          <ion-select-option value="Manipur">Manipur</ion-select-option>
+          <ion-select-option value="Meghalaya">Meghalaya</ion-select-option>
+          <ion-select-option value="Mizoram">Mizoram</ion-select-option>
+          <ion-select-option value="Nagaland">Nagaland</ion-select-option>
+          <ion-select-option value="Odisha">Odisha</ion-select-option>
+          <ion-select-option value="Punjab">Punjab</ion-select-option>
+          <ion-select-option value="Rajasthan">Rajasthan</ion-select-option>
+          <ion-select-option value="Sikkim">Sikkim</ion-select-option>
+          <ion-select-option value="Tamil Nadu">Tamil Nadu</ion-select-option>
+          <ion-select-option value="Telangana">Telangana</ion-select-option><ion-select-option value="Manufacturer">Manufacturer</ion-select-option>
+          <ion-select-option value="Tripura">Tripura</ion-select-option><ion-select-option value="Manufacturer">Manufacturer</ion-select-option>
+          <ion-select-option value="Uttar Pradesh">Uttar Pradesh</ion-select-option>
+          <ion-select-option value="Uttarakhand">Uttarakhand</ion-select-option>
+          <ion-select-option value="West Bengal">West Bengal</ion-select-option>
+
+        </ion-select>
+        <!-- <ion-input aria-ion-label="fruit" [(ngModel)]="CityState" formControlName="State">  -->
       </ion-item>
       <span class="error ion-padding" *ngIf="isSubmitted && errorControl.State.errors?.required" style="color: red;">
         State is required.
@@ -130,14 +172,15 @@
        <br>
    
       <ion-label style="margin-left: 6%;"><b>User Type</b></ion-label>
-      <ion-item class="ion-margin">
-        <ion-select aria-label="fruit" formControlName="UserType" placeholder="Select User Type" autocomplete="off">
-          <ion-select-option value="">--Select--</ion-select-option>
+
+      <ion-item style="width: 90%;margin-left: 5%;height: 3em;" placeholder="Select User Type">
+        <ion-select label-placement="stacked" formControlName="UserType">
           <ion-select-option value="Manufacturer">Manufacturer</ion-select-option>
           <ion-select-option value="Dealer">Dealer</ion-select-option>
-          <!-- <ion-select-option value="admin">Admin</ion-select-option> -->
-          </ion-select>
-          </ion-item>
+           <!-- <ion-select-option value="admin">Admin</ion-select-option>-->
+        </ion-select>
+      </ion-item>
+
           <span class="error ion-padding" *ngIf="isSubmitted && errorControl.UserType.errors?.required" style="color: red;">
             UserType is required.
            </span>
@@ -146,7 +189,7 @@
 
           </ion-list>
           <div class="center">
-            <button  style="height: 50px; width: 15em;background-color: #697184;color: white;margin-bottom: 15px;margin-top: 15px;  border-radius: 20px; margin-top:20px;" type="submit" (click)="signupSubmit()">
+            <button  style="height: 50px; width: 15em;background-color: #697184;color: white;margin-bottom: 15px;margin-top: 15px;  border-radius: 20px; margin-top:20px;font-size: large;" type="submit" (click)="signupSubmit()">
               Register         
             </button>
           </div>        

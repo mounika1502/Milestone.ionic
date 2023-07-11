@@ -1,30 +1,71 @@
 
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar >
+   <div style="display: flex;justify-content: space-between;">
+
     <ion-buttons slot="start" >
-      <ion-menu-button  style="color:white" menu="main-menu"></ion-menu-button>
-  
-    </ion-buttons>
-   
-    <div align="center">
-    <div style=" display:flex; justify-content:center;align-items:center;text-align:center; width:150px; height:60px;">
-      <ion-img src="/assets/Mile.png" style="width: 100px; "></ion-img>
-     </div>
-     </div>
-     <ion-icon name="cart" style=" margin-top: 7px;
-     font-size: 30px;
-     margin-left: -17px;
-     margin-right: 18px;" slot="end" routerLink="/cart"></ion-icon>
-         <span class="number" style="    font-size: 15px;
-      font-weight: 700;
-      margin-right: 6px;
-      margin-left: -21px;
-      margin-top: -12px;
-      background-color: rgb(243, 64, 64);color:white;border-radius: 22%;width: 4%;text-align: center;" slot="end"
-           routerLink="/cart">{{cartItem}} </span>
+      <ion-menu-button  style="color:white" menu="main-menu"></ion-menu-button>  
+    </ion-buttons>   
+    
+    <div style="width:70px; height:45px;">
+      <ion-img src="/assets/Mile.png" ></ion-img>
+    </div>
+     
+    <div [hidden]= "this.text.UserType==='Manufacturer'">
+      <ion-icon name="cart" style=" margin-top: 7px;
+      font-size: 30px;
+      margin-left: -17px;
+      margin-right: 18px;" slot="end" routerLink="/cart"></ion-icon>
+          <span class="number" style="font-size: 15px;
+       font-weight: 700;
+       margin-right: 6px;
+       margin-left: -21px;
+       margin-top: -12px;
+       background-color: rgb(243, 64, 64);color:white;border-radius: 22%;width: 4%;text-align: center;" slot="end"
+            routerLink="/cart">{{cartItem}} </span>
+    </div>
+   </div>
 
   </ion-toolbar>
+</ion-header> -->
+
+<ion-header>
+  <ion-toolbar>
+    <div class="sateesh" style="display: flex; align-items: center; justify-content: space-between;">
+      <ion-buttons slot="start" >
+        <ion-menu-button  style="color:white" menu="main-menu"></ion-menu-button>  
+      </ion-buttons>  
+
+      <div style="display: flex; flex-direction: row; align-items: center;">
+
+        <button id="open-custom-dialog" expand="block" style="background: none;padding-right: 1rem;" routerLink="/profile">
+          <h1 class="Name"
+            style="display: flex; align-items: center; justify-content: center; background-color: white; color: #697184; border-radius: 50%; width: 2rem; font-size: 1rem; height: 2rem;margin-top: 21%;margin-right: 10px;">
+            {{ getInitials(this.text.Firstname) }}{{getInitials(this.text.Lastname) }}
+          </h1>
+        </button>
+
+        <div [hidden]= "this.text.UserType==='Manufacturer'">
+          <ion-icon name="cart" style=" margin-top: 7px;
+          font-size: 30px;
+          margin-left: -17px;
+          margin-right: 18px;" slot="end" routerLink="/cart"></ion-icon>
+              <span class="number" style="font-size: 15px;
+           font-weight: 700;
+           margin-right: 6px;
+           margin-left: -21px;
+           margin-top: -12px;
+           background-color: rgb(243, 64, 64);color:white;border-radius: 22%;width: 4%;text-align: center;" slot="end"
+                routerLink="/cart">{{cartItem}} </span>
+        </div>
+
+        
+       
+      </div>
+    </div>
+  </ion-toolbar>
 </ion-header>
+
 <ion-content [fullscreen]="true" style="background-image: url(https://img.freepik.com/free-vector/close-up-white-marble-textured-background_53876-58927.jpg);">
   <ion-header collapse="condense">
     <ion-toolbar>

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import  firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import  'firebase/auth';
@@ -34,16 +34,33 @@ export class MobileLoginPage implements OnInit {
     private modalCtrl: ModalController,
     private ngZone:NgZone,
     private router: Router,
-    private _http:HttpClient
+    private _http:HttpClient,
+    private alertController: AlertController,
     ) { }
 
   ngOnInit() {
     firebase.initializeApp(config)
   }
 
+  async failedAlert() {
+    const alert = await this.alertController.create({
+      header: 'Your not registered , Please check your mobilenumber',
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'OTP Generated...',
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+
   async mobileOtp(){
 
-    fetch("https://sore-gold-coyote-wrap.cyclic.app/signupform/getsignupdetails", {
+    fetch("https://milestone-096608973980.herokuapp.com/signupform/getsignupdetails", {
       method:'get',
       headers:{
         "Access-Control-Allow-Origin": "*",
@@ -62,9 +79,9 @@ export class MobileLoginPage implements OnInit {
       console.log(this.List)
      
         if(this.List == null || this.List == undefined || this.List == ''){
-          alert('Mobile not exist')
+          this.failedAlert()
         }else{
-          alert('OTP Generated')
+          this.presentAlert()
       console.log(this.List)
 
       localStorage.setItem('Login',JSON.stringify(this.List[0]));

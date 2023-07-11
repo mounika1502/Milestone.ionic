@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { UploadService } from '../upload.service';
+import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-raw',
@@ -19,7 +21,10 @@ export class AddRawPage implements OnInit {
   isSubmitted = false;
   aa: any;
 
-  constructor(private apii:UploadService,public formBuilder: FormBuilder) { }
+  constructor(private apii:UploadService,
+    public formBuilder: FormBuilder,
+    private alertController: AlertController,
+    private router: Router,) { }
 
   TodayDate = "2023-04-12"
   date1 = new Date()
@@ -73,10 +78,29 @@ export class AddRawPage implements OnInit {
     return this.productForm.controls;
   } 
 
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Added...',
+      buttons: ['OK']
+    });  
+    await alert.present();  
+    await alert.onDidDismiss().then(() => {
+      this.router.navigateByUrl('/raw-product');
+    });
+  }
+
+  async FailedAlert() {
+    const alert = await this.alertController.create({
+      header: 'Product already existed',
+      buttons: ['OK']
+    });  
+    await alert.present();
+  }
+
   submitForm(id:any){
       
       console.log(this.productForm.value)
-       fetch("https://sore-gold-coyote-wrap.cyclic.app/raw/addraw/"+id, {
+       fetch("https://milestone-096608973980.herokuapp.com/raw/addraw/"+id, {
        method:'post',
        headers:{
          "Access-Control-Allow-Origin": "*",
@@ -88,10 +112,9 @@ export class AddRawPage implements OnInit {
      .then(result=>{ 
        console.log(result)
        if(result.status === 'failed'){
-        alert('Product already existed')       
+     this.FailedAlert()      
        }else{ 
-        alert("Added...")              
-          window.location.href="/raw-product"     
+       this.presentAlert()  
       }      
    }
   )      

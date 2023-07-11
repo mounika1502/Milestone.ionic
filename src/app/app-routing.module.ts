@@ -54,10 +54,6 @@ const routes: Routes = [
     loadChildren: () => import('./dealerorders/dealerorders.module').then( m => m.DealerordersPageModule),canActivate:[RouteGuard]
   },
   {
-    path: 'ordermanage',
-    loadChildren: () => import('./ordermanage/ordermanage.module').then( m => m.OrdermanagePageModule),canActivate:[RouteGuard]
-  },
-  {
     path: 'profile',
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule),canActivate:[RouteGuard]
   },
@@ -152,6 +148,15 @@ const routes: Routes = [
     path: 'logo',
     loadChildren: () => import('./logo/logo.module').then( m => m.LogoPageModule)
   },
+  {
+    path: 'orders',
+    loadChildren: () => import('./orders/orders.module').then( m => m.OrdersPageModule)
+  },  {
+    path: 'signup',
+    loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
+  }
+
+
 ];
 
 @NgModule({

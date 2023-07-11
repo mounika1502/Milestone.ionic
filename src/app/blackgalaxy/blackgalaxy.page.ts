@@ -121,30 +121,27 @@ export class BlackgalaxyPage implements OnInit {
     // localStorage.setItem('local',JSON.stringify(this.cart1));
     console.log(cart)   
   }
-  
-  
-   
+     
   get() {
     console.log(this.name)
-    fetch("https://sore-gold-coyote-wrap.cyclic.app/products/getbyName/" + this.name, {
+    
+    fetch("https://milestone-096608973980.herokuapp.com/products/getbyName/" + this.name, {
       method: 'GET',
     headers: {
       "access-Control-Allow-Origin": "*",  
-    },
-  
+    },  
   })
     .then(response => response.json())
     .then(result => {
       console.log(result),
-
-        this.products = result.product
-  
-      console.log(this.products)
-  
-    }
-  
+        this.products = result.product  
+      console.log(this.products)  
+      // window.location.reload()
+    }  
+    
     ).catch(err =>
       console.log(err))
+
   }
   
   

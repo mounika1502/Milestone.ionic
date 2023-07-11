@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 // import Swal from 'sweetalert2';
 import { UploadService } from '../upload.service';
 import { HttpClient } from '@angular/common/http';
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.page.html',
@@ -23,7 +24,12 @@ export class AddProductPage  {
   imgurl: any;
   textaws: any;
   images: any;
-  constructor(private router: Router, private apii: UploadService, private http: HttpClient,public formBuilder:FormBuilder) { }
+  constructor(private router: Router, 
+    private apii: UploadService, 
+    private http: HttpClient,
+    public formBuilder:FormBuilder,
+    private alertController: AlertController) { }
+
   TodayDate = "2023-04-12"
   date1 = new Date()
   currentyear = this.date1.getUTCFullYear();
@@ -90,9 +96,28 @@ export class AddProductPage  {
     this.size = !this.size
   }
 
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Added...',
+      buttons: ['OK']
+    });  
+    await alert.present();  
+    await alert.onDidDismiss().then(() => {
+      this.router.navigateByUrl('/inventory');
+    });
+  }
+
+  async FailedAlert() {
+    const alert = await this.alertController.create({
+      header: 'Product already existed',
+      buttons: ['OK']
+    });  
+    await alert.present();
+  }
+
   submitForm(id:any) {
       console.log(this.productForm.value)
-      fetch("https://sore-gold-coyote-wrap.cyclic.app/products/addproduct/" +id, {
+      fetch("https://milestone-096608973980.herokuapp.com/products/addproduct/" +id, {
         method: 'post',
         headers: {
           "Access-Control-Allow-Origin": "*",
@@ -103,10 +128,10 @@ export class AddProductPage  {
         .then(result => {
           console.log(result)
           if(result.status === 'failed'){
-            alert('Product already existed')       
+            this.FailedAlert()      
            }else{ 
-            alert("Added...")              
-              window.location.href="/inventory"     
+            // alert("Added...")  
+            this.presentAlert()              
           } 
         }
         )

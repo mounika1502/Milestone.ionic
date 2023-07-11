@@ -1,34 +1,12 @@
-.form-gap {
-    padding-top: 70px;
-}
-
 ion-toolbar {
     --color: #ffffff;
     --background:#697184;
   }
-
-.submit{
-    height: 2.5em;
-    width: 100%;
-    color: white;
-    border-radius: 5px;
-    background-color: #697184;
-    margin-top: 5%;    
-}
-
 * {
     margin: 0;
-    padding: 0;
-  
+    padding: 0;  
   }
-  
-  h1 {
-    margin-top: 10%;
-    margin-bottom: 10px;
-    font-size: 32px;
-    font-weight: 700;
-  }
-  
+
   h3 {
     font-weight: 600;
     color:#754141;
@@ -115,3 +93,12 @@ ion-item {
     -webkit-filter: drop-shadow(5px 5px 5px #a5a5a5);
     filter: drop-shadow(5px 5px 5px #989898);
   }
+
+  ion-button {
+   // --background: linear-gradient(180deg, #F55B03 0%, #FFBD6B 100%);
+    // margin-top: 60px;
+    --background: #697184;
+    height: 40px;
+    width: 98%;
+    border-radius:20px;
+}

@@ -24,17 +24,25 @@
         <label for="file"><ion-icon name="camera-sharp" style="color:#697184" (change)="selectImage($event)" id="file"></ion-icon></label>
         </div> 
              <button (click)="onClick()"></button>   -->
-        <div class="image">
-          <label for="file"><ion-icon name="camera-sharp" style="font-size: x-large;position: relative;margin-top: -50px;margin-left: 21%;"></ion-icon></label>
-          <input type="file"(change)="selectImage($event)" name="" id="file" style="display:none; visibility: none; margin-top: -50px;" > 
-          <button (click)="onClick()"></button>  
-        </div>      
+             
+            <div class="center" style="font-size: x-large;position: relative;margin-top: -27px;margin-left: 22%;">
+              <div class="input--file">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="3.2"/>
+                    <path d="M9 2l-1.83 2h-3.17c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-12c0-1.1-.9-2-2-2h-3.17l-1.83-2h-6zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+                    <path d="M0 0h24v24h-24z" fill="none"/>
+                  </svg>
+                </span>
+                 <input (change)="selectImage($event)" name="Select File" type="file" />             
+              </div>
+            </div>     
       <br>
      
       <div class="edit" >
         <button style="margin-left: -8px;border:1px solid #697184;padding: 2%;border-radius: 10px;background-color:#697184;color:white" (click)="edit(text)">Edit</button>
       </div>
-      <h3 id="profile-name">{{text.Firstname}}{{text.Lastname}}</h3>
+      <h3 id="profile-name">{{text.Firstname}} {{text.Lastname}}</h3>
       <span id="profile-description"><a>{{text.Email}}</a>
       </span>
     </div>
@@ -42,41 +50,34 @@
       <ion-item ng-repeat="post in posts">
         <ion-col style="font-size: 13px;">Mobile</ion-col>
         <ion-col style="font-size: 13px;margin-left: 6em;">{{text.mobile}}</ion-col>
-        <!-- <div class="post-time">Mobile &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{text.mobile}}</div> -->
       </ion-item>
       <ion-item ng-repeat="post in posts">
         <ion-col style="font-size: 13px;">User Type</ion-col>
         <ion-col style="font-size: 13px;margin-left: 6em;">{{text.UserType}}</ion-col> 
-  
-        <div class="post-options">
-          <i class="icon-reply"></i>
-          <i class="icon-shuffle"></i>
-        </div>
-      </ion-item>
-
-            
-        <ion-row style="font-size: 1em;color:rgb(233, 117, 117);margin-left: 3%;margin-bottom: 8px;">Address</ion-row>
+      </ion-item> 
+      <ion-item>
+        <ion-col style="font-size: 13px;">Address</ion-col>
+        <ion-col style="font-size: 13px;margin-left: 6em;"> {{text.Street}},{{text.City}},{{text.State}},{{text.Pincode}}</ion-col>
+      </ion-item>           
+        <!-- <ion-row style="font-size: 1em;color:rgb(233, 117, 117);margin-left: 3%;margin-bottom: 8px;">Address</ion-row>
           
         <ion-row style="margin-left: 3%;"> {{text.Street}},{{text.City}},{{text.State}},{{text.Pincode}}</ion-row>
-    
+     -->
       <div class="center" *ngIf="text.Location == null || text.Location ==''">
         <button style="width: 70%;margin-top: 1em;padding:2%;border:1px solid #697184;border-radius: 10px;margin-left: 15%;background-color:#697184;color:white" class="button"  routerLink="/companydetails"><b>Add your Company Details</b></button>
       </div>
    
-        <div *ngIf="text.Location">
+      <div *ngIf="text.Location">
         <ion-list>
-          <ion-item ng-repeat="post in posts">  
-       
-            <div class="post-time" style="text-decoration: underline;font-size: x-large;color:rgb(233, 117, 117)">Company Details  </div>
+          <ion-item ng-repeat="post in posts">        
+            <div class="post-time" style="text-decoration: underline;font-size: large;color:rgb(233, 117, 117)">Company Details  </div>
             <div class="post-options">
               <i class="icon-reply"></i>
               <i class="icon-shuffle"></i>
             </div>
         </ion-item>
-        <ion-item ng-repeat="post in posts">
-        
+
+        <ion-item ng-repeat="post in posts"> 
        
           <div class="post-time">Company Name &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; 
             &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{text.Company}}</div>
@@ -85,8 +86,7 @@
             <i class="icon-shuffle"></i>
           </div>
         </ion-item>
-        <ion-item ng-repeat="post in posts">
-        
+        <ion-item ng-repeat="post in posts">  
        
           <div class="post-time">Company Location  &nbsp;&nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; 
             &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {{text.Location}}</div>
@@ -97,25 +97,10 @@
         </ion-item>
       
       </ion-list>
-      <ion-row style="font-size: 1em;color:rgb(233, 117, 117);margin-left: 3%;margin-bottom: 8px;">Company Bio</ion-row>
-          
+      <ion-row style="font-size: 1em;color:rgb(233, 117, 117);margin-left: 3%;margin-bottom: 8px;">Company Bio</ion-row>          
       <ion-row style="margin-left: 3%;">{{text.bio}}</ion-row>
-     
-    <!-- <ion-item ng-repeat="post in posts">
-        
-       
-      <div class="post-time" style="text-decoration: underline;font-size: x-large;color:rgb(233, 117, 117)">Company Bio  </div>
-      <div class="post-options">
-        <i class="icon-reply"></i>
-        <i class="icon-shuffle"></i>
-      </div>
-  </ion-item>
-  <p style="margin-left: 7%;"> {{text.bio}}</p> -->
-  </div>
-    </ion-list>
-    
-  </div>
-
-
-  
+      <br>
+    </div>
+  </ion-list>
+</div>  
 </ion-content>

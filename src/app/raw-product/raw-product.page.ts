@@ -29,7 +29,7 @@ export class RawProductPage {
       console.log(this.aa)
 
     if(this.aa==='Dealer'){
-      fetch("https://sore-gold-coyote-wrap.cyclic.app/raw/getrawproduct", {
+      fetch("https://milestone-096608973980.herokuapp.com/raw/getrawproduct", {
         method:'get',
         headers:{
           "Access-Control-Allow-Origin": "*",
@@ -50,7 +50,7 @@ export class RawProductPage {
           var data = {
             mobile :this.text.mobile
           }   
-          fetch("https://sore-gold-coyote-wrap.cyclic.app/raw/getraw", {
+          fetch("https://milestone-096608973980.herokuapp.com/raw/getraw", {
          method:'post',
          headers:{
            "Access-Control-Allow-Origin": "*",

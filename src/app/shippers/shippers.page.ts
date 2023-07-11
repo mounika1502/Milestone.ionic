@@ -24,7 +24,7 @@ export class ShippersPage implements OnInit {
     }
   
     getProduct(){    
-      fetch("https://sore-gold-coyote-wrap.cyclic.app/shippers/getshipper", {
+      fetch("https://milestone-096608973980.herokuapp.com/shippers/getshipper", {
      method:'get',
      headers:{
        "Access-Control-Allow-Origin": "*",

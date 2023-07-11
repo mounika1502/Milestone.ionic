@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-galaxyroute',
@@ -9,7 +10,8 @@ export class GalaxyroutePage implements OnInit {
   data: any;
   cartItem:number = 0;
   data2: any=[]
-
+ 
+  constructor(private alertController: AlertController){}
   ngOnInit(): void {
     const localdata=localStorage.getItem('anu')
     if(localdata!=null){
@@ -21,6 +23,14 @@ export class GalaxyroutePage implements OnInit {
       console.log(this.data2)
     }
     this.cartItemFunc();
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Added to Cart...',
+      buttons: ['OK']
+    });  
+    await alert.present();  
   }
   
   itemsCart: any = [];  // itemsCart is a global array
@@ -53,7 +63,7 @@ export class GalaxyroutePage implements OnInit {
         console.log(this.itemsCart)
       }
     }   
-     alert("Added to Cart...")
+    this.presentAlert()
       window .location.reload()    
 }
 cartItemFunc(){

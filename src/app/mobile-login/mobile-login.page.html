@@ -29,7 +29,7 @@
     <br>
    
     <div class="center">
-      <button class="btn" (click)="mobileOtp()"><h4>Generate OTP</h4></button>
+      <ion-button (click)="mobileOtp()" [disabled]="mobile1 == null"><h4>Generate OTP</h4></ion-button>
     </div>
     <br>
     <ion-label style="margin-left: 38px;margin-top: 2em;"> Don't have an Account ? <a style="font-size: 20px;" routerLink="/register"><u>Signup</u></a></ion-label>

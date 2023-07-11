@@ -23,12 +23,12 @@ export class ProfilePage implements OnInit {
   signupSubmit: any;
   test: any=[]
   updateddata: any;
-
   ProfileForm: any;
   docid: any;
   Firstname:any
   aaa: any;
   constructor( private apii: UploadService, private fb: FormBuilder,private router:Router) {
+
   }
 
   ngOnInit(): void {
@@ -36,17 +36,32 @@ export class ProfilePage implements OnInit {
      this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
      console.log(this.text)
      this.aa=this.text.UserType
+     this.aaa=this.text.Authentication
      console.log(this.text.Company)
-     console.log(this.aa)     
-  }
+     console.log(this.aaa)   
+  } 
+     get(){
+       fetch("https://milestone-096608973980.herokuapp.com/signupform/getby/" + this.aaa, {
+         method: 'GET',
+       headers: {
+         "access-Control-Allow-Origin": "*",  
+       },  
+     })
+       .then(response => response.json())
+       .then(result => {
+         console.log(result),
+           this.profile = result.product.filePath
+         console.log(this.profile)  
+       }  
+       ).catch(err =>
+         console.log(err))
+     }
   
   edit(text:any){
     window.location.href = ("/profile-edit")
     localStorage.setItem('Login',JSON.stringify(text))
     console.log(text)  
-  } 
-
-    
+  }     
 
      selectImage(event: any) {
         if (event.target.files.length > 0) {
@@ -57,8 +72,7 @@ export class ProfilePage implements OnInit {
         }
         console.log(this.images)
         this.onClick()
-      }
-      
+      }      
       
       onClick() {
       const formdata = new FormData();
@@ -69,9 +83,16 @@ export class ProfilePage implements OnInit {
       console.log(formdata)      
        this.apii.postfiletos5(formdata,this.text.Authentication).subscribe((data)=>{
         console.log(data)  
-        console.log(data.message.filePath)        
-       })
-       localStorage.setItem('Login',JSON.stringify(this.text))
+        console.log(data.message.filePath) 
+        this.get()
+        this.text["filePath"] = data.message.filePath  
+        localStorage.setItem('Login',JSON.stringify(this.text)) 
+        this.text = JSON.parse(localStorage.getItem('Login')||'{}')   
+        console.log(this.text.filePath) 
+       })     
+   
     }
+
+    
 
 }

@@ -1,6 +1,7 @@
 import { Component, NgZone, OnInit, ViewChildren } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 //import  firebase from 'firebase/auth/compact';
 import firebase from 'firebase/compat/app';
 
@@ -60,7 +61,7 @@ export class OtpPage implements OnInit {
     }
    }
 
-   constructor(private router:Router,private ngZone: NgZone) {
+   constructor(private router:Router,private ngZone: NgZone,private alertController: AlertController,) {
     this.form = this.toFormGroup(this.formInput);
   }
  
@@ -88,6 +89,18 @@ export class OtpPage implements OnInit {
 
  }
 
+async presentAlert() {
+  const alert = await this.alertController.create({
+    header: 'OTP verified...',
+    buttons: ['OK']
+  });
+  await alert.present();
+  
+  await alert.onDidDismiss().then(() => {
+    this.router.navigateByUrl('/home');
+  });
+}
+
  onOtpChange(otp:string){
    this.otp = otp;
    console.log(this.otp);
@@ -114,8 +127,8 @@ export class OtpPage implements OnInit {
            
       setTimeout(() => {
        this.spin=false
-       alert('OTP verified!')
-       window.location.href=('/inventory')
+       this.presentAlert()
+      //  window.location.href=('/home')
      }, 2000);    
    });
    })

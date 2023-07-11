@@ -1,60 +1,92 @@
 <ion-header>
   <ion-toolbar >  
     <ion-icon name="arrow-back-sharp" routerLink="/profile" style="font-size: 30px;" slot="start"></ion-icon>
-    <!-- <div align="center">
-    <div style=" display:flex; justify-content:center;align-items:center;text-align:center; width:150px; height:60px;">
-      <ion-img src="/assets/Mile.png" style="width: 100px; "></ion-img>
-     </div>
-     </div> -->
+     <div align="center">
+      <h4>Profile Edit</h4>
+     </div> 
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-list style="padding-left: 2.5%;"> 
           <form [formGroup]="ProfileForm"> 
-            <h2 class="pt-1" style="color: blue;">Personal Details</h2>
+            <h2 class="pt-1" style="color: blue;margin-left: 6%;">Personal Details</h2>
               <hr>        
         
-              <ion-label ><b>First Name :</b></ion-label><br>
-              <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;"  [(ngModel)]="this.data.Firstname" formControlName="Firstname" name="Firstname"> <br>                   
-                 
-              <ion-label ><b>Last Name :</b></ion-label><br>
-              <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" [(ngModel)]="this.data.Lastname"  formControlName="Lastname" name="Firstname" >  <br>                 
-                 
-              <ion-label ><b>Mobile :</b></ion-label><br>
-              <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;"  [(ngModel)]="this.data.mobile" formControlName="mobile" name="Firstname"> <br>             
-                 
-              <ion-label ><b>Email :</b></ion-label><br>
-              <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;"  [(ngModel)]="this.data.Email" formControlName="Email" readonly name="Firstname"> <br>                   
+              <ion-label style="margin-left: 6%;"><b>First Name :</b></ion-label><br>
+              <ion-item style="width: 90%;margin-left: 5%;height: 3em;">
+              <ion-input type="text" [(ngModel)]="this.data.Firstname" formControlName="Firstname" name="Firstname"/> <br>                   
+              </ion-item>
+              <br>
+
+              <ion-label style="margin-left: 6%;"><b>Last Name :</b></ion-label><br>
+              <ion-item style="width: 90%;margin-left: 5%;height: 3em;">
+              <ion-input type="text" [(ngModel)]="this.data.Lastname"  formControlName="Lastname" name="Firstname" />  <br>                 
+            </ion-item>
+            <br>
+
+              <ion-label style="margin-left: 6%;"><b>Mobile :</b></ion-label><br>
+              <ion-item style="width: 90%;margin-left: 5%;height: 3em;">
+              <ion-input type="text" [(ngModel)]="this.data.mobile" formControlName="mobile" name="Firstname"/> <br>             
+              </ion-item>
+              <br>
+
+              <ion-label style="margin-left: 6%;"><b>Email :</b></ion-label><br>
+              <ion-item style="width: 90%;margin-left: 5%;height: 3em;">
+              <ion-input type="text"  [(ngModel)]="this.data.Email" formControlName="Email" readonly name="Firstname"/> <br>                   
+              </ion-item>
+              <br>
+
+              <h2 style="color: blue;margin-left: 6%;">Home Address</h2>
                 
-              <h2 style="color: blue;">Home Address</h2>
-                
-              <ion-label ><b>Area/Street :</b></ion-label><br>
-              <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" [(ngModel)]="this.data.Street" formControlName="Street" name="Firstname"><br>                
-                  
-              <ion-label ><b>City :</b></ion-label><br>
-              <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" [(ngModel)]="this.data.City" formControlName="City" name="Firstname"> <br>                     
-                  
-              <ion-label><b>State :</b></ion-label><br>
-              <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" [(ngModel)]="this.data.State" formControlName="State" name="Firstname"> <br>               
-               
-              <ion-label ><b>Pincode :</b></ion-label><br>
-              <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" [(ngModel)]="this.data.Pincode" formControlName="Pincode" name="Firstname"> <br>                     
-                   
-              <h2 class="pt-1" style="color: blue;">Company Details</h2>
+              <ion-label style="margin-left: 6%;"><b>Area/Street :</b></ion-label><br>
+              <ion-item style="width: 90%;margin-left: 5%;height: 3em;">
+              <ion-input type="text"  [(ngModel)]="this.data.Street" formControlName="Street" name="Firstname"/><br>                
+            </ion-item>
+            <br>
+
+              <ion-label style="margin-left: 6%;"><b>City :</b></ion-label><br>
+              <ion-item style="width: 90%;margin-left: 5%;height: 3em;">
+              <ion-input type="text"  [(ngModel)]="this.data.City" formControlName="City" name="Firstname"/> <br>                     
+            </ion-item>
+            <br>
+
+              <ion-label style="margin-left: 6%;"><b>State :</b></ion-label><br>
+              <ion-item style="width: 90%;margin-left: 5%;height: 3em;">
+              <ion-input type="text"  [(ngModel)]="this.data.State" formControlName="State" name="Firstname"/> <br>               
+            </ion-item>
+            <br>
+
+              <ion-label style="margin-left: 6%;"><b>Pincode :</b></ion-label><br>
+              <ion-item style="width: 90%;margin-left: 5%;height: 3em;">
+              <ion-input type="text"  [(ngModel)]="this.data.Pincode" formControlName="Pincode" name="Firstname"/> <br>                     
+            </ion-item>
+            <br>
+
+              <h2 class="pt-1" style="color: blue;margin-left: 6%;">Company Details</h2>
               <hr>
                                             
-              <ion-label ><b>Company Name:</b></ion-label><br>
-              <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" [(ngModel)]="this.data.Company" formControlName="Company" name="Firstname" >  <br>              
-                
-              <ion-label ><b>Company Location :</b></ion-label><br>
-              <input type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height: 2.5em;border:1px solid #c2c5ca;margin-bottom: 1em;" [(ngModel)]="this.data.Location" formControlName="Location" name="Firstname">  <br>      
+              <ion-label style="margin-left: 6%;"><b>Company Name:</b></ion-label><br>
+              <ion-item style="width: 90%;margin-left: 5%;height: 3em;">
+              <ion-input type="text" [(ngModel)]="this.data.Company" formControlName="Company" name="Firstname" />  <br>              
+            </ion-item>
+            <br>
 
-              <ion-label ><b>Company Bio :</b></ion-label><br>
-              <textarea type="text" style="margin-top: 7px; width: 97%;border-radius: 6px;height:8em;border:1px solid #c2c5ca;margin-bottom: 1em;" [(ngModel)]="this.data.bio" formControlName="bio" name="Firstname"></textarea>                      
-               
+              <ion-label style="margin-left: 6%;"><b>Company Location :</b></ion-label><br>
+              <ion-item style="width: 90%;margin-left: 5%;height: 3em;">
+              <ion-input type="text"  [(ngModel)]="this.data.Location" formControlName="Location" name="Firstname"/>  <br>      
+            </ion-item>
+            <br>
+
+              <ion-label style="margin-left: 6%;"><b>Company Bio :</b></ion-label><br>
+              <ion-textarea appFirstCap type="text" style="margin-top: 7px; width: 90%;border-radius: 6px;height:10em;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);margin-left: 5%;"  [(ngModel)]="this.data.bio" formControlName="bio" name="Firstname"> </ion-textarea>
+             
+                            
+           
+            <br>
+
             <div class="center">
-              <button type="submit" class="button" (click)="update(this.data.Authentication)">Save</button>
+              <ion-button type="submit" class="save" (click)="update(this.data.Authentication)">Save</ion-button>
             </div>          
          </form>
    </ion-list>       
