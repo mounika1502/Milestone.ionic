@@ -54,8 +54,10 @@ export class DealerordersPage implements OnInit {
   manumob: any;
   randomNumber: any;
   text2: any;
-  placed:any=[]
+
   getCartDetails: any;
+  urmila: any;
+  ordercount: any;
   constructor() { 
     this.Placed()
   }
@@ -66,9 +68,7 @@ export class DealerordersPage implements OnInit {
     console.log(test)
     this.myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
   }
-  ngOnInit(): void {
-
-    // this.Placed()
+  ngOnInit(): void {   
   
        const localdata1=localStorage.getItem('orderid')
     if(localdata1!=null){                                                    
@@ -79,10 +79,10 @@ export class DealerordersPage implements OnInit {
     if(localdata!=null){                                                    
       this.test = JSON.parse(localdata)
     }
-    this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
-    console.log(this.text)
-    this.manumob=this.text.mobile
-    console.log(this.manumob)
+    // this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+    // console.log(this.text)
+    // this.manumob=this.text.mobile
+    // console.log(this.manumob)
     this.getCartDetails = JSON.parse(localStorage.getItem('anunya') || '{}');
     
 
@@ -94,11 +94,20 @@ export class DealerordersPage implements OnInit {
     this.order.length=0;
     this.count=this.order.length;
 
-var data ={
-  Phone : this.text.mobile
-} 
-    
-    fetch("http://localhost:7500/orderRoute/myOrder", {
+
+    this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
+    console.log(this.text)
+    this.manumob=this.text.mobile
+    console.log(this.manumob)
+
+    this.Placed()
+  }
+  Placed(){
+    var data ={
+      OrderStatus: "Placed",
+      Phone : this.manumob
+    }     
+    fetch("https://milestone-096608973980.herokuapp.com/orderRoute/dealerOrders", {
       method: "post",
       headers: {
         "access-Control-Allow-Origin": "*",
@@ -109,11 +118,60 @@ var data ={
       }).then(res=> res.json())
      .then(result=>{ 
         console.log(result)
-        this.order = result.myOrders
+        this.order = result.myOrder
          console.log(this.order)
+      
+      this.ordercount=this.order.length;
+    })      
+    }
+
+    Shipped(){
+      var data ={
+        OrderStatus: "Shipped",
+        Phone : this.manumob
+      }     
+      fetch("https://milestone-096608973980.herokuapp.com/orderRoute/dealerOrders", {
+        method: "post",
+        headers: {
+          "access-Control-Allow-Origin": "*",
+          "Content-Type":'application/json'
+        },
+        body:JSON.stringify(data)
+       
+        }).then(res=> res.json())
+       .then(result=>{ 
+          console.log(result)
+          this.order = result.myOrder
+           console.log(this.order)
+        
+        this.ordercount=this.order.length;
       })
-  
-  }
+        
+      }
+
+      Delivered(){
+        var data ={
+          OrderStatus: "Delivered",
+          Phone : this.manumob
+        }     
+        fetch("https://milestone-096608973980.herokuapp.com/orderRoute/dealerOrders", {
+          method: "post",
+          headers: {
+            "access-Control-Allow-Origin": "*",
+            "Content-Type":'application/json'
+          },
+          body:JSON.stringify(data)
+         
+          }).then(res=> res.json())
+         .then(result=>{ 
+            console.log(result)
+            this.order = result.myOrder
+             console.log(this.order)
+          
+          this.ordercount=this.order.length;
+        })
+          
+        }
 
     
   getAddress(test:any){
@@ -127,39 +185,39 @@ var data ={
   }
  
 
-  Placed() {
-    this.List = this.order.filter((item: any) => {
-      return item.OrderItems.filter((orderItem: any) => {
-        return orderItem.OrderStatus == 'Placed';
-      }).length > 0;
-    });
-    this.count = this.List.length;
-           console.log(this.count)
-    console.log(this.List);
-  }
+  // Placed() {
+  //   this.List = this.order.filter((item: any) => {
+  //     return item.OrderItems.filter((orderItem: any) => {
+  //       return orderItem.OrderStatus == 'Placed';
+  //     }).length > 0;
+  //   });
+  //   this.count = this.List.length;
+  //          console.log(this.count)
+  //   console.log(this.List);
+  // }
 
-  Shipped() {
-    this.List = this.order.filter((item: any) => {
-      return item.OrderItems.filter((orderItem: any) => {
-        return orderItem.OrderStatus == 'Shipped';
-      }).length > 0;
-    });
-    this.count = this.List.length;
-           console.log(this.count)
-    console.log(this.List);
-  }
+  // Shipped() {
+  //   this.List = this.order.filter((item: any) => {
+  //     return item.OrderItems.filter((orderItem: any) => {
+  //       return orderItem.OrderStatus == 'Shipped';
+  //     }).length > 0;
+  //   });
+  //   this.count = this.List.length;
+  //          console.log(this.count)
+  //   console.log(this.List);
+  // }
 
 
-  Delivered(){
-    this.List = this.order.filter((item: any) => {
-      return item.OrderItems.filter((orderItem: any) => {
-        return orderItem.OrderStatus == 'Delivered';
-      }).length > 0;
-    });
-    this.count = this.List.length;
-           console.log(this.count)
-    console.log(this.List);
-  }
+  // Delivered(){
+  //   this.List = this.order.filter((item: any) => {
+  //     return item.OrderItems.filter((orderItem: any) => {
+  //       return orderItem.OrderStatus == 'Delivered';
+  //     }).length > 0;
+  //   });
+  //   this.count = this.List.length;
+  //          console.log(this.count)
+  //   console.log(this.List);
+  // }
   
 all(){
   window.location.reload();

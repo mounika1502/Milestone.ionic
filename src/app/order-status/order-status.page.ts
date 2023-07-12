@@ -66,6 +66,9 @@ export class OrderStatusPage implements OnInit {
       buttons: ['OK']
     });
     await alert.present();
+    await alert.onDidDismiss().then(() => {
+      window.location.href=('/orders');
+    });
   }
 
   data:any;

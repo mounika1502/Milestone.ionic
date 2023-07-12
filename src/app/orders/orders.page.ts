@@ -40,13 +40,11 @@ export class OrdersPage implements OnInit {
   }
 
   constructor(private alertController: AlertController,) {
-    // this.Placed()
+   
   }
 
   ngOnInit(): void {
-    // this.getAll()
-    this.Placed()
-
+  
     const localdata1 = localStorage.getItem('orderid')
     if (localdata1 != null) {
       this.text2 = JSON.parse(localdata1)
@@ -74,7 +72,7 @@ export class OrdersPage implements OnInit {
     console.log(this.aa)
     console.log(this.data)
 
-  
+  this.Placed()
   }
 
   autorefresh(event: any) {
@@ -217,7 +215,7 @@ export class OrdersPage implements OnInit {
       OrderStatus: "Placed",
       mobile : this.text.mobile
     }
-    fetch("http://localhost:7500/orderRoute/getby", {
+    fetch("http://localhost:7500/orderRoute/manufacturerOrders", {
       method: "Post",
       headers: {
         "access-Control-Allow-Origin": "*",
@@ -232,7 +230,6 @@ export class OrdersPage implements OnInit {
 
          this.count = this.placed.length;
          console.log(this.count)
-         alert('Hellooo')
       })
   }
 
@@ -241,7 +238,7 @@ export class OrdersPage implements OnInit {
       OrderStatus: "Shipped",
       mobile : this.text.mobile
     }  
-    fetch("http://localhost:7500/orderRoute/getby", {
+    fetch("https://milestone-096608973980.herokuapp.com/orderRoute/manufacturerOrders", {
       method: "Post",
       headers: {
         "access-Control-Allow-Origin": "*",
@@ -264,7 +261,7 @@ export class OrdersPage implements OnInit {
       OrderStatus: "Delivered",
       mobile : this.text.mobile
     } 
-    fetch("http://localhost:7500/orderRoute/getby", {
+    fetch("https://milestone-096608973980.herokuapp.com/orderRoute/manufacturerOrders", {
       method: "Post",
       headers: {
         "access-Control-Allow-Origin": "*",

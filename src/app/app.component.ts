@@ -50,21 +50,21 @@ export class AppComponent {
 
   aaa: any;
   constructor(private platform: Platform,private alertController: AlertController,private router: Router)  {
-    this.text = JSON.parse(localStorage.getItem('Login') || '{}')
-    platform.ready().then(() => {
-      this.OneSignalInit();
-    })
-    const storedItems = localStorage.getItem('InappNotifictions');
-    if (storedItems) {
-      this.AllNotifications = JSON.parse(storedItems);
-    };
+
+    // this.text = JSON.parse(localStorage.getItem('Login') || '{}')
+    // platform.ready().then(() => {
+    //   this.OneSignalInit();
+    // })
+    // const storedItems = localStorage.getItem('InappNotifictions');
+    // if (storedItems) {
+    //   this.AllNotifications = JSON.parse(storedItems);
+    // };
   }
  
 
   ngOnInit(): void {
     this.text = JSON.parse(localStorage.getItem('Login') || '{}')
-    // this.texts = JSON.parse(localStorage.getItem('isLogedin') || '{}')
-    console.log(this.texts)
+  
     console.log(this.text)
     this.aa = this.text.UserType
     console.log(this.aa)   
@@ -100,11 +100,13 @@ export class AppComponent {
   // }
 
 logout(){
-  localStorage.clear()
+  //localStorage.clear()
+  localStorage.removeItem('Login') 
   // localStorage.setItem('isLogedin',JSON.stringify(false));
   // this.presentAlert()
   if(confirm("Are you sure do you want to logout")){
-  window.location.href = '/login'    
+  window.location.href = '/login' 
+  localStorage.removeItem('Login')   
   }
 }
 
@@ -204,10 +206,5 @@ get(){
 
     // });
   }
-
-
-  // Call this function when your app starts
-
-
 
 }
