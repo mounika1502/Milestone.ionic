@@ -18,6 +18,7 @@ export class ProfileEditPage implements OnInit {
   docid: any;
 Firstname:any
   aaa: any;
+  datas: any;
   constructor(private apii:UploadService,private alertController: AlertController,private router: Router) { }
 
   ngOnInit() {
@@ -59,9 +60,42 @@ Firstname:any
     });
   }
 
-  update(Authentication:any){  
-    localStorage.setItem('Login',JSON.stringify(this.data))
+  // update(Authentication:any){  
+  //   localStorage.setItem('Login',JSON.stringify(this.data))
 
+  //    var data={
+  //     Firstname:this.data.Firstname,
+  //     Lastname:this.data.Lastname,
+  //     mobile:this.data.mobile,
+  //     Email:this.data.Email,
+  //     Password:this.data.Password,
+  //     City:this.data.City,
+  //     Pincode:this.data.Pincode,
+  //     Street:this.data.Street,
+  //     State:this.data.State,
+  //     Company:this.data.Company,
+  //     Location:this.data.Location,
+  //     bio:this.data.bio,     
+  //    }
+  //    console.log(data)
+   
+  //   this.apii.updateprofiledetails(data,Authentication).subscribe(datas=>{
+  //     console.log(datas)
+     
+      
+  //     //window.location.href=("/profile")  
+  //     if(datas){
+  //       this.presentAlert()
+  //       // alert('Updated successfully')
+  //       //  window.location.href=("/profile")     
+  //     }
+
+  //   })
+  //   }
+      
+
+  update(id:any){  
+    localStorage.setItem('Login',JSON.stringify(this.data))        
      var data={
       Firstname:this.data.Firstname,
       Lastname:this.data.Lastname,
@@ -77,20 +111,40 @@ Firstname:any
       bio:this.data.bio,     
      }
      console.log(data)
-   
-    this.apii.updateprofiledetails(data,Authentication).subscribe(datas=>{
-      console.log(datas)
-      this.presentAlert()
-      
-      //window.location.href=("/profile")  
-      if(datas){
-        // alert('Updated successfully')
-        //  window.location.href=("/profile")     
-      }
+    fetch("https://milestone-096608973980.herokuapp.com/signupform/editProfile/" + id,  {
+      method: 'PUT',
+      headers: {
+        "access-Control-Allow-Origin": "*",        
+        "Content-Type": 'application/json'
+      },
+      body: JSON.stringify(this.data.value),        // JSON Means An intrinsic object that provides functions to convert JavaScript values to and from the JavaScript Object Notation (JSON) format.
 
     })
-    }
+      .then(response => response.json())
+      .then(result => {
+        console.log(result)
+        this.datas = result
+        console.log(this.datas)
+        if(result.status == 'success'){
+          this.presentAlert()
+        }else{
+          alert('something went wrong') 
+        }
+                  
+      }
+      ).catch(err =>
+        console.log(err))
+
+  }
+  autorefresh(event:any){
+   
+    setTimeout(() => {
+  
+      event.target.complete()
       
+      window.location.reload()
+    }, 2000);
+  }
   
   }
   

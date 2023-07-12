@@ -68,7 +68,7 @@ export class DealerordersPage implements OnInit {
   }
   ngOnInit(): void {
 
-    this.Placed()
+    // this.Placed()
   
        const localdata1=localStorage.getItem('orderid')
     if(localdata1!=null){                                                    
@@ -94,18 +94,22 @@ export class DealerordersPage implements OnInit {
     this.order.length=0;
     this.count=this.order.length;
 
+var data ={
+  Phone : this.text.mobile
+} 
     
-    fetch("https://milestone-096608973980.herokuapp.com/orderRoute/allorders", {
-      method: "get",
+    fetch("http://localhost:7500/orderRoute/myOrder", {
+      method: "post",
       headers: {
         "access-Control-Allow-Origin": "*",
         "Content-Type":'application/json'
       },
+      body:JSON.stringify(data)
      
       }).then(res=> res.json())
      .then(result=>{ 
         console.log(result)
-        this.order = result.orders
+        this.order = result.myOrders
          console.log(this.order)
       })
   

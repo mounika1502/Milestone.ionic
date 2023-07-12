@@ -1,0 +1,43 @@
+
+    <ion-header>
+       <ion-toolbar> 
+        <ion-icon name="arrow-back-sharp" routerLink="/orders" style="font-size: 30px;" slot="start"></ion-icon>
+            
+        <h4>&nbsp;&nbsp;Update Status</h4>
+        
+       </ion-toolbar> 
+    </ion-header>    
+    <br>
+
+    <ion-content class="ion-padding">
+      <ion-card style="border: 1px solid #697184;padding: 3%;">
+        
+      
+        <ion-card-title style="color: #2778c4;padding: 1%;">Order Id : {{Orders.orderId}}</ion-card-title>
+        <br>
+        <form [formGroup]="orderdata">
+    <ion-label>Order Status</ion-label>
+    <ion-select label-placement="stacked" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="OrderStatus" placeholder="Order Status" name="OrderStatus">
+     
+      <ion-select-option value="Placed">Placed</ion-select-option>
+      <ion-select-option value="Shipped">Shipped</ion-select-option>
+      <ion-select-option value="Delivered">Delivered</ion-select-option> 
+    </ion-select>
+    <br>
+
+    <ion-label>Shipping Status</ion-label>
+   
+    <ion-select label-placement="stacked" style="margin-top: 7px; width: 97%;border-radius: 6px;border:1px solid #c2c5ca;box-shadow: 1px 1px 1px 1px rgb(182, 179, 179);" formControlName="ApproximateTime" placeholder="Delivery Time" name="ApproximateTime">
+  
+      <ion-select-option value="Within 1week">within 1week</ion-select-option>
+      <ion-select-option value="Within 5days">within 5days</ion-select-option>
+      <ion-select-option value="Arriving Today">Arriving Today</ion-select-option>
+    </ion-select><br>
+
+    </form>
+    </ion-card>
+    <div class="center">
+      <button class="btn" type="submit"  (click)="Update()">Update</button>
+    </div>
+    </ion-content>
+

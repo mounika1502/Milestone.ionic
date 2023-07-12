@@ -49,7 +49,8 @@ async presentAlert() {
   await alert.present();
 
   await alert.onDidDismiss().then(() => {
-    this.router.navigateByUrl('/home');
+    // this.router.navigateByUrl('./home');
+    window.location.href='./home'
   });
 }
 
