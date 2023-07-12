@@ -53,10 +53,10 @@ export class LoginPage implements OnInit {
 
     await alert.present();
 
-    await alert.onDidDismiss().then(() => {
-      this.router.navigateByUrl('/home');
-    });
-  }
+  await alert.onDidDismiss().then(() => {
+    this.router.navigateByUrl('/home');
+  });
+}
 
   async failedAlert() {
     const alert = await this.alertController.create({

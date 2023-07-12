@@ -101,7 +101,7 @@ export class AppComponent {
 
 logout(){
   localStorage.clear()
-  localStorage.setItem('isLogedin',JSON.stringify(false));
+  // localStorage.setItem('isLogedin',JSON.stringify(false));
   // this.presentAlert()
   if(confirm("Are you sure do you want to logout")){
   window.location.href = '/login'    

@@ -12,7 +12,7 @@ spin!:boolean
   ngOnInit() {
 setTimeout(() => {
   this.spin=false
-  window.location.href="/home"
+  window.location.href="/login"
 
 },2500);
   }

@@ -14,11 +14,22 @@
   </ion-refresher> 
 
   <ion-content [fullscreen]="true">
+    <ion-refresher slot="fixed" (ionRefresh)="autorefresh($event)">
+    <ion-refresher-content refreshingSpinner="circles" refreshingText="Refreshing..">
+
+    </ion-refresher-content>
+  </ion-refresher>
     <ion-searchbar placeholder= "Search...." [(ngModel)]="searchtext" name="array id" class="form-control"></ion-searchbar>
   
     <div class="container">
       <ion-row>
-        <ion-segment [scrollable]="true" value="home">        
+        <ion-segment [scrollable]="true" value="Active">
+          <!-- <ion-col>
+            <ion-segment-button (click)="getAll()"> 
+              <ion-label><h4>All</h4></ion-label>
+            </ion-segment-button>
+          </ion-col> -->
+
           <ion-col>
             <ion-segment-button (click)="Placed()"> 
               <ion-label><h4>New Orders</h4></ion-label>
@@ -26,7 +37,7 @@
           </ion-col>
 
           <ion-col>
-            <ion-segment-button   (click)="Shipped()">
+            <ion-segment-button (click)="Shipped()">
               <ion-label><h4>Shipped</h4></ion-label>
             </ion-segment-button>
           </ion-col>
@@ -41,40 +52,41 @@
     </div>
 
    <br>
-   <span style="color:gray">Count:</span><span style="color:black;font-weight: 800;">{{count}}</span>
-   <div class="panel-body"  *ngFor="let test of List| filter : searchtext ">  <br>                  
-    <div *ngFor="let data of test.OrderItems | filter : searchtext" >
-      <ion-card style="border:
-      1px solid #697184">
+   <span style="color:gray">Count:{{count}}</span><span style="color:black;font-weight: 800;">{{this.xyz}}</span>
+   <div class="panel-body" *ngFor="let test of placed | filter : searchtext ">  <br>                  
+    <div *ngFor="let orderItem of test.OrderItems">
+      
+       <ion-card style="border: 1px solid #697184">
         <ion-card-subtitle style="color: #2778c4;padding: 1%;">Order Id : {{test.OrderId}}</ion-card-subtitle>
-        <ion-card-subtitle style="color: #2778c4;padding: 1%;">Placed On : {{data.date}}</ion-card-subtitle>
-   <ion-card>
-    <img  src="{{data.filePath}}"  class="card-img-top" style="height:11rem;width:100%" />
+        <ion-card-subtitle style="color: #2778c4;padding: 1%;">Placed On : {{orderItem.date}}</ion-card-subtitle>
+    
+    <ion-card>
+    <img  src="{{orderItem.filePath}}"  class="card-img-top" style="height:11rem;width:100%"s/>
     <br>
    
-    <ion-row >
-      <ion-col style="color:#385291;font-weight: 700;">&nbsp;{{data.name}}</ion-col>
-      <ion-col style="font-weight: 1000;margin-right: -4em;color: green;">Total : ₹  {{data.price * data.qnt}}</ion-col>
+   <ion-row >
+      <ion-col style="color:#385291;font-weight: 700;">&nbsp;{{orderItem.name}}</ion-col>
+      <ion-col style="font-weight: 1000;margin-right: -4em;color: green;">Total : ₹  {{orderItem.price * orderItem.qnt}}</ion-col>
     </ion-row>
      
     <ion-card-header>
       <ion-row>
         <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Price</ion-col>
-        <ion-col > : ₹{{data.price}}</ion-col>
+        <ion-col > : ₹{{orderItem.price}}</ion-col>
       </ion-row>
       <ion-row>
         <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Quantity</ion-col>
-        <ion-col > : {{data.qnt}}</ion-col>
+        <ion-col > : {{orderItem.qnt}}</ion-col>
         
       </ion-row>
       <ion-row>
         <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Status</ion-col>
-        <ion-col > : {{data.OrderStatus}}</ion-col>        
+        <ion-col > : {{orderItem.OrderStatus}}</ion-col>        
       </ion-row>     
     
       <ion-row>
         <ion-col style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: black;">Deliver To</ion-col>
-        <ion-col [hidden]="data.OrderStatus == 'Delivered'"> : {{data.ApproximateTime}}</ion-col>        
+        <ion-col [hidden]="orderItem.OrderStatus == 'Delivered'"> : {{orderItem.ApproximateTime}}</ion-col>        
       </ion-row>
 
       <ion-card-title style="color:black;font-weight: 700;font-size: 20px;text-decoration: underline;">Shipping Details</ion-card-title>
@@ -82,56 +94,21 @@
       <ion-row >
         &nbsp; {{test.Firstname}} {{test.Lastname}} ,{{test.Phone}}<br>
        &nbsp;  {{test.Address}},{{test.pincode}},{{test.State}}
-      </ion-row>
+      </ion-row> 
+     
+
     </ion-card-header>
   
-     <ion-card-content>
+      <ion-card-content>
       <div class="center">
-        <button class="btnn" (click)="orders(data,test._id,data._id)"  expand="block" (click)="setOpen(true)" [(ngModel)]="data.OrderStatus" [hidden]="data.OrderStatus == 'Delivered'">Update Status</button>
+        <button class="btnn" (click)="orders(orderItem,test._id,orderItem._id,test.OrderId)"  expand="block"  [hidden]="orderItem.OrderStatus == 'Delivered'">Update Status</button>
       </div>
 
-      <ion-modal [isOpen]="isModalOpen">
-        <ng-template>
-          <ion-header>
-             <ion-toolbar>          
-              <ion-title>Update Status</ion-title>
-              <ion-buttons slot="end">                
-                <ion-button (click)="setOpen(false)"><ion-icon name="close-outline" style="color: red;font-size: 30px;"></ion-icon></ion-button>
-              </ion-buttons>
-             </ion-toolbar> 
-          </ion-header>
-          
-          <br>
-          
-          <ion-content class="ion-padding">
-            <ion-card style="border: 1px solid #697184;padding: 3%;">
-              
-            <form [formGroup]="orderdata">
-          <ion-select style="text-align: center;" [(ngModel)]="data.OrderStatus" formControlName="OrderStatus" placeholder="Order Status" name="OrderStatus">
-           
-            <ion-select-option value="Placed">Placed</ion-select-option>
-            <ion-select-option value="Shipped">Shipped</ion-select-option>
-            <ion-select-option value="Delivered">Delivered</ion-select-option> 
-          </ion-select>
-          <ion-select style="text-align: center;" [(ngModel)]="data.ApproximateTime" formControlName="ApproximateTime" placeholder="Delivery Time" name="ApproximateTime">
-        
-            <ion-select-option value="Within 1week">within 1week</ion-select-option>
-            <ion-select-option value="Within 5days">within 5days</ion-select-option>
-            <ion-select-option value="Arriving Today">Arriving Today</ion-select-option>
-          </ion-select>
-          </form>
-          </ion-card>
-          <div class="center">
-            <button class="btn" type="submit"  (click)="Update()">Update</button>
-          </div>
-          </ion-content>
-        </ng-template>
-      </ion-modal>
-    </ion-card-content> 
+    </ion-card-content>  
 
   </ion-card>
  
-  </ion-card>
+  </ion-card> 
   
 </div>
 

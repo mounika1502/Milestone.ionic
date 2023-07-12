@@ -154,6 +154,10 @@ const routes: Routes = [
   },  {
     path: 'signup',
     loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
+  },
+  {
+    path: 'order-status',
+    loadChildren: () => import('./order-status/order-status.module').then( m => m.OrderStatusPageModule)
   }
 
 
