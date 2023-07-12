@@ -1,7 +1,7 @@
 import { Component, NgZone, OnInit, ViewChildren } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 //import  firebase from 'firebase/auth/compact';
 import firebase from 'firebase/compat/app';
 
@@ -61,7 +61,10 @@ export class OtpPage implements OnInit {
     }
    }
 
-   constructor(private router:Router,private ngZone: NgZone,private alertController: AlertController,) {
+   constructor(private router:Router,
+    private ngZone: NgZone,
+    public Loading:LoadingController,
+    private alertController: AlertController,) {
     this.form = this.toFormGroup(this.formInput);
   }
  
@@ -90,6 +93,11 @@ export class OtpPage implements OnInit {
  }
 
 async presentAlert() {
+  const Loading = await this.Loading.create({
+    message: "Loading...",
+    spinner: 'crescent'
+  })
+  await Loading.present()
   const alert = await this.alertController.create({
     header: 'OTP verified...',
     buttons: ['OK']
@@ -97,6 +105,7 @@ async presentAlert() {
   await alert.present();
   
   await alert.onDidDismiss().then(() => {
+    Loading.dismiss()
     this.router.navigateByUrl('/home');
   });
 }
@@ -107,7 +116,12 @@ async presentAlert() {
  }
 
 
- onSubmit(){
+ async onSubmit(){
+  const Loading = await this.Loading.create({
+    message: "Loading...",
+    spinner: 'crescent'
+  })
+  await Loading.present()
    console.log(this.form.value);
    
    console.log(this.otp);

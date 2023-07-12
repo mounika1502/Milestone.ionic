@@ -6,7 +6,7 @@ import  firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import  'firebase/auth';
 import 'firebase/compat/firestore';
-
+import { LoadingController } from '@ionic/angular';
 var config = {
   apiKey: "AIzaSyDM4C1YRZ14Lx_8NzbDnChklv9VInrgUmw",
   authDomain: "otplogin-c4da2.firebaseapp.com",
@@ -36,6 +36,7 @@ export class MobileLoginPage implements OnInit {
     private router: Router,
     private _http:HttpClient,
     private alertController: AlertController,
+    public Loading:LoadingController,
     ) { }
 
   ngOnInit() {
@@ -59,6 +60,11 @@ export class MobileLoginPage implements OnInit {
   }
 
   async mobileOtp(){
+    const Loading = await this.Loading.create({
+      message: "Loading...",
+      spinner: 'crescent'
+    })
+    await Loading.present()
 
     fetch("https://milestone-096608973980.herokuapp.com/signupform/getsignupdetails", {
       method:'get',
@@ -80,8 +86,10 @@ export class MobileLoginPage implements OnInit {
      
         if(this.List == null || this.List == undefined || this.List == ''){
           this.failedAlert()
+          Loading.dismiss()
         }else{
           this.presentAlert()
+          Loading.dismiss()
       console.log(this.List)
 
       localStorage.setItem('Login',JSON.stringify(this.List[0]));
@@ -113,6 +121,7 @@ export class MobileLoginPage implements OnInit {
     .catch((error:any) => {
       console.log(error.message);
       alert(error.message);
+      Loading.dismiss()
       setTimeout(() => {     
       }, 5000);
     }); 

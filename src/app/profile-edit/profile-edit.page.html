@@ -8,6 +8,11 @@
 </ion-header>
 
 <ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="autorefresh($event)">
+    <ion-refresher-content refreshingSpinner="circles" refreshingText="Refreshing..">
+
+    </ion-refresher-content>
+  </ion-refresher>
     <ion-list style="padding-left: 2.5%;"> 
           <form [formGroup]="ProfileForm"> 
             <h2 class="pt-1" style="color: blue;margin-left: 6%;">Personal Details</h2>

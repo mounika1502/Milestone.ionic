@@ -91,7 +91,15 @@ Firstname:any
     })
     }
       
+    autorefresh(event: any) {
+
+      setTimeout(() => {
   
+        event.target.complete()
+  
+        window.location.reload()
+      }, 2000);
+    }
   }
   
 
