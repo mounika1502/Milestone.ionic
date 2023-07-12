@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UploadService } from '../upload.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { LoadingController } from '@ionic/angular';
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.page.html',
@@ -20,10 +21,12 @@ export class InventoryPage implements OnInit {
   aa: any;
   List: any = [];
 
-  constructor(private router: Router, private service: UploadService) {
+  constructor(private router: Router, 
+    public Loading:LoadingController,
+    private service: UploadService) {
     // this.delete()
   }
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
 
     this.text = JSON.parse(localStorage.getItem('Login') || '{}')
     console.log(this.text)
@@ -37,6 +40,11 @@ export class InventoryPage implements OnInit {
     this.getProduct();
     this.getCartDetails = JSON.parse(localStorage.getItem('anunya') || '{}');
 
+    const Loading = await this.Loading.create({
+      message : "Loading...",
+      spinner:'crescent'      
+    }) 
+    await Loading.present()
     var data = {
       mobile: this.text.mobile
     }
@@ -51,6 +59,7 @@ export class InventoryPage implements OnInit {
       .then(result => {
         console.log(result),
           this.products = result.ProductInfo
+          Loading.dismiss() 
         console.log(this.products)
       }
       )
@@ -61,7 +70,12 @@ export class InventoryPage implements OnInit {
   }
 
 
-  getProduct() {
+  async getProduct() {
+    const Loading = await this.Loading.create({
+      message : "Loading...",
+      spinner:'crescent'      
+    }) 
+    await Loading.present()
     if (this.text.UserType == 'admin') {
       fetch("https://milestone-096608973980.herokuapp.com/products/getproducts", {
         method: 'get',
@@ -94,7 +108,7 @@ export class InventoryPage implements OnInit {
         .then(result => {
           console.log(result),
             this.products = result.ProductInfo
-             
+            Loading.dismiss() 
           console.log(this.products)
           localStorage.setItem('product', JSON.stringify(this.products))
         }

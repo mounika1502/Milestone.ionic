@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 // import Swal from 'sweetalert2';
 import { UploadService } from '../upload.service';
 import { HttpClient } from '@angular/common/http';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.page.html',
@@ -28,6 +28,7 @@ export class AddProductPage  {
     private apii: UploadService, 
     private http: HttpClient,
     public formBuilder:FormBuilder,
+    public Loading:LoadingController,
     private alertController: AlertController) { }
 
   TodayDate = "2023-04-12"
@@ -115,7 +116,12 @@ export class AddProductPage  {
     await alert.present();
   }
 
-  submitForm(id:any) {
+  async submitForm(id:any) {
+    const Loading = await this.Loading.create({
+      message : "Loading...",
+      spinner:'crescent'      
+    }) 
+    await Loading.present()
       console.log(this.productForm.value)
       fetch("https://milestone-096608973980.herokuapp.com/products/addproduct/" +id, {
         method: 'post',
@@ -128,10 +134,12 @@ export class AddProductPage  {
         .then(result => {
           console.log(result)
           if(result.status === 'failed'){
-            this.FailedAlert()      
+            this.FailedAlert() 
+            Loading.dismiss()      
            }else{ 
             // alert("Added...")  
-            this.presentAlert()              
+            this.presentAlert()  
+            Loading.dismiss()             
           } 
         }
         )

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-product',
@@ -37,7 +38,7 @@ export class ProductPage implements OnInit {
   aa: any;
   text: any;
   
-  constructor(){
+  constructor(public Loading:LoadingController,){
     this.get();
   }
   
@@ -72,7 +73,12 @@ export class ProductPage implements OnInit {
   
     
  
-    get() {
+    async get() {
+      const Loading = await this.Loading.create({
+        message: "Loading...",
+        spinner: 'crescent'
+      })
+      await Loading.present()
       console.log('getstoreDealer')
       fetch("https://milestone-096608973980.herokuapp.com/dealerfilterRouter/dealerfilter", {
         method: 'GET',
@@ -85,6 +91,7 @@ export class ProductPage implements OnInit {
       .then(result => {
         console.log(result),
           this.dealer = result.dealerfilter
+          Loading.dismiss()
         console.log(this.dealer) 
         // window.location.reload()
       }

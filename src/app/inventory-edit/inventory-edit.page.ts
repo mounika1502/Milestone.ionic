@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-inventory-edit',
@@ -16,7 +16,8 @@ export class InventoryEditPage implements OnInit {
   product: any;
 
   constructor(private router:Router,
-    private alertController: AlertController) { }
+    private alertController: AlertController,
+    public Loading:LoadingController,) { }
 
   ngOnInit() {
     this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
@@ -57,7 +58,12 @@ export class InventoryEditPage implements OnInit {
     }); 
   }
 
-  update(id:any){
+  async update(id:any){
+    const Loading = await this.Loading.create({
+      message : "Loading...",
+      spinner:'crescent'      
+    }) 
+    await Loading.present()
       console.log(this.productForm.value) 
       localStorage.setItem('InventoryProduct',JSON.stringify(this.product));
       fetch("https://milestone-096608973980.herokuapp.com/products/editProduct/" + id,  {
@@ -74,6 +80,7 @@ export class InventoryEditPage implements OnInit {
           console.log(result)
           console.log(this.product)
           this.presentAlert()
+          Loading.dismiss() 
          // window .location.reload()             
         }
         ).catch(err =>

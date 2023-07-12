@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-raw-product',
@@ -15,11 +16,16 @@ export class RawProductPage {
   cartItem:number=0
   searchtext:any
 
-  constructor() { 
+  constructor(public Loading:LoadingController,) { 
     
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    const Loading = await this.Loading.create({
+      message : "Loading...",
+      spinner:'crescent'      
+    }) 
+    await Loading.present()
 
     this.text = JSON.parse(localStorage.getItem('Login')||'{}') 
       console.log(this.text)
@@ -40,6 +46,7 @@ export class RawProductPage {
       .then(result=>{ 
         console.log(result),
         this.products = result.RawInfo
+        Loading.dismiss() 
         console.log(this.products)
         localStorage.setItem('mounika',JSON.stringify(this.products))
         }
@@ -62,6 +69,7 @@ export class RawProductPage {
        .then(result=>{ 
          console.log(result),
          this.products = result.RawInfo
+         Loading.dismiss() 
          console.log(this.products)
          }
          )     
