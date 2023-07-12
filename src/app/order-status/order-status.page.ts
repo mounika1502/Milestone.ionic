@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-order-status',
@@ -17,7 +17,8 @@ export class OrderStatusPage implements OnInit {
   isModalOpen = true;
   Orders: any;
 
-  constructor(private alertController: AlertController) { }
+  constructor(private alertController: AlertController,
+    public Loading:LoadingController,) { }
 
   ngOnInit() {
     this.text = JSON.parse(localStorage.getItem('Login') || '{}')
@@ -72,7 +73,12 @@ export class OrderStatusPage implements OnInit {
   }
 
   data:any;
-  Update(){
+  async Update(){
+    const Loading = await this.Loading.create({
+      message: "Loading...",
+      spinner: 'crescent'
+    })
+    await Loading.present()
     console.log(this.orderdata.value.OrderStatus)
     console.log(this.orderdata.value.ApproximateTime)
     console.log(this.orderdata.value)
@@ -98,8 +104,10 @@ export class OrderStatusPage implements OnInit {
       console.log(result)
       if(result.status == 'success'){
         this.presentAlert()
+        Loading.dismiss()
       }else{
        this.failedAlert()
+       Loading.dismiss()
       }
     //  this.close();
     

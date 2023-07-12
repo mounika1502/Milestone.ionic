@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-orders',
@@ -39,11 +39,14 @@ export class OrdersPage implements OnInit {
     this.isModalOpen = isOpen;
   }
 
-  constructor(private alertController: AlertController,) {
-   
+
+  constructor(private alertController: AlertController,
+    public Loading:LoadingController,) {
+    // this.Placed()
   }
 
   ngOnInit(): void {
+    // this.getAll()
   
     const localdata1 = localStorage.getItem('orderid')
     if (localdata1 != null) {
@@ -72,7 +75,8 @@ export class OrdersPage implements OnInit {
     console.log(this.aa)
     console.log(this.data)
 
-  this.Placed()
+
+    this.Placed()
   }
 
   autorefresh(event: any) {
@@ -116,7 +120,12 @@ export class OrdersPage implements OnInit {
     window.location.href = './order-status'
   }
 
-  getAll(){
+  async getAll(){
+    const Loading = await this.Loading.create({
+      message: "Loading...",
+      spinner: 'crescent'
+    })
+    await Loading.present()
     var data ={
       mobile : '8179624522'
     }
@@ -210,12 +219,17 @@ export class OrdersPage implements OnInit {
   // }
 
 
-  Placed() {
+  async Placed() {
+    const Loading = await this.Loading.create({
+      message: "Loading...",
+      spinner: 'crescent'
+    })
+    await Loading.present()
     var data = {
       OrderStatus: "Placed",
       mobile : this.text.mobile
     }
-    fetch("http://localhost:7500/orderRoute/manufacturerOrders", {
+    fetch("https://milestone-096608973980.herokuapp.com/orderRoute/manufacturerOrders", {
       method: "Post",
       headers: {
         "access-Control-Allow-Origin": "*",
@@ -230,10 +244,19 @@ export class OrdersPage implements OnInit {
 
          this.count = this.placed.length;
          console.log(this.count)
+
+         
+         Loading.dismiss()
+
       })
   }
 
-  Shipped() {
+  async Shipped() {
+    const Loading = await this.Loading.create({
+      message: "Loading...",
+      spinner: 'crescent'
+    })
+    await Loading.present()
     var data = {
       OrderStatus: "Shipped",
       mobile : this.text.mobile
@@ -256,7 +279,12 @@ export class OrdersPage implements OnInit {
   }
 
 
-  Delivered() {
+  async Delivered() {
+    const Loading = await this.Loading.create({
+      message: "Loading...",
+      spinner: 'crescent'
+    })
+    await Loading.present()
     var data = {
       OrderStatus: "Delivered",
       mobile : this.text.mobile
@@ -282,7 +310,12 @@ export class OrdersPage implements OnInit {
     this.popuporder = false;
   }
 
-  Update() {
+  async Update() {
+    const Loading = await this.Loading.create({
+      message: "Loading...",
+      spinner: 'crescent'
+    })
+    await Loading.present()
     console.log(this.orderdata.value)
     console.log(this.testi)
     console.log(this.datai)
@@ -305,8 +338,10 @@ export class OrdersPage implements OnInit {
         console.log(result)
         if (result.status == 'success') {
           this.presentAlert()
+          Loading.dismiss()
         } else {
           this.failedAlert()
+          Loading.dismiss()
         }
         this.close();
 

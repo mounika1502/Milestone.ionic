@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UploadService } from '../upload.service';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-raw-edit',
@@ -16,7 +16,8 @@ export class RawEditPage implements OnInit {
   aa: any;
   datas: any;
 
-  constructor(private apii:UploadService,private router: Router,private alertController: AlertController,) { }
+  constructor(private apii:UploadService,public Loading:LoadingController,
+    private router: Router,private alertController: AlertController,) { }
 
   ngOnInit() {
     this.rawForm = new FormGroup ({
@@ -52,54 +53,58 @@ export class RawEditPage implements OnInit {
     });
   }
 
-  update(id:any){
-    localStorage.setItem('RawUpdate',JSON.stringify(this.data)); 
-    var data={
-      Number:this.rawForm.value.Number,
-      Name:this.rawForm.value.Name,
-      color:this.rawForm.value.color,
-      size:this.rawForm.value.size,
-      stone:this.rawForm.value.stone,
-      region:this.rawForm.value.region,
-      date:this.rawForm.value.date,
-      manufacturername:this.rawForm.value.manufacturername,
-      PhoneNumber:this.rawForm.value.PhoneNumber    
-     }
-  this.apii.EditRaw(data,id).subscribe(datas=>{
-    console.log(datas)
-    this.presentAlert()
-    // window.location.href=("/raw-data")  
-    if(datas){
-      // alert('Updated successfully')
-      //  window.location.href=("/profile")     
-    }
+//   update(id:any){
+//     localStorage.setItem('RawUpdate',JSON.stringify(this.data)); 
+//     var data={
+//       Number:this.rawForm.value.Number,
+//       Name:this.rawForm.value.Name,
+//       color:this.rawForm.value.color,
+//       size:this.rawForm.value.size,
+//       stone:this.rawForm.value.stone,
+//       region:this.rawForm.value.region,
+//       date:this.rawForm.value.date,
+//       manufacturername:this.rawForm.value.manufacturername,
+//       PhoneNumber:this.rawForm.value.PhoneNumber    
+//      }
+//   this.apii.EditRaw(data,id).subscribe(datas=>{
+//     console.log(datas)
+//     this.presentAlert()
+//     // window.location.href=("/raw-data")  
+//     if(datas){
+//       // alert('Updated successfully')
+//       //  window.location.href=("/profile")     
+//     }
 
-  })
-}
+//   })
+// }
   
-  // update(id:any){  
+  async update(id:any){  
+    const Loading = await this.Loading.create({
+      message : "Loading...",
+      spinner:'crescent'      
+    }) 
+    await Loading.present()
+    localStorage.setItem('RawUpdate',JSON.stringify(this.datas));
+    fetch("https://milestone-096608973980.herokuapp.com/raw/editRaw/" + id,  {
+      method: 'PUT',
+      headers: {
+        "access-Control-Allow-Origin": "*",        
+        "Content-Type": 'application/json'
+      },
+      body: JSON.stringify(this.rawForm.value),        // JSON Means An intrinsic object that provides functions to convert JavaScript values to and from the JavaScript Object Notation (JSON) format.
 
-  //   localStorage.setItem('RawUpdate',JSON.stringify(this.datas));
-  //   fetch("https://milestone-096608973980.herokuapp.com/raw/editRaw/" + id,  {
-  //     method: 'PUT',
-  //     headers: {
-  //       "access-Control-Allow-Origin": "*",        
-  //       "Content-Type": 'application/json'
-  //     },
-  //     body: JSON.stringify(this.rawForm.value),        // JSON Means An intrinsic object that provides functions to convert JavaScript values to and from the JavaScript Object Notation (JSON) format.
+    })
+      .then(response => response.json())
+      .then(result => {
+        console.log(result)
+        this.datas = result
+        console.log(this.datas)
+        this.presentAlert()   
+        Loading.dismiss()          
+      }
+      ).catch(err =>
+        console.log(err))
 
-  //   })
-  //     .then(response => response.json())
-  //     .then(result => {
-  //       console.log(result)
-  //       this.datas = result
-  //       console.log(this.datas)
-  //      alert('updated') 
-  //      window.location.href='./raw-data'             
-  //     }
-  //     ).catch(err =>
-  //       console.log(err))
-
-  // }
+  }
 
 }

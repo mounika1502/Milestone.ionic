@@ -8,7 +8,7 @@
 </ion-header>
 
   <ion-content id="main">
-    <div  *ngIf="products.length !==0">
+    
         <ion-grid>
       <ion-searchbar placeholder= "Search...." [(ngModel)]="searchtext" name="array id" class="form-control"></ion-searchbar>
 
@@ -17,7 +17,7 @@
         <br>
         <br>
         <br>
-
+        <div  *ngIf="products.length !==0">
       <ion-row>
        
         <ion-col  size="6" *ngFor="let product of products | filter : searchtext" [hidden]= "product.Quantity== 0">
@@ -37,8 +37,9 @@
           </ion-card> 
         </ion-col>   
       </ion-row>  
+    </div>
     </ion-grid>
-  </div>
+  
   
     <div *ngIf="products.length ==0">
       <div class="container" align="center">

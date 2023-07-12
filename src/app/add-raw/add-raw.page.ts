@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { UploadService } from '../upload.service';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
@@ -24,6 +24,7 @@ export class AddRawPage implements OnInit {
   constructor(private apii:UploadService,
     public formBuilder: FormBuilder,
     private alertController: AlertController,
+    public Loading:LoadingController,
     private router: Router,) { }
 
   TodayDate = "2023-04-12"
@@ -85,7 +86,8 @@ export class AddRawPage implements OnInit {
     });  
     await alert.present();  
     await alert.onDidDismiss().then(() => {
-      this.router.navigateByUrl('/raw-product');
+      // this.router.navigateByUrl('/raw-product');
+      // window.location.href="/raw-product"
     });
   }
 
@@ -97,8 +99,12 @@ export class AddRawPage implements OnInit {
     await alert.present();
   }
 
-  submitForm(id:any){
-      
+  async submitForm(id:any){
+    const Loading = await this.Loading.create({
+      message: "Loading...",
+      spinner: 'crescent'
+    })
+    await Loading.present()
       console.log(this.productForm.value)
        fetch("https://milestone-096608973980.herokuapp.com/raw/addraw/"+id, {
        method:'post',
@@ -111,10 +117,15 @@ export class AddRawPage implements OnInit {
      }).then(res=> res.json())
      .then(result=>{ 
        console.log(result)
+       Loading.dismiss() 
        if(result.status === 'failed'){
-     this.FailedAlert()      
+     this.FailedAlert() 
+    //  Loading.dismiss()     
        }else{ 
-       this.presentAlert()  
+      //  this.presentAlert()  
+       alert('Product added successfully')
+       Loading.dismiss() 
+       window.location.href="/raw-product"
       }      
    }
   )      
@@ -122,10 +133,16 @@ export class AddRawPage implements OnInit {
 }
 
 
-onClick() {
+  async onClick() {
+  const Loading = await this.Loading.create({
+    message: "Loading...",
+    spinner: 'crescent'
+  })
+  await Loading.present()
   this.isSubmitted = true;
   if (!this.productForm.valid) {
-   alert('Please provide all the required values!')  
+   alert('Please provide all the required values!') 
+   Loading.dismiss() 
   } else {
 
   console.log(this.data)
@@ -147,6 +164,7 @@ selectImage(event: any) {
   if (event.target.files.length > 0) {
     console.log(event.target.files)
     const file = event.target.files;
+    
     console.log(file);
     this.images = file;   
   }
